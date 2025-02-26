@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuteVibes - Login</title>
+    <link rel="stylesheet" href="CSS/Login.css">
+</head>
+
+<body>
+    <div class="ladoEsquerdo">
+        <div class="header">
+            <h1>Energy Power</h1>
+            <img src="Imagens/image 8.png">
+        </div>
+
+        <div class="caixa-login">
+            <h1>Bem vindo(a)</h1>
+            <div id="alertaErro" class="alertaErro" style="display: none; color: red; margin-bottom: 10px;"></div>
+            <form id="form-login" onsubmit="return false">
+                <label style="color: black;">E-mail:</label>
+                <input id="input_email" placeholder="E-mail">
+
+                <label style="color: black;">Senha:</label>
+                <input type="password" id="input_senha" placeholder="Senha">
+
+                <div class="links"> <button onclick="entrar()">Login</button> <a href="">Esqueci minha senha </a>
+                </div>
+
+                <p style="color: black;">Ainda não tem um cadastro? <a href="Cadastro.html">Cadastre-se aqui</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="ladoDireito"></div>
+</body>
+
+</html>

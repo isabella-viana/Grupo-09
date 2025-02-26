@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    color: white;
+}
+
+.ladoEsquerdo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white; 
+    padding: 20px;
+    gap: 30px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 10vh;
+
+}
+
+.header h1 {
+    color: black; 
+    margin: 0;
+    font-size: 4em;
+    font-family: 'ADLaM Display';
+}
+
+.header a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.header a:hover {
+    color: #d4af37; 
+}
+
+.caixa-login {
+    width: 70%;
+    padding: 10px;
+     
+}
+
+.caixa-login h1 {
+    text-align: center;
+    color: black; 
+    margin-bottom: 20px;
+    font-family: 'ADLaM Display';
+}
+
+.caixa-login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-login label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.caixa-login input {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff; 
+    color: #000; 
+    outline: none;
+    border: none;
+    border-bottom: 2px solid darkblue;
+}
+
+.caixa-login button {
+    padding: 10px;
+    background-color: rgb(55, 154, 247); 
+    color: #000;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 30%;
+}
+
+.caixa-login button:hover {
+    background-color: darkblue;
+}
+
+.ladoDireito {
+    width: 50%;
+    background-image: url(../Imagens/bruno-figueiredo-KAXSflHqAl0-unsplash\ 1.png); 
+    background-size: cover;
+    background-position: center;
+}
+p{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: blue;
+}
+.links{
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+}
