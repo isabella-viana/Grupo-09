@@ -16,7 +16,7 @@ body {
     display: flex;
     width: 60vw; /*vw é uma medida de responsividade, igualmente o vh e %*/
     height: 80vh;
-    background-image: url(../Imagens/image\ 24.png);
+    background-image: url(../imgs/image\ 24.png);
     border-radius: 10px;
     background-size: cover;
     border-radius: 20px;
