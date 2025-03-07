@@ -1,0 +1,120 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container-banner1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    max-width: 100%;
+}
+
+.banner1 {
+    width: 100%;
+    height: 500px;
+    background-color: lightblue;
+    max-width: 100%;
+}
+
+.sessao1 {
+    width: 100%;
+    height: 450px;
+    background-color: lightgreen;
+    max-width: 100%;
+    
+    
+}
+
+.container-sessao1, .container-sessao2 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    max-width: 100%;
+}
+
+
+.banner2 {
+      display: flex;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 350px;
+    max-width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+.banner2 .img-banner2{
+    width: 100%;         
+    height: 100%;       
+    object-fit: cover; 
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: -1; 
+}
+
+.banner2 p {
+    color: white; 
+    font-size: 50px; 
+    font-weight: bold; 
+    z-index: 1; 
+    font-weight: 200; 
+    position: relative;
+    top: -10%;
+}
+
+.logo-banner {
+    position: relative;
+    top: -10%;
+    margin: 0%;
+    width: 150px;
+    height: 120px;
+}
+
+.botao {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; 
+    text-align: center;
+    border-radius: 5px; 
+    background-color: white;
+    color: #012A4A;
+    font-size: 18px; 
+    border: 3px solid #012A4A; 
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    cursor: pointer; 
+    width: 18%; 
+    height: 15%; 
+    border-radius: 30px; 
+    justify-content: center; 
+    align-items: center;
+  
+}
+
+
+.botao:hover {
+    background-color: #012A4A;
+    color: white;
+    font-size: 16px; 
+    border: 3px solid #ffffff; 
+    transform: scale(1.1); 
+}
+
+.img-botao {
+    width: 50%; /* Tamanho pequeno para a imagem */
+    height: 50%; /* Tamanho pequeno para a imagem */
+    object-fit: contain;  /* Garantir que a imagem se ajuste dentro da área */
+}
+
+
+
+.sessao2 {
+    width: 100%;
+    height: 450px;
+    background-color: lightyellow;
+}
