@@ -93,6 +93,7 @@ body {
     border-radius: 30px; 
     justify-content: center; 
     align-items: center;
+    gap: 0%;
   
 }
 
@@ -106,9 +107,10 @@ body {
 }
 
 .img-botao {
-    width: 50%; /* Tamanho pequeno para a imagem */
-    height: 50%; /* Tamanho pequeno para a imagem */
-    object-fit: contain;  /* Garantir que a imagem se ajuste dentro da área */
+    width: 50%;  /* Ajusta a largura da imagem */
+    height: 50%;  /* Ajusta a altura da imagem */
+    object-fit: contain;  /* Faz a imagem se ajustar dentro da área */
+    margin: 0;  /* Remove qualquer margem da imagem */
 }
 
 
