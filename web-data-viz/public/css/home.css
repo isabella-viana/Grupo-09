@@ -6,7 +6,7 @@ body {
     height: 100%;
 }
 
-
+/* BANNER HOME */
 .container-banner1 {
     display: flex;
     justify-content: center;
@@ -14,21 +14,42 @@ body {
     margin: 0;
     max-width: 100%;
 }
-
+/* IMG DO BANNER */
 .banner1 {
     width: 100%;
-    height: 500px;
-    background-color: lightblue;
+    height: auto;
     max-width: 100%;
 }
+.banner1 img{
+    width: 100%;
+    height: auto;
+}
+
+/* TEXTO NO BANNER */
+.container-banner1 h1{
+    top: 18vw;
+    position: absolute;
+    font-size: 5.3vw;
+    font-weight: 100;
+    color: #ffffff;
+}
+.container-banner1 h2{
+    position: absolute;
+    bottom: 13vw;
+    text-align: center;
+    font-size: 2.2vw;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+
+
 
 .sessao1 {
     width: 100%;
     height: 450px;
     background-color: lightgreen;
     max-width: 100%;
-    
-    
 }
 
 .container-sessao1, .container-sessao2 {
