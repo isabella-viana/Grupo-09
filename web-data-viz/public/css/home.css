@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -14,26 +13,29 @@ body {
     margin: 0;
     max-width: 100%;
 }
+
 /* IMG DO BANNER */
 .banner1 {
     width: 100%;
     height: auto;
     max-width: 100%;
 }
-.banner1 img{
+
+.banner1 img {
     width: 100%;
     height: auto;
 }
 
 /* TEXTO NO BANNER */
-.container-banner1 h1{
+.container-banner1 h1 {
     top: 18vw;
     position: absolute;
     font-size: 5.3vw;
     font-weight: 100;
     color: #ffffff;
 }
-.container-banner1 h2{
+
+.container-banner1 h2 {
     position: absolute;
     bottom: 13vw;
     text-align: center;
@@ -52,7 +54,8 @@ body {
     max-width: 100%;
 }
 
-.container-sessao1, .container-sessao2 {
+.container-sessao1,
+.container-sessao2 {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -61,7 +64,7 @@ body {
 
 
 .banner2 {
-      display: flex;
+    display: flex;
     justify-content: center;
     margin: 0;
     position: relative;
@@ -71,22 +74,23 @@ body {
     align-items: center;
     flex-direction: column;
 }
-.banner2 .img-banner2{
-    width: 100%;         
-    height: 100%;       
-    object-fit: cover; 
+
+.banner2 .img-banner2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     position: absolute;
     top: 0%;
     left: 0%;
-    z-index: -1; 
+    z-index: -1;
 }
 
 .banner2 p {
-    color: white; 
-    font-size: 50px; 
-    font-weight: bold; 
-    z-index: 1; 
-    font-weight: 200; 
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 1;
+    font-weight: 200;
     position: relative;
     top: -10%;
 }
@@ -99,42 +103,41 @@ body {
     height: 120px;
 }
 
-.botao {
+.botao-banner2 {
     font-family: 'Poppins', sans-serif;
-    font-weight: 600; 
+    font-weight: 600;
     text-align: center;
-    border-radius: 5px; 
+    border-radius: 5px;
     background-color: white;
     color: #012A4A;
-    font-size: 18px; 
-    border: 3px solid #012A4A; 
+    font-size: 18px;
+    border: 3px solid #012A4A;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease;
-    cursor: pointer; 
-    width: 15%; 
-    height: 15%; 
-    border-radius: 30px; 
-    justify-content: center; 
+    cursor: pointer;
+    width: 15%;
+    height: 15%;
+    border-radius: 30px;
+    justify-content: center;
     align-items: center;
-   
-  
+
+
 }
 
-
-.botao:hover {
+.botao-banner2:hover {
     background-color: #012A4A;
     color: white;
-    font-size: 16px; 
-    border: 3px solid #ffffff; 
-    transform: scale(1.1); 
+    font-size: 16px;
+    border: 3px solid #ffffff;
+    transform: scale(1.1);
 }
 
 .img-botao {
-    width: 25px;  
-    height: 25px; 
+    width: 25px;
+    height: 25px;
     margin-left: 25px;
     position: relative;
     bottom: -10%;
-   
+
 }
 
 
@@ -143,40 +146,74 @@ body {
     width: 100%;
     height: 450px;
     flex-direction: column;
-    display: flex; 
-    align-items: flex-start; 
-    justify-content: center; 
-    padding: 20px; 
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
 }
 
-.sessao2 h1{
+.sessao2 h1 {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700; 
-    color: #012A4A; 
+    font-weight: 700;
+    color: #012A4A;
     font-size: 30px;
-    justify-content: center; 
-    align-items: center; 
-    margin: 0;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
     position: relative;
-   bottom: -0%;
-    
+    bottom: -45%;
+
+
 
 }
 
 .sessao2 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.5;
-    margin-top: 10px; 
-    max-width: 60%; 
+    margin-top: 10px;
+    max-width: 55%;
+    font-weight: 400;
+    position: relative;
+    bottom: -50%;
+    margin-left: 2%;
 }
 
-.img-sessao2{
-    width: 40%; 
-    height: 100%; 
+.img-sessao2 {
+    width: 40%;
+    height: auto;
     margin-left: 60%;
     position: relative;
     top: -30%;
 
-  
+}
+
+.botao-sessao2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+    background-color: white;
+    color: #012A4A;
+    font-size: 18px;
+    border: 2px solid #012A4A;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease; 
+    cursor: pointer;
+    width: 16%;
+    height: 18%;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: -60%;
+    margin-left: 2%;
+}
+
+.botao-sessao2:hover {
+    background-color: #012A4A;
+    color: white;
+    font-size: 16px;
+    border: 3px solid #ffffff;
+    transform: scale(1.1);
+
 }
