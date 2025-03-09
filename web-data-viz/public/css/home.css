@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    top: 0;
     padding: 0;
     height: 100%;
 }
@@ -37,31 +38,191 @@ body {
 
 .container-banner1 h2 {
     position: absolute;
-    bottom: 13vw;
+    top: 29vw;
     text-align: center;
-    font-size: 2.2vw;
+    font-size: 2.5vw;
     font-weight: 300;
     color: #ffffff;
 }
 
 
 
-
-.sessao1 {
+/* PARTE DA SEÇÃO ELEVE */
+.container-sessao1 h1{
     width: 100%;
-    height: 450px;
-    background-color: lightgreen;
-    max-width: 100%;
+    height: 10vw;
+    font-size: 3vw;
+    margin-top: 3vw;
+    justify-content: center;
+    align-items: center;
+    color: #012A4A;
 }
 
-.container-sessao1,
-.container-sessao2 {
+/* DEFININDO FRAÇÕES DE ESPAÇAMENTO NA TELA */
+.sessao1 {
+    width: 100%;
+    height: 50vw;
+    max-width: 100%;
+    display: grid;
+    column-gap: 3vw;
+    grid-template-columns: 5fr 3fr 4fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+}
+
+.card-1 {
+    width: 35vw;
+    height: 35vw;
+    margin-left: 4vw;
+    border-radius: 5%;
+    background-image: url(/imgs/home-img.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    grid-column: 1; 
+    grid-row: 1 / span 2; 
+}
+.card-1 h2{
+    color: #ffffff;
+    font-weight: 400;
+    width: 80%;
+    font-size: 1.7vw;
+    text-align: start;
+    margin-top: 1.5vw;
+    margin-left: 2vw;
+}
+.card-1 p{
+    color: #ffffff;
+    font-weight: 200;
+    font-size: 1.4vw;
+    width: 80%;
+    height: 25vw;
+    align-items: end;
+    align-self: flex-end;
+    text-align: start;
+    display: flex;
+    margin-left: 1.5vw;
+
+}
+
+.card-2 {
+    background-color: #EFEFEF;
+    width: 105%;;
+    height: 16.5vw;
+    margin-bottom: -13vw;
+    border-radius: 7%;
+    grid-column: 2;
+    grid-row: 1;
+}
+.img-back {
+    width: 4vw;
+    position: absolute;
+    display: flex;
+    margin-left: 1vw;
+    margin-top: 0.5vw;
+    z-index: 0;
+}
+.home-icon{
+    width: 3vw;
+    position: absolute;
+    display: flex;
+    margin-left: 1.5vw;
+    margin-top: 1vw;
+    z-index: 2;
+}
+
+.card-2 h4{
+    color: #012A4A;
+    font-weight: 400;
+    font-size: 1.6vw;
+    justify-content: center;
+    margin-left: 2.4vw;
+    margin-top: 1.3vw;
+}
+.card-2 h2{
+    color: #1E1E1E;
+    height: 12vw;
+    display: flex;
+    text-align: start;
+    align-items: center;
+    font-weight: 200;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+}
+
+.card-3 {
+    background-color: #EFEFEF;
+    width: 105%;
+    height: 16.5vw;
+    border-radius: 7%;
+    grid-column: 2;
+    grid-row: 2;
+}
+.card-3 h4{
+    color: #012A4A;
+    font-weight: 400;
+    font-size: 1.6vw;
+    justify-content: center;
+    margin-right: 2.5vw;
+    margin-top: 1.3vw;
+}
+.card-3 h2{
+    color: #1E1E1E;
+    height: 12vw;
+    display: flex;
+    text-align: start;
+    align-items: center;
+    font-weight: 200;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+}
+
+.card-4 {
+    background-color: #EFEFEF;
+    width: 85%;
+    height: 35vw;
+    margin-right: 6vw;
+    border-radius: 3%;
+    grid-column: 3;
+    grid-row: 1 / span 2;
+
+
+}
+.card-4 h4{
+    color: #012A4A;
+    font-weight: 400;
+    font-size: 1.6vw;
+    justify-content: center;
+    margin-left: 2.5vw;
+    margin-top: 1.3vw;
+}
+.card-4 h2{
+    color: #1E1E1E;
+    width: 80%;
+    height: 30vw;
+    display: flex;
+    text-align: start;
+    align-items: center;
+    font-weight: 200;
+    font-size: 1.5vw;
+    margin-left: 2.5vw;
+}
+.container-sessao1,.container-sessao2 {
     display: flex;
     justify-content: center;
     margin: 0;
     max-width: 100%;
 }
 
+/* REDEFININDO O DISPLAY DO CONTAINER 1 */
+.container-sessao1{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: auto;
+    text-align: center;
+}
 
 .banner2 {
     display: flex;
