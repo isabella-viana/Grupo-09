@@ -75,7 +75,7 @@ body {
     height: 35vw;
     margin-left: 4vw;
     border-radius: 5%;
-    background-image: url(/imgs/home-img.png);
+    background-image: url(../imgs/home-img.png);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
