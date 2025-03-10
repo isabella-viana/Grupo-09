@@ -99,6 +99,7 @@ button{
     margin-bottom: 3%;
 
 }
+
 .links a{
     text-decoration: none;
     color: rgb(55, 154, 247); 
@@ -116,3 +117,61 @@ h3{
     justify-content: start;
     gap: 3%;
  } 
+
+
+
+ @media (max-width: 725px) {
+    .links button {
+        width: 38%;
+    }
+    
+ }
+
+ @media (max-width: 640px){
+
+    #Eleva{
+        font-size: 24px;
+    }
+
+    .lado-esquerdo .parteCima img {
+        height: 20%;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+    label {
+        font-size: 12px;
+    }   
+ }
+
+ @media (max-width: 570px) {
+    .links button {
+        width: 48%;
+    }
+    
+ }
+ @media (max-width: 470px) {
+    .links button {
+        width: 58%;
+    }
+    
+ }
+
+ @media (max-width: 420px) {
+    .links button {
+        width: 68%;
+        font-size: 10px;
+    }
+    .links a {
+        font-size: 8px;
+    }
+    
+ }
+
+ @media (max-width: 350px) {
+    .links button {
+        width: 78%;
+        font-size: 10px;
+    }
+}
