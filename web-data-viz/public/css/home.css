@@ -24,7 +24,7 @@ body {
 
 .banner1 img {
     width: 100%;
-    height: auto;
+    height: 50vw;
 }
 
 /* TEXTO NO BANNER */
@@ -51,7 +51,7 @@ body {
 .container-sessao1 h1{
     width: 100%;
     height: 10vw;
-    font-size: 3vw;
+    font-size: 2.5vw;
     margin-top: 3vw;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,7 @@ body {
 /* DEFININDO FRAÇÕES DE ESPAÇAMENTO NA TELA */
 .sessao1 {
     width: 100%;
-    height: 50vw;
+    height: 40vw;
     max-width: 100%;
     display: grid;
     column-gap: 3vw;
@@ -109,7 +109,7 @@ body {
     background-color: #EFEFEF;
     width: 105%;;
     height: 16.5vw;
-    margin-bottom: -13vw;
+    margin-bottom: -3vw;
     border-radius: 7%;
     grid-column: 2;
     grid-row: 1;
@@ -230,7 +230,7 @@ body {
     margin: 0;
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 25vw;
     max-width: 100%;
     align-items: center;
     flex-direction: column;
@@ -244,6 +244,24 @@ body {
     top: 0%;
     left: 0%;
     z-index: -1;
+}
+
+/* Adicionando camada preta por cima da Imagem */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.banner2 img,
+.banner2 p,
+.banner2 button {
+    position: relative;
+    z-index: 2; 
 }
 
 .banner2 p {
@@ -272,12 +290,12 @@ body {
     background-color: white;
     color: #012A4A;
     font-size: 18px;
-    border: 3px solid #012A4A;
+    border: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease;
     cursor: pointer;
-    width: 15%;
-    height: 15%;
-    border-radius: 30px;
+    width: 15vw;
+    height: 3.5vw;
+    border-radius: 40px;
     justify-content: center;
     align-items: center;
 
@@ -288,24 +306,22 @@ body {
     background-color: #012A4A;
     color: white;
     font-size: 16px;
-    border: 3px solid #ffffff;
+    border: 1px solid #ffffff;
     transform: scale(1.1);
 }
 
 .img-botao {
-    width: 25px;
-    height: 25px;
-    margin-left: 25px;
+    width: 1.3vw;
+    height: 1.3vw;
+    margin-left: 0.5vw;
     position: relative;
-    bottom: -10%;
-
+    bottom: -0.3vw;
 }
-
 
 
 .sessao2 {
     width: 100%;
-    height: 450px;
+    height: 40vw;
     flex-direction: column;
     display: flex;
     align-items: flex-start;
@@ -317,63 +333,59 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     color: #012A4A;
-    font-size: 30px;
+    font-size: 2.5vw;
     justify-content: center;
     align-items: center;
-    margin-left: 2%;
+    margin-left: 2vw;
+    margin-top: 20vw;
     position: relative;
-    bottom: -45%;
-
-
-
 }
 
 .sessao2 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
+    font-size: 1.5vw;
     line-height: 1.5;
     margin-top: 10px;
-    max-width: 55%;
+    max-width: 50%;
     font-weight: 400;
     position: relative;
-    bottom: -50%;
-    margin-left: 2%;
+    margin-left: 2vw;
 }
 
 .img-sessao2 {
-    width: 40%;
-    height: auto;
-    margin-left: 60%;
+    width: 30vw;
+    height: 28vw;
+    margin-left: 60vw;
     position: relative;
-    top: -30%;
-
+    top: -25vw;
 }
 
 .botao-sessao2 {
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     border-radius: 5px;
     background-color: white;
     color: #012A4A;
-    font-size: 18px;
-    border: 2px solid #012A4A;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease; 
+    font-size: 1vw;
+    border: 1px solid #012A4A;
+    transition: 0.5s ease-in-out, transform 0.3s ease; 
     cursor: pointer;
-    width: 16%;
-    height: 18%;
+    width: 15%;
+    padding: 0.5vw;
+    height: 25%;
     border-radius: 30px;
     justify-content: center;
     align-items: center;
     position: relative;
-    bottom: -60%;
-    margin-left: 2%;
+    margin-left: 2vw;
+    top: 1.5vw;
 }
 
 .botao-sessao2:hover {
     background-color: #012A4A;
     color: white;
-    font-size: 16px;
+    font-size: 1.1vw;
     border: 3px solid #ffffff;
     transform: scale(1.1);
 

@@ -5,7 +5,6 @@
 
 footer  {
     background-color: #012A4A;
-    border-top: 2px solid #8ECAE6;
     height: 100%;
     width: 100%;
     display: flex;
@@ -20,7 +19,7 @@ footer  {
 footer .logo-container {
     display: flex;
     align-items: flex-start;  
-    margin-right: 45%;
+    margin-left: -3vw;
     flex-direction: column;
 }
 
@@ -28,8 +27,6 @@ footer .logo{
     width: 6%;
     height: 6%;
 }
-
-
 
 footer .eleva {
     text-decoration: none;
@@ -73,7 +70,7 @@ footer  p {
     color: white;
     margin: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.1vw;
     font-family: "Poppins", sans-serif;
     padding-bottom: 6%; 
 }
@@ -81,13 +78,13 @@ footer  p {
 footer li {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
 }
  footer .navbar2, footer .navbar3, footer .navbar4 {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+    gap: 5px;
+    padding: 5px;
     align-items: center;
 }
 
@@ -100,6 +97,7 @@ footer .navbar1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-right: 45%;
     padding: 10px;
 
 }
