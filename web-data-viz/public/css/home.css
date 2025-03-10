@@ -344,6 +344,7 @@ body {
 .sessao2 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5vw;
+    text-align: justify;
     line-height: 1.5;
     margin-top: 10px;
     max-width: 50%;
