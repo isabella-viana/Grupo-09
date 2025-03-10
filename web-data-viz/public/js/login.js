@@ -1,4 +1,5 @@
 
+// Obs: Esse é um comentário para os meus colegas de grupo da faculdade... Se tiverem duvidas na minha lógica, me chamem no wpp. 
 function Cadastrar() {
     var container = document.getElementById("container");
     container.classList.add("troca");
