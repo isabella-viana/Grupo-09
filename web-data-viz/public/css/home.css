@@ -224,6 +224,8 @@ body {
     text-align: center;
 }
 
+/* Banner 2 */
+
 .banner2 {
     display: flex;
     justify-content: center;
@@ -266,7 +268,7 @@ body {
 
 .banner2 p {
     color: white;
-    font-size: 50px;
+    font-size: 3vw;
     font-weight: bold;
     z-index: 1;
     font-weight: 200;
@@ -276,10 +278,10 @@ body {
 
 .logo-banner {
     position: relative;
-    top: -10%;
+    top: -1vw;
     margin: 0%;
-    width: 150px;
-    height: 120px;
+    width: 10vw;
+    height: 8vw;
 }
 
 .botao-banner2 {
@@ -289,7 +291,7 @@ body {
     border-radius: 5px;
     background-color: white;
     color: #012A4A;
-    font-size: 18px;
+    font-size: 1vw;
     border: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease;
     cursor: pointer;
@@ -305,7 +307,7 @@ body {
 .botao-banner2:hover {
     background-color: #012A4A;
     color: white;
-    font-size: 16px;
+    font-size: 1.1vw;
     border: 1px solid #ffffff;
     transform: scale(1.1);
 }
