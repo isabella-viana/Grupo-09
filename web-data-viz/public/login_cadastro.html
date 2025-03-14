@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../public/js/login.js"></script>
 
-    <title>Login | Eleva</title>
+        <script src="../public/js/login.js"></script>
+
+    <title>Eleva-Login</title>
     <link rel="js" href="">
 </head>
 
@@ -16,35 +16,40 @@
     <div class="container" id="container">
         <div class="lado-esquerdo" id="ladoEsquerdo">
             <div class="parteCima">
-                <h1 id="Eleva" style="color: black; font-family: 'Poppins', sans-serif;">Eleva</h1>
-                <img src="imgs/image 8.png">
+                <h2 >ELEVA</h2>
+                <img src="imgs/image 8.png"  class="logo-login">
             </div>
 
             <form class="formLogin" onsubmit="return false">
-                <h3 style="color: black;">Faça o seu login aqui</h3>
-                <label style="color: black;">E-mail:</label>
-                <input id="input_email" placeholder="E-mail">
+                <h3>Bem Vindo!!</h3>
+                <h4>Faça login na sua conta aqui.</h4>
 
-                <label style="color: black;">Senha:</label>
-                <input type="password" id="input_senha" placeholder="Senha">
+                <input id="input_email" class="email" placeholder="E-mail">
 
+                <input type="password" id="input_senha" class="senha" placeholder="Senha">
 
+                <div class="checkbox-container">
+                    <input type="checkbox" id="checkbox" class="checkbox">
+                  <label class="lembrar-me"> Lembrar-me  </label> 
+                  <a href="link-para-recuperacao-de-senha" class="esqueci-me">Esqueci minha senha</a>
 
-                <div class="links">
-                    <button onclick="Login()">Login</button>
-                    <a href="">Esqueci minha senha</a>
                 </div>
 
-                <p style="color: black; font-size: 10px; text-align: center;">
-                    Não tem uma conta?
-                    <button type="button" onclick="Cadastrar()">Cadastre-se aqui</button>
-                </p>
+                
+
+                <div class="links">
+                    <button class="botao" onclick="Login()">Login</button>
+
+                </div>
+                <button type="button" class="cadastrar-se" onclick="Cadastrar()">Não tem uma conta ainda? <br>
+                    Crie uma clicando aqui!! -></button>
+               
             </form>
         </div>
     </div>
-
+    
 </body>
-<script src="../public/js/login.js"></script>
+   <script src="../public/js/login.js"></script>
 
 
 

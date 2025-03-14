@@ -1,31 +1,31 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #468FAF;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    top: 0;
+    padding: 0;
+    height: 45vw;
+    
 }
+
 .container {
     display: flex;
-    width: 60vw; /*vw é uma medida de responsividade, igualmente o vh e %*/
-    height: 80vh;
-    background-image: url(../imgs/image\ 24.png);
-    border-radius: 10px;
-    background-size: cover;
-    border-radius: 20px;
+    width: 100vw; 
+    height: 46vw;
+    background-image: url(../imgs/login.png);
+    background-size: cover; 
+    background-position: center; 
     position: absolute;
-
 }
 .lado-esquerdo {
-    width: 50%; /* cada lado ocupa 50% da largura da tela */
-    height: 100%; /* ocupa toda a altura da tela */
+    width: 38vw; 
+    height: 46vw; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,19 +38,133 @@ body {
     background-color: white;
     color: white;
     transition: transform 1s ease;
-    border-radius: 20px;
 }
-.links button {
-    padding: 10px;
-    background-color: #8ECAE6; 
-    color: #000;
-    border: none;
-    border-radius: 18px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 30%;
+
+h2{
+    font-weight: 100; 
+    color: #012A4A;
+    font-size: 4.5vw;
+    justify-content: center;
+    align-items: center;
+    bottom: 5vw;
+    position: relative;
+    margin-left: 3vw;
+}
+
+
+.logo-login{
+    position: relative;
+    bottom: 5vw; 
+    margin: 0%;
+    width: 8vw;
+    height: 10vw;
+    margin-right: 6vw;
+}
+
+h3{
+    font-weight: 700; 
+    color: #012A4A;
+    font-size: 5vw;
+    align-items: center;
+    position: relative;
+    margin-left: -24.5vw;
+    bottom: 5vw;
 
 }
+
+h4{
+    font-weight: 400; 
+    color: #012A4A;
+    font-size: 1.0vw;
+    justify-content: center;
+    align-items: center;
+    bottom: 7vw;
+    position: relative;
+    margin-right: 2vw;
+
+}
+
+.lembrar-me{
+    font-weight: 400; 
+    color: #012A4A;
+    font-size: 0.8vw;
+    bottom: 8vw;
+    position: relative;
+
+}
+
+.checkbox{
+    bottom: 8vw;
+    position: relative;
+    cursor: pointer;
+}
+
+.esqueci-me{
+    font-weight: 400; 
+    color: #012A4A;
+    font-size: 0.8vw;
+    bottom: 8vw;
+    position: relative;
+    margin-left: 15vw;
+    text-decoration: underline; 
+    text-decoration-color: #012A4A; 
+
+}
+
+.email, .senha {
+    width: 32vw;
+    border: none; 
+    border-bottom: 1px solid #012A4A;
+    font-size: 1vw;
+    color: #333;
+    outline: none; 
+    bottom: 7vw;
+    position: relative;
+}
+
+
+.email:focus, .senha:focus {
+    border-color: #012A4A;
+    box-shadow: 0 0 5px#012A4A;
+}
+
+.email::placeholder, .senha::placeholder {
+    color: #888; 
+   
+}
+
+.botao{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #012A4A;
+    color: #ffffff;
+    font-size: 1.1vw;
+    border: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+    cursor: pointer;
+    width: 10vw;
+    height: 2.7vw;
+    border-radius: 40px;
+    color: #ffffff;
+    bottom: 8vw;
+    position: relative;
+    margin-left: -2vw;
+
+
+}
+
+.botao:hover {
+    background-color: #012A4A;
+    color: white;
+    font-size: 1.2vw;
+    border: 1px solid #ffffff;
+    transform: scale(1.1);
+}
+
+
+
 .troca .lado-esquerdo {
     transform: translateX(100%);
 }
@@ -83,13 +197,22 @@ input{
     gap: 6%;
 }
 
-button{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: rgb(55, 154, 247);
-    font-size: 11px;
+.cadastrar-se {
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: 400;
+    color: #012A4A; 
+    font-size: 0.9vw;
+    bottom: 8vw;
+    position: relative;
+    margin-left: -2vw;
+    text-decoration: underline; 
+    text-decoration-color: #012A4A; 
+    padding: 0; 
+    text-align: center; 
 }
+
 .links{
     display: flex;
     text-align: center;
@@ -100,11 +223,7 @@ button{
 
 }
 
-.links a{
-    text-decoration: none;
-    color: rgb(55, 154, 247); 
-    font-size: 11px;
-}
+
 h3{
     font-size: 18px;
     text-align: center;
