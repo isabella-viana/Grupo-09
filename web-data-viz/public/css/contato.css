@@ -1,41 +1,44 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
-.Container{
+
+.Container {
     height: 90vh;
     width: 100%;
     display: flex;
 }
-.ladoEsquerdo{
+
+.ladoEsquerdo {
     height: 100%;
     width: 60%;
     display: flex;
     flex-direction: column;
+    position: relative; /* Adicionando para a seta ficar posicionada no canto superior esquerdo */
 }
-.ladoDireito{
+
+.ladoDireito {
     height: 100%;
     width: 40%;
     background-image: url(../imgs/jerry-zhang-2gfPjX3EdEY-unsplash\ 1@2x.png);
     background-size: cover;
 }
-.parteCima{
+
+.parteCima {
     height: 10%;
     width: 100%;
     text-align: center;
-
-
 }
-.parteBaixo{
- height: 90%;
- width: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
 
-
+.parteBaixo {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-form{
+
+form {
     height: 90%;
     width: 70%;
     display: flex;
@@ -44,27 +47,181 @@ form{
     align-items: center;
     border-radius: 20px;
     background-color: #012A4A;
-    
-    
 }
-input{
+
+input {
     margin-top: 3%;
     width: 80%;
     height: 5%;
     border-radius: 20px;
 }
-.assunto{
-    height: 60%;
+
+.assunto {
+    height: 45%;
     width: 80%;
     margin-top: 3%;
     background-color: white;
     border-radius: 20px;
 }
-.assunto input{
-    height: 20%;
+
+.assunto input {
+    height: 5%;
     width: 100%;
     background: transparent;
     border: none;
     outline: none;
     text-align: start;
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 250;
+}
+
+.Botao-enviar {
+    display: flex;
+    margin-top: 6%;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    border-radius: 20px;
+    text-decoration: none;
+    height: 10%;
+    width: 30%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: black;
+    transition: 1s;
+}
+
+.Botao-enviar:hover {
+    color: white;
+    background-color: #014e8a;
+}
+
+
+.voltar {
+    margin-top: 1%;
+    margin-left: 1%;
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    text-decoration: none;
+}
+
+.seta-voltar {
+    width: 40px;
+    height: auto;
+}
+
+@media (max-width: 1500px) {
+    .parteCima h1 {
+        font-size: 30px;
+        margin-top: 5%;
+    }
+}
+@media (max-width: 1400px) {
+    .parteCima h1 {
+        font-size: 25px;
+        margin-top: 5%;
+    }
+    .Botao-enviar {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .parteCima h1 {
+        font-size: 20px;
+        margin-top: 5%;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 1000px) {
+    .parteCima h1 {
+        font-size: 17px;
+        margin-top: 8%;
+    }
+}
+
+@media (max-width: 800px) {
+    .parteCima h1 {
+        font-size: 16px;
+        margin-top: 10%;
+    }
+    input {
+        font-size: 12px;
+    }
+}
+@media (max-width: 750px) {
+    .parteCima h1 {
+        font-size: 15px;
+        margin-top: 10%;
+    }
+    .seta-voltar {
+        width: 35px;
+        height: auto;
+    }
+}
+@media (max-width: 700px) {
+    .parteCima h1 {
+        font-size: 14px;
+        margin-top: 10%;
+    }
+    .Botao-enviar {
+        font-size: 15px;
+    }
+}
+@media (max-width: 600px) {
+    .parteCima h1 {
+        font-size: 12px;
+        margin-top: 12%;
+    }
+    input {
+        font-size: 10px;
+    }
+}
+@media (max-width: 550px) {
+    .parteCima h1 {
+        font-size: 13px;
+        margin-top: 15%;
+    }
+    .seta-voltar {
+        width: 30px;
+        height: auto;
+    }
+}
+@media (max-width: 440px) {
+    .Botao-enviar{
+        width: 40%;
+    }
+}
+@media (max-width: 429px) {
+    .parteCima h1 {
+        font-size: 13px;
+        margin-top: 20%;
+    }
+    .seta-voltar {
+        width: 30px;
+        height: auto;
+    }
+    input {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 390px) {
+    .parteCima h1 {
+        font-size: 13px;
+        margin-top: 20%;
+    }
+    .seta-voltar {
+        width: 30px;
+        height: auto;
+    }
+    input {
+        font-size: 8px;
+    }
 }
