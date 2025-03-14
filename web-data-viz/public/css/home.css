@@ -29,9 +29,9 @@ body {
 
 /* TEXTO NO BANNER */
 .container-banner1 h1 {
-  top: 18vw;
+  top: 10vw;
   position: absolute;
-  font-size: 5.3vw;
+  font-size: 7vw;
   font-weight: 100;
   color: #ffffff;
 }
