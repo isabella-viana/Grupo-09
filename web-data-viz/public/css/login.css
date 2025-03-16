@@ -16,10 +16,10 @@ body {
     display: flex;
     width: 60vw; /*vw é uma medida de responsividade, igualmente o vh e %*/
     height: 80vh;
-    background-image: url(../imgs/image\ 24.png);
+    background-image: url(../imgs/Captura\ de\ tela\ 2025-03-16\ 145506.png);
     border-radius: 10px;
     background-size: cover;
-    border-radius: 20px;
+    
     position: absolute;
 
 }
@@ -38,7 +38,6 @@ body {
     background-color: white;
     color: white;
     transition: transform 1s ease;
-    border-radius: 20px;
 }
 .links button {
     padding: 10px;
