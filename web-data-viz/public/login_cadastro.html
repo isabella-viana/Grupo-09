@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+
         <script src="../public/js/login.js"></script>
 
     <title>Eleva-Login</title>
@@ -16,31 +15,32 @@
 <body>
     <div class="container" id="container">
         <div class="lado-esquerdo" id="ladoEsquerdo">
-            <div class="parteCima">
-                <h1 id="Eleva" style="color: black; font-family: 'Poppins', sans-serif;" >Eleva</h1>
-                <img src="imgs/image 8.png">
-            </div>
 
+            <div class="parteCima">
+                <h1 id="Eleva" style="color: black;">Eleva</h1>
+                 <img src="imgs/image 8.png">
+            </div>
+    
             <form class="formLogin" onsubmit="return false">
                 <h3 style="color: black;">Faça o seu login aqui</h3>
                 <label style="color: black;">E-mail:</label>
-                <input id="input_email" placeholder="E-mail">
-
+                <input id="input_email" placeholder="  E-mail">
+    
                 <label style="color: black;">Senha:</label>
-                <input type="password" id="input_senha" placeholder="Senha">
-
-                
-
+                <input type="password" id="input_senha" placeholder="  Senha">
+    
                 <div class="links">
                     <button onclick="Login()">Login</button>
                     <a href="">Esqueci minha senha</a>
                 </div>
-
-                <p style="color: black; font-size: 10px; text-align: center;">
-                    Não tem uma conta?
+    
+                <p style="color: black; font-size: 11px; text-align: center;">
+                    Ainda não tem um cadastro?
                     <button type="button" onclick="Cadastrar()">Cadastre-se aqui</button>
                 </p>
             </form>
+            
+                
         </div>
     </div>
     

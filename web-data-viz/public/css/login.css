@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +21,7 @@ body {
     background-image: url(../imgs/Captura\ de\ tela\ 2025-03-16\ 145506.png);
     border-radius: 10px;
     background-size: cover;
-    
+    border-radius: 20px;
     position: absolute;
 
 }
@@ -54,7 +56,6 @@ body {
     transform: translateX(100%);
 }
 .parteCima{
-    margin-top: 15%;
     height: 20%;
     width: 100%;
     display: flex;
@@ -65,7 +66,7 @@ body {
     
 }
 .lado-esquerdo .parteCima img{
-    height: 60%;
+    height: 90%;
 }
 input{
     border: none;
@@ -98,7 +99,6 @@ button{
     margin-bottom: 3%;
 
 }
-
 .links a{
     text-decoration: none;
     color: rgb(55, 154, 247); 
