@@ -13,6 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #468FAF;
+    color:green;
 }
 .container {
     display: flex;
