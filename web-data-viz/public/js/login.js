@@ -20,11 +20,16 @@ function Cadastrar() {
             <input id="input_email" placeholder=" E-mail">
 
             <label style="color: black;">Senha:</label>
-            <input type="password" id="input_senha" placeholder="  Senha">
+            <div class="senha">
+                    <input type="password" id="input_senha" placeholder="  Senha">
+                    <i id="iconeOlho" class="bi-eye-slash" onclick="MostrarSenha()"></i>
+                </div>
 
             <label style="color: black;">Confirmar Senha:</label>
-            <input type="password" id="input_confirma_senha" placeholder="  Confirme sua senha">
-
+             <div class="senha">
+                    <input type="password" id="input_confirma_senha" placeholder=" Confirmar Senha">
+                    <i id="iconeOlhoo" class="bi-eye-slash" onclick="MostrarConfirmacaoSenha()"></i>
+            </div>
             <div class="links">
                 <button onclick="Registrar()">Cadastrar</button>
                 <button type="button" onclick="VoltarParaLogin()">Voltar</button>
@@ -52,7 +57,10 @@ function VoltarParaLogin() {
             <input id="input_email" placeholder="  E-mail">
 
             <label style="color: black;">Senha:</label>
-            <input type="password" id="input_senha" placeholder="  Senha">
+             <div class="senha">
+                    <input type="password" id="input_senha" placeholder="  Senha">
+                    <i id="iconeOlho" class="bi-eye-slash" onclick="MostrarSenha()"></i>
+            </div>
 
             <div class="links">
                 <button onclick="Login()">Login</button>
@@ -84,14 +92,30 @@ function Registrar() {
 
 function MostrarSenha() {
     var campoSenha = document.getElementById("input_senha");
-    var ImageEye = document.getElementById("IconEye");
+    var iconeOlho = document.getElementById("iconeOlho");
 
     if (campoSenha.type === "password") {
         campoSenha.type = "text";
-        ImageEye.src = "https://cdn.discordapp.com/attachments/1341220564764856320/1351386395339391006/icons8-closed-eye-20_1.png?ex=67da3028&is=67d8dea8&hm=af5a05c7dfa975fd5445f4a7200d706b0ae4ccab87ee8f8cdd2152d9a36175b7&"; 
+        iconeOlho.classList.remove('bi-eye-slash');
+        iconeOlho.classList.add('bi-eye');
     } else {
         campoSenha.type = "password";
-        ImageEye.src = "https://cdn.discordapp.com/attachments/1341220564764856320/1351386357993312327/icons8-eye-20.png?ex=67da301f&is=67d8de9f&hm=903a1fb23c6011e9a0b4b8fe7a4c92b260dba6d67a5cb7cf2ea3b98197d6ed52&"; 
+        iconeOlho.classList.remove('bi-eye');
+        iconeOlho.classList.add('bi-eye-slash');
     }
 }
+function MostrarConfirmacaoSenha(){
+    var campoSenha = document.getElementById("input_confirma_senha");
+    var iconeOlho = document.getElementById("iconeOlhoo");
+
+    if (campoSenha.type === "password") {
+        campoSenha.type = "text";
+        iconeOlho.classList.remove('bi-eye-slash');
+        iconeOlho.classList.add('bi-eye');
+    } else {
+        campoSenha.type = "password";
+        iconeOlho.classList.remove('bi-eye');
+        iconeOlho.classList.add('bi-eye-slash');
+    }
+   }
 

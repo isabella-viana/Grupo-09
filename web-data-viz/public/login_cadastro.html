@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        <script src="../public/js/login.js"></script>
+    <script src="../public/js/login.js"></script>
 
     <title>Eleva-Login</title>
     <link rel="js" href="">
@@ -18,43 +19,40 @@
 
             <div class="parteCima">
                 <a href="../public/index.html" class="home"><img src="../public/imgs/home icon.png"></a>
-                
+
                 <h1 id="Eleva" style="color: black;">Eleva</h1>
-                 <img src="imgs/image 8.png">
+                <img src="imgs/image 8.png">
             </div>
-    
+
             <form class="formLogin" onsubmit="return false">
                 <h3 style="color: black;">Faça o seu login aqui</h3>
                 <label style="color: black;">E-mail:</label>
                 <input id="input_email" placeholder="  E-mail">
-    
+
                 <label style="color: black;">Senha:</label>
-                
 
-
-                <div class="Olho">
-                    
-                    <img id="IconEye" src="https://cdn.discordapp.com/attachments/1341220564764856320/1351386357993312327/icons8-eye-20.png?ex=67da301f&is=67d8de9f&hm=903a1fb23c6011e9a0b4b8fe7a4c92b260dba6d67a5cb7cf2ea3b98197d6ed52&" onclick="MostrarSenha()">
+                <div class="senha">
+                    <input type="password" id="input_senha" placeholder="  Senha">
+                    <i id="iconeOlho" class="bi-eye-slash" onclick="MostrarSenha()"></i>
                 </div>
-                <input type="password" id="input_senha" placeholder="  Senha">
-    
+
                 <div class="links">
                     <button onclick="Login()">Login</button>
                     <a href="">Esqueci minha senha</a>
                 </div>
-    
+
                 <p style="color: black; font-size: 11px; text-align: center;">
                     Ainda não tem um cadastro?
                     <button type="button" onclick="Cadastrar()">Cadastre-se aqui</button>
                 </p>
             </form>
-            
-                
+
+
         </div>
     </div>
-    
+
 </body>
-   <script src="../public/js/login.js"></script>
+<script src="../public/js/login.js"></script>
 
 
 
