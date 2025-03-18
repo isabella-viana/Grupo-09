@@ -80,3 +80,17 @@ function Registrar() {
     alert("Cadastro realizado com sucesso!");
     VoltarParaLogin();
 }
+
+function MostrarSenha() {
+    var campoSenha = document.getElementById("input_senha");
+    var ImageEye = document.getElementById("IconEye");
+
+    if (campoSenha.type === "password") {
+        campoSenha.type = "text";
+        ImageEye.src = "https://media.discordapp.net/attachments/1341220564764856320/1351381520345993266/icons8-closed-eye-10_1.png?ex=67da2b9d&is=67d8da1d&hm=33cd397be8e708b4653f2afad360f7e73055d807de09dc586f3d4dcdc495ea0c&=&format=webp&quality=lossless"; 
+    } else {
+        campoSenha.type = "password";
+        ImageEye.src = "https://media.discordapp.net/attachments/1341220564764856320/1351374252586045503/icons8-eye-10.png?ex=67da24d9&is=67d8d359&hm=b3123baa661e70ac294690e5c05f348c4f0136433facc498a8db300389288c77&=&format=webp&quality=lossless"; 
+    }
+}
+

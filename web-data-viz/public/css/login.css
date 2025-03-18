@@ -13,7 +13,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #468FAF;
-    color:green;
+   
 }
 .container {
     display: flex;
@@ -118,6 +118,27 @@ h3{
     gap: 3%;
  } 
 
+ .Olho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6%;
+    position: absolute;
+    margin-left: 74%;
+    margin-top: 38%;;
+    cursor: pointer;
+ }
+.Olho img{
+    height: 70%;
+    width: 60%;
+}
+
+.home {
+    position: absolute;
+    height: 5%;
+    margin-right: 87%;
+    margin-bottom: 21%;
+}
 
 
  @media (max-width: 725px) {
