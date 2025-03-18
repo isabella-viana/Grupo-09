@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #468FAF;
+    background-color: #012A4A;
    
 }
 .container {
@@ -44,8 +44,8 @@ body {
 }
 .links button {
     padding: 10px;
-    background-color: #8ECAE6; 
-    color: #000;
+    background-color:#012A4A; 
+    color: white;
     border: none;
     border-radius: 18px;
     cursor: pointer;
@@ -88,7 +88,7 @@ button{
     background: transparent;
     border: none;
     cursor: pointer;
-    color: rgb(55, 154, 247);
+    color: #012A4A;
     font-size: 11px;
 }
 .links{
@@ -102,7 +102,7 @@ button{
 }
 .links a{
     text-decoration: none;
-    color: rgb(55, 154, 247); 
+    color: #012A4A; 
     font-size: 11px;
 }
 h3{
