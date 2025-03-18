@@ -122,14 +122,14 @@ h3{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 6%;
+    width: 5%;
     position: absolute;
-    margin-left: 74%;
-    margin-top: 38%;;
+    margin-left: 78%;
+    margin-top: 36%;;
     cursor: pointer;
  }
 .Olho img{
-    height: 70%;
+    height: 100%;
     width: 60%;
 }
 

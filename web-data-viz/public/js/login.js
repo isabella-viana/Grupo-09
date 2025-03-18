@@ -41,6 +41,7 @@ function VoltarParaLogin() {
 
     ladoEsquerdo.innerHTML = `
         <div class="parteCima">
+          <a href="../public/index.html" class="home"><img src="../public/imgs/home icon.png"></a>
             <h1 id="Eleva" style="color: black;">Eleva</h1>
              <img src="imgs/image 8.png">
         </div>
@@ -87,10 +88,10 @@ function MostrarSenha() {
 
     if (campoSenha.type === "password") {
         campoSenha.type = "text";
-        ImageEye.src = "https://media.discordapp.net/attachments/1341220564764856320/1351381520345993266/icons8-closed-eye-10_1.png?ex=67da2b9d&is=67d8da1d&hm=33cd397be8e708b4653f2afad360f7e73055d807de09dc586f3d4dcdc495ea0c&=&format=webp&quality=lossless"; 
+        ImageEye.src = "https://cdn.discordapp.com/attachments/1341220564764856320/1351386395339391006/icons8-closed-eye-20_1.png?ex=67da3028&is=67d8dea8&hm=af5a05c7dfa975fd5445f4a7200d706b0ae4ccab87ee8f8cdd2152d9a36175b7&"; 
     } else {
         campoSenha.type = "password";
-        ImageEye.src = "https://media.discordapp.net/attachments/1341220564764856320/1351374252586045503/icons8-eye-10.png?ex=67da24d9&is=67d8d359&hm=b3123baa661e70ac294690e5c05f348c4f0136433facc498a8db300389288c77&=&format=webp&quality=lossless"; 
+        ImageEye.src = "https://cdn.discordapp.com/attachments/1341220564764856320/1351386357993312327/icons8-eye-20.png?ex=67da301f&is=67d8de9f&hm=903a1fb23c6011e9a0b4b8fe7a4c92b260dba6d67a5cb7cf2ea3b98197d6ed52&"; 
     }
 }
 
