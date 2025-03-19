@@ -1,2 +1,17 @@
-# Grupo-09
-Trabalho de PI do 2 Semestre
+# ELLEVA
+Contexto
+A energia elétrica é, atualmente, um dos recursos mais fundamentais para o funcionamento da sociedade contemporânea. A dependência energética se estende a todas as atividades humanas, desde o âmbito residencial, passando pelo setor comercial, industrial e público, até os sistemas essenciais de transporte, saúde e segurança. No contexto de um município como São Paulo, o maior e mais populoso do Brasil, a questão do consumo de energia adquire uma relevância ainda maior, dada a complexidade de sua estrutura urbana, a diversidade de atividades econômicas e a grande concentração populacional. 
+ 
+Com aproximadamente 12 milhões de habitantes e responsável por uma fatia significativa do Produto Interno Bruto (PIB) nacional, São Paulo é um polo de serviços, indústrias, tecnologia e cultura, o que contribui para uma das maiores demandas energéticas da América Latina. A cidade abriga desde grandes centros industriais e corporativos até bairros residenciais com características muito distintas, gerando um consumo energético heterogêneo, cuja compreensão exige um olhar atento, criterioso e técnico. 
+Além disso, o contexto global de mudanças climáticas e a necessidade de transição para uma economia de baixo carbono colocam a eficiência energética e a sustentabilidade no centro das discussões sobre o futuro das cidades. Nesse sentido, a análise do consumo de energia elétrica em São Paulo não apenas contribui para a gestão local, mas também serve como um estudo de caso relevante para outras grandes metrópoles que enfrentam desafios semelhantes.
+As Agências Nacionais de Energia Elétrica, responsáveis pela regulação e fiscalização do setor, geram uma grande quantidade de dados sobre o consumo de energia em diferentes escalas. Esses dados, quando analisados de forma estratégica, podem fornecer insights valiosos para a tomada de decisões, o planejamento de políticas públicas e a implementação de ações que promovam a eficiência energética, a redução de custos. 
+ 
+https://cmuenergia.com.br/consumo-de-energia-eletrica-aumenta-16-em-fevereiro-segundo-ccee/
+
+Neste projeto, propõe-se uma análise abrangente do consumo de energia elétrica no município de São Paulo, utilizando dados gerados por essas agências. A análise será focada em identificar padrões de consumo, mapear desigualdades no acesso à energia, entender os picos de demanda. O estudo será de interesse não apenas para os gestores públicos, mas também para empresas privadas e organizações do setor energético, que podem se beneficiar de uma gestão mais eficiente dos recursos.
+
+Objetivo
+O objetivo deste projeto é realizar uma análise detalhada do consumo de energia elétrica no município de São Paulo, com foco em identificar padrões de consumo e desperdício de energia, analisar os picos de demanda e suas causas, mapear regiões com baixo consumo ou acesso à energia elétrica e realizar um balanço anual do consumo de energia. Essa análise visa promover a eficiência energética, a sustentabilidade e a equidade no acesso à energia, contribuindo para o planejamento urbano e a gestão de recursos no município. 
+
+Justificativa
+A análise do consumo de energia elétrica em São Paulo é fundamental para promover eficiência energética, reduzir custos e evitar sobrecargas no sistema. Além disso, permite mapear regiões com baixo acesso à energia, garantindo inclusão e equidade. Por fim, auxilia na avaliação do impacto ambiental e no incentivo a práticas sustentáveis alinhadas às metas globais.
