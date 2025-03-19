@@ -7,12 +7,12 @@ function Cadastrar() {
 
     ladoEsquerdo.innerHTML = `
         <div class="parteCima">
-            <h1 id="Eleva" style="color: black;">Eleva</h1>
+            <h1 id="Eleva" style="color: #012A4A;">ELEVA</h1>
              <img src="imgs/image 8.png">
         </div>
 
         <form class="formCadastro" onsubmit="return false">
-            <h3 style="color: black;">Crie sua conta</h3>
+            <h3 style="color: #012A4A;">Crie sua conta</h3>
             <label style="color: black;">Nome:</label>
             <input id="input_nome" placeholder=" Nome completo">
 
@@ -31,8 +31,9 @@ function Cadastrar() {
                     <i id="iconeOlhoo" class="bi-eye-slash" onclick="MostrarConfirmacaoSenha()"></i>
             </div>
             <div class="links">
-                <button onclick="Registrar()">Cadastrar</button>
+               
                 <button type="button" onclick="VoltarParaLogin()">Voltar</button>
+                <button onclick="Registrar()">Cadastrar</button>
             </div>
         </form>
     `;
@@ -46,13 +47,13 @@ function VoltarParaLogin() {
 
     ladoEsquerdo.innerHTML = `
         <div class="parteCima">
-          <a href="../public/index.html" class="home"><img src="../public/imgs/home icon.png"></a>
-            <h1 id="Eleva" style="color: black;">Eleva</h1>
+          <a href="index.html" class="home"><img src="imgs/home icon.png"></a>
+            <h1 id="Eleva" style="color: black;">ELEVA</h1>
              <img src="imgs/image 8.png">
         </div>
 
         <form class="formLogin" onsubmit="return false">
-            <h3 style="color: black;">Faça o seu login aqui</h3>
+            <h3 style="color: #012A4A;">Bem Vindo!!</h3>
             <label style="color: black;">E-mail:</label>
             <input id="input_email" placeholder="  E-mail">
 

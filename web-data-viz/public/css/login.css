@@ -7,13 +7,17 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins" , sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #012A4A;
 
+}
+h1{
+    font-weight: 100;
+    font-size: 3vw;
 }
 
 .container {
@@ -80,7 +84,7 @@ body {
 }
 
 .lado-esquerdo .parteCima img {
-    height: 90%;
+    height: 60%;
 }
 
 input {
@@ -120,12 +124,13 @@ button {
 .links a {
     text-decoration: none;
     color: #012A4A;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 h3 {
-    font-size: 18px;
-    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 500;
+    text-align: start;
 }
 
 .formCadastro {
