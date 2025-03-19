@@ -1,4 +1,4 @@
-# ELLEVA<img width="50" alt="image 74" src="https://github.com/user-attachments/assets/2e6f6623-4b84-4f8e-a01c-3a33afa4e151" />
+# ELEVA<img width="50" alt="image 74" src="https://github.com/user-attachments/assets/2e6f6623-4b84-4f8e-a01c-3a33afa4e151" />
 
 Contexto
 A energia elétrica é, atualmente, um dos recursos mais fundamentais para o funcionamento da sociedade contemporânea. A dependência energética se estende a todas as atividades humanas, desde o âmbito residencial, passando pelo setor comercial, industrial e público, até os sistemas essenciais de transporte, saúde e segurança. No contexto de um município como São Paulo, o maior e mais populoso do Brasil, a questão do consumo de energia adquire uma relevância ainda maior, dada a complexidade de sua estrutura urbana, a diversidade de atividades econômicas e a grande concentração populacional. 
