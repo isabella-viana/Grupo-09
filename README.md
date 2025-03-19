@@ -18,8 +18,6 @@ Justificativa
 A análise do consumo de energia elétrica em São Paulo é fundamental para promover eficiência energética, reduzir custos e evitar sobrecargas no sistema. Além disso, permite mapear regiões com baixo acesso à energia, garantindo inclusão e equidade. Por fim, auxilia na avaliação do impacto ambiental e no incentivo a práticas sustentáveis alinhadas às metas globais.
 
 Escopo
-
-	A ELEVA é um projeto que visa o desenvolvimento de uma aplicação web projetada para exibir dados de consumo de energia por região e época através da coletânea de dados disponibilizados por companhias de energia. A interface será interativa e desenvolvida em HTML, CSS e JavaScript e o back-em em Java.
 1.	Tratamento de Dados:
 Limpeza, padronização e correção de inconsistências nos dados.
 2.	Análise de Consumo:
