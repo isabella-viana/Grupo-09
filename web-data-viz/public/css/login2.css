@@ -25,17 +25,11 @@ body {
     height: 40px;
 }
 
-
-
-
-
-
-
 .container{
     position: relative; /* Usamos position relative, pois ele nos dá o poder de nao afetar os outros elementos da pag*/
     width: 1100px;
     height: 650px;
-    background-color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     border-radius: 30px; /* Deixar a borda redondinha*/
     box-shadow: 0 0px 30px rgba(0,0,0, .2); /* Aqui definimos a SOMBRA que a nossa caixa terá*/
 }
@@ -48,10 +42,15 @@ body {
     position: absolute; /* Usamos position absolute, pois ele nos dá o poder de nao afetar os outros elementos da pag e tambem nao ser afetado pelos outros*/
     width: 50%;/*Se define 50% pois na outra metade será o cadastro */
     height: 100%;
-    background-color: rgb(255, 255, 255);
+    background: white ;
     right: 0; /*Ao usar o right: 0, eu defino que este elemento será do lado direito */
     color: rgb(0, 0, 0); /* Cor da letra */
     padding: 40px;
+    z-index: 1; /*Regra de empilhamento */
+}
+
+.form-box.register{
+    visibility: hidden;
 }
 
 form {
@@ -66,7 +65,7 @@ form {
 
 .input_box{
     position: relative;
-    margin: 40px;
+    margin: 30px;
 }
 
 .input_box input {
@@ -103,3 +102,44 @@ form {
     color: white;
 }
 
+.toggle-box{
+position: absolute;
+width: 100%;
+height: 100%;
+background: rgba(1, 42, 74, 1);
+color: white;
+text-align: center;
+}
+
+.toggle-box::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background: rgba(1, 42, 74, 1);
+    z-index: 2;
+    clip-path: polygon(50% 0%, 55% 20%, 45% 25%, 50% 40%, 40% 45%, 50% 60%, 35% 65%, 50% 80%, 45% 85%, 50% 100%);
+}
+.toggle-box h1{
+    font-size: 30px;
+    }
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-panel .btn{
+    width: 200px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 400;
+    background: white;
+    color:  rgba(1, 42, 74, 1);
+    border: 1px black;
+}
