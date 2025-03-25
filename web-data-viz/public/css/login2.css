@@ -158,16 +158,18 @@ text-align: center;
 .toggle-box::before {
     content: '';
     position: absolute;
-    left: -250%;
-    width: 300%;
+    left: 0%;
+    width: 140%;
     height: 100%;
     background: rgba(1, 42, 74, 1);;
-    border-radius: 150px;
+    clip-path: polygon(0 0, 0 34%, 0 45%, 0 57%, 0 73%, 0 100%, 26% 100%, 29% 100%, 38% 47%, 32% 47%, 41% 0);
     z-index: 2;
-    transition: 1.8s ease-in-out;
+    transition: 1.0s ease-in-out;
 }
 .container.active .toggle-box::before{
-    left: 50%;
+    left: -100%;
+    width: 276%;
+    clip-path: polygon(59% 0, 54% 49%, 57% 49%, 51% 100%, 56% 100%, 54% 100%, 57% 100%, 100% 100%, 100% 51%, 100% 33%, 100% 0);
 }
 
 .toggle-box h1{
@@ -224,6 +226,7 @@ text-align: center;
         bottom: 0;
         width: 100%;
         height: 70%;
+        clip-path: none;
     }
     .toggle-box::before {
         left: 0;
