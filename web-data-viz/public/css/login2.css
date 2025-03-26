@@ -52,7 +52,7 @@ body {
 .container{
     position: relative; /* Usamos position relative, pois ele nos dá o poder de nao afetar os outros elementos da pag*/
     width: 1100px;
-    height: 65vh;
+    height: 610px;
     background: rgb(255, 255, 255);
     border-radius: 30px; /* Deixar a borda redondinha*/
     box-shadow: 0 0px 30px rgba(0,0,0, .2); /* Aqui definimos a SOMBRA que a nossa caixa terá*/
@@ -152,7 +152,7 @@ text-align: center;
 
 .toggle-box img{
     height: 50%;
-    width: 70%;
+    width: 55%;
 }
 
 .toggle-box::before {
@@ -190,7 +190,7 @@ text-align: center;
 }
 
 .toggle-panel.toggle-right {
-    right: -50%;
+    right: -40%;
     transition-delay: .6s;
 }
 .toggle-panel.toggle-left {
@@ -204,7 +204,7 @@ text-align: center;
 }
 
 .container.active .toggle-panel.toggle-right{
-    right: 0;
+    right: -3%;
     transition-delay: 1.2s
 }
 
@@ -218,6 +218,72 @@ text-align: center;
     border: 1px black;
 }
 
+@media screen and (max-height: 950px) {
+   .arrow2 img {
+    width: 40px;
+    bottom: 50px;
+   }
+
+   .input_box input {
+    padding: 10px;
+   }
+}
+
+@media screen and (max-height: 850px) {
+    .arrow2 img {
+        margin-top: 20px;
+    }
+   
+}
+
+@media screen and (max-height: 800px) {
+    .container.active h1 {
+       font-size: 20px;
+       margin-top: 10px;
+    }
+    .arrow2 img {
+        margin-top: 40px;
+    }
+   
+}
+
+@media screen and (max-height: 750px) {
+   
+    .arrow2 img {
+        margin-top: 60px;
+    }
+   
+}
+
+@media screen and (max-height: 680px) {
+
+    .container.active h1 {
+        font-size: 20px;
+        margin-top: 20px;
+     }
+    
+
+    .container.active .btn {
+        margin-bottom: 50px;
+    }
+
+    .arrow2 img {
+        margin-top: 90px;
+    }
+   
+}
+
+@media screen and (max-width: 450px) {
+    .btn {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .btn {
+        font-size: 15px;
+    }
+}
+
 @media screen and (max-width: 770px) {
     .container {
         height: calc(100vh - 50px);
@@ -227,6 +293,10 @@ text-align: center;
         width: 100%;
         height: 70%;
         clip-path: none;
+    }
+    .arrow img{
+        bottom: calc(10vh - 40px); 
+    
     }
     .toggle-box::before {
         left: 0;
