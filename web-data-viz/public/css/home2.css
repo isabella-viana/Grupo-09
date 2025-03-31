@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Acima IMPORTAMOS a nossa font, nessa caso eu só pesquisei no Google e apareceu um site da google que nos dá diretamente esse link*/
+
+
+
+/* Usamos o * para aplicar a TODOS OS ELEMENTOS as configs*/
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box; /* Usamos para que NAO ultrapasse o tamanho definido*/
+    font-family: 'Poppins', sans-serif; /* Essa é a fonte que utilizaremos como um TODO em nosso site*/
+}
+
+img{
+    width: 70px;  
+    height: 60px;
+    }
+
+.container-Header{
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    background-color: rgba(119, 173, 203, 1);
+}
+
+.container-Header a{
+    font-size: 18px;
+    font-weight: 300;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   background-color: rgb(255, 255, 255);
+   width: 8vw;
+   height: 45px;
+   border-radius: 30px;
+   text-decoration: none;
+}
+
+.left-header{
+    display: flex;
+    justify-content: space-around ;
+    height: 7vh;
+    width: 20vw
+   
+}
+
+.right-header {
+    display: flex;
+    justify-content: space-around ;
+    height: 7vh;
+    width: 20vw;
+}
+
+.container-top{
+    display: flex;
+    justify-content: center;
+    margin-top: 4vh;
+    height: 90vh;
+}
+
+.image-body img{
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    width: 90vw;
+
+}
+
+.image-body img{
+    display: flex;
+    align-items: center;
+    height: 90vh;
+
+}
+
+.forma{
+    width: 20vw;
+    background-color: aliceblue;
+    height: 30vh;
+    border-radius: 30px;
+    box-shadow: 30px;
+}
+
+.container-body{
+    margin-top: 10vh;
+    margin-left: 10vw;
+    box-shadow: 20px;
+}
+
