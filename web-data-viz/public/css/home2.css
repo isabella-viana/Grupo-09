@@ -70,8 +70,8 @@
     margin-left: 80vw;
     border-radius: 70px;
     background-color:rgba(244, 244, 244, 1);
-    width: 170px;
-    height: 290px;
+    width: 10vw;
+    height: 29vh;
     z-index: 2;
 }
 
@@ -82,8 +82,8 @@
     margin-left: 70vw;
     border-radius: 70px;
     background-color:rgba(244, 244, 244, 1);
-    width: 320px;
-    height: 150px;
+    width: 20vw;
+    height: 15vh;
     z-index: 1;
 }
 .Saiba-Mais{
@@ -92,8 +92,8 @@
     margin-left: 78vw;
     border-radius: 70px;
     background-color: rgb(255, 255, 255);
-    width: 250px;
-    height: 300px;
+    width: 25vh;
+    height: 30vh;
 }
 
 
@@ -103,14 +103,14 @@
     margin-left: 70vw;
     border-radius: 70px;
     background-color: rgb(255, 255, 255);
-    width: 450px;
-    height: 200px;
+    width: 25vw;
+    height: 20vh;
 }
 
 .font-img{
     margin-top: 25vh;
     position: absolute;
-    font-size: 70px;
+    font-size: 3.9vw;
     color: white;
     font-weight: 400;
     margin-right: 28vw;
@@ -119,7 +119,7 @@
 .font-img2{
     margin-top: 20vh;
     position: absolute;
-    font-size: 30px;
+    font-size: 2vw;
     color: white;
     font-weight: 400;
     margin-right: 44vw;
