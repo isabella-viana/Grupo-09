@@ -11,7 +11,191 @@
     font-family: 'Poppins', sans-serif; /* Essa é a fonte que utilizaremos como um TODO em nosso site*/
 }
 
-img{
+.Button-Contato{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 10vw;
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 40px;
+    margin-right: 40vw;
+    margin-top: 62vh;
+    height: 7vh;
+    align-items: center;
+}
+
+.Button-Contato a{
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Button-Location{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 4vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    margin-right: 20vw;
+    margin-top: 62vh;
+    height: 7vh;
+    align-items: center;
+}
+
+.Button-Location a{
+    font-weight: 400;
+    color: black;
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.Saiba-Mais3{
+    position: absolute;
+    margin-top: 59vh;
+    margin-left: 80vw;
+    border-radius: 70px;
+    background-color:rgba(244, 244, 244, 1);
+    width: 170px;
+    height: 290px;
+    z-index: 2;
+}
+
+
+.Saiba-Mais4{
+    position: absolute;
+    margin-top: 74vh;
+    margin-left: 70vw;
+    border-radius: 70px;
+    background-color:rgba(244, 244, 244, 1);
+    width: 320px;
+    height: 150px;
+    z-index: 1;
+}
+.Saiba-Mais{
+    position: absolute;
+    margin-top: 55vh;
+    margin-left: 78vw;
+    border-radius: 70px;
+    background-color: rgb(255, 255, 255);
+    width: 250px;
+    height: 300px;
+}
+
+
+.Saiba-Mais2{
+    position: absolute;
+    margin-top: 70vh;
+    margin-left: 70vw;
+    border-radius: 70px;
+    background-color: rgb(255, 255, 255);
+    width: 450px;
+    height: 200px;
+}
+
+.font-img{
+    margin-top: 25vh;
+    position: absolute;
+    font-size: 70px;
+    color: white;
+    font-weight: 400;
+    margin-right: 28vw;
+}
+
+.font-img2{
+    margin-top: 20vh;
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    font-weight: 400;
+    margin-right: 44vw;
+
+}
+
+.Bola3-Rotativa{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 4vw;
+    clip-path: circle();
+    background-color: rgb(255, 255, 255);
+    border-radius: 90px;
+    margin-right: 70vw;
+    margin-top: 62vh;
+    height: 7vh;
+    align-items: center;
+}
+
+.Bola2-Rotativa{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 4vw;
+    clip-path: circle();
+    background-color: rgb(255, 255, 255);
+    border-radius: 90px;
+    margin-right: 70vw;
+    margin-top: 40vh;
+    height: 7vh;
+    align-items: center;
+}
+
+.Bola1-Rotativa{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 4vw;
+    clip-path: circle();
+    background-color: rgb(255, 255, 255);
+    border-radius: 90px;
+    margin-right: 70vw;
+    margin-top: 16vh;
+    height: 7vh;
+    align-items: center;
+}
+
+.Bola1-Rotativa a{
+    width: 100%;
+    height: 100%;
+}
+.Bola2-Rotativa a{
+    width: 100%;
+    height: 100%;
+}
+.Bola3-Rotativa a{
+    width: 100%;
+    height: 100%;
+}
+
+.Traço1{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 0.21vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 90px;
+    margin-right: 70vw;
+    margin-top: 20vh;
+    height: 45vh;
+    align-items: center;
+}
+
+
+.img-Logo{
     width: 70px;  
     height: 60px;
     }
@@ -41,7 +225,7 @@ img{
 .left-header{
     display: flex;
     justify-content: space-around ;
-    height: 7vh;
+    height: 6vh;
     width: 20vw
    
 }
@@ -49,7 +233,7 @@ img{
 .right-header {
     display: flex;
     justify-content: space-around ;
-    height: 7vh;
+    height: 6vh;
     width: 20vw;
 }
 
@@ -72,7 +256,6 @@ img{
     display: flex;
     align-items: center;
     height: 90vh;
-
 }
 
 .forma{
