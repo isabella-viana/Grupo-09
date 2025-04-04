@@ -1,499 +1,529 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-/* Acima IMPORTAMOS a nossa font, nessa caso eu só pesquisei no Google e apareceu um site da google que nos dá diretamente esse link*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
-
-/* Usamos o * para aplicar a TODOS OS ELEMENTOS as configs*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* Usamos para que NAO ultrapasse o tamanho definido*/
-    font-family: 'Poppins', sans-serif;
-    /* Essa é a fonte que utilizaremos como um TODO em nosso site*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .Button-Contato {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 10vw;
-    background-color: rgb(255, 255, 255);
-    text-decoration: none;
-    border-radius: 40px;
-    margin-right: 40vw;
-    margin-top: 62vh;
-    height: 7vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 10vw;
+  background-color: rgb(255, 255, 255);
+  text-decoration: none;
+  border-radius: 40px;
+  margin-right: 40vw;
+  margin-top: 62vh;
+  height: 7vh;
+  align-items: center;
 }
 
 .Button-Location img {
-    width: 2vw;
+  width: 2vw;
 }
 
 .Button-Contato a {
-    font-weight: 400;
-    color: black;
-    text-decoration: none;
-    font-size: 1.5vw;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-weight: 400;
+  color: black;
+  text-decoration: none;
+  font-size: 1.5vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Button-Location {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 4vw;
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    margin-right: 20vw;
-    margin-top: 62vh;
-    height: 7vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 4vw;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  margin-right: 20vw;
+  margin-top: 62vh;
+  height: 7vh;
+  align-items: center;
 }
 
 .Button-Location a {
-    font-weight: 400;
-    color: black;
-    font-size: 25px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-weight: 400;
+  color: black;
+  font-size: 25px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
-
 
 .Saiba-Mais3 {
-    position: absolute;
-    margin-top: 59vh;
-    margin-left: 80vw;
-    border-radius: 70px;
-    background-color: rgba(244, 244, 244, 1);
-    width: 10vw;
-    height: 29vh;
-    z-index: 2;
+  position: absolute;
+  margin-top: 59vh;
+  margin-left: 80vw;
+  border-radius: 70px;
+  background-color: rgba(244, 244, 244, 1);
+  width: 10vw;
+  height: 29vh;
+  z-index: 2;
 }
 
-
 .Saiba-Mais4 {
-    position: absolute;
-    margin-top: 74vh;
-    margin-left: 70vw;
-    border-radius: 70px;
-    background-color: rgba(244, 244, 244, 1);
-    width: 20vw;
-    height: 15vh;
-    z-index: 1;
+  position: absolute;
+  margin-top: 74vh;
+  margin-left: 70vw;
+  border-radius: 70px;
+  background-color: rgba(244, 244, 244, 1);
+  width: 20vw;
+  height: 15vh;
+  z-index: 1;
 }
 
 .Saiba-Mais {
-    position: absolute;
-    margin-top: 55vh;
-    margin-left: 78vw;
-    border-radius: 70px;
-    background-color: rgb(255, 255, 255);
-    width: 25vh;
-    height: 30vh;
+  position: absolute;
+  margin-top: 55vh;
+  margin-left: 78vw;
+  border-radius: 70px;
+  background-color: rgb(255, 255, 255);
+  width: 25vh;
+  height: 30vh;
 }
 
-
 .Saiba-Mais2 {
-    position: absolute;
-    margin-top: 70vh;
-    margin-left: 70vw;
-    border-radius: 70px;
-    background-color: rgb(255, 255, 255);
-    width: 25vw;
-    height: 20vh;
+  position: absolute;
+  margin-top: 70vh;
+  margin-left: 70vw;
+  border-radius: 70px;
+  background-color: rgb(255, 255, 255);
+  width: 25vw;
+  height: 20vh;
 }
 
 .font-img {
-    margin-top: 25vh;
-    position: absolute;
-    font-size: 3.9vw;
-    color: white;
-    font-weight: 400;
-    margin-right: 28vw;
+  margin-top: 25vh;
+  position: absolute;
+  font-size: 3.9vw;
+  color: white;
+  font-weight: 400;
+  margin-right: 28vw;
 }
 
 .font-img2 {
-    margin-top: 20vh;
-    position: absolute;
-    font-size: 2vw;
-    color: white;
-    font-weight: 400;
-    margin-right: 44vw;
-
+  margin-top: 20vh;
+  position: absolute;
+  font-size: 2vw;
+  color: white;
+  font-weight: 400;
+  margin-right: 44vw;
 }
 
 .Bola3-Rotativa {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 3.4vw;
-    clip-path: circle();
-    background-color: transparent;
-    border-radius: 90px;
-    margin-right: 70vw;
-    margin-top: 62vh;
-    height: 7vh;
-    align-items: center;
-    transition: .3s ease-in-out;
-    border: 0.5vh solid rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 3.4vw;
+  clip-path: circle();
+  background-color: transparent;
+  border-radius: 90px;
+  margin-right: 70vw;
+  margin-top: 62vh;
+  height: 7vh;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  border: 0.5vh solid rgb(255, 255, 255);
 }
 
 .Bola2-Rotativa {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 3.4vw;
-    clip-path: circle();
-    background-color: transparent;
-    border: 0.5vh solid rgb(255, 255, 255);
-    border-radius: 500px;
-    margin-right: 70vw;
-    margin-top: 40vh;
-    height: 7vh;
-    align-items: center;
-    transition: .3s ease-in-out;
-    z-index: 3;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 3.4vw;
+  clip-path: circle();
+  background-color: transparent;
+  border: 0.5vh solid rgb(255, 255, 255);
+  border-radius: 500px;
+  margin-right: 70vw;
+  margin-top: 40vh;
+  height: 7vh;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  z-index: 3;
 }
 
 .Bola2-Rotativa:hover {
-    background-color: white;
-    border: 1vh solid rgb(255, 255, 255);
-
+  background-color: white;
+  border: 1vh solid rgb(255, 255, 255);
 }
 
 .Bola1-Rotativa:hover {
-    background-color: white;
-    border: 1vh solid rgb(255, 255, 255);
-
+  background-color: white;
+  border: 1vh solid rgb(255, 255, 255);
 }
 
 .Bola3-Rotativa:hover {
-    background-color: white;
-    border: 1vh solid rgb(255, 255, 255);
-
+  background-color: white;
+  border: 1vh solid rgb(255, 255, 255);
 }
 
 .Bola1-Rotativa {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 3.4vw;
-    clip-path: circle();
-    background-color: transparent;
-    border: solid 0.5vh white;
-    border-radius: 90px;
-    margin-right: 70vw;
-    margin-top: 16vh;
-    height: 7vh;
-    align-items: center;
-    transition: .3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 3.4vw;
+  clip-path: circle();
+  background-color: transparent;
+  border: solid 0.5vh white;
+  border-radius: 90px;
+  margin-right: 70vw;
+  margin-top: 16vh;
+  height: 7vh;
+  align-items: center;
+  transition: 0.3s ease-in-out;
 }
 
 .Bola1-Rotativa a {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .Bola2-Rotativa a {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .Bola3-Rotativa a {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .Traço1 {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 0.21vw;
-    background-color: rgb(255, 255, 255);
-    border-radius: 90px;
-    margin-right: 70vw;
-    margin-top: 23vh;
-    height: 17vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 0.21vw;
+  background-color: rgb(255, 255, 255);
+  border-radius: 90px;
+  margin-right: 70vw;
+  margin-top: 23vh;
+  height: 17vh;
+  align-items: center;
 }
 
 .Traço2 {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 0.21vw;
-    background-color: rgb(255, 255, 255);
-    border-radius: 90px;
-    margin-right: 70vw;
-    margin-top: 47vh;
-    height: 15vh;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 0.21vw;
+  background-color: rgb(255, 255, 255);
+  border-radius: 90px;
+  margin-right: 70vw;
+  margin-top: 47vh;
+  height: 15vh;
+  align-items: center;
 }
 
-
 .img-Logo {
-    width: 70px;
-    height: 60px;
+  width: 70px;
+  height: 60px;
 }
 
 .container-Header {
-    height: 13vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(119, 173, 203, 1);
+  height: 13vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(119, 173, 203, 1);
 }
 
 .container-Header a {
-    font-size: 18px;
-    font-weight: 300;
-    color: rgb(0, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    width: 8vw;
-    height: 45px;
-    border-radius: 30px;
-    text-decoration: none;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  width: 8vw;
+  height: 45px;
+  border-radius: 30px;
+  text-decoration: none;
 }
 
 .left-header {
-    display: flex;
-    justify-content: space-around;
-    height: 6vh;
-    width: 20vw
+  display: flex;
+  justify-content: space-around;
+  height: 6vh;
+  width: 20vw;
 }
 
 .right-header {
-    display: flex;
-    justify-content: space-around;
-    height: 6vh;
-    width: 20vw;
+  display: flex;
+  justify-content: space-around;
+  height: 6vh;
+  width: 20vw;
 }
 
 .container-top {
-    display: flex;
-    justify-content: center;
-    margin-top: 4vh;
-    height: 90vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 4vh;
+  height: 90vh;
 }
 
 .image-body img {
-    display: flex;
-    align-items: center;
-    height: 80vh;
-    width: 90vw;
-
+  display: flex;
+  align-items: center;
+  height: 80vh;
+  width: 90vw;
 }
 
 .image-body img {
-    display: flex;
-    align-items: center;
-    height: 90vh;
+  display: flex;
+  align-items: center;
+  height: 90vh;
 }
 
 .img_Power img {
-    width: 7vw;  
-    position: absolute;   
-    z-index: 3;
-    left: 6.7vw;
-    margin-top: 8vh;
+  width: 7vw;
+  position: absolute;
+  z-index: 3;
+  left: 6.7vw;
+  margin-top: 8vh;
 }
 
 .container-body {
-    margin-top: 10vh;
-    margin-left: 10vw;
-    width: 30vw;
-    height: 20vh;
-    box-shadow: 20px;
-    margin-bottom: 30vh;
+  margin-top: 10vh;
+  margin-left: 10vw;
+  width: 30vw;
+  height: 20vh;
+  box-shadow: 20px;
+  margin-bottom: 30vh;
 }
 
-.first-container{
-    width: 22vw;
-    height: 45vh;
-    position: absolute;
-    background-color: rgba(119, 173, 203, 0.2);
-    border-radius: 10vh;
-    
+.first-container {
+  width: 22vw;
+  height: 45vh;
+  position: absolute;
+  background-color: rgba(119, 173, 203, 0.2);
+  border-radius: 10vh;
 }
 
-.Traco{
-    margin-top: 6vh;
-    width: 0.11vw;
-    height: 30vh;
-    left: 3vw;
-    position: absolute;
-    background-color: rgb(119, 173, 203);
-    border-radius: 8vh;
-    left: 19vw;
-    z-index: 3;
+.Traco {
+  margin-top: 6vh;
+  width: 0.11vw;
+  height: 30vh;
+  left: 3vw;
+  position: absolute;
+  background-color: rgb(119, 173, 203);
+  border-radius: 8vh;
+  left: 19vw;
+  z-index: 3;
 }
 
-.second-container{
-    right: 20vw;
-    width: 22vw;
-    height: 30vh;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5vh;
-    z-index: 20;
-    margin-top: 4vh;
-    left: 21vw;
-    box-shadow: 7px 4px 4px 0px rgba(0, 0, 0, 0.2)
+.second-container {
+  right: 20vw;
+  width: 22vw;
+  height: 30vh;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5vh;
+  z-index: 20;
+  margin-top: 4vh;
+  left: 21vw;
+  box-shadow: 7px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-.check1{
-    width: 2.5vw;
-    height: 4.6vh;
-    border-radius: 10px;
-    background:rgb(119, 173, 203);
-    margin-left: 2vw;
-    margin-top: 2.2vw;
+.check1 {
+  width: 2.5vw;
+  height: 4.6vh;
+  border-radius: 10px;
+  background: rgb(119, 173, 203);
+  margin-left: 2vw;
+  margin-top: 2.2vw;
 }
 
 .check1 p {
-    font-size: 0.86vw;
-    position: absolute;
-    margin-left: 3.5vw;
-    font-weight: 500;
+  font-size: 0.86vw;
+  position: absolute;
+  margin-left: 3.5vw;
+  font-weight: 500;
 }
 
-.check2{
-    width: 2.5vw;
-    height: 4.6vh;
-    border-radius: 10px;
-    background:rgb(255, 255, 255);
-    border: 0.2px solid rgba(0, 0, 0, 0.212);
-    margin-left: 2vw;
-    margin-top: 1.8vw;
+.check2 {
+  width: 2.5vw;
+  height: 4.6vh;
+  border-radius: 10px;
+  background: rgb(255, 255, 255);
+  border: 0.2px solid rgba(0, 0, 0, 0.212);
+  margin-left: 2vw;
+  margin-top: 1.8vw;
 }
 
 .check2 p {
-    font-size: 0.86vw;
-    position: absolute;
-    margin-left: 3.5vw;
-    font-weight: 500;
+  font-size: 0.86vw;
+  position: absolute;
+  margin-left: 3.5vw;
+  font-weight: 500;
 }
 
-.check3{
-    width: 2.5vw;
-    height: 4.6vh;
-    border-radius: 10px;
-    background:rgb(255, 255, 255);
-    border: 0.2px solid rgba(0, 0, 0, 0.212);
-    margin-left: 2vw;
-    margin-top: 1.8vw;
+.check3 {
+  width: 2.5vw;
+  height: 4.6vh;
+  border-radius: 10px;
+  background: rgb(255, 255, 255);
+  border: 0.2px solid rgba(0, 0, 0, 0.212);
+  margin-left: 2vw;
+  margin-top: 1.8vw;
 }
 
 .check3 p {
-    font-size: 0.86vw;
-    position: absolute;
-    margin-left: 3.5vw;
-      font-weight: 500;
+  font-size: 0.86vw;
+  position: absolute;
+  margin-left: 3.5vw;
+  font-weight: 500;
 }
 
-.img_dados img{
-    width: 12vw;
-    height: 8vh;
-    position: absolute;
-    margin-top: 25vh;
-    left: 5vw;
+.img_dados img {
+  width: 12vw;
+  height: 8vh;
+  position: absolute;
+  margin-top: 25vh;
+  left: 5vw;
 }
 
-.little-container{
-    position: absolute;
-    width: 11vw;
-    background-color: rgb(255, 255, 255);
-    height: 20vh;
-    right: 40vw;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 2vh;
-    border: 1px rgb(255, 255, 255) solid;
-    margin-bottom: 1vh;
+.little-container {
+  position: absolute;
+  width: 11vw;
+  background-color: rgb(255, 255, 255);
+  height: 20vh;
+  right: 40vw;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 2vh;
+  border: 1px rgb(255, 255, 255) solid;
+  margin-bottom: 1vh;
 }
 
-.little-container2{
-    position: absolute;
-    width: 11vw;
-    background-color: rgb(255, 255, 255);
-    height: 20vh;
-    right: 40vw;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 2vh;
-    border: 1px rgb(255, 255, 255) solid;
-    margin-top: 24vh;
+.little-container2 {
+  position: absolute;
+  width: 11vw;
+  background-color: rgb(255, 255, 255);
+  height: 20vh;
+  right: 40vw;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 2vh;
+  border: 1px rgb(255, 255, 255) solid;
+  margin-top: 24vh;
 }
 
-.little-container2 h4{
-    display: flex;
-    justify-content: center;
-    color: rgba(119, 173, 203, 1);
-    font-size: 1.8vw;
+.little-container2 h4 {
+  display: flex;
+  justify-content: center;
+  color: rgba(119, 173, 203, 1);
+  font-size: 1.8vw;
 }
 
-.little-container2 p{
-    display: flex;
-    justify-content: center;
-    margin-right: 2px;
-   font-size: 1vw;
-   font-weight: 600;
-   color: rgba(160, 160, 160, 1);
-   margin-left: 1.3vw;
-   margin-right: 1.3vw;
+.little-container2 p {
+  display: flex;
+  justify-content: center;
+  margin-right: 2px;
+  font-size: 1vw;
+  font-weight: 600;
+  color: rgba(160, 160, 160, 1);
+  margin-left: 1.3vw;
+  margin-right: 1.3vw;
 }
 
-.little-container h4{
-    display: flex;
-    justify-content: center;
-    color: rgba(119, 173, 203, 1);
-    font-size: 1.8vw;
-
+.little-container h4 {
+  display: flex;
+  justify-content: center;
+  color: rgba(119, 173, 203, 1);
+  font-size: 1.8vw;
 }
 
-.little-container p{
-    display: flex;
-    justify-content: center;
-    margin-right: 2px;
-   font-size: 1vw;
-   font-weight: 600;
-   color: rgba(160, 160, 160, 1);
-   margin-left: 1.3vw;
-   margin-right: 1.3vw;
+.little-container p {
+  display: flex;
+  justify-content: center;
+  margin-right: 2px;
+  font-size: 1vw;
+  font-weight: 600;
+  color: rgba(160, 160, 160, 1);
+  margin-left: 1.3vw;
+  margin-right: 1.3vw;
 }
 
-.fourth-container{
-    position: absolute;
-    margin-left: 55vw;
-    width: 27vw;
-    height: 43vh;
-    background-color: rgb(255, 255, 255);
-    border-radius: 2vw;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+.fourth-container {
+  position: absolute;
+  margin-left: 55vw;
+  width: 27vw;
+  height: 43vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2vw;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-.Text p{
-    margin-right: 1.7vw ;
-    margin-left: 1.7vw;
-    font-size: 0.9vw;
+.Text p {
+  margin-right: 1.7vw;
+  margin-left: 1.7vw;
+  font-size: 0.9vw;
 }
 
-.Text h6{
-   margin-top: 1.2vw;
-    font-size: 0.9vw;
-    margin-right: 1.7vw ;
-    margin-left: 1.7vw;
+.Text h6 {
+  margin-top: 1.2vw;
+  font-size: 0.9vw;
+  margin-right: 1.7vw;
+  margin-left: 1.7vw;
 }
 
+#soluction {
+  width: 100%;
+  height: 70vh;
+  background-color: rgba(119, 173, 203, 0.2);
+  display: flex;
+  padding: 3vw;
+  color: #012a4a;
+}
+
+#suluction-infos {
+  display: flex;
+  flex-direction: column;
+
+  & h1 {
+    font-size: 6vh;
+  }
+}
+
+.info-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#conection {
+  width: 100%;
+  height: 70vh;
+  background-color: rgba(119, 173, 203, 0.2);
+  display: flex;
+  padding: 3vw;
+  color: #012a4a;
+
+  & h1 {
+    font-size: 6vh;
+  }
+}
+
+#contact {
+  width: 100%;
+  height: 70vh;
+  background-color: rgba(119, 173, 203, 0.2);
+  display: flex;
+  padding: 3vw;
+  color: #012a4a;
+
+  & h1 {
+    font-size: 6vh;
+  }
+}
