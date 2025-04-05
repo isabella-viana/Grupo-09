@@ -518,6 +518,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .icon img {
@@ -616,4 +617,69 @@
 #contact-infos {
   width: 60%;
   margin-right: 5vw;
+}
+
+#culture {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #012a4a;
+}
+
+#culture h1 {
+  font-size: 6vh;
+  font-weight: 600;
+  margin: 8.5vh;
+  margin-bottom: 22vh;
+}
+
+#culture-navs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.nav {
+  width: 20vw;
+  height: 50vh;
+  background-color: #6b9cb7;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin-inline: 8vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4vh;
+  padding-top: 8vh;
+}
+
+.info-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7vh;
+}
+
+.info-nav h2 {
+  margin: 1vh;
+  font-size: 4vh;
+  font-weight: 600;
+}
+
+.info-nav p {
+  font-size: 2.3vh;
+}
+
+.nav img {
+  height: 35vh;
+  position: absolute;
+  bottom: 60%;
 }
