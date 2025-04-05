@@ -483,8 +483,20 @@
   height: 70vh;
   background-color: rgba(119, 173, 203, 0.2);
   display: flex;
-  padding: 3vw;
+  padding-inline: 5vw;
+  padding-top: 8vh;
   color: #012a4a;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#soluction p {
+  font-size: 25px;
+  width: 70%;
 }
 
 #suluction-infos {
@@ -496,10 +508,22 @@
   }
 }
 
-.info-text {
+.icon {
+  width: 80px;
+  height: 80px;
+  background-color: #d9d9d9;
+  border-radius: 40px;
+  position: relative;
+  margin: 2vh;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
+}
+
+.icon img {
+  position: absolute;
+  margin-top: 4px;
+  width: 100%;
 }
 
 #conection {
