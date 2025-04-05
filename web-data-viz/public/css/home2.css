@@ -502,10 +502,10 @@
 #suluction-infos {
   display: flex;
   flex-direction: column;
+}
 
-  & h1 {
-    font-size: 6vh;
-  }
+#suluction-infos h1 {
+  font-size: 6vh;
 }
 
 .icon {
@@ -531,12 +531,51 @@
   height: 70vh;
   background-color: rgba(119, 173, 203, 0.2);
   display: flex;
-  padding: 3vw;
-  color: #012a4a;
+  color: #001b30;
+}
 
-  & h1 {
-    font-size: 6vh;
-  }
+#conection-background {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  background-color: #77adcb;
+  border-radius: 20px;
+  position: relative;
+  margin: 3vw;
+}
+
+#conection-background img {
+  height: 50vh;
+  position: absolute;
+  bottom: 15%;
+}
+
+#conection h1 {
+  font-size: 5vh;
+}
+
+#conection-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20vw;
+  padding: 2vh;
+  margin-right: 5vw;
+}
+
+#conection-infos p {
+  font-size: 3vh;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+
+#conection-infos button {
+  width: 13vw;
+  height: 6vh;
+  background-color: white;
+  border-style: none;
+  border-radius: 14px;
+  font-size: 2.5vh;
 }
 
 #contact {
@@ -546,8 +585,8 @@
   display: flex;
   padding: 3vw;
   color: #012a4a;
+}
 
-  & h1 {
-    font-size: 6vh;
-  }
+#contact h1 {
+  font-size: 6vh;
 }
