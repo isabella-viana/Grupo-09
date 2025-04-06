@@ -1,11 +1,50 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .cont-container {
+    text-align: center; 
+    margin: 0 auto; 
+    width: 80vw; 
+    margin-top: 5vw; 
 }
 
-.Container {
-    height: 90vh;
-    width: 100%;
+  .fale {
+    font-weight: 600;
+    color: rgba(48, 67, 77, 1);
+    font-size: 3.0vw;
+    letter-spacing: 2px;
+    position: relative;
+   
+  }
+
+  .img-linha {
+    width: 20vw; 
+    height: 3vw; 
+    margin: 0 auto; 
+    display: block; 
+    margin-bottom: 2vw; 
+}
+
+  .preencha {
+    font-weight: 400;
+    font-size: 1.0vw;
+    margin-top: 3vw;
+    position: relative;
+    text-align: center; 
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+
+.container {
+    height: 30vw;
+    width: 80vw;
     display: flex;
 }
 
@@ -14,21 +53,11 @@ body {
     width: 60%;
     display: flex;
     flex-direction: column;
-    position: relative; /* Adicionando para a seta ficar posicionada no canto superior esquerdo */
+    position: relative; 
 }
 
-.ladoDireito {
-    height: 100%;
-    width: 40%;
-    background-image: url(../imgs/contato-img.png);
-    background-size: cover;
-}
 
-.parteCima {
-    height: 10%;
-    width: 100%;
-    text-align: center;
-}
+
 
 .parteBaixo {
     height: 90%;
@@ -39,189 +68,187 @@ body {
 }
 
 form {
-    height: 90%;
-    width: 70%;
+    height: 25vw;
+    width: 35vw;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     border-radius: 20px;
-    background-color: #012A4A;
+    background-color: rgba(119, 173, 203, 1);
+    position: relative; 
+    margin-left: 5vw;
+    margin-bottom: -3vw;
 }
 
 input {
     margin-top: 3%;
-    width: 80%;
-    height: 5%;
-    border-radius: 20px;
+    width: 32vw;
+    height: 1vw;
+    border-radius: 10px;
+    background-color: white; 
+    border: none; 
+    outline: none; 
+    padding: 1vw; 
+    box-sizing: border-box; 
 }
+
 
 .assunto {
-    height: 45%;
-    width: 80%;
-    margin-top: 3%;
+    height: 10vw;
+    width: 32vw;
     background-color: white;
     border-radius: 20px;
+    border: none; 
+    outline: none;  
+    box-sizing: border-box; 
+      
 }
 
-.assunto input {
-    height: 5%;
-    width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    text-align: start;
-}
 
-h1 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 250;
-}
+
 
 .Botao-enviar {
     display: flex;
-    margin-top: 6%;
+    margin-bottom: 1vw;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
-    border-radius: 20px;
+    background-color:  rgba(78, 146, 202, 1);
     text-decoration: none;
-    height: 10%;
-    width: 30%;
-    font-family: "Poppins", sans-serif;
+    height: 3vw;
+    width: 13vw;
     font-weight: 600;
-    font-size: 30px;
-    color: black;
+    font-size: 20px;
+    color: white;
+    border-radius: 2vw;
     transition: 1s;
 }
 
 .Botao-enviar:hover {
-    color: white;
-    background-color: #014e8a;
+    color: rgba(78, 146, 202, 1);
+    background-color:  white;
+}
+
+.img-telefone{
+  position: relative; 
+  margin-left: 15vw;
+  margin-bottom: -3vw;
+  height: 28vw;
+  width: 48vw;
+
 }
 
 
-.voltar {
-    margin-top: 1%;
-    margin-left: 1%;
-    position: absolute; 
-    top: 10px; 
-    left: 10px; 
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card {
+  width: 18vw;
+  padding: 40px 20px 20px; 
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  position: relative; 
+}
+
+
+.card-1 {
+  background-color: rgba(1, 42, 74, 0.3); 
+}
+
+.card-2 {
+  background-color:rgba(61, 144, 183, 0.3);
+}
+
+.card-3 {
+  background-color: rgba(46, 175, 235, 0.3);
+}
+
+
+.card h3 {
+  font-size: 1.5vw;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  font-size: 1.0vw;
+  
+}
+
+.img-mapa {
+  margin-top: 5vw; 
+  margin-bottom: 6vw; 
+  margin-left: auto;
+  margin-right: auto;
+  display: block; 
+  width: 50vw;
+  height: 30vw;
+}
+
+.img-icone {
+  position: absolute;
+  top: -2vw;
+  margin-left: -11vw;
+  width: 6vw;
+  height: 6vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+.container-Header {
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(119, 173, 203, 1);
+  }
+  
+  .container-Header a {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    width: 8vw;
+    height: 45px;
+    border-radius: 30px;
     text-decoration: none;
-}
-
-.seta-voltar {
-    width: 40px;
-    height: auto;
-}
-
-@media (max-width: 1500px) {
-    .parteCima h1 {
-        font-size: 30px;
-        margin-top: 5%;
-    }
-}
-@media (max-width: 1400px) {
-    .parteCima h1 {
-        font-size: 25px;
-        margin-top: 5%;
-    }
-    .Botao-enviar {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 1150px) {
-    .parteCima h1 {
-        font-size: 20px;
-        margin-top: 5%;
-        word-wrap: break-word;
-    }
-}
-
-@media (max-width: 1000px) {
-    .parteCima h1 {
-        font-size: 17px;
-        margin-top: 8%;
-    }
-}
-
-@media (max-width: 800px) {
-    .parteCima h1 {
-        font-size: 16px;
-        margin-top: 10%;
-    }
-    input {
-        font-size: 12px;
-    }
-}
-@media (max-width: 750px) {
-    .parteCima h1 {
-        font-size: 15px;
-        margin-top: 10%;
-    }
-    .seta-voltar {
-        width: 35px;
-        height: auto;
-    }
-}
-@media (max-width: 700px) {
-    .parteCima h1 {
-        font-size: 14px;
-        margin-top: 10%;
-    }
-    .Botao-enviar {
-        font-size: 15px;
-    }
-}
-@media (max-width: 600px) {
-    .parteCima h1 {
-        font-size: 12px;
-        margin-top: 12%;
-    }
-    input {
-        font-size: 10px;
-    }
-}
-@media (max-width: 550px) {
-    .parteCima h1 {
-        font-size: 13px;
-        margin-top: 15%;
-    }
-    .seta-voltar {
-        width: 30px;
-        height: auto;
-    }
-}
-@media (max-width: 440px) {
-    .Botao-enviar{
-        width: 40%;
-    }
-}
-@media (max-width: 429px) {
-    .parteCima h1 {
-        font-size: 13px;
-        margin-top: 20%;
-    }
-    .seta-voltar {
-        width: 30px;
-        height: auto;
-    }
-    input {
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 390px) {
-    .parteCima h1 {
-        font-size: 13px;
-        margin-top: 20%;
-    }
-    .seta-voltar {
-        width: 30px;
-        height: auto;
-    }
-    input {
-        font-size: 8px;
-    }
-}
+  }
+  
+  .left-header {
+    display: flex;
+    justify-content: space-around;
+    height: 6vh;
+    width: 20vw;
+  }
+  
+  .right-header {
+    display: flex;
+    justify-content: space-around;
+    height: 6vh;
+    width: 20vw;
+  }
+  
+  .img-Logo {
+    width: 70px;
+    height: 60px;
+  }
