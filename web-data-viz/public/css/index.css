@@ -577,6 +577,14 @@
   border-style: none;
   border-radius: 14px;
   font-size: 2.5vh;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#conection-infos button:hover {
+  background-color: #3d6e89;
+  color: white;
+  transform: scale(1.05);
 }
 
 #contact {
@@ -608,6 +616,14 @@
   border-style: none;
   border-radius: 14px;
   font-size: 2.5vh;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#contact button:hover {
+  background-color: #3d6e89;
+  color: white;
+  transform: scale(1.05);
 }
 
 #contact img {

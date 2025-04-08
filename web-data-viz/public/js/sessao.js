@@ -2,6 +2,10 @@ function direcionarLogin() {
   window.location.href = "login_cadastro.html";
 }
 
+function encaminharContato() {
+  window.location.href = "contato.html";
+}
+
 // // sessão
 // function validarSessao() {
 //     var email = sessionStorage.EMAIL_USUARIO;
