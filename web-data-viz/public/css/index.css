@@ -41,7 +41,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  width: 4vw;
+  width: 3vw;
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
   margin-right: 20vw;
@@ -61,15 +61,44 @@
   align-items: center;
 }
 
+.Saiba-Mais3 h6 a{
+  text-decoration: none;
+}
+
+.Saiba-Mais3 h6 {
+  margin-top: 7vh;
+  margin-left: 2vw;
+  font-size: 30px;
+  font-weight: 300;
+  text-decoration: none;
+  color: black;
+}
+
+.Saiba-Mais3 img{
+  margin-left: 20vw;
+  margin-top: 20vh;
+}
+
+.Saiba-Mais3 p {
+  margin-top: 7vh;
+  margin-left: 1vw;
+  font-size: 22px;
+  font-weight: 300;
+  text-decoration: none;
+  color: black;
+}
+
+
+
 .Saiba-Mais3 {
   position: absolute;
   margin-top: 59vh;
-  margin-left: 80vw;
+  margin-left: 78vw;
   border-radius: 70px;
   background-color: rgba(244, 244, 244, 1);
-  width: 10vw;
+  width: 12vw;
   height: 29vh;
-  z-index: 2;
+  z-index: 45;
 }
 
 .Saiba-Mais4 {
@@ -79,28 +108,36 @@
   border-radius: 70px;
   background-color: rgba(244, 244, 244, 1);
   width: 20vw;
-  height: 15vh;
-  z-index: 1;
+  height: 17vh;
+  z-index: 45;
+}
+
+.Saiba-Mais4 img {
+  margin-top: 50px;
+  margin-right: -20px;
+  height: 5vh;
+  z-index: 90;
+  
 }
 
 .Saiba-Mais {
   position: absolute;
-  margin-top: 55vh;
+  margin-top: 52vh;
   margin-left: 78vw;
   border-radius: 70px;
   background-color: rgb(255, 255, 255);
-  width: 25vh;
-  height: 30vh;
+  width: 38vh;
+  height: 40vh;
 }
 
 .Saiba-Mais2 {
   position: absolute;
-  margin-top: 70vh;
+  margin-top: 69vh;
   margin-left: 70vw;
   border-radius: 70px;
   background-color: rgb(255, 255, 255);
-  width: 25vw;
-  height: 20vh;
+  width: 30vw;
+  height: 22vh;
 }
 
 .font-img {
@@ -577,6 +614,14 @@
   border-style: none;
   border-radius: 14px;
   font-size: 2.5vh;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#conection-infos button:hover {
+  background-color: #3d6e89;
+  color: white;
+  transform: scale(1.05);
 }
 
 #contact {
@@ -608,6 +653,14 @@
   border-style: none;
   border-radius: 14px;
   font-size: 2.5vh;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#contact button:hover {
+  background-color: #3d6e89;
+  color: white;
+  transform: scale(1.05);
 }
 
 #contact img {
