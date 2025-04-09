@@ -39,7 +39,8 @@
     text-align: center; 
     width: fit-content; 
     margin-left: auto; 
-    margin-right: auto; 
+    margin-right: auto;
+    padding-bottom: 2vw; 
   }
 
 .container {
@@ -78,7 +79,7 @@ form {
     background-color: rgba(119, 173, 203, 1);
     position: relative; 
     margin-left: 5vw;
-    margin-bottom: -3vw;
+    margin-bottom: -2vw;
 }
 
 input {
@@ -132,7 +133,7 @@ input {
 .img-telefone{
   position: relative; 
   margin-left: 15vw;
-  margin-bottom: -3vw;
+  margin-bottom: -4vw;
   height: 28vw;
   width: 48vw;
 
@@ -145,6 +146,8 @@ input {
   gap: 20px;
   width: 80%;
   margin: 0 auto;
+  padding-top: 2vw; 
+
 }
 
 .card {
