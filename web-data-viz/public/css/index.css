@@ -7,7 +7,10 @@
   font-family: "Poppins", sans-serif;
 }
 
-
+html,
+body {
+  overflow-x: hidden;
+}
 
 .Button-Contato {
   display: flex;
@@ -63,7 +66,7 @@
   align-items: center;
 }
 
-.Saiba-Mais3 h6 a{
+.Saiba-Mais3 h6 a {
   text-decoration: none;
 }
 
@@ -76,7 +79,7 @@
   color: black;
 }
 
-.Saiba-Mais3 img{
+.Saiba-Mais3 img {
   margin-left: 20vw;
   margin-top: 20vh;
 }
@@ -89,8 +92,6 @@
   text-decoration: none;
   color: black;
 }
-
-
 
 .Saiba-Mais3 {
   position: absolute;
@@ -119,7 +120,6 @@
   margin-right: -20px;
   height: 5vh;
   z-index: 90;
-  
 }
 
 .Saiba-Mais {
@@ -276,7 +276,7 @@
   display: flex;
   top: 0;
   z-index: 100;
-  
+
   justify-content: center;
   align-items: center;
   background-color: rgba(119, 173, 203, 1);
@@ -542,12 +542,12 @@
   width: 70%;
 }
 
-#suluction-infos {
+#soluction-infos {
   display: flex;
   flex-direction: column;
 }
 
-#suluction-infos h1 {
+#soluction-infos h1 {
   font-size: 6vh;
 }
 
@@ -810,15 +810,13 @@ footer {
   width: 10vw;
 }
 
-
 @media screen and (max-width: 1280px) {
   .image-body img {
     width: 1000px;
     height: 80vh;
   }
 
-  .container-body{
- 
+  .container-body {
   }
 
   .fourth-container p {
@@ -846,11 +844,11 @@ footer {
   .Saiba-Mais {
     display: none;
   }
-  .Saiba-Mais2{
+  .Saiba-Mais2 {
     display: none;
   }
 
-  .Saiba-Mais3{
+  .Saiba-Mais3 {
     display: none;
   }
 
@@ -859,13 +857,12 @@ footer {
   }
 }
 
-  @media screen and (max-width: 1100px) {
-    .image-body img {
-      width: 1000px;
-      height: 80vh;
-      
-    }
-    .Bola1-Rotativa,
+@media screen and (max-width: 1100px) {
+  .image-body img {
+    width: 1000px;
+    height: 80vh;
+  }
+  .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
     width: 4.2vw;
@@ -873,24 +870,21 @@ footer {
     border: 0.9vh solid white;
     border-radius: 6vw;
   }
-  .Traço1{
+  .Traço1 {
     height: 19vh;
     margin-top: 22vh;
   }
-  .Traço2{
+  .Traço2 {
     height: 17vh;
     margin-top: 46vh;
   }
 
- 
   .Button-Contato {
     height: 7vh;
     width: 13vw;
-    
   }
-  .Button-Contato a{
+  .Button-Contato a {
     font-size: 24px;
-    
   }
 
   .Button-Location {
@@ -898,17 +892,15 @@ footer {
     width: 5vw;
     margin-right: 190px;
   }
-  .Button-Location img{
+  .Button-Location img {
     width: 40px;
   }
 }
 
 @media screen and (max-width: 1000px) {
-
   .image-body img {
     width: 900px;
     height: 80vh;
-    
   }
 
   .Bola1-Rotativa,
@@ -917,21 +909,18 @@ footer {
     width: 4.5vw;
     border-radius: 6.3vw;
   }
-  .font-img{
+  .font-img {
     font-size: 5vw;
   }
-  .font-img2{
+  .font-img2 {
     font-size: 3vw;
   }
 }
 
 @media screen and (max-width: 900px) {
-
-
   .image-body img {
     width: 700px;
     height: 80vh;
-    
   }
 
   .Bola1-Rotativa,
@@ -945,30 +934,24 @@ footer {
   }
 
   .container-Header a {
-    
-   font-size: 15px;
+    font-size: 15px;
   }
 
-  .Button-Contato a{
+  .Button-Contato a {
     font-size: 17px;
   }
 }
 
 @media screen and (max-width: 800px) {
-
-
-
   .image-body img {
-    
     width: 680px;
     height: 80vh;
     margin-right: -0px;
   }
 
-  .suluction-infos img{
+  .suloction-infos img {
     display: none;
   }
-
 
   .Bola1-Rotativa,
   .Bola2-Rotativa,
@@ -976,26 +959,26 @@ footer {
     width: 5.1vw;
     border-radius: 6.9vw;
   }
-  .Button-Contato a{
+  .Button-Contato a {
     font-size: 15px;
   }
-  .font-img{
+  .font-img {
     margin-top: 200px;
     font-size: 5.6vw;
   }
-  .font-img2{
+  .font-img2 {
     margin-top: 170px;
     font-size: 4vw;
     margin-left: -30px;
   }
 
-  p{
-    font-size: 20px
+  p {
+    font-size: 20px;
   }
 
   .container-Header a {
     width: 15vw;
-   font-size: 20px;
+    font-size: 20px;
   }
 
   .left-header,
@@ -1035,7 +1018,7 @@ footer {
     margin-right: -90px;
   }
   .Button-Location img {
-    width: 30px;;
+    width: 30px;
   }
 }
 
@@ -1048,4 +1031,61 @@ footer {
   }
 }
 
+@media screen and (max-width: 600px) {
+  #soluction {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+  }
 
+  #soluction-infos h1 {
+    font-size: 3vh;
+    text-align: center;
+  }
+
+  #soluction p {
+    font-size: 2vh;
+  }
+
+  #conection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #conection-background {
+    height: 60vh;
+    padding: 0;
+  }
+
+  #conection-background img {
+    display: none;
+  }
+
+  #conection-infos {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  #conection-infos h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 3vh;
+    width: 100%;
+  }
+
+  #conection-infos p {
+    font-size: 2vh;
+    text-align: center;
+  }
+
+  #conection-infos button {
+    width: 25vh;
+  }
+}
