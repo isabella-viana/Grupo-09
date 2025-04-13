@@ -208,14 +208,6 @@ input {
 
 
 
-
-
-
-
-
-
-
-
 .container-Header {
     height: 13vh;
     display: flex;
@@ -236,8 +228,13 @@ input {
     height: 45px;
     border-radius: 30px;
     text-decoration: none;
+    transform: scale(1s ease-in-out);
   }
-  
+  .container-Header a:hover { 
+    color: white;
+    background-color: rgba(119, 173, 203, 0.2);
+    transform: scale(1.1);
+}
   
   .left-header {
     display: flex;
@@ -257,3 +254,209 @@ input {
     width: 70px;
     height: 60px;
   }
+
+
+/* ===== TELAS PEQUENAS – DE 300px A 599px ===== */
+@media screen and (min-width: 300px) and (max-width: 599px) {
+  .fale {
+    font-size: 5vw; /* menor que original */
+    text-align: center;
+  }
+
+  .preencha {
+    font-size: 3.5vw;
+    text-align: center;
+    margin: 3vw auto;
+    width: 90%;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 5vw 0;
+  }
+
+  .ladoEsquerdo {
+    width: 100%;
+    align-items: center;
+  }
+
+  form {
+    width: 90vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 4vw 2vw;
+  }
+
+  input, .assunto {
+    width: 90vw;
+    height: auto;
+    font-size: 1rem;
+  }
+
+  .Botao-enviar {
+    width: 70vw;
+    height: auto;
+    font-size: 4vw;
+    padding: 3vw;
+    border-radius: 2vw;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4vw;
+    width: 100%;
+    margin-top: 5vw;
+  }
+
+  .card {
+    width: 85%;
+    padding: 5vw 4vw;
+    aspect-ratio: 3 / 2;
+    max-height: none;
+  }
+
+  .card h3 {
+    font-size: 4.2vw;
+  }
+
+  .card p {
+    font-size: 3.2vw;
+  }
+
+  .img-telefone {
+    display: none;
+  }
+
+  .img-mapa {
+    width: 90vw;
+    height: auto;
+    margin: 5vw auto;
+  }
+}
+
+/* ===== MÉDIO – DE 600px A 899px ===== */
+@media screen and (min-width: 600px) and (max-width: 899px) {
+  .card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3vw;
+  }
+
+  .card {
+    width: 40%;
+    padding: 4vw 3vw;
+    aspect-ratio: 3 / 2;
+  }
+
+  .card h3 {
+    font-size: 2.8vw;
+  }
+
+  .card p {
+    font-size: 2.2vw;
+  }
+
+  .fale {
+    font-size: 3vw;
+    text-align: center;
+  }
+
+  .Botao-enviar {
+    width: 40vw;
+    font-size: 2vw;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 80vw;
+    padding: 2vw;
+  }
+
+  .img-telefone {
+    display: none;
+  }
+}
+
+/* ===== GRANDES – A PARTIR DE 900px ===== */
+@media screen and (min-width: 900px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30vw;
+  }
+
+  .ladoEsquerdo {
+    width: 60%;
+  }
+
+  form {
+    width: 35vw;
+    height: 25vw;
+    margin-left: 5vw;
+    margin-right: 0;
+  }
+
+  .img-telefone {
+    display: block;
+    width: 48vw;
+    height: 28vw;
+    margin-left: 15vw;
+    margin-bottom: -4vw;
+  }
+
+  .card-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card {
+    width: 18vw;
+    padding: 40px 20px 20px;
+    aspect-ratio: auto;
+  }
+
+  .card h3 {
+    font-size: 1.5vw;
+  }
+
+  .card p {
+    font-size: 1vw;
+  }
+
+  .fale {
+    font-size: 3vw;
+  }
+
+  .Botao-enviar {
+    width: 13vw;
+    height: 3vw;
+    font-size: 1.2vw;
+    border-radius: 2vw;
+  }
+
+  .img-mapa {
+    width: 50vw;
+    height: 30vw;
+  }
+}
+
+/* ===== ALTURA RESPONSIVA – OPCIONAL ===== */
+@media screen and (max-height: 850px) {
+  .img-telefone {
+    height: 25vw;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .img-telefone {
+    display: none;
+  }
+
+  .container {
+    height: auto;
+  }
+}
