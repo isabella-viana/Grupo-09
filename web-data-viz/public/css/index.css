@@ -1124,4 +1124,54 @@ footer {
     font-size: 2vh;
     text-align: center;
   }
+
+  #culture {
+    height: 90vh;
+  }
+
+  #culture h1 {
+    font-size: 3.5vh;
+    margin-bottom: 5vh;
+  }
+
+  #culture-navs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav {
+    width: 80vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3vh;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-top: 0;
+    position: relative;
+  }
+
+  .info-nav {
+    padding-left: 10vh;
+    padding-right: 2vh;
+    padding-bottom: 8vh;
+  }
+
+  .info-nav h2 {
+    margin: 0;
+    font-size: 3vh;
+  }
+
+  .info-nav p {
+    font-size: 1.5vh;
+    text-align: center;
+  }
+
+  .nav img {
+    height: 18vh;
+    position: absolute;
+    bottom: 0%;
+    right: 55%;
+  }
 }
