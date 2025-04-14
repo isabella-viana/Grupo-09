@@ -1176,7 +1176,7 @@ footer {
   }
 
   footer {
-    height: 35vh;
+    height: 30vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1214,7 +1214,7 @@ footer {
 
   #footer-infos {
     width: 100%;
-    height: 20vh;
+    height: 17vh;
     padding-left: 5vw;
     padding-right: 5vw;
     display: flex;
@@ -1231,7 +1231,7 @@ footer {
   }
 
   #footer-coments {
-    width: 20vh;
+    width: 15vh;
     display: flex;
     justify-content: center;
     padding-top: 2.5vh;
@@ -1243,7 +1243,11 @@ footer {
     font-size: 1.5vh;
   }
 
+  #footer-coments img {
+    margin-left: 2vh;
+  }
+
   #footer-contacts {
-    width: 10vw;
+    width: 100%;
   }
 }
