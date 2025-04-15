@@ -817,6 +817,22 @@ footer {
   }
 
   .container-body {
+    margin-top: -40px;
+  }
+  
+  .first-container {
+   width: 300px;
+  }
+
+  .img_dados img{
+    width: 150px;
+    height: 50px;
+    margin-left: -20px;
+  }
+
+  .check1 p, .check2 p, .check3 p{
+    font-size: 10px;
+    margin-top: 1px;
   }
 
   .fourth-container p {
@@ -861,6 +877,24 @@ footer {
   .image-body img {
     width: 1000px;
     height: 80vh;
+  }
+
+  .little-container p{
+    font-size: 13px;
+  }
+
+  .Text h6 {
+    font-size: 16px;
+  }
+
+  .little-container2 p {
+    font-size: 13px;
+  }
+
+  .first-container {
+
+    height: 350px;
+    width: 300px;
   }
   .Bola1-Rotativa,
   .Bola2-Rotativa,
@@ -915,9 +949,90 @@ footer {
   .font-img2 {
     font-size: 3vw;
   }
+
+  .little-container p{
+    font-size: 12px;
+  }
+
+  .Text h6 {
+    font-size: 16px;
+  }
+
+  .little-container2 p {
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 900px) {
+
+  .fourth-container{
+    height: 300px;
+  }
+
+  .Text h6 {
+    font-size: 11px;
+  }
+
+.little-container{
+  height: 120px;
+  width: 120px;
+}
+
+.little-container h4{
+  font-size: 19px;
+}
+
+.second-container{
+margin-left: -70px;
+width: 260px;
+}
+
+.second-container p {
+  margin-right: 20px;
+}
+
+.check1 p {
+  margin-bottom: 90px;
+}
+
+.check3, .check1, .check2 {
+  width: 30px;
+  height: 30px;
+  margin-top: 35px;
+  margin-left: 20px;
+}
+
+.check3 p {
+margin-top: 0px;
+margin-right: 30px;
+margin-right: -10px;
+}
+
+.first-container {
+  width: 230px;
+  margin-left: -20px;
+  height: 290px;
+}
+
+.img_Power, .img_dados, .Traco{
+  display: none;
+}
+
+.little-container2{
+  height: 120px;
+  width: 120px;
+  margin-top: 155px;
+}
+
+.little-container2 h4{
+  font-size: 19px;
+}
+
+
+  .little-container2 p {
+    font-size: 12px;
+  }
+
   .image-body img {
     width: 700px;
     height: 80vh;
@@ -953,6 +1068,17 @@ footer {
     display: none;
   }
 
+  .first-container {
+    width: 290px;
+    margin-left: -55px;
+    height: 290px;
+  }
+
+  .second-container{
+    margin-left: -120px;
+    width: 260px;
+    }
+
   .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
@@ -987,6 +1113,61 @@ footer {
   }
 }
 
+@media screen and (max-width: 750px) {
+  .fourth-container{
+    height: 240px;
+    margin-top: 20px;
+  }
+
+  .fourth-container p{
+    font-size: 8px;
+  }
+
+  .little-container {
+    height: 100px;
+    margin-top: 20px;
+  }
+
+  .little-container h4 {
+    font-size: 18px;
+  }
+  .little-container p {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .little-container2 {
+    height: 100px;
+    margin-top: 150px;
+  }
+
+  .little-container2 h4 {
+    font-size: 18px;
+  }
+  .little-container2 p {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .first-container {
+    width: 290px;
+    margin-left: -55px;
+    height: 290px;
+  }
+
+  .second-container{
+    margin-left: -120px;
+    width: 200px;
+    }
+
+    .second-container p{
+      font-size: 8px;
+      width: 160px;
+      }
+
+  
+}
+
 @media screen and (max-width: 700px) {
   .Bola1-Rotativa,
   .Bola2-Rotativa,
@@ -997,6 +1178,65 @@ footer {
   .Button-Location {
     margin-right: 110px;
   }
+
+  .fourth-container{
+    height: 240px;
+    margin-top: 20px;
+    width: 150px;
+  }
+
+  .fourth-container p{
+    font-size: 6px;
+  }
+
+  .little-container {
+    height: 100px;
+    margin-top: 20px;
+  }
+
+  .little-container h4 {
+    font-size: 18px;
+  }
+  .little-container p {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .little-container2 {
+    height: 100px;
+    margin-top: 150px;
+  }
+
+  .little-container2 h4 {
+    font-size: 18px;
+  }
+  .little-container2 p {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .first-container {
+    width: 290px;
+    margin-left: -55px;
+    height: 290px;
+  }
+
+  .second-container p{
+    font-size: 7px;
+    margin-left: 42px;
+    padding-right: 32px;
+    width: 30px;
+    }
+
+  .second-container{
+    margin-left: -100px;
+    width: 200px;
+    }
+
+    .second-container p{
+      font-size: 8px;
+      width: 160px;
+      }
 }
 
 @media screen and (max-width: 600px) {
@@ -1020,6 +1260,59 @@ footer {
   .Button-Location img {
     width: 30px;
   }
+
+  .container-body {
+    margin-top: -0px;
+  }
+
+  .fourth-container{
+    height: 280px;
+    margin-top: 20px;
+    margin-right: -40px;
+  }
+
+  .fourth-container p{
+    font-size: 8px;
+  }
+
+  .little-container {
+    height: 100px;
+    margin-top: 20px;
+  }
+
+  .little-container h4 {
+    font-size: 18px;
+  }
+  .little-container p {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  .little-container2 {
+    height: 100px;
+    margin-top: 150px;
+  }
+
+  .little-container2 h4 {
+    font-size: 18px;
+  }
+  .little-container2 p {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  
+
+  .second-container{
+    width: 160px;
+    margin-right: 220px;
+  }
+
+    .second-container p{
+      font-size: 7px;
+      margin-left: 40px;
+      width: 100px;
+      }
 }
 
 @media screen and (max-width: 500px) {
@@ -1029,6 +1322,10 @@ footer {
     width: 6vw;
     border-radius: 7.8vw;
   }
+}
+
+.little-container {
+  padding-left: -120px;
 }
 
 @media screen and (max-width: 600px) {
@@ -1250,4 +1547,77 @@ footer {
   #footer-contacts {
     width: 100%;
   }
+
+  
 }
+
+@media screen and (max-width: 500px) {
+.fourth-container{
+  height: 320px;
+
+}
+
+.fourth-container p{
+  font-size: 9px;
+}
+
+.little-container {
+  width: 80px;
+  height: 130px;
+}
+
+.little-container2 {
+  width: 80px;
+  height: 120px;
+  margin-top: 220px
+}
+
+.little-container2 p {
+  font-size: 9px;
+}
+
+.little-container2 h4{
+  font-size: 14px;
+}
+
+.little-container p {
+  font-size: 10px;
+}
+
+.little-container h4{
+  font-size: 14px;
+}
+.second-container p{
+  font-size: 8px;
+}
+
+.second-container {
+  height: 320px;
+  margin-left: -90px;
+  margin-top: 20px;
+}
+
+.check3 p{
+  padding-top: -10px;
+}
+
+.check3 {
+  margin-top: 80px;
+}
+
+.check2 p{
+  padding-top: -50px;
+}
+
+.check2{
+  padding-top: 20px;
+}
+
+.check3 {
+  margin-top: 80px;
+}
+
+}
+
+
+
