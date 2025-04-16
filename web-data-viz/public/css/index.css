@@ -66,81 +66,45 @@ body {
   align-items: center;
 }
 
-.Saiba-Mais3 h6 a {
-  text-decoration: none;
-}
-
-.Saiba-Mais3 h6 {
-  margin-top: 7vh;
-  margin-left: 2vw;
-  font-size: 30px;
-  font-weight: 300;
-  text-decoration: none;
-  color: black;
-}
-
-.Saiba-Mais3 img {
-  margin-left: 20vw;
-  margin-top: 20vh;
-}
-
-.Saiba-Mais3 p {
-  margin-top: 7vh;
-  margin-left: 1vw;
-  font-size: 22px;
-  font-weight: 300;
-  text-decoration: none;
-  color: black;
-}
-
-.Saiba-Mais3 {
+.Saiba-Mais4{
   position: absolute;
-  margin-top: 59vh;
-  margin-left: 78vw;
-  border-radius: 70px;
-  background-color: rgba(244, 244, 244, 1);
-  width: 12vw;
-  height: 29vh;
-  z-index: 45;
-}
-
-.Saiba-Mais4 {
-  position: absolute;
-  margin-top: 74vh;
   margin-left: 70vw;
-  border-radius: 70px;
-  background-color: rgba(244, 244, 244, 1);
-  width: 20vw;
-  height: 17vh;
-  z-index: 45;
+  margin-top: 65vh;
+  z-index: 20;
 }
 
-.Saiba-Mais4 img {
-  margin-top: 50px;
+.imgs{
+  position: absolute;
+  margin-top: -60px;
+  margin-right: 20px;
+}
+
+.imgs img{
+
+ margin-top: -190px;
   margin-right: -20px;
-  height: 5vh;
-  z-index: 90;
 }
 
-.Saiba-Mais {
+.Saiba-Mais4 p{
   position: absolute;
-  margin-top: 52vh;
-  margin-left: 78vw;
-  border-radius: 70px;
-  background-color: rgb(255, 255, 255);
-  width: 38vh;
-  height: 40vh;
+  margin-top: 15vh;
+  margin-left: 9vw;
+  font-size: 22px;
+}
+.Saiba-Mais5{
+  position: absolute;
+  margin-left: 68vw;
+  margin-top: 60vh;
 }
 
-.Saiba-Mais2 {
+.Saiba-Mais5 p{
   position: absolute;
-  margin-top: 69vh;
-  margin-left: 70vw;
-  border-radius: 70px;
-  background-color: rgb(255, 255, 255);
-  width: 30vw;
-  height: 22vh;
+  margin-left: 11.3vw;
+  margin-top: 9vh;
+  z-index: 21;
+  font-size: 30px;
 }
+
 
 .font-img {
   margin-top: 25vh;
@@ -810,10 +774,30 @@ footer {
   width: 10vw;
 }
 
+@media screen and (max-width: 1780px) {
+  .Saiba-Mais4 .imgs{
+    width: 250px;
+    margin-right: 310px;
+  }
+
+  .Rectangle img{
+    width: 330px;
+  };
+
+  .Saiba-Mais5 p{
+    font-size: 20px;
+  }
+
+}
+
 @media screen and (max-width: 1280px) {
   .image-body img {
     width: 1000px;
     height: 80vh;
+  }
+
+  .Saiba-Mais5 {
+    display: none;
   }
 
   .container-body {
@@ -1033,6 +1017,13 @@ margin-right: -10px;
     font-size: 12px;
   }
 
+  .second-container p{
+    font-size: 9px;
+    width: 160px;
+    margin-left: 40px;
+    padding-right: 1px;
+    }
+
   .image-body img {
     width: 700px;
     height: 80vh;
@@ -1064,6 +1055,12 @@ margin-right: -10px;
     margin-right: -0px;
   }
 
+  .second-container p{
+    font-size: 9px;
+    width: 160px;
+    margin-left: 40px;
+    padding-right: 1px;
+    }
   .suloction-infos img {
     display: none;
   }
@@ -1075,14 +1072,14 @@ margin-right: -10px;
   }
 
   .second-container{
-    margin-left: -120px;
+    margin-left: -110px;
     width: 260px;
     }
 
   .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
-    width: 5.1vw;
+    width: 6.1vw;
     border-radius: 6.9vw;
   }
   .Button-Contato a {
@@ -1103,7 +1100,7 @@ margin-right: -10px;
   }
 
   .container-Header a {
-    width: 15vw;
+    width: 20vw;
     font-size: 20px;
   }
 
@@ -1114,6 +1111,16 @@ margin-right: -10px;
 }
 
 @media screen and (max-width: 750px) {
+
+.font-img {
+  font-size: 5vw;
+  margin-top: 28vh;
+}
+
+.font-img2 {
+  margin-left: -16px;
+}
+
   .fourth-container{
     height: 240px;
     margin-top: 20px;
@@ -1163,6 +1170,8 @@ margin-right: -10px;
     .second-container p{
       font-size: 8px;
       width: 160px;
+      margin-left: 40px;
+      padding-right: 30px;
       }
 
   
@@ -1172,11 +1181,12 @@ margin-right: -10px;
   .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
-    width: 5.4vw;
+    width: 6.4vw;
     border-radius: 7.2vw;
   }
   .Button-Location {
-    margin-right: 110px;
+    margin-right: 11vw;
+    width: 10vw;
   }
 
   .fourth-container{
@@ -1229,7 +1239,7 @@ margin-right: -10px;
     }
 
   .second-container{
-    margin-left: -100px;
+    margin-left: -90px;
     width: 200px;
     }
 
@@ -1243,9 +1253,23 @@ margin-right: -10px;
   .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
-    width: 5.7vw;
+    width: 7.7vw;
     border-radius: 7.5vw;
   }
+
+
+  .font-img {
+    font-size: 5vw;
+    margin-top: 30vh;
+    margin-right: 10px ;
+    font-size: 7vw;
+  }
+  
+  .font-img2 {
+    margin-left: 22vw ;
+    font-size: 7vw;
+  }
+  
 
   .Button-Contato {
     margin-right: 130px;
@@ -1304,8 +1328,9 @@ margin-right: -10px;
   
 
   .second-container{
-    width: 160px;
-    margin-right: 220px;
+    width: 130px;
+    
+    
   }
 
     .second-container p{
@@ -1319,7 +1344,7 @@ margin-right: -10px;
   .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
-    width: 6vw;
+    width: 9vw;
     border-radius: 7.8vw;
   }
 }
@@ -1593,7 +1618,7 @@ margin-right: -10px;
 
 .second-container {
   height: 320px;
-  margin-left: -90px;
+  margin-left: -60px;
   margin-top: 20px;
 }
 
