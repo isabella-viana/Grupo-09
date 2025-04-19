@@ -785,7 +785,6 @@ footer {
     width: 330px;
   }
 
-  ;
 
   .Saiba-Mais5 p {
     font-size: 20px;
@@ -961,6 +960,8 @@ footer {
 @media screen and (max-width: 900px) {
 
 
+  
+
   .Traço1{
     height: 18.9vh;
     margin-bottom: 20vh;
@@ -970,8 +971,6 @@ footer {
     height: 17vh;
     margin-top: 45vh;
   }
-
-  
 
   .fourth-container {
     height: 300px;
@@ -991,26 +990,46 @@ footer {
   }
 
   .second-container {
-    margin-left: -70px;
-    width: 260px;
+    margin-left: -110px;
+    height: 100px;
+    width: 700px;
+    margin-top: 0;
   }
+
+  
+
 
   .second-container p {
     margin-right: 20px;
+  }
+
+  .check1{
+    margin-top: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .check2{
+    width: 30px;
+    height: 30px;
+    margin-left: 240px;
+    margin-top: -30px;
+    margin-right: 20px;
+  }
+
+  .check3{
+    margin-left: 470px;
+    margin-top: -30px;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
   }
 
   .check1 p {
     margin-bottom: 90px;
   }
 
-  .check3,
-  .check1,
-  .check2 {
-    width: 30px;
-    height: 30px;
-    margin-top: 35px;
-    margin-left: 20px;
-  }
+  
 
   .check3 p {
     margin-top: 0px;
@@ -1019,6 +1038,7 @@ footer {
   }
 
   .first-container {
+    display: none;
     width: 230px;
     margin-left: -20px;
     height: 290px;
@@ -1030,10 +1050,24 @@ footer {
     display: none;
   }
 
+  .little-container{
+    margin-top: 115px;
+    margin-right: 180px;
+  }
+
   .little-container2 {
     height: 120px;
     width: 120px;
-    margin-top: 155px;
+    margin-top: 115px;
+    margin-right: -90px;
+    position: absolute;
+  }
+
+  .fourth-container{
+    height: 140px;
+    margin-top: 260px;
+    margin-left: -10px;
+    width: 700px;
   }
 
   .little-container2 h4 {
@@ -1084,26 +1118,10 @@ footer {
     margin-right: -0px;
   }
 
-  .second-container p {
-    font-size: 9px;
-    width: 160px;
-    margin-left: 40px;
-    padding-right: 1px;
-  }
+  
 
   .suloction-infos img {
     display: none;
-  }
-
-  .first-container {
-    width: 290px;
-    margin-left: -55px;
-    height: 290px;
-  }
-
-  .second-container {
-    margin-left: -110px;
-    width: 260px;
   }
 
   .Bola1-Rotativa,
@@ -1156,61 +1174,45 @@ footer {
     margin-top: 20vh;
   }
 
-  .fourth-container {
-    height: 240px;
-    margin-top: 20px;
-  }
-
-  .fourth-container p {
-    font-size: 8px;
-  }
-
-  .little-container {
-    height: 100px;
-    margin-top: 20px;
-  }
-
-  .little-container h4 {
-    font-size: 18px;
-  }
-
-  .little-container p {
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .little-container2 {
-    height: 100px;
-    margin-top: 150px;
-  }
-
-  .little-container2 h4 {
-    font-size: 18px;
-  }
-
-  .little-container2 p {
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .first-container {
-    width: 290px;
-    margin-left: -55px;
-    height: 290px;
-  }
-
-  .second-container {
-    margin-left: -120px;
+  .second-container{
+    margin-top: -100px;
+    height: 200px;
     width: 200px;
+    margin-left: 100px;
   }
 
-  .second-container p {
-    font-size: 8px;
-    width: 160px;
-    margin-left: 40px;
+  .check1{
     padding-right: 30px;
   }
 
+  .check1 p{
+    padding-right: 15px;
+  }
+
+  .check2{
+    margin-left: 15px;
+    margin-top: 25px;
+    
+  }
+
+  .check2 p{
+    padding-right: 12px;
+  }
+
+  .check3{
+    margin-left: 15px;
+    margin-top: 20px;
+    
+    
+  }
+
+  .check2 p{
+    padding-right: 15px;
+  }
+ 
+  .container-body{
+    margin-top: 50px;
+  }
 
 }
 
@@ -1228,82 +1230,18 @@ footer {
     width: 10vw;
   }
 
-  .fourth-container {
-    height: 240px;
-    margin-top: 20px;
-    width: 150px;
+  .fourth-container{
+    margin-left: -10px;
+    width: 90vw;
   }
 
-  .fourth-container p {
-    font-size: 6px;
-  }
 
-  .little-container {
-    height: 100px;
-    margin-top: 20px;
-  }
-
-  .little-container h4 {
-    font-size: 18px;
-  }
-
-  .little-container p {
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .little-container2 {
-    height: 100px;
-    margin-top: 150px;
-  }
-
-  .little-container2 h4 {
-    font-size: 18px;
-  }
-
-  .little-container2 p {
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .first-container {
-    width: 290px;
-    margin-left: -55px;
-    height: 290px;
-  }
-
-  .second-container p {
-    font-size: 7px;
-    margin-left: 42px;
-    padding-right: 32px;
-    width: 30px;
-  }
-
-  .second-container {
-    margin-left: -90px;
-    width: 200px;
-  }
-
-  .second-container p {
-    font-size: 8px;
-    width: 160px;
-  }
+ 
+ 
 }
 
 
-@media screen and (max-width: 500px) {
 
-  .Bola1-Rotativa,
-  .Bola2-Rotativa,
-  .Bola3-Rotativa {
-    width: 9vw;
-    border-radius: 7.8vw;
-  }
-}
-
-.little-container {
-  padding-left: -120px;
-}
 
 @media screen and (max-width: 600px) {
 
@@ -1316,16 +1254,16 @@ footer {
 
 
   .font-img {
-    font-size: 4vw;
+    
     margin-top: 25vh;
     margin-left: 150px;
-    font-size: 6vw;
+    font-size: 8vw;
   }
 
   .font-img2 {
     margin-left: 30vw;
     margin-top: 17vh;
-    font-size: 5vw;
+    font-size: 8vw;
   }
 
 
@@ -1345,63 +1283,7 @@ footer {
   .Button-Location img {
     width: 30px;
   }
-
-  .container-body {
-    margin-top: -0px;
-  }
-
-  .fourth-container {
-    height: 280px;
-    margin-top: 20px;
-    margin-right: -40px;
-  }
-
-  .fourth-container p {
-    font-size: 8px;
-  }
-
-  .little-container {
-    height: 100px;
-    margin-top: 20px;
-  }
-
-  .little-container h4 {
-    font-size: 18px;
-  }
-
-  .little-container p {
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-  .little-container2 {
-    height: 100px;
-    margin-top: 150px;
-  }
-
-  .little-container2 h4 {
-    font-size: 18px;
-  }
-
-  .little-container2 p {
-    font-size: 10px;
-    margin-top: 2px;
-  }
-
-
-
-  .second-container {
-    width: 130px;
-
-
-  }
-
-  .second-container p {
-    font-size: 7px;
-    margin-left: 40px;
-    width: 100px;
-  }
-
+ 
   #soluction {
     display: flex;
     flex-direction: column;
@@ -1634,73 +1516,6 @@ footer {
     height: 9vw;
   }
 
-  .fourth-container {
-    height: 320px;
-
-  }
-
-  .fourth-container p {
-    font-size: 9px;
-  }
-
-  .little-container {
-    width: 80px;
-    height: 130px;
-  }
-
-  .little-container2 {
-    width: 80px;
-    height: 120px;
-    margin-top: 220px
-  }
-
-  .little-container2 p {
-    font-size: 9px;
-  }
-
-  .little-container2 h4 {
-    font-size: 14px;
-  }
-
-  .little-container p {
-    font-size: 10px;
-  }
-
-  .little-container h4 {
-    font-size: 14px;
-  }
-
-  .second-container p {
-    font-size: 8px;
-  }
-
-  .second-container {
-    height: 320px;
-    margin-left: -60px;
-    margin-top: 20px;
-  }
-
-  .check3 p {
-    padding-top: -10px;
-  }
-
-  .check3 {
-    margin-top: 80px;
-  }
-
-  .check2 p {
-    padding-top: -50px;
-  }
-
-  .check2 {
-    padding-top: 20px;
-  }
-
-  .check3 {
-    margin-top: 80px;
-  }
-
-
   .Bola1-Rotativa,
   .Bola2-Rotativa,
   .Bola3-Rotativa {
@@ -1708,7 +1523,25 @@ footer {
     border-radius: 7.5vw;
   }
 
+  .second-container{
+    margin-left: 10px;
+  }
+
+  .fourth-container{
+    margin-top: 300px;
+   height: 200px;
+  }
   
+  .container-body{
+    margin-bottom: 390px;
+  }
+
+  .little-container{
+    margin-right: 70px;
+  }
+  .little-container2 {
+    margin-right: -140px;
+  }
 
 }
 
