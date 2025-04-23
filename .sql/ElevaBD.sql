@@ -1,3 +1,7 @@
+CREATE DATABASE Eleva;
+
+USE Eleva;
+
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
