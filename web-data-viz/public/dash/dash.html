@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Gráficos</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Menu Lateral -->
+    <aside class="menu-lateral">
+      <div class="perfil-usuario">
+        <div class="icone-usuario"></div>
+        <span>Eleva User</span>
+      </div>
+
+      <nav class="navegacao">
+        <ul>
+          <li>Atividades</li>
+          <li class="dashboard-toggle">
+            Dashboard
+            <ul class="submenu mostrar">
+              <li>Consumo</li>
+              <li>Relatório</li>
+            </ul>
+          </li>
+          <li>Grupos</li>
+        </ul>
+      </nav>
+
+      <div class="suporte">Suporte</div>
+    </aside>
+
+    <!-- Conteúdo da Dashboard -->
+    <main class="conteudo-principal">
+      <div class="dashboard-graficos">
+        <h2>Visão Geral</h2>
+
+        <!-- KPIs -->
+        <div class="kpis">
+          <div class="kpi-box">Opção 1<br><strong>280 kWh</strong></div>
+          <div class="kpi-box">Opção 2<br><strong>1.024 kWh</strong></div>
+        </div>
+
+        <!-- Área principal: Gráficos à esquerda, Tabela à direita -->
+        <div class="area-conteudo">
+          <div class="graficos">
+            <div class="grafico-box">Gráfico 1</div>
+
+<p></p>
+<p></p>
+
+<p></p>
+            <div class="grafico-box">Gráfico 2</div>
+          </div>
+
+          <div class="historico">
+            <h3>Histórico</h3>
+            
+            <!-- Seletor de Data -->
+            <div class="filtro-data">
+              <label for="data">Escolha uma data:</label>
+              <input type="date" id="data" onchange="filtrarData()">
+            </div>
+            
+            <!-- Tabela -->
+            <table id="tabela-historico">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Quantidade (kWh)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2025-04-22</td><td>150 kWh</td></tr>
+                <tr><td>2025-04-21</td><td>120 kWh</td></tr>
+                <tr><td>2025-04-20</td><td>135 kWh</td></tr>
+                <tr><td>2025-04-19</td><td>110 kWh</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function filtrarData() {
+      var inputData = document.getElementById("data").value;
+      var tabela = document.getElementById("tabela-historico");
+      var linhas = tabela.getElementsByTagName("tr");
+      
+      // Percorre todas as linhas da tabela
+      for (var i = 1; i < linhas.length; i++) {
+        var dataCelula = linhas[i].getElementsByTagName("td")[0];
+        if (dataCelula) {
+          var data = dataCelula.textContent || dataCelula.innerText;
+          
+          // Verifica se a data corresponde à data selecionada
+          if (inputData === "" || data === inputData) {
+            linhas[i].style.display = "";
+          } else {
+            linhas[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

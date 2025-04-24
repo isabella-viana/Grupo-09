@@ -1,0 +1,182 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Menu Lateral */
+.menu-lateral {
+  width: 23vh;
+  background-color: #77ADCB;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+}
+
+.perfil-usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4vh;
+}
+
+.icone-usuario {
+  width: 7vh;
+  height: 7vh;
+  border-radius: 50%;
+  background-color: #d0e5f5;
+  margin-bottom: 1vh;
+}
+
+.navegacao ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navegacao li {
+  margin: 1.5vh 0;
+  cursor: pointer;
+  font-size: 1.5vh;
+}
+
+.submenu {
+  margin-top: 0.5vh;
+  margin-left: 1.5vh;
+  display: none;
+}
+
+.navegacao li.dashboard-toggle:hover .submenu {
+  display: block;
+}
+
+.suporte {
+  margin-top: auto;
+  font-size: 1.4vh;
+  padding-top: 2vh;
+}
+
+/* Conteúdo da Dashboard */
+.conteudo-principal {
+  flex-grow: 1;
+  padding: 4vh;
+}
+
+.dashboard-graficos h2 {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+  color: #0a71a5;
+}
+
+.kpis {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4vh;
+}
+
+.kpi-box {
+  background-color: white;
+  border: 2px solid #77ADCB;
+  padding: 2vh;
+  color: #0a71a5;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 2vh;
+  flex: 1;
+  margin: 0 2vh;
+}
+
+.kpi-box strong {
+  font-size: 3vh;
+  display: block;
+}
+
+.area-conteudo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3vh;
+  gap: 3vh;
+}
+
+.graficos {
+  width: 55%;
+}
+
+.grafico-box {
+  background-color: #77ADCB;
+  padding: 4vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 60vh;
+  height: 30vh;
+  padding: 2vh; 
+
+}
+
+.historico {
+  width: 38%;
+  padding: 2vh;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.historico h3 {
+  text-align: center;
+  font-size: 2.5vh;
+  margin-bottom: 2vh;
+  color: #77ADCB;
+}
+
+.filtro-data {
+  margin-bottom: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filtro-data label {
+  margin-right: 1vh;
+  font-size: 1.8vh;
+}
+
+#data {
+  padding: 0.5vh;
+  font-size: 1.5vh;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1.5vh;
+  text-align: left;
+}
+
+thead {
+  background-color: #77ADCB;
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
