@@ -1,9 +1,9 @@
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
-    cnpj CHAR(14),
-    razaoSocial VARCHAR(45),
     email VARCHAR(45),
+    cnpj CHAR(14),
+    senha VARCHAR(20),    
     dtCadastro DATE
 );
 
@@ -52,3 +52,4 @@ CREATE TABLE avisos (
     consumoEnergia_idConsumoEnergia INT,
     FOREIGN KEY (consumoEnergia_idConsumoEnergia) REFERENCES consumoEnergia(idConsumoEnergia)
 );
+
