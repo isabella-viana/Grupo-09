@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-box register">
-            <form action="">
+            <form action="" onsubmit="return false">
                 <div class="arrow2">
                     <a href="#">
                         <img src="imgs/icons8-arrow-64 (1).png" alt="">
@@ -124,9 +124,8 @@
                     // Agora vá para o arquivo routes/usuario.js
                     nomeServer: nomeVar,
                     emailServer: emailVar,
-                    cnpjSever: cnpjVar,
+                    cnpjServer: cnpjVar,
                     senhaServer: senhaVar,
-
                 }),
             })
                 .then(function (resposta) {
@@ -137,7 +136,7 @@
                         alert('Cadastro realizado com sucesso!')
 
 
-                        window.location = "login.html";
+                        // window.location = "login.html";
 
 
                         limparFormulario();

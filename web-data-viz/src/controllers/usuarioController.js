@@ -15,7 +15,7 @@ function autenticar(req, res) {
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); 
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
@@ -53,6 +53,7 @@ function autenticar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    console.log('Entrei na função cadastrar')
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var cnpj = req.body.cnpjServer;
@@ -61,16 +62,21 @@ function cadastrar(req, res) {
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
+        console.log('aaaaa')
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
+        console.log('bbbb')
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+        console.log('ccccccc')
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
+        console.log('dddddd')
     } else {
+        console.log('passei das validações')
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email,cnpj, senha)
+        usuarioModel.cadastrar(nome, email, cnpj, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
