@@ -7,8 +7,10 @@ function autenticar(req, res) {
 
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
+        console.log("parei no email do controller")
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
+        console.log("Parei na senha do controller")
     } else {
 
         usuarioModel.autenticar(email, senha)
