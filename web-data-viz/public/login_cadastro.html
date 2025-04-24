@@ -48,19 +48,22 @@
                     <img src="imgs/logo-menu.png" alt="">
                 </div>
                 <div class="input_box">
-                    <input type="text" placeholder="Nome" required>
+                    <input type="text" id="input_nome" placeholder="Nome" required>
                 </div>
                 <div class="input_box">
-                    <input type="text" placeholder="Email" required>
+                    <input type="text" id="input_email" placeholder="Email" required>
                 </div>
                 <div class="input_box">
-                    <input type="password" placeholder="CNPJ" required>
+                    <input type="password" id="input_cnpj"  placeholder="CNPJ" required>
                 </div>
                 <div class="input_box">
-                    <input type="password" placeholder="Senha" required>
+                    <input type="password" id="input_senha" placeholder="Senha"  required>
+                </div>
+                <div class="input_box">
+                    <input type="password" id="confirmacao_senha_input" placeholder="Confirmar sua senha" required>
                 </div>
 
-                <button type="submit" class="btn">Cadastre-se</button>
+                <button type="submit" class="btn" onclick="cadastrar()">Cadastre-se</button>
             </form>
         </div>
         <div class="toggle-box">
@@ -78,6 +81,77 @@
     </div>
 
     <script src="js/login2.js"></script>
+    <script>
+
+
+        function cadastrar() {
+
+            var nomeVar = input_nome.value;
+            var emailVar = input_email.value;
+            var cnpjVar = input_cnpj.value;
+            var senhaVar = input_senha.value;
+            var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+
+            // Verificando se há algum campo em branco
+            if (
+                nomeVar == "" ||
+                emailVar == "" ||
+                senhaVar == "" ||
+                confirmacaoSenhaVar == ""
+            ) {
+                alert('Preencha todos os campos para continuar');
+
+                return false;
+            }
+            if (senhaVar != confirmacaoSenhaVar) {
+                alert('As senhas não são iguais')
+                return false
+            }
+            if (senhaVar.lenght >= 6) {
+                alert('A senha deve ter pelo menos 6 numeros!')
+                return false
+            }
+
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    cnpjSever: cnpjVar,
+                    senhaServer: senhaVar,
+
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+
+                        alert('Cadastro realizado com sucesso!')
+
+
+                        window.location = "login.html";
+
+
+                        limparFormulario();
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
+        }
+    </script>
 
 
 </body>
