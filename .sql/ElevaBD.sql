@@ -43,8 +43,8 @@ CREATE TABLE consumoEnergia (
     idConsumoEnergia INT PRIMARY KEY AUTO_INCREMENT,
     consumo DOUBLE,
     data DATE,
+    classe VARCHAR(45),
     consumidores INT,
-    dashboard_idDashboard INT,
     estados_idEstados INT,
     FOREIGN KEY (estados_idEstados) REFERENCES estados(idEstados)
 );
@@ -56,3 +56,6 @@ CREATE TABLE avisos (
     consumoEnergia_idConsumoEnergia INT,
     FOREIGN KEY (consumoEnergia_idConsumoEnergia) REFERENCES consumoEnergia(idConsumoEnergia)
 );
+
+
+drop database eleva;
