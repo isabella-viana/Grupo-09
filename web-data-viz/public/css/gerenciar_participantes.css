@@ -20,3 +20,12 @@ header img {
   height: 7vh;
   align-items: center;
 }
+
+#left-menu {
+  display: flex;
+  align-items: flex-start;
+  height: 99vh;
+  width: 13vw;
+  background-color: rgba(119, 173, 203, 1);
+  flex-direction: column;
+}
