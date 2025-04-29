@@ -7,44 +7,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
+ 
+  <section class="header-section">
+    <header>
+        <div class="header-container">
+            <img src="imgs/Logo.png" alt="">
+        </div>
+    </header>
+</section>
 
-    <!-- Menu Lateral -->
-    <aside class="menu-lateral">
-      <div class="perfil-usuario">
-        <div class="icone-usuario"></div>
-        <span>Eleva User</span>
-      </div>
+<div class="container-principal">
 
-      <nav class="navegacao">
-        <ul>
-          <li>Atividades</li>
-          <li class="dashboard-toggle">
-            Dashboard
-            <ul class="submenu mostrar">
-              <li>Consumo</li>
-              <li>Relatório</li>
-            </ul>
-          </li>
-          <li>Grupos</li>
-        </ul>
-      </nav>
+    <section>
 
-      <div class="suporte">Suporte</div>
-    </aside>
+        <div class="left-header">
+            <div class="expandir-img">
+                <a href="">
+                    <img src="img/Expansao.png" alt="">
+                </a>
+            </div>
 
-    <!-- Conteúdo da Dashboard -->
+            <div class="user-img">
+                <img src="img/User.png" alt="">
+            </div>
+
+            <div class="user-name">
+                <p>
+                    Eleva User
+                </p>
+                <a href="">
+                    <img src="img" alt="">
+                </a>
+            </div>
+
+            <div class="icons-sino">
+                <a href="">
+                    <img src="imgs/sino 4.png" alt="">
+                    <p>Atividades</p>
+                </a>
+            </div>
+
+            <div class="icons-dashboard">
+                <a href="">
+                    <img src="imgs/painel-de-controle 4.png" alt="">
+                    <p>Dashboard</p>
+                </a>
+            </div>
+
+            <div class="icons-grupos">
+                <a href="">
+                    <img src="imgs/do-utilizador 24.png" alt="">
+                    <p>Grupos</p>
+                </a>
+            </div>
+
+            <div class="icons-suporte">
+                <a href="">
+                    <img src="imgs/apoio-suporte 4.png" alt="">
+                    <p>Suporte</p>
+                </a>
+            </div>
+
+
+            <div class="icons-exit">
+                <a href="">
+                    <img src="imgs/sair 4.png" alt="">
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+   
     <main class="conteudo-principal">
       <div class="dashboard-graficos">
         <h2>Visão Geral</h2>
 
-        <!-- KPIs -->
         <div class="kpis">
           <div class="kpi-box">Opção 1<br><strong>280 kWh</strong></div>
           <div class="kpi-box">Opção 2<br><strong>1.024 kWh</strong></div>
         </div>
 
-        <!-- Área principal: Gráficos à esquerda, Tabela à direita -->
+      
         <div class="area-conteudo">
           <div class="graficos">
             <div class="grafico-box">Gráfico 1</div>
@@ -59,13 +103,12 @@
           <div class="historico">
             <h3>Histórico</h3>
             
-            <!-- Seletor de Data -->
+      
             <div class="filtro-data">
               <label for="data">Escolha uma data:</label>
               <input type="date" id="data" onchange="filtrarData()">
             </div>
-            
-            <!-- Tabela -->
+  
             <table id="tabela-historico">
               <thead>
                 <tr>
@@ -93,13 +136,13 @@
       var tabela = document.getElementById("tabela-historico");
       var linhas = tabela.getElementsByTagName("tr");
       
-      // Percorre todas as linhas da tabela
+     
       for (var i = 1; i < linhas.length; i++) {
         var dataCelula = linhas[i].getElementsByTagName("td")[0];
         if (dataCelula) {
           var data = dataCelula.textContent || dataCelula.innerText;
           
-          // Verifica se a data corresponde à data selecionada
+        
           if (inputData === "" || data === inputData) {
             linhas[i].style.display = "";
           } else {

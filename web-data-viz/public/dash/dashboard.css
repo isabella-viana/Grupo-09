@@ -16,55 +16,228 @@ body {
 }
 
 /* Menu Lateral */
-.menu-lateral {
-  width: 23vh;
-  background-color: #77ADCB;
-  color: white;
+.header-container{
   display: flex;
-  flex-direction: column;
-  padding: 2vh;
-}
-
-.perfil-usuario {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 4vh;
-}
-
-.icone-usuario {
-  width: 7vh;
+  justify-content: center;
+  width: 99vw;
   height: 7vh;
-  border-radius: 50%;
-  background-color: #d0e5f5;
-  margin-bottom: 1vh;
+  background-color: rgba(197, 222, 234, 1);
+
 }
 
-.navegacao ul {
-  list-style: none;
-  padding: 0;
+.container-principal{
+  height: 99vh;
+  width: 99vw;
+  display: flex;
 }
 
-.navegacao li {
-  margin: 1.5vh 0;
-  cursor: pointer;
-  font-size: 1.5vh;
+.header-container img{
+  height: 7vh;
+  align-items: center;
 }
 
-.submenu {
-  margin-top: 0.5vh;
-  margin-left: 1.5vh;
-  display: none;
+.left-header{
+  display: flex;
+  align-items: flex-start;
+  height: 99vh;
+  width: 13vw;
+  background-color: rgba(119, 173, 203, 1);
+  flex-direction: column;
 }
 
-.navegacao li.dashboard-toggle:hover .submenu {
-  display: block;
+.expandir-img{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 13vw;
 }
 
-.suporte {
-  margin-top: auto;
-  font-size: 1.4vh;
-  padding-top: 2vh;
+.expandir-img img{
+  margin-top: 25px;
+  margin-right: 25px;
+  height: 1.5vw;
+}
+
+.user-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13vw;
+  height: 20vh;
+}
+
+.user-img img{
+  height: 15vh;
+}
+
+.user-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13vw;
+}
+
+.user-name p{
+  color: white;
+  font-size: 1.2vw;
+}
+
+.user-name img{
+  margin-top: 9px;
+  margin-left: 10px;
+}
+
+.icons-sino{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
+  height: 6vh;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 60px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.icons-sino:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icons-sino a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  margin-right: 10px;
+}
+
+.icons-sino img{
+  height: 4.5vh;
+  margin-right: 10px;
+}
+
+.icons-dashboard{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
+  height: 6vh;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.icons-dashboard:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icons-dashboard a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  margin-right: 10px;
+}
+
+.icons-dashboard img{
+  height: 4.5vh;
+  margin-right: 10px;
+}
+
+.icons-grupos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
+  height: 6vh;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.icons-grupos:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icons-grupos a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 25px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  margin-right: 10px;
+}
+
+.icons-grupos img{
+  height: 5.5vh;
+  margin-right: 10px;
+}
+
+
+.icons-suporte{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
+  height: 6vh;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 260px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.icons-suporte:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icons-suporte a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 25px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  margin-right: 10px;
+}
+
+.icons-suporte img{
+  height: 4.5vh;
+  margin-right: 10px;
+}
+
+.icons-suporte img{
+  height: 4.5vh;
+  margin-right: 10px;
+}
+
+
+.icons-exit{
+  display: flex;
+  justify-content: flex-end;
+  width: 12vw;
+}
+
+.icons-exit img{
+  margin-top: 20px;
+ height: 2.5vw;
 }
 
 /* Conteúdo da Dashboard */

@@ -444,19 +444,3 @@ input {
   }
 }
 
-/* ===== ALTURA RESPONSIVA – OPCIONAL ===== */
-@media screen and (max-height: 850px) {
-  .img-telefone {
-    height: 25vw;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  .img-telefone {
-    display: none;
-  }
-
-  .container {
-    height: auto;
-  }
-}
