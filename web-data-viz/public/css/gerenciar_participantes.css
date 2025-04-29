@@ -21,11 +21,47 @@ header img {
   align-items: center;
 }
 
+main {
+  display: flex;
+}
+
 #left-menu {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   height: 99vh;
   width: 13vw;
   background-color: rgba(119, 173, 203, 1);
   flex-direction: column;
+}
+
+#expand-button {
+  all: unset;
+  cursor: pointer;
+}
+
+#expand-button img {
+  height: 3vh;
+  margin-left: 23vh;
+  margin-top: 2vh;
+}
+
+#user-image {
+  height: 20vh;
+  margin-top: 4vh;
+}
+
+#user-management {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#menu-management {
+  display: flex;
+  flex-direction: column;
+}
+
+#users {
+  display: flex;
 }
