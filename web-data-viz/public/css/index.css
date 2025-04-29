@@ -799,6 +799,12 @@ footer {
   justify-content: space-between;
 }
 
+#footer-directors a{
+  text-decoration: none;
+  color: white;
+  width: 40%;
+}
+
 #directors {
   display: flex;
   align-items: center;
