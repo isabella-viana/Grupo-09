@@ -12,7 +12,7 @@
     <div class="container">
 
         <div class="form-box login">
-            <form action="">
+            <form action="" onsubmit="return false">
                 <div class="arrow">
                     <a href="#">
                         <img src="imgs/icons8-arrow-64.png" alt="">
@@ -24,15 +24,15 @@
                 </div>
 
                 <div class="input_box">
-                    <input type="text" placeholder="Email" required>
+                    <input type="text" placeholder="Email" required id="Input_email_login">
                 </div>
                 <div class="input_box">
-                    <input type="password" placeholder="Senha" required>
+                    <input type="password" placeholder="Senha" required id="Input_senha_login">
                 </div>
                 <div class="forgot-link">
                     <a href="#"> Esqueceu a Senha</a>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn" onclick="entrar()">Login</button>
             </form>
         </div>
 
@@ -126,6 +126,7 @@
                     emailServer: emailVar,
                     cnpjServer: cnpjVar,
                     senhaServer: senhaVar,
+
                 }),
             })
                 .then(function (resposta) {
@@ -139,7 +140,7 @@
                         // window.location = "login.html";
 
 
-                        limparFormulario();
+                        
                     } else {
                         throw "Houve um erro ao tentar realizar o cadastro!";
                     }
@@ -150,6 +151,63 @@
 
             return false;
         }
+        function entrar() {
+       
+
+       var emailVar = Input_email_login.value;
+       var senhaVar = Input_senha_login.value;
+
+       if (emailVar == "" || senhaVar == "") {
+        alert("Preencha todos os campos para continuar");
+    
+           return false;
+       }
+      
+
+       console.log("FORM LOGIN: ", emailVar);
+       console.log("FORM SENHA: ", senhaVar);
+
+       fetch("/usuarios/autenticar", {
+           method: "POST",
+           headers: {
+               "Content-Type": "application/json"
+           },
+           body: JSON.stringify({
+               emailServer: emailVar,
+               senhaServer: senhaVar
+           })
+       }).then(function (resposta) {
+           console.log("ESTOU NO THEN DO entrar()!")
+        
+           if (resposta.ok) {
+               console.log(resposta);
+
+               resposta.json().then(json => {
+                  
+                   console.log(json);
+                   console.log(JSON.stringify(json));
+                   sessionStorage.EMAIL_USUARIO = json.email;
+                   sessionStorage.NOME_USUARIO = json.nome;
+
+              
+               });
+      
+                      window.location.href = "web-data-viz/public/index.html"
+                  
+
+           } else {
+
+               console.log("Houve um erro ao tentar realizar o login!");
+          
+               alert('Usuario ou senha incorretos')
+           }
+
+       }).catch(function (erro) {
+           console.log(erro);
+       })
+
+       return false;
+   }
     </script>
 
 
