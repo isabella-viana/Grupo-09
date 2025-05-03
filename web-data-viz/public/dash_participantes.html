@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Participantes</title>
+  <link rel="stylesheet" href="css/dash_participantes.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="header-section">
+        <header>
+            <div class="header-container">
+                <img src="imgs/Logo.png" alt="">
+            </div>
+        </header>
+    </section>
+
+    <div class="container-principal">
+        <section>
+            <div class="left-header">
+                <div class="expandir-img">
+                    <a href="">
+                        <img src="imgs/Expansao.png" alt="">
+                    </a>
+                </div>
+                <div class="user-img">
+                    <img src="imgs/User.png" alt="">
+                </div>
+                <div class="user-name">
+                    <p>Eleva User</p>
+                    <a href="">
+                        <img src="imgs/editar.png" alt="">
+                    </a>
+                </div>
+                <div class="icons-sino">
+                    <a href="">
+                        <img src="imgs/sino 4.png" alt="">
+                        <p>Atividades</p>
+                    </a>
+                </div>
+                <div class="icons-dashboard">
+                    <a href="">
+                        <img src="imgs/painel-de-controle 4.png" alt="">
+                        <p>Dashboard</p>
+                    </a>
+                </div>
+                <div class="icons-grupos">
+                    <a href="">
+                        <img src="imgs/do-utilizador 24.png" alt="">
+                        <p>Grupos</p>
+                    </a>
+                </div>
+                <div class="icons-suporte">
+                    <a href="">
+                        <img src="imgs/apoio-suporte 4.png" alt="">
+                        <p>Suporte</p>
+                    </a>
+                </div>
+                <div class="icons-exit">
+                    <a href="">
+                        <img src="imgs/sair 4.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+    <div class="conteudo-principal">
+      <h1>Gerenciar Participantes</h1>
+  
+      
+  
+      <table class="tabela-participantes">
+        <thead>
+          <tr>
+            <th colspan="1"  class="alinha-direita">
+            <th>
+              <div class="botoes-direita">
+              <button class="botao adicionar">
+              
+                Adicionar Participante
+                <img src="img/botao-adicionar 4.png" alt="Adicionar">
+              </button>
+            </th>
+            <th>
+              <button class="botao excluir">
+                Excluir Selecionado
+                <img src="img/excluir 4.png" alt="Excluir">
+              </button>
+            </div>
+            </th>
+            <th>
+              <div class="botoes-direita">
+              <button class="botao adicionar">
+                 Editar
+                <img src="img/botao-adicionar 4.png" alt="Adicionar">
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Guilherme Queiroz</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Isabella Viana</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Matheus Martinez</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Pedro Gandin</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Victor Hugo</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Vinícius Gonçalves</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div id="form-adicionar" class="form-adicionar">
+      <div class="form-container">
+        <h2>Adicionar Participante</h2>
+        <label>Nome:</label>
+        <input type="text" id="nome" placeholder="Digite o nome" />
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Digite o email" />
+        <label>Telefone:</label>
+        <input type="text" id="telefone" placeholder="Digite o telefone" />
+        <div class="form-botoes">
+          <button id="confirmar-adicao">Confirmar</button>
+          <button id="cancelar-adicao">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  
+    <script src="script.js"></script>
+  </body>
+  </html>
+  
+  
+
+<script>
+  const tabelaCorpo = document.getElementById("tabela-corpo");
+const botaoAdicionar = document.querySelector(".botao.adicionar");
+const botaoExcluir = document.querySelector(".botao.excluir");
+const botaoCancelar = document.getElementById("cancelar-adicao");
+const botaoConfirmar = document.getElementById("confirmar-adicao");
+const formAdicionar = document.getElementById("form-adicionar");
+
+
+botaoAdicionar.addEventListener("click", () => {
+  formAdicionar.style.display = "flex";
+});
+
+
+botaoCancelar.addEventListener("click", () => {
+  formAdicionar.style.display = "none";
+});
+
+
+botaoConfirmar.addEventListener("click", () => {
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+
+  if (!nome || !email || !telefone) {
+    alert("Preencha todos os campos.");
+    return;
+  }
+
+  const emailValido = email.includes("@") && email.includes(".");
+  if (!emailValido) {
+    alert("Email inválido. Certifique-se de que contém '@' e '.'");
+    return;
+  }
+
+  const telefoneNumerico = telefone.replace(/\D/g, ""); 
+  if (telefoneNumerico.length < 10) {
+    alert("Telefone inválido. Insira ao menos 10 números.");
+    return;
+  }
+
+
+  const novaLinha = document.createElement("tr");
+  novaLinha.innerHTML = `
+    <td><input type="checkbox" class="check-participante"></td>
+    <td>${nome}</td>
+    <td>${email}</td>
+    <td>${telefone}</td>
+  `;
+  tabelaCorpo.appendChild(novaLinha);
+
+  formAdicionar.style.display = "none";
+  document.getElementById("nome").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("telefone").value = "";
+});
+
+
+botaoExcluir.addEventListener("click", () => {
+  const selecionados = document.querySelectorAll(".check-participante:checked");
+  selecionados.forEach(checkbox => {
+    checkbox.closest("tr").remove();
+  });
+});
+
+
+</script>
