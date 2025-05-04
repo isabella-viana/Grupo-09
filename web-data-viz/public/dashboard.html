@@ -17,7 +17,7 @@
     <header>
         <div class="header-container">
             <img src="imgs/Logo.png" alt="">
-        </div>
+        </div>  
     </header>
 
     <div class="container-principal">
@@ -298,7 +298,7 @@
     }
 
     window.onload = function () {
-        
+
         coresGrafico();
         checkBox();
 
@@ -560,6 +560,7 @@
                         dataLabels: {
                             enabled: true,
                             inside: false,
+                            y: -10,
                             format: '{y}%',
                             style: {
                                 fontWeight: 'bold',
@@ -894,10 +895,15 @@
 
         var nomesEstados = [
             'BR-AC', 'BR-AL', 'BR-AP', 'BR-AM', 'BR-BA',
+
             'BR-CE', 'BR-DF', 'BR-ES', 'BR-GO', 'BR-MA',
+
             'BR-MT', 'BR-MS', 'BR-MG', 'BR-PA', 'BR-PB',
+
             'BR-PR', 'BR-PE', 'BR-PI', 'BR-RJ', 'BR-RN',
+
             'BR-RS', 'BR-RO', 'BR-RR', 'BR-SC', 'BR-SP',
+
             'BR-SE', 'BR-TO'
         ];
 
@@ -909,19 +915,19 @@
         for (var i = 0; i < estados.length; i++) {
 
             if (numerosAleatorios[i] == 1) {
-                estados[i].style.fill = '#00FF37'; // verde claro (mais frio)
+                estados[i].style.fill = '#00FF37';
             } else if (numerosAleatorios[i] == 2) {
-                estados[i].style.fill = '#A8FF00'; // verde-limão
+                estados[i].style.fill = '#A8FF00'; 
             } else if (numerosAleatorios[i] == 3) {
-                estados[i].style.fill = '#FFEE00'; // amarelo
+                estados[i].style.fill = '#FFEE00'; 
             } else if (numerosAleatorios[i] == 4) {
-                estados[i].style.fill = '#FFAA00'; // laranja claro
+                estados[i].style.fill = '#FFAA00'; 
             } else if (numerosAleatorios[i] == 5) {
-                estados[i].style.fill = '#FF5E00'; // laranja escuro
+                estados[i].style.fill = '#FF5E00'; 
             } else if (numerosAleatorios[i] == 6) {
-                estados[i].style.fill = '#FF0000'; // vermelho
+                estados[i].style.fill = '#FF0000'; 
             } else if (numerosAleatorios[i] == 7) {
-                estados[i].style.fill = '#CC0000'; // vermelho escuro (mais quente)
+                estados[i].style.fill = '#CC0000';
             }
         }
     }

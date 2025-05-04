@@ -13,65 +13,47 @@
 
 </head>
 <body>
-    <section class="header-section">
+    
         <header>
             <div class="header-container">
                 <img src="imgs/Logo.png" alt="">
             </div>
         </header>
-    </section>
+ 
 
     <div class="container-principal">
-        <section>
-            <div class="left-header">
-                <div class="expandir-img">
-                    <a href="">
-                        <img src="imgs/Expansao.png" alt="">
-                    </a>
-                </div>
-                <div class="user-img">
-                    <img src="imgs/User.png" alt="">
-                </div>
-                <div class="user-name">
-                    <p>Eleva User</p>
-                    <a href="">
-                        <img src="imgs/editar.png" alt="">
-                    </a>
-                </div>
-                <div class="icons-sino">
-                    <a href="">
-                        <img src="imgs/sino 4.png" alt="">
-                        <p>Atividades</p>
-                    </a>
-                </div>
-                <div class="icons-dashboard">
-                    <a href="">
-                        <img src="imgs/painel-de-controle 4.png" alt="">
-                        <p>Dashboard</p>
-                    </a>
-                </div>
-                <div class="icons-grupos">
-                    <a href="">
-                        <img src="imgs/do-utilizador 24.png" alt="">
-                        <p>Grupos</p>
-                    </a>
-                </div>
-                <div class="icons-suporte">
-                    <a href="">
-                        <img src="imgs/apoio-suporte 4.png" alt="">
-                        <p>Suporte</p>
-                    </a>
-                </div>
-                <div class="icons-exit">
-                    <a href="">
-                        <img src="imgs/sair 4.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </section>
+      <div class="cabecalho-esquerdo">
+        <div class="icone-efeito">
+            <i class="bi bi-list"></i>
+        </div>
+
+        <div class="foto-usuario">
+            <img src="imgs/User.png" alt="">
+            <p>Eleva User</p>
+        </div>
+
+        <div class="icone" onclick="irAtividade()">
+            <i class="bi bi-bell"></i>
+            <p>Atividade</p>
+        </div>
+
+        <div class="icone" onclick="irParaDashboard()">
+            <i class="bi bi-speedometer2"></i>
+            <p>Dashboard</p>
+        </div>
+
+        <div class="icone" onclick="adicionarUsuario()">
+            <i class="bi bi-people"></i>
+            <p>Grupos</p>
+        </div>
+
+        <div class="icone-saida" onclick="sair()">
+            <i class="bi bi-box-arrow-left"></i>
+        </div>
+    </div>
 
 
-    <div class="conteudo-principal">
+    <div class="container-section">
       <h1>Gerenciar Participantes</h1>
   
       
@@ -160,6 +142,18 @@ const botaoCancelar = document.getElementById("cancelar-adicao");
 const botaoConfirmar = document.getElementById("confirmar-adicao");
 const formAdicionar = document.getElementById("form-adicionar");
 
+function adicionarUsuario() {
+        window.location.href = "../public/dash_participantes.html"
+    }
+    function irAtividade() {
+        window.location.href = "../public/atividades.html"
+    }
+    function sair(){
+        window.location.href = "../public/index.html"
+    }
+    function irParaDashboard(){
+        window.location.href = "../public/dashboard.html"
+    }
 
 botaoAdicionar.addEventListener("click", () => {
   formAdicionar.style.display = "flex";

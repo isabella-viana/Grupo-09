@@ -9,6 +9,14 @@
 body {
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
+}
+
+
+.container-principal {
+    height: 93%;
+    width: 100%;
+    display: flex;
 }
 
 header {
@@ -17,8 +25,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(119, 173, 203, 1);
 
-    background-color: rgba(197, 222, 234, 1);
 }
 
 .container-principal {
@@ -47,13 +55,15 @@ header {
         width: 100%;
         align-items: center;
         justify-content: center;
+        border-top: 2px rgb(32, 88, 119) solid;
+      
         i{
             color: white;
             font-size: 2rem; 
         }
         i:hover{
             cursor: pointer;
-            color: #007bff;
+            color: black;
         }
 
     }
@@ -84,7 +94,7 @@ header {
 
             i,
             p {
-                color: #007bff;
+                color: black;
             }
         }
     }
@@ -114,7 +124,7 @@ header {
 
             i,
             p {
-                color: #007bff;
+                color: black;
             }
         }
     }
@@ -142,6 +152,8 @@ header {
     width: 100%;
     height: 93%;
     overflow: hidden;
+    border-top: 2px rgb(32, 88, 119) solid;
+    
 
 }
 
@@ -228,7 +240,7 @@ header {
                         color: white;
                         justify-content: center;
                         font-size: small;
-
+                       
                     }
 
                     & .kpiDado {
@@ -405,7 +417,7 @@ header {
                             #FFAA00 48%,
                             #FF5E00 64%,
                             #FF0000 80%,
-                            #B22222 100%);
+                            #c32525 100%);
 
                     height: 2%;
                     width: 15%;
@@ -420,17 +432,18 @@ header {
                     position: absolute;
                     margin-right: 28%;
                     margin-bottom: 3.5%;
+                    font-size: 130%;
                 }
 
                 & .menorCor {
                     position: absolute;
                     margin-right: 28%;
                     margin-top: 24%;
+                    font-size: 140%;
 
 
                 }
 
-                & .flechaGraficoMapa {}
 
             }
         }
