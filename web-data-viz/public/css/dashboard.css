@@ -32,112 +32,111 @@ header {
     align-items: center;
 }
 
-.left-header {
+.cabecalho-esquerdo {
     display: flex;
-    align-items: flex-start;
-    height: 100%;
-    width: 13vw;
-    background-color: rgba(119, 173, 203, 1);
     flex-direction: column;
+    align-items: center;
+    width: 13%;
+    height: 100%;
+    background-color: rgba(119, 173, 203, 1);
 
-    & .expandir-img {
+    
+    .icone-efeito{
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
+        height:16%;
         width: 100%;
-    }
-
-    & .expandir-img img {
-        margin-top: 25px;
-        margin-right: 25px;
-        height: 1.5vw;
-    }
-
-    & .user-img {
-        display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        height: 20vh;
+        i{
+            color: white;
+            font-size: 2rem; 
+        }
+        i:hover{
+            cursor: pointer;
+            color: #007bff;
+        }
+
     }
 
-    & .user-img img {
-        height: 15vh;
-    }
-
-    & .user-name {
+    .icone {
         display: flex;
+        margin-top: 2;
+        height: 16%;
+        width: 100%;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
-    }
+        cursor: pointer;
 
-    & .user-name p {
-        color: white;
-        font-size: 1.2vw;
-    }
 
-    & .user-name img {
-        margin-top: 9px;
-        margin-left: 10px;
-    }
+        i {
+            font-size: 2rem;
+            color: white;
+        }
 
-    & .icons-sino,
-    & .icons-dashboard,
-    & .icons-grupos,
-    & .icons-suporte {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 6vh;
-        font-size: 20px;
-        margin-left: 10px;
-        margin-top: 10px;
-        border-radius: 20px;
-        transition: 0.5s;
+        p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+        }
 
         &:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
 
-        & a {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            color: white;
-            margin-right: 10px;
-        }
-
-        & img {
-            height: 4.5vh;
-            margin-right: 10px;
+            i,
+            p {
+                color: #007bff;
+            }
         }
     }
 
-    & .icons-suporte {
-        margin-top: 40%;
-    }
-
-    & .icons-exit {
+    & .icone-saida {
         display: flex;
-        justify-content: center;
+
+        height: 16%;
         width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        &:hover {
+
+            i,
+            p {
+                color: #007bff;
+            }
+        }
     }
 
-    & .icons-exit img {
-        margin-top: 40px;
-        height: 2.5vw;
+    .foto-usuario {
+        height: 16%;
+        width: 100%;
+        color: #555;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
 
+        img {
+            width: 40%;
+            height: 60%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
+
 }
-
-
-
-
 
 .container-section {
     width: 100%;
@@ -159,13 +158,24 @@ header {
         flex-direction: column;
         text-align: center;
         justify-content: center;
+        color: #77ADCB;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.5vw;
+        
+
 
         & .div_checkbox {
             display: flex;
             margin-left: 23%;
             height: 3.1%;
             gap: 10%;
+            font-size: 1vw;
+            accent-color: #77ADCB;
+            font-weight: 300;
+            cursor: pointer;
+            color: black;
         }
+    
 
         & input {
             display: flex;
@@ -224,7 +234,7 @@ header {
                     & .kpiDado {
                         display: flex;
                         text-align: center;
-                        color: #77ADCB;
+                        color: #0d425f;
                         justify-content: center;
                         align-items: center;
                         font-size: xx-large;
@@ -330,7 +340,7 @@ header {
                         text-align: center;
                         justify-content: start;
                         align-items: end;
-                        height: 75%;
+                        height: 100%;
                         width: 100%;
 
 
@@ -366,7 +376,8 @@ header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: x-large;
+                text-align: center;
+                font-size: 1.5vw;
 
             }
 
@@ -384,8 +395,18 @@ header {
                 }
 
                 & .cores {
+                    display: flex;
                     position: absolute;
-                    background: linear-gradient(to right, #00FF37 0%, #FFEE00 50%, #FF0000 100%);
+                    justify-content: space-between;
+                    background: linear-gradient(to right,
+                            #00FF37 0%,
+                            #A8FF00 16%,
+                            #FFEE00 32%,
+                            #FFAA00 48%,
+                            #FF5E00 64%,
+                            #FF0000 80%,
+                            #B22222 100%);
+
                     height: 2%;
                     width: 15%;
                     border-radius: 20px;
@@ -394,6 +415,22 @@ header {
                     margin-top: 10%;
 
                 }
+
+                & .maiorCor {
+                    position: absolute;
+                    margin-right: 28%;
+                    margin-bottom: 3.5%;
+                }
+
+                & .menorCor {
+                    position: absolute;
+                    margin-right: 28%;
+                    margin-top: 24%;
+
+
+                }
+
+                & .flechaGraficoMapa {}
 
             }
         }
