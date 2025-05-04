@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="gerenciar.css">
-    <link rel="stylesheet" href="../public/css/dashboard.css bran">
+    <link rel="stylesheet" href="../public/css/dashboard.css">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -83,15 +83,15 @@
                             <div class="estrutura">
                                 <div class="tituloKpi" id="compracaoConsumo">Comparação do consumo com o ano anterior
                                 </div>
-                                <div class="kpiDado">
-                                    4,3 <span>%</span> <i class="bi bi-arrow-down-short"></i>
+                                <div class="kpiDado" id="kpiDado">
+                                 
                                 </div>
                             </div>
 
 
                             <div class="estrutura">
                                 <div class="tituloKpi" id="compracaoConsumoPorConsumidor">Consumo médio por consumidor
-                                    do Brasil
+                                  
                                 </div>
                                 <div class="kpiDado">
                                     176,4<span> kWh</span><i class="bi bi-lightning-charge"></i>
@@ -107,7 +107,7 @@
                                     por
                                     Estado</div>
                                 <div class="graficoG">
-                                    <div id="meuGrafico" style="width: 100%; height: 90%"></div>
+                                    <div id="meuGrafico" style="width: 100%; height: 85%"></div>
                                 </div>
                             </div>
 
@@ -116,16 +116,16 @@
                         <div class="graficosPequenos">
                             <div class="estrutura">
                                 <div class="tituloGraficoPequenos" id="quantidadeConsumidores">Quantidade de
-                                    consumidores-Brasil</div>
+                                    consumidores</div>
                                 <div class="graficoP">
-                                    <div id="qtdConsumidores" style="width: 100%; height: 90%"></div>
+                                    <div id="qtdConsumidores" style="width: 100%; height: 95%"></div>
                                 </div>
                             </div>
 
 
                             <div class="estrutura">
                                 <div class="tituloGraficoPequenos" id="tiposEnergia">Tipos de Energia mais
-                                    consumidas-Brasil </div>
+                                    consumidas</div>
                                 <div class="graficoP">
                                     <div id="energiasMaisConsumidas" style="width: 100%; height: 80%"></div>
                                 </div>
@@ -284,6 +284,7 @@
                             <div class="cores">
 
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -300,56 +301,68 @@
     window.onload = function () {
         coresGrafico();
         checkBox();
-    
+        var numeroAleatorio = Math.random() * 9 - 4;
+        if(numeroAleatorio > 0){
+            kpiDado.style.color="green"
+             kpiDado.innerHTML=`+ ${numeroAleatorio.toFixed(2)}<span>%</span> <i class="bi bi-arrow-up-short"></i>`
+        }else{
+            kpiDado.style.color="red"
+                 kpiDado.innerHTML=`${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-down-short"></i>`
+        }
+        const valores=[1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
+        for(var i = 0; i<valores.lenght ; i++){
 
+        }
+       
         Highcharts.chart('meuGrafico', {
-            chart: {
-                type: 'column'
+    chart: {
+        type: 'column'
+    },
+    credits: {
+        enabled: false
+    },
+    title: {
+        text: null
+    },
+    subtitle: {
+        text: null
+    },
+    xAxis: {
+        categories: [
+            'BA', 'SP', 'PR', 'SC', 'RJ',
+            'PA', 'RS', 'MG', 'PE', 'CE'
+        ],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        visible: false
+    },
+    plotOptions: {
+        column: {
+            dataLabels: {
+                enabled: true,
+                inside: false,
+                format: '{y}%',
+                style: {
+                    fontWeight: 'bold',
+                    color: 'black'
+                }
             },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: null
-            },
-            subtitle: {
-                text: null
-            },
-            xAxis: {
-                categories: [
-                    'SP', 'RJ', 'MG', 'BA', 'RS',
-                    'PR', 'SC', 'PE', 'CE', 'PA',
+            borderWidth: 0
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    series: [{
+        name: 'Consumo de Energia',
+        data: [15.7, 14.1, 13.0, 12.0, 11.2, 10.6, 10.4, 9.2, 8.9, 7.7]
+    }]
+});
 
-                ],
-                title: {
-                    text: null
-                }
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: null,
-                    align: 'high'
-                },
-                labels: {
-                    overflow: 'justify'
-                }
-            },
-            plotOptions: {
-                column: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            series: [{
-                name: 'Valor',
-                data: [120, 95, 78, 133, 88, 110, 102, 75, 65, 90]
-            }]
-        });
+
         Highcharts.chart('energiasMaisConsumidas', {
             chart: {
                 type: 'pie'
@@ -411,7 +424,10 @@
                 allowDecimals: false,
                 lineWidth: 0,
                 tickWidth: 0,
-                gridLineWidth: 0
+                gridLineWidth: 0,
+                labels:{
+                    enabled: false
+                }
             },
             credits: {
                 enabled: false
@@ -435,6 +451,7 @@
 
 
     };
+    
 
     function checkBox() {
         const estados = [
@@ -607,11 +624,21 @@
         }
 
 
-        compracaoConsumo.innerHTML = `Comparação com consumo com ano anterior do estado ${estado}`;
-        compracaoConsumoPorConsumidor.innerHTML = `Consumo médio por consumidor de ${estado}`;
+      
         tituloGrande.innerHTML = `Quantidade de energia consumida`;
-        quantidadeConsumidores.innerHTML = `Quantidade de consumidores-${estado}`;
-        tiposEnergia.innerHTML = `Tipos de Energia mais consumidas-${estado}`;
+        quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
+        var numeroAleatorio = Math.random() * 9 - 4;
+        if(numeroAleatorio > 0){
+            kpiDado.style.color="green"
+             kpiDado.innerHTML=`+ ${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-up-short"></i>`
+        }else{
+            kpiDado.style.color="red"
+                 kpiDado.innerHTML=`${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-down-short"></i>`
+        }
+       
+
+        
+
 
         Highcharts.chart('meuGrafico', {
             chart: {
@@ -661,52 +688,56 @@
         });
 
         Highcharts.chart('qtdConsumidores', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: null // Remover título
-            },
-            xAxis: {
-                categories: [
-                    '2015', '2016', '2017', '2018', '2019',
-                    '2020', '2021', '2022', '2023', '2024', '2025'
-                ],
-                title: {
-                    text: null
-                },
-                lineWidth: 0,
-                tickWidth: 0,
-                gridLineWidth: 0
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: null
-                },
-                allowDecimals: false,
-                lineWidth: 0,
-                tickWidth: 0,
-                gridLineWidth: 0
-            },
-            credits: {
-                enabled: false
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                column: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-            series: [{
-                name: 'Consumidores',
-                data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
-            }]
-        });
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: null
+    },
+    xAxis: {
+        categories: [
+            '2015', '2016', '2017', '2018', '2019',
+            '2020', '2021', '2022', '2023', '2024', '2025'
+        ],
+        title: {
+            text: null
+        },
+        lineWidth: 0,
+        tickWidth: 0,
+        gridLineWidth: 0
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: null
+        },
+        allowDecimals: false,
+        lineWidth: 0,
+        tickWidth: 0,
+        gridLineWidth: 0,
+        labels: {
+            enabled: false // Remove os rótulos do eixo Y
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        column: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    series: [{
+        name: 'Consumidores',
+        data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
+    }]
+});
+
         Highcharts.chart('energiasMaisConsumidas', {
             chart: {
                 type: 'pie'
@@ -746,44 +777,42 @@
 
     }
     function coresGrafico() {
-        const estados = [];
-        const numerosAleatorios=[1, 2, 4, 3, 2, 4, 2, 1, 4, 3, 2, 1, 3, 1, 2, 3, 1, 3, 2, 3, 2, 1, 4, 4, 4, 2, 1]
-        const nomesEstados = [
-            'BR-AC', 'BR-AL', 'BR-AP', 'BR-AM', 'BR-BA',
-            'BR-CE', 'BR-DF', 'BR-ES', 'BR-GO', 'BR-MA',
-            'BR-MT', 'BR-MS', 'BR-MG', 'BR-PA', 'BR-PB',
-            'BR-PR', 'BR-PE', 'BR-PI', 'BR-RJ', 'BR-RN',
-            'BR-RS', 'BR-RO', 'BR-RR', 'BR-SC', 'BR-SP',
-            'BR-SE', 'BR-TO'
-        ];
+    var estados = [];
+    var numerosAleatorios = [
+        1, 2, 1, 2, 3,
+        2, 2, 2, 3, 2,
+        2, 2, 4, 3, 1,
+        4, 3, 1, 4, 2,
+        4, 1, 1, 3, 4,
+        1, 1
+    ];
 
-        for (var i = 0; i < 27; i++) {
-            var estadoAtual = document.getElementById(nomesEstados[i]);
-            estados.push(estadoAtual);
-        }
+    var nomesEstados = [
+        'BR-AC', 'BR-AL', 'BR-AP', 'BR-AM', 'BR-BA',
+        'BR-CE', 'BR-DF', 'BR-ES', 'BR-GO', 'BR-MA',
+        'BR-MT', 'BR-MS', 'BR-MG', 'BR-PA', 'BR-PB',
+        'BR-PR', 'BR-PE', 'BR-PI', 'BR-RJ', 'BR-RN',
+        'BR-RS', 'BR-RO', 'BR-RR', 'BR-SC', 'BR-SP',
+        'BR-SE', 'BR-TO'
+    ];
 
-        for(var i = 0; i<nomesEstados.length; i++){
-            if(numerosAleatorios[i] == 1){
-                
-                estados[i].style.fill='#00FF37'
-            }
-            
-           else if(numerosAleatorios[i] == 2){
-               
-                estados[i].style.fill='#FFEE00'
-            }
-
-           else if(numerosAleatorios[i] == 3){
-                
-                estados[i].style.fill='#FF0000'
-            }
-            else{
-                estados[i].style.fill='#ff5e00'
-            }
-         
-        }
-
-
+    for (var i = 0; i < nomesEstados.length; i++) {
+        var estadoAtual = document.getElementById(nomesEstados[i]);
+        estados.push(estadoAtual);
     }
+
+    for (var i = 0; i < estados.length; i++) {
+        if (numerosAleatorios[i] == 1) {
+            estados[i].style.fill = '#00FF37';
+        } else if (numerosAleatorios[i] == 2) {
+            estados[i].style.fill = '#FFEE00';
+        } else if (numerosAleatorios[i] == 3) {
+            estados[i].style.fill = '#FF5E00';
+        } else if (numerosAleatorios[i] == 4) {
+            estados[i].style.fill = '#FF0000';
+        }
+    }
+}
+
 
 </script>

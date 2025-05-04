@@ -217,6 +217,7 @@ header {
                         width: 100%;
                         color: white;
                         justify-content: center;
+                        font-size: small;
 
                     }
 
@@ -230,16 +231,6 @@ header {
                         height: 60%;
                         width: 100%;
 
-                        & span {
-                            color: black;
-                            font-size: x-large;
-                            margin-left: 1%;
-                        }
-
-                        & i {
-                            font-size: x-large;
-                            color: black;
-                        }
 
                     }
 
@@ -329,6 +320,7 @@ header {
                         height: 20%;
                         width: 100%;
                         color: white;
+                        font-size: small;
 
                     }
 
@@ -336,6 +328,7 @@ header {
 
                         display: flex;
                         text-align: center;
+                        justify-content: start;
                         align-items: end;
                         height: 75%;
                         width: 100%;
@@ -396,7 +389,7 @@ header {
                     height: 2%;
                     width: 15%;
                     border-radius: 20px;
-                    transform: rotate(90deg);
+                    transform: rotate(-90deg);
                     margin-right: 30%;
                     margin-top: 10%;
 
