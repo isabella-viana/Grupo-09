@@ -298,25 +298,37 @@
     }
 
     window.onload = function () {
+        
         coresGrafico();
         checkBox();
+
         var numeroAleatorio = Math.random() * 9 - 4;
         var numeroAleatorio2 = Math.random() * 109;
+
         if (numeroAleatorio > 0) {
 
             kpiDado.style.color = "green"
+
             kpiDado.innerHTML = `+ ${numeroAleatorio.toFixed(2)}<span>%</span> <i class="bi bi-arrow-up-short"></i>`
+
         } else {
+
             kpiDado.style.color = "red"
+
             kpiDado.innerHTML = `${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-down-short"></i>`
         }
 
+
         if (numeroAleatorio2 > 0) {
+
             comparacaoCPC.innerHTML = `${numeroAleatorio2.toFixed(1)} <span>KWh</span> <i class="bi bi-lightning-charge-fill"></i>`
+
         } else {
+
             comparacaoCPC.innerHTML = `${numeroAleatorio2.toFixed(1)} <span>KWh</span> <i class="bi bi-lightning-charge-fill"></i>`
         }
 
+        // gráfico principal
 
         Highcharts.chart('meuGrafico', {
             chart: {
@@ -348,6 +360,7 @@
                     dataLabels: {
                         enabled: true,
                         inside: false,
+                        y: -10,
                         format: '{y}%',
                         style: {
                             fontWeight: 'bold',
@@ -366,6 +379,7 @@
             }]
         });
 
+        // Gráfico de Pizza 
 
         Highcharts.chart('energiasMaisConsumidas', {
             chart: {
