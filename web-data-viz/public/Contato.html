@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/contato.css">
-    <link rel="stylesheet" href="css/footer.css">
-
-
+    <script src="js/index.js"></script>
     <title>ELEVA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,20 +14,47 @@
 <body>
 
     <header>
+        <div class="container-Header-Mobile">
+            <div class="left-Header-Mobile">
+                <img src="imgs/Logo.png" alt="Logo">
+                <h5>ELEVA</h5>
+            </div>
+            <div class="right-header-Mobile">
+                <a href="" class="Login-botton-Mobile">Login</a>
+                <a href="javascript:void(0)" onclick="abrirMenu()">
+                    <img src="imgs/icons8-menu-100 1.png" alt="Ícone do Menu">
+                </a>
+            </div>
+        </div>
+    
+        <div class="menu-fullscreen" id="menuFull">
+            <button class="fechar-menu" onclick="fecharMenu()">✖</button>
+            <a href="index.html">Início</a>
+            <a href="contato.html">Contato</a>
+            <a href="login_cadastro.html">Login</a>
+            <a href="index.html#culture">Cultura</a>
+    
+            <div class="dowm-fullscreen">
+                <img src="imgs/Logo (1).png" alt="Logo">
+                <p>ELEVA</p>
+            </div>
+        </div>
+    </header>
+    
+    <header>
         <div class="container-Header">
             <div class="left-header">
                 <a href="index.html">Home</a>
-                <a href="culture">Cultura</a>
+                <a href="index.html#culture">Cultura</a>
             </div>
-            <img class="img-Logo" src="imgs/Logo.png" alt="">
+            <img class="img-Logo" src="imgs/Logo.png" alt="Logo">
             <div class="right-header">
                 <a href="contato.html">Contato</a>
                 <a href="login_cadastro.html">Login</a>
             </div>
         </div>
     </header>
-
-
+    
 
 
     <div class="cont-container">
@@ -46,19 +71,17 @@
                 <form onkeyup="return false">
                     <input placeholder="    Nome">
                     <input placeholder="    Telefone">
-                    <input placeholder="    email">
-                    <br>
-
-                    <div class="assunto">
-                        <input placeholder="   descrição">
-                    </div>
-                    <br>
-                    <a href="" class="Botao-enviar">Enviar Mensagem</a>
+                    <input placeholder="    Email">
+    
+                    <textarea class="assunto" placeholder="   Descrição"></textarea>
+    
+                    <a href="#" class="Botao-enviar">Enviar Mensagem</a>
                 </form>
             </div>
         </div>
-        <img src="imgs/Group 45.png" alt="" class="img-telefone">
+        <img src="imgs/Group 45.png" alt="Telefone" class="img-telefone">
     </div>
+    
 
 
 
@@ -120,6 +143,9 @@
         </div>
 
     </footer>
+    
 </body>
 
 </html>
+
+<script src="js/sessao.js"></script>
