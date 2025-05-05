@@ -8,83 +8,52 @@
     <link rel="stylesheet" href="css/menu2.css">
     <script src="js/gerenciar.js"></script>
     <title>ELEVA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
 </head>
 
 <body>
 
 
-    <section class="header-section">
-        <header>
-            <div class="header-container">
-                <img src="imgs/Logo.png" alt="">
-            </div>
-        </header>
-    </section>
+
+    <header>
+        <div class="header-container">
+            <img src="imgs/Logo.png" alt="">
+        </div>
+    </header>
+
+
 
     <div class="container-principal">
-
-        <section>
-
-            <div class="left-header">
-                <div class="expandir-img">
-                    <a onclick="ativarOuDesativar()">
-                        <img src="imgs/Expansao.png" alt="">
-                    </a>
-                </div>
-
-                <div class="user-img">
-
-                    <img src="imgs/image 86 (2).png" alt="">
-                </div>
-
-                <div class="user-name">
-                    <p>
-                        Eleva User
-                    </p>
-                    <a href="">
-                        <img src="imgs/editar.png" alt="">
-                    </a>
-                </div>
-
-                <div class="icons-sino">
-                    <a href="">
-                        <img src="imgs/sino 4.png" alt="">
-                        <p>Atividades</p>
-                    </a>
-                </div>
-
-
-
-                <div class="icons-dashboard">
-                    <a href="">
-                        <img src="imgs/painel-de-controle 4.png" alt="">
-                        <p>Dashboard</p>
-                    </a>
-                </div>
-
-                <div class="icons-grupos">
-                    <a href="">
-                        <img src="imgs/do-utilizador 24.png" alt="">
-                        <p>Grupos</p>
-                    </a>
-                </div>
-
-                <div class="icons-suporte">
-                    <a href="">
-                        <img src="imgs/apoio-suporte 4.png" alt="">
-                        <p>Suporte</p>
-                    </a>
-                </div>
-
-                <div class="icons-exit">
-                    <a href="">
-                        <img src="imgs/sair 4.png" alt="">
-                    </a>
-                </div>
-
+        <div class="cabecalho-esquerdo">
+            <div class="icone-efeito">
+                <i class="bi bi-list"></i>
             </div>
-        </section>
+
+            <div class="foto-usuario">
+                <img src="imgs/User.png" alt="">
+                <p>Eleva User</p>
+            </div>
+
+            <div class="icone" onclick="irAtividade()">
+                <i class="bi bi-bell"></i>
+                <p>Atividade</p>
+            </div>
+
+            <div class="icone" onclick="irParaDashboard()">
+                <i class="bi bi-speedometer2"></i>
+                <p>Dashboard</p>
+            </div>
+
+            <div class="icone" onclick="adicionarUsuario()">
+                <i class="bi bi-people"></i>
+                <p>Grupos</p>
+            </div>
+
+            <div class="icone-saida" onclick="sair()">
+                <i class="bi bi-box-arrow-left"></i>
+            </div>
+        </div>
 
         <div class="container-section">
             <div class="tittle">
@@ -97,7 +66,7 @@
                     Um novo usuário entrou para sua organização
                 </p>
             </div>
-            <div class="strainght"></div>
+
 
 
             <div class="notificate2">
@@ -106,7 +75,7 @@
                     Informação: Sua dashboard teve um aumento de 5% em relação a última análise
                 </p>
             </div>
-            <div class="strainght"></div>
+
 
             <div class="notificate2">
                 <img src="imgs/sinal-de-aviso 1.png" alt="">
@@ -114,7 +83,7 @@
                     Aviso: A métrica de consumo por região da sua dashboard sofreu mudanças.
                 </p>
             </div>
-            <div class="strainght"></div>
+
 
             <div class="notificate2">
                 <img src="imgs/grafico-de-barras 1.png" alt="">
@@ -122,7 +91,7 @@
                     Informação: Sua dashboard teve um aumento de 5% em relação a última análise
                 </p>
             </div>
-            <div class="strainght"></div>
+
 
 
             <div class="notificate2">
@@ -131,7 +100,6 @@
                     Um novo usuário entrou para sua organização
                 </p>
             </div>
-            <div class="strainght"></div>
 
 
             <div class="button-Ver-Mais">
@@ -139,7 +107,7 @@
                     Ver mais
                 </a>
             </div>
-           
+
 
         </div>
 
@@ -152,3 +120,17 @@
 </body>
 
 </html>
+<script>
+    function adicionarUsuario() {
+        window.location.href = "../public/dash_participantes.html"
+    }
+    function irAtividade() {
+        window.location.href = "../public/atividades.html"
+    }
+    function sair() {
+        window.location.href = "../public/index.html"
+    }
+    function irParaDashboard() {
+        window.location.href = "../public/dashboard.html"
+    }
+</script>

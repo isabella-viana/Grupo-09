@@ -70,7 +70,6 @@ header {
 
     .icone {
         display: flex;
-        margin-top: 2;
         height: 16%;
         width: 100%;
         flex-direction: column;
