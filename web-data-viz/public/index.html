@@ -11,38 +11,39 @@
 
 </head>
 
+
 <body>
 
-   <header>
-    <div class="container-Header-Mobile">
-        <div class="left-Header-Mobile">
-            <img src="imgs/Logo.png" alt="Logo">
-            <h5>ELEVA</h5>
+    <header>
+        <div class="container-Header-Mobile">
+            <div class="left-Header-Mobile">
+                <img src="imgs/Logo.png" alt="Logo">
+                <h5>ELEVA</h5>
+            </div>
+            <div class="right-header-Mobile">
+                <a href="" class="Login-botton-Mobile">Login</a>
+                <a href="javascript:void(0)" onclick="abrirMenu()">
+                    <img src="imgs/icons8-menu-100 1.png" alt="">
+                </a>
+            </div>
         </div>
-        <div class="right-header-Mobile">
-            <a href="" class="Login-botton-Mobile">Login</a>
-            <a href="javascript:void(0)" onclick="abrirMenu()">
-                <img src="imgs/icons8-menu-100 1.png" alt="">
-            </a>
+
+
+        <div class="menu-fullscreen" id="menuFull">
+            <button class="fechar-menu" onclick="fecharMenu()">✖</button>
+            <a href="#">Início</a>
+            <a href="#">Contato</a>
+            <a href="">Login</a>
+            <a href="#">Cultura</a>
+
+            <div class="dowm-fullscreen">
+                <img src="imgs/Logo (1).png" alt="">
+                <p>ELEVA</p>
+            </div>
         </div>
-    </div>
 
 
-    <div class="menu-fullscreen" id="menuFull">
-        <button class="fechar-menu" onclick="fecharMenu()">✖</button>
-        <a href="#">Início</a>
-        <a href="#">Contato</a>
-        <a href="">Login</a>
-        <a href="#">Cultura</a>
-
-        <div class="dowm-fullscreen">
-        <img src="imgs/Logo (1).png" alt="">
-        <p>ELEVA</p>
-    </div>
-      </div>
-
-
-   </header>
+    </header>
 
     <header>
         <div class="container-Header">
@@ -64,10 +65,10 @@
             <div class="container-top">
                 <div class="font-img2">Eleva</div>
                 <div class="font-img"> Iluminando <br> São Paulo <br> com dados</div>
-                
+
                 <div class="Saiba-Mais5">
-                    
-                    
+
+
                 </div>
 
                 <div class="Bola1-Rotativa"><a onclick="document.getElementById('description-Section').scrollIntoView({ behavior: 'smooth' });"></a></div>
@@ -76,8 +77,7 @@
                 <div class="Traço1"></div>
                 <div class="Traço2"></div>
                 <div class="Button-Contato"><a href="contato.html">Contato</a></div>
-                <div class="Button-Location"><a href="contato.html"> <img src="imgs/icons8-location-64 (1) 1.png"
-                            alt=""></a>
+                <div class="Button-Location"><a href="contato.html"> <img src="imgs/icons8-location-64 (1) 1.png" alt=""></a>
                 </div>
                 <div class="image-body">
                     <img src="imgs/Sem nome (1475 x 775 px) 1.png" alt="">
@@ -230,9 +230,15 @@
     <footer>
         <div id="footer-directors">
             <div id="directors">
-                <a href="#"><h3>HOME</h3></a>
-                <a href="contato.html"><h3>CONTATO</h3></a>
-                <a href="login_cadastro.html"><h3>LOGIN</h3></a>
+                <a href="#">
+                    <h3>HOME</h3>
+                </a>
+                <a href="contato.html">
+                    <h3>CONTATO</h3>
+                </a>
+                <a href="login_cadastro.html">
+                    <h3>LOGIN</h3>
+                </a>
             </div>
             <div id="social-media">
                 <a href="https://pt-br.facebook.com/"><img src="assets/home/facebook.svg" alt="ícone de facebook"></a>
