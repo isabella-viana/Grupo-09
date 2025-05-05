@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELEVA</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../public/login_cadastro.html">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
 
         <div class="form-box login">
             <form action="" onsubmit="return false">
-                <div class="arrow">
+                <div class="arrow" style="display: none;">
                     <a href="#">
                         <img src="imgs/icons8-arrow-64.png" alt="" >
                     </a>
@@ -38,7 +39,7 @@
 
         <div class="form-box register">
             <form action="" onsubmit="return false">
-                <div class="arrow2">
+                <div class="arrow2" onclick="voltarIndex()">
                     <a href="#">
                         <img src="imgs/icons8-arrow-64 (1).png" alt="">
                     </a>
@@ -82,6 +83,10 @@
 
     <script src="js/login2.js"></script>
     <script>
+        function voltarIndex(){
+            
+            window.location.href = "../public/index.html";
+        }
         function cadastrar() {
 
             var nomeVar = input_nome.value;
@@ -135,7 +140,7 @@
                         alert('Cadastro realizado com sucesso!')
 
 
-                        // window.location = "login.html";
+                        window.location.href = "../public/login_cadastro.html";
 
 
                         
