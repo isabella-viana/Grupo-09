@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.container-principal {
+  height: 93%;
+  width: 100%;
+  display: flex;
+}
+
+header {
+  height: 8%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(61, 110, 137, 1);
+}
+
+.container-principal {
+  height: 93%;
+  width: 100%;
+  display: flex;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container img {
+  height: 7vh;
+  align-items: center;
+}
+
+.opcoes-cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cabecalho-esquerdo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 13%;
+  height: 100%;
+  background-color: rgba(119, 173, 203, 1);
+
+  p {
+    color: white;
+  }
+
+  .icone-efeito {
+    display: flex;
+    height: 16%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      color: white;
+      font-size: 2rem;
+    }
+    i:hover {
+      cursor: pointer;
+      color: black;
+    }
+  }
+
+  .icone {
+    display: flex;
+    height: 8%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 5px;
+
+    i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+      color: white;
+      margin-left: 9px;
+    }
+  }
+
+  & .icone-saida {
+    display: flex;
+
+    height: 16%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    &:hover {
+      i,
+      p {
+        color: black;
+      }
+    }
+  }
+
+  .foto-usuario {
+    width: 100%;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    & img {
+      height: 17vh;
+    }
+
+    & p {
+      margin-top: 9px;
+    }
+  }
+}
+
+#atividade {
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+#atividade:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#dash {
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+#dash:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#grupos {
+  transition: background-color 0.3s;
+  border-radius: 25px;
+}
+
+#grupos:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
