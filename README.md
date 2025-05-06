@@ -1,13 +1,15 @@
 <h1 align="center">⚡ ELEVA: Plataforma de Visualização de Consumo Energético</h1> <p align="center"> <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status do Projeto"> <img src="https://img.shields.io/badge/License-MIT-green" alt="Licença"> <img src="https://img.shields.io/badge/Vers%C3%A3o-1.0-blue" alt="Versão"> </p>
-📌 Sobre o Projeto
-O ELEVA é uma plataforma web interativa que visa democratizar o acesso e a compreensão dos dados de consumo de energia elétrica no Brasil. Utilizando bases públicas confiáveis, a plataforma transforma dados brutos em visualizações intuitivas, facilitando a análise por gestores públicos, empresas e cidadãos interessados em eficiência energética.
+
+🔍 ELEVA
+
+O ELEVA é uma plataforma web interativa que visa facilitar o acesso e a compreensão dos dados de consumo de energia elétrica nos estados do Brasil. Utilizando bases públicas confiáveis, a plataforma transforma dados brutos em visualizações intuitivas com dashboards!!, facilitando a análise por gestores públicos, empresas e cidadãos interessados em eficiência energética!!!!
 
 🎯 Objetivos
-Identificar os principais consumidores de energia elétrica por estado.
+Identificar os principais estados consumidores de energia do país.
 
 Exibir análises mensais e históricas do consumo energético.
 
-Oferecer gráficos interativos e comparativos para usuários não técnicos.
+Oferecer gráficos interativos e comparativos para usuários técnicos e não técnicos.
 
 Fornecer interpretações visuais baseadas em dados brutos, sem emitir recomendações conclusivas.
 
@@ -39,27 +41,25 @@ Análises Temporais: Acompanhamento de tendências e variações sazonais ao lon
 
 Exportação de Relatórios: Geração de relatórios em formatos acessíveis para compartilhamento e arquivamento.
 
- Pré-requisitos
-Para Desktop ou Laptop:
+💻Pré-requisitos
 
-Memória RAM: 4 GB ou mais
+🖥️ Desktop/Laptop
+🧠 RAM: 4 GB+
 
-Armazenamento: 128 GB disponíveis
+💾 Armazenamento: 128 GB disponíveis
 
-Processador: Dual-core 2.5 GHz ou superior
+⚙️ CPU: Dual-core 2.5 GHz+
 
-Sistema Operacional: Windows, macOS ou Linux
+🖥️ SO: Windows, macOS ou Linux
 
-Para Dispositivos Móveis:
+📱 Mobile
+🧠 RAM: 4 GB+
 
-Memória RAM: 4 GB ou mais
+💾 Armazenamento: 64 GB
 
-Armazenamento: 64 GB disponíveis
+⚙️ CPU: Quad-core 2.0 GHz+
 
-Processador: Quad-core 2.0 GHz ou superior
+📲 Android 9+ ou iOS 12+
 
-Sistema Operacional: Android 9.0+ ou iOS 12.0+
-
-Conectividade:
-
-Acesso contínuo à internet para visualização de dados em tempo real.
+🌐 Conectividade
+Conexão estável com a internet
