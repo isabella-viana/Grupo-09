@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/padronizacao.css">
     <link rel="stylesheet" href="css/atividade.css">
     <script src="js/gerenciar.js"></script>
     <title>ELEVA</title>
@@ -25,29 +26,29 @@
 
     <div class="container-principal">
         <div class="cabecalho-esquerdo">
-            <div class="icone-efeito">
-                <i class="bi bi-list"></i>
+
+            <div class="opcoes-cabecalho">
+                <div class="foto-usuario">
+                    <img src="assets/gerenciador/User.svg" alt="">
+                    <p>Eleva User</p>
+                </div>
+
+                <div class="icone" id="atividade" onclick="irAtividade()">
+                    <i class="bi bi-bell"></i>
+                    <p>Atividade</p>
+                </div>
+
+                <div class="icone" id="dash" onclick="irParaDashboard()">
+                    <i class="bi bi-speedometer2"></i>
+                    <p>Dashboard</p>
+                </div>
+
+                <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                    <i class="bi bi-people"></i>
+                    <p>Grupos</p>
+                </div>
             </div>
 
-            <div class="foto-usuario">
-                <img src="imgs/User.png" alt="">
-                <p>Eleva User</p>
-            </div>
-
-            <div class="icone" onclick="irAtividade()">
-                <i class="bi bi-bell"></i>
-                <p>Atividade</p>
-            </div>
-
-            <div class="icone" onclick="irParaDashboard()">
-                <i class="bi bi-speedometer2"></i>
-                <p>Dashboard</p>
-            </div>
-
-            <div class="icone" onclick="adicionarUsuario()">
-                <i class="bi bi-people"></i>
-                <p>Grupos</p>
-            </div>
 
             <div class="icone-saida" onclick="sair()">
                 <i class="bi bi-box-arrow-left"></i>
@@ -59,45 +60,50 @@
                 <h3>Confira suas últimas atividades</h3>
             </div>
 
-            <div class="notificate1">
-                <img src="imgs/nova-conta.png" alt="">
-                <p>
-                    Um novo usuário entrou para sua organização
-                </p>
+            <div class="buttons">
+                <button>Todas notificações</button>
+                <button>Não lidas</button>
             </div>
 
+            <div class="notifications">
+                <div class="notificate1">
+                    <img src="imgs/nova-conta.png" alt="">
+                    <p>
+                        Um novo usuário entrou para sua organização
+                    </p>
+                </div>
+
+                <div class="notificate2">
+                    <img src="imgs/grafico-de-barras 1.png" alt="">
+                    <p>
+                        Informação: Sua dashboard teve um aumento de 5% em relação a última análise
+                    </p>
+                </div>
 
 
-            <div class="notificate2">
-                <img src="imgs/grafico-de-barras 1.png" alt="">
-                <p>
-                    Informação: Sua dashboard teve um aumento de 5% em relação a última análise
-                </p>
-            </div>
+                <div class="notificate2">
+                    <img src="imgs/sinal-de-aviso 1.png" alt="">
+                    <p>
+                        Aviso: A métrica de consumo por região da sua dashboard sofreu mudanças.
+                    </p>
+                </div>
 
 
-            <div class="notificate2">
-                <img src="imgs/sinal-de-aviso 1.png" alt="">
-                <p>
-                    Aviso: A métrica de consumo por região da sua dashboard sofreu mudanças.
-                </p>
-            </div>
-
-
-            <div class="notificate2">
-                <img src="imgs/grafico-de-barras 1.png" alt="">
-                <p>
-                    Informação: Sua dashboard teve um aumento de 5% em relação a última análise
-                </p>
-            </div>
+                <div class="notificate2">
+                    <img src="imgs/grafico-de-barras 1.png" alt="">
+                    <p>
+                        Informação: Sua dashboard teve um aumento de 5% em relação a última análise
+                    </p>
+                </div>
 
 
 
-            <div class="notificate2">
-                <img src="imgs/nova-conta.png" alt="">
-                <p>
-                    Um novo usuário entrou para sua organização
-                </p>
+                <div class="notificate2">
+                    <img src="imgs/nova-conta.png" alt="">
+                    <p>
+                        Um novo usuário entrou para sua organização
+                    </p>
+                </div>
             </div>
 
 
