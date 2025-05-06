@@ -1,4 +1,4 @@
-<h1 align="center">⚡ ELEVA: Plataforma de Visualização de Consumo Energético</h1> <p align="center"> <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status do Projeto"> <img src="https://img.shields.io/badge/License-MIT-green" alt="Licença"> <img src="https://img.shields.io/badge/Vers%C3%A3o-1.0-blue" alt="Versão"> </p>
+<h1 align="center">⚡ ELEVA: Análise do consumo de energia no Brasil </h1> <p align="center"> <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status do Projeto"> <img src="https://img.shields.io/badge/License-MIT-green" alt="Licença"> <img src="https://img.shields.io/badge/Vers%C3%A3o-1.0-blue" alt="Versão"> </p>
 
 🔍 ELEVA
 
