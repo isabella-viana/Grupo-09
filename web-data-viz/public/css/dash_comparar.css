@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: auto;
+    font-family: "Poppins", sans-serif;
+  }
+  body{
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .container-principal {
+    height: 93%;
+    width: 100%;
+    display: flex;
+  }
+  
+  header {
+    height: 7%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(119, 173, 203, 1);
+  
+  }
+  
+  
+  .header-container img {
+    height: 7vh;
+    align-items: center;
+  }
+  
+  .cabecalho-esquerdo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 13%;
+    height: 100%;
+    background-color: rgba(119, 173, 203, 1);
+  
+    
+    .icone-efeito{
+        display: flex;
+        height:16%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        border-top: 2px rgb(32, 88, 119) solid;
+      
+        i{
+            color: white;
+            font-size: 2rem; 
+        }
+        i:hover{
+            cursor: pointer;
+            color: black;
+        }
+  
+    }
+  
+    .icone {
+        display: flex;
+        height: 16%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+  
+  
+        i {
+            font-size: 2rem;
+            color: white;
+        }
+  
+        p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+        }
+  
+        &:hover {
+  
+            i,
+            p {
+                color: black;
+                cursor: pointer;
+            }
+        }
+    }
+  
+    & .icone-saida {
+        display: flex;
+  
+        height: 16%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+  
+        i {
+            font-size: 2rem;
+            color: white;
+        }
+  
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+  
+        &:hover {
+  
+            i,
+            p {
+                color: black;
+                cursor: pointer;
+            }
+        }
+    }
+  
+    .foto-usuario {
+        height: 16%;
+        width: 100%;
+        color: #555;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+  
+        img {
+            width: 40%;
+            height: 60%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+  
+  }
+
+  .container-section {
+    width: 100%;
+    height: 93%;
+    overflow: hidden;
+    border-top: 2px rgb(32, 88, 119) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+  }
+
+ 
+     h1 {
+      font-size: 5vh;
+      font-weight: 400;
+      margin-top: -60vh;   
+      margin-right: 8vw;    
+      color: #77ADCB;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    
+    }
+
+    .container-botao {
+        flex-wrap: wrap;
+        margin-left: 65vw;
+        position: relative;
+        flex-direction: row;
+        display: flex;
+        margin-top: -3vw;
+        gap: 1vw;
+      
+      }
+      
+      .botao {
+        background-color: #77ADCB;
+        color: white;
+        border: none;
+        padding: 1vh 2vh;
+        border-radius: 0.5vh;
+        cursor: pointer;
+        transition: background 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        font-size: 1.5vh;
+      }
+      
+      .botao:hover {
+        background: linear-gradient(to bottom right, #77ADCB, #5F94B1);
+      }
+
+    
+      .container-cards {
+        display: flex;
+        gap: 2vw;
+        justify-content: center;
+        padding: 2vw;
+       position: relative;
+        flex-direction: column;
+        margin-top: 30vw;
+      }
+      
+      .card {
+        background-color: #f1f1f1;
+        padding: 2vw;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 65vw;
+        display: flex;
+        flex-direction: column; 
+        gap: 1vw;
+        height: 18vw;
+      }
+      
+      .card h3 {
+        margin-bottom: 1vw;
+        color: #004d73;
+      }
+      
+      .subcards {
+        display: flex;
+        flex-direction: row; 
+        gap: 1vw;
+      }
+      
+      .subcard {
+        background-color: #77ADCB;
+        color: white;
+        padding: 1vw;
+        border-radius: 6px;
+        text-align: center;
+        width: 100%; 
+       height: 15vw;
+      }
