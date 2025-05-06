@@ -1,337 +1,175 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-}
+.container-section {
+  width: 100%;
+  height: 98%;
+  border-top: 2px rgb(32, 88, 119) solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
-
-.container-principal {
-    height: 93%;
-    width: 100%;
-    display: flex;
-}
-
-header {
-    height: 7%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(119, 173, 203, 1);
-
-}
-
-.container-principal {
-    height: 100%;
-    width: 100%;
-    display: flex;
-}
-
-.header-container img {
-    height: 7vh;
-    align-items: center;
-}
-
-.cabecalho-esquerdo {
+  & .estrutura {
     display: flex;
     flex-direction: column;
+    height: 90%;
+    width: 60%;
     align-items: center;
-    width: 13%;
-    height: 100%;
-    background-color: rgba(119, 173, 203, 1);
-
-
-    .icone-efeito {
-        display: flex;
-        height: 16%;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-        border-top: 2px rgb(32, 88, 119) solid;
-
-        i {
-            color: white;
-            font-size: 2rem;
-        }
-
-        i:hover {
-            cursor: pointer;
-            color: black;
-        }
-
-    }
-
-    .icone {
-        display: flex;
-        height: 16%;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-
-
-        i {
-            font-size: 2rem;
-            color: white;
-        }
-
-        p {
-            margin: 0;
-            font-size: 1rem;
-            color: #555;
-        }
-
-        &:hover {
-
-            i,
-            p {
-                color: black;
-            }
-        }
-    }
-
-    & .icone-saida {
-        display: flex;
-
-        height: 16%;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-
-        i {
-            font-size: 2rem;
-            color: white;
-        }
-
-        p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        &:hover {
-
-            i,
-            p {
-                color: black;
-            }
-        }
-    }
-
-    .foto-usuario {
-        height: 16%;
-        width: 100%;
-        color: #555;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: start;
-
-        img {
-            width: 40%;
-            height: 60%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-    }
-
-}
-
-.container-section {
+    justify-content: center;
+    border-left: 2px #77adcb solid;
+    border-right: 2px #77adcb solid;
+    border-bottom: 2px #77adcb solid;
+    border-radius: 10px;
+  }
+  .tittle {
     width: 100%;
-    height: 93%;
-    border-top: 2px rgb(32, 88, 119) solid;
+    height: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    font-size: x-large;
+    color: white;
+    background-color: #77adcb;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
 
-    & .estrutura {
-        display: flex;
-        flex-direction: column;
-        height: 90%;
-        width: 60%;
-        align-items: center;
-        justify-content: center;
-        border-left: 2px #77ADCB solid;
-        border-right: 2px #77ADCB solid;
-        border-bottom: 2px #77ADCB solid;
-    
-    }
-    .tittle {
-        width: 100%;
-        height: 8%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: x-large;
-        color: white;
-        background-color: #77ADCB;
-   
-    }
+  .choice-section {
+    padding-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 92%;
+  }
 
-    .choice-section {
-        padding-left: 5%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 92%;
+  .nome-section {
+    width: 50%;
+    height: 16%;
 
+    & p {
+      color: rgba(119, 173, 203, 1);
+      font-size: x-large;
     }
 
-    .nome-section {
-        width: 50%;
-        height: 16%;
+    & input {
+      border: 0.5px solid rgba(119, 173, 203, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      /* sombra leve e suave */
 
-       & p {
-            color: rgba(119, 173, 203, 1);
-            font-size: x-large;
-        }
+      outline: none;
+      width: 80%;
+      height: 30%;
+      border-radius: 40px;
+      padding-left: 16px;
+    }
+  }
 
-       & input {
-            border: 0.5px solid rgba(119, 173, 203, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            /* sombra leve e suave */
-    
-            outline: none;
-            width: 80%;
-            height: 30%;
-            border-radius: 40px;
-            padding-left: 16px;
-        }
+  .empresa-section {
+    width: 50%;
+    height: 16%;
 
+    & p {
+      color: rgba(119, 173, 203, 1);
+      font-size: x-large;
     }
 
-    .empresa-section {
-        width: 50%;
-        height: 16%;
+    & input {
+      border: 0.5px solid rgba(119, 173, 203, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      /* sombra leve e suave */
 
-       & p {
-            color: rgba(119, 173, 203, 1);
-            font-size: x-large;
-        }
+      outline: none;
+      width: 80%;
+      height: 30%;
+      border-radius: 40px;
+      padding-left: 16px;
+    }
+  }
 
-       & input {
-            border: 0.5px solid rgba(119, 173, 203, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            /* sombra leve e suave */
-        
-            outline: none;
-            width: 80%;
-            height: 30%;
-            border-radius: 40px;
-            padding-left: 16px;
-        }
+  .cargo-section {
+    width: 50%;
+    height: 16%;
 
-
+    & p {
+      color: rgba(119, 173, 203, 1);
+      font-size: x-large;
     }
 
-    .cargo-section {
-        width: 50%;
-        height: 16%;
+    & input {
+      border: 0.5px solid rgba(119, 173, 203, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      /* sombra leve e suave */
 
-        & p {
-            color: rgba(119, 173, 203, 1);
-            font-size: x-large;
-        }
+      outline: none;
+      width: 80%;
+      height: 30%;
+      border-radius: 40px;
+      padding-left: 16px;
+    }
+  }
 
-        & input {
-            border: 0.5px solid rgba(119, 173, 203, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            /* sombra leve e suave */
-       
-            outline: none;
-            width: 80%;
-            height: 30%;
-            border-radius: 40px;
-            padding-left: 16px;
-        }
+  .data-section {
+    width: 50%;
+    height: 16%;
 
+    & p {
+      color: rgba(119, 173, 203, 1);
+      font-size: x-large;
     }
 
+    & input {
+      border: 0.5px solid rgba(119, 173, 203, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      padding: 2px;
+      padding-right: 15px;
+      /* sombra leve e suave */
 
+      outline: none;
+      width: 77%;
+      height: 30%;
+      border-radius: 40px;
+      padding-left: 16px;
+    }
+  }
 
-    .data-section {
-        width: 50%;
-        height: 16%;
+  .cidade-section {
+    width: 50%;
+    height: 16%;
 
-        & p {
-            color: rgba(119, 173, 203, 1);
-            font-size: x-large;
-        }
-
-        & input {
-            border: 0.5px solid rgba(119, 173, 203, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            /* sombra leve e suave */
-        
-            outline: none;
-            width: 80%;
-            height: 30%;
-            border-radius: 40px;
-            padding-left: 16px;
-        }
-
+    & p {
+      color: rgba(119, 173, 203, 1);
+      font-size: x-large;
     }
 
-  
+    & input {
+      border: 0.5px solid rgba(119, 173, 203, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      padding-inline: 5px;
+      /* sombra leve e suave */
 
-    .cidade-section {
-        width: 50%;
-        height: 16%;
-
-        & p {
-            color: rgba(119, 173, 203, 1);
-            font-size: x-large;
-        }
-
-        & input {
-            border: 0.5px solid rgba(119, 173, 203, 1);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            /* sombra leve e suave */
-          
-            outline: none;
-            width: 80%;
-            height: 30%;
-            border-radius: 40px;
-            padding-left: 16px;
-        }
+      outline: none;
+      width: 80%;
+      height: 30%;
+      border-radius: 40px;
+      padding-left: 16px;
     }
-    & button{
-        height: 8%;
-        width: 23%;
-        outline: none;
-        border: none;
-        border-radius: 20px;
-        background-color: rgba(119, 173, 203, 1); 
-        margin-right: 8%;
-        color: white;
-
-
-       
-    }
-    button:hover{
-        cursor: pointer;
-        background-color: white;
-        border: 1px black solid;
-        color:  rgba(119, 173, 203, 1);
-    }
-
+  }
+  & button {
+    height: 8%;
+    width: 23%;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(119, 173, 203, 1);
+    margin-right: 8%;
+    color: white;
+    font-size: 14px;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 1px rgba(119, 173, 203, 1) solid;
+    color: rgba(119, 173, 203, 1);
+  }
 }
-
-
-
-

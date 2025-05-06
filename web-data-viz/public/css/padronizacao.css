@@ -106,13 +106,17 @@ header {
 
   & .icone-saida {
     display: flex;
-
-    height: 16%;
-    width: 100%;
+    height: 10vh;
+    width: 7h;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-bottom: 2vh;
+
+    & img {
+      height: 6vh;
+    }
 
     i {
       font-size: 2rem;
