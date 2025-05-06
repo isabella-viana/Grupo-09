@@ -2,7 +2,7 @@
 
 🔍 ELEVA
 
-O ELEVA é uma plataforma web interativa que visa facilitar o acesso e a compreensão dos dados de consumo de energia elétrica nos estados do Brasil. Utilizando bases públicas confiáveis, a plataforma transforma dados brutos em visualizações intuitivas com dashboards!!, facilitando a análise por gestores públicos, empresas e cidadãos interessados em eficiência energética!!!!
+A ELEVA é uma empresa que oferece uma solução web interativa que visa facilitar o acesso e a compreensão dos dados de consumo de energia elétrica nos estados do Brasil. Utilizando bases públicas confiáveis, a plataforma transforma dados brutos em visualizações intuitivas com dashboards!!, facilitando a análise por gestores públicos, empresas e cidadãos interessados em eficiência energética!!!!
 
 🎯 Objetivos
 Identificar os principais estados consumidores de energia do país.
