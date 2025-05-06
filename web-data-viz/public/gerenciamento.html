@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELEVA - Gerenciar Participantes</title>
+  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/gerenciamento.css">
+  <link rel="stylesheet" href="css/padronizacao.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <img src="imgs/Logo.png" alt="">
+    </div>
+  </header>
+
+  <div class="container-principal">
+    <div class="cabecalho-esquerdo">
+
+      <div class="opcoes-cabecalho">
+        <div class="foto-usuario">
+          <img src="assets/gerenciador/User.svg" alt="">
+          <p>Eleva User</p>
+        </div>
+
+        <div class="icone" id="atividade" onclick="irAtividade()">
+          <i class="bi bi-bell"></i>
+          <p>Atividade</p>
+        </div>
+
+        <div class="icone" id="dash" onclick="irParaDashboard()">
+          <i class="bi bi-speedometer2"></i>
+          <p>Dashboard</p>
+        </div>
+
+        <div class="icone" id="grupos" onclick="adicionarUsuario()">
+          <i class="bi bi-people"></i>
+          <p>Grupos</p>
+        </div>
+      </div>
+
+
+      <div class="icone-saida" onclick="sair()">
+        <i class="bi bi-box-arrow-left"></i>
+      </div>
+    </div>
+
+    <div class="container-section">
+      <h1>Gerenciar Participantes</h1>
+
+      <table class="tabela-participantes">
+        <thead>
+          <tr>
+            <th colspan="1" class="alinha-direita">
+            <th>
+              <div class="botoes-direita">
+                <button class="botao adicionar" onclick="telaContato()">
+
+                  Adicionar Participante
+                  <i class="bi bi-plus-circle"></i>
+                </button>
+            </th>
+            <th>
+              <button class="botao excluir">
+                Excluir Selecionado
+                <i class="bi bi-trash3"></i>
+              </button>
+    </div>
+    </th>
+    <th>
+      <div class="botoes-direita">
+        <button class="botao adicionar">
+          Editar
+          <i class="bi bi-pencil-square"></i>
+        </button>
+    </th>
+    </tr>
+    </thead>
+    <tbody id="tabela-corpo">
+      <tr>
+        <td><input type="checkbox" class="check-participante" /></td>
+        <td>Guilherme Queiroz</td>
+        <td>usuarioeleva@gmail.com</td>
+        <td>11 9999-9990</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="check-participante" /></td>
+        <td>Isabella Viana</td>
+        <td>usuarioeleva@gmail.com</td>
+        <td>11 9999-9990</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="check-participante" /></td>
+        <td>Matheus Martinez</td>
+        <td>usuarioeleva@gmail.com</td>
+        <td>11 9999-9990</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="check-participante" /></td>
+        <td>Pedro Gandin</td>
+        <td>usuarioeleva@gmail.com</td>
+        <td>11 9999-9990</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="check-participante" /></td>
+        <td>Victor Hugo</td>
+        <td>usuarioeleva@gmail.com</td>
+        <td>11 9999-9990</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="check-participante" /></td>
+        <td>Vinícius Gonçalves</td>
+        <td>usuarioeleva@gmail.com</td>
+        <td>11 9999-9990</td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+<script>
+  const tabelaCorpo = document.getElementById("tabela-corpo");
+  const botaoAdicionar = document.querySelector(".botao.adicionar");
+  const botaoExcluir = document.querySelector(".botao.excluir");
+  const botaoCancelar = document.getElementById("cancelar-adicao");
+  const botaoConfirmar = document.getElementById("confirmar-adicao");
+  const formAdicionar = document.getElementById("form-adicionar");
+
+  function adicionarUsuario() {
+    window.location.href = "../public/gerenciamento.html"
+  }
+  function irAtividade() {
+    window.location.href = "../public/atividades.html"
+  }
+  function sair() {
+    window.location.href = "../public/index.html"
+  }
+  function irParaDashboard() {
+    window.location.href = "../public/dashboard.html"
+  }
+
+  botaoAdicionar.addEventListener("click", () => {
+    formAdicionar.style.display = "flex";
+  });
+
+
+
+  function telaContato() {
+
+    window.location.href = "../public/gerenciar.html"
+
+  }
+
+
+  botaoCancelar.addEventListener("click", () => {
+    formAdicionar.style.display = "none";
+  });
+
+
+
+
+  botaoExcluir.addEventListener("click", () => {
+    const selecionados = document.querySelectorAll(".check-participante:checked");
+    selecionados.forEach(checkbox => {
+      checkbox.closest("tr").remove();
+    });
+  });
+
+
+</script>
