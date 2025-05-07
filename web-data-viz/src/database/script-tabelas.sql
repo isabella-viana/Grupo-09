@@ -58,7 +58,6 @@ CREATE TABLE logs_service (
     mensagem VARCHAR(45)
 );
 
-drop database eleva;
 
 
 
