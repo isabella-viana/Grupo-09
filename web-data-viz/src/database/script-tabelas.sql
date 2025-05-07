@@ -1,3 +1,6 @@
+CREATE DATABASE eleva;
+USE eleva;
+
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
@@ -8,48 +11,53 @@ CREATE TABLE empresa (
 );
 
 CREATE TABLE endereco (
-    idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+    idendereco INT PRIMARY KEY,
     rua VARCHAR(45),
     bairro VARCHAR(45),
     cidade VARCHAR(45),
     uf VARCHAR(45),
     cep VARCHAR(45),
     empresa_idempresa INT,
-    FOREIGN KEY (empresa_idEmpresa) REFERENCES empresa(idEmpresa)
+    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa)
 );
 
 CREATE TABLE colaborador (
-    idColaborador INT PRIMARY KEY AUTO_INCREMENT,
+    idcolaborador INT PRIMARY KEY,
     cpf CHAR(8),
     email VARCHAR(45),
     senha VARCHAR(45),
     cargo VARCHAR(45),
-    colaboradorCol VARCHAR(45),
+    colaboradorcol VARCHAR(45),
     empresa_idempresa INT,
-    FOREIGN KEY (empresa_idEmpresa) REFERENCES empresa(idEmpresa)
+    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa)
 );
 
-CREATE TABLE estados (
-    idEstados INT PRIMARY KEY AUTO_INCREMENT,
-    uf CHAR(2),
-    região VARCHAR(45)
-);
-
-CREATE TABLE consumoEnergia (
-    idConsumoEnergia INT PRIMARY KEY AUTO_INCREMENT,
-    consumo DOUBLE,
+CREATE TABLE consumo_energia (
+    idconsumo_energia INT PRIMARY KEY auto_increment,
     data DATE,
+    classe varchar(45),
+    consumo DOUBLE,
     consumidores INT,
-    dashboard_idDashboard INT,
-    estados_idEstados INT,
-    FOREIGN KEY (estados_idEstados) REFERENCES estados(idEstados)
+    uf VARCHAR(45),
+    regiao VARCHAR(45)
 );
 
 CREATE TABLE avisos (
-    idAvisos INT PRIMARY KEY AUTO_INCREMENT,
+    idavisos INT PRIMARY KEY,
     descricao VARCHAR(45),
-    dtHoraEmissao DATE,
-    consumoEnergia_idConsumoEnergia INT,
-    FOREIGN KEY (consumoEnergia_idConsumoEnergia) REFERENCES consumoEnergia(idConsumoEnergia)
+    dtHoraEmissao DATE
 );
+
+CREATE TABLE logs_service (
+    idregistroLogs INT PRIMARY KEY auto_increment,
+    nomeArquivo VARCHAR(100),
+    inicio DATETIME,
+    fim DATETIME,
+    logs_registrados INT,
+    erros INT,
+    sucesso VARCHAR(45),
+    mensagem VARCHAR(45)
+);
+
+
 
