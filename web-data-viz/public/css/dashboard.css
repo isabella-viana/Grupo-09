@@ -267,7 +267,6 @@
         align-items: center;
 
         & path {
-          fill: white;
           stroke: black;
         }
 
