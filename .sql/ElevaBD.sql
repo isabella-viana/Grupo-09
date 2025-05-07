@@ -58,4 +58,3 @@ CREATE TABLE avisos (
 );
 
 
-drop database eleva;
