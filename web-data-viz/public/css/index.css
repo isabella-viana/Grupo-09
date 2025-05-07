@@ -1405,6 +1405,11 @@ footer {
     border-radius: 7.5vw;
   }
 
+  .image-body img{
+    width: 500px;
+    height: 700px;
+  }
+
 
   .font-img {
     

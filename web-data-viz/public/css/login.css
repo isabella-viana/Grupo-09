@@ -31,10 +31,10 @@ body {
 }
 
 .arrow img{
-    position: relative;
+    position: absolute;
     width: 50px;
-    bottom: 450%; /* Move para cima sem afetar o espaço abaixo */
-    left: 40%;
+    bottom: 100%; /* Move para cima sem afetar o espaço abaixo */
+    right: 10%;
 }
 .arrow2 {
     height: 20px;
@@ -42,10 +42,11 @@ body {
 }
 
 .arrow2 img{
-    position: relative;
+    position: absolute;
     width: 50px;
-    bottom: 80%; /* Move para cima sem afetar o espaço abaixo */
-    right: 40%;
+    bottom: 10%; /* Move para cima sem afetar o espaço abaixo */
+    left: 0%;
+    top: 10%;
 }
 
 
@@ -140,6 +141,8 @@ form {
     font-size: 25px;
     margin-top: 20px;
     color: white;
+    border: none;
+    margin-bottom: 20px;
 }
 
 .toggle-box{
@@ -221,12 +224,28 @@ text-align: center;
 @media screen and (max-height: 950px) {
    .arrow2 img {
     width: 40px;
-    bottom: 50px;
+    bottom: 0px;
+   }
+
+   .Up img {
+    display: none;
    }
 
    .input_box input {
     padding: 10px;
    }
+
+   .form{
+    height: 150%;
+   }
+
+   .Text-h1{
+    display: none;
+   }
+
+   
+
+ 
 }
 
 @media screen and (max-height: 850px) {
@@ -269,6 +288,11 @@ text-align: center;
 
     .arrow2 img {
         margin-top: 90px;
+        left: -15px;
+    }
+    
+    .container.active .btn .button-cadas .btn {
+        margin-top: 1200px;
     }
    
 }
@@ -295,7 +319,7 @@ text-align: center;
         clip-path: none;
     }
     .arrow img{
-        bottom: calc(10vh - 40px); 
+        bottom: calc(5vh - 40px); 
     
     }
     .toggle-box::before {
