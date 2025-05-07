@@ -1,4 +1,3 @@
-CREATE DATABASE eleva;
 USE eleva;
 
 CREATE TABLE empresa (
@@ -58,6 +57,8 @@ CREATE TABLE logs_service (
     sucesso VARCHAR(45),
     mensagem VARCHAR(45)
 );
+
+drop database eleva;
 
 
 
