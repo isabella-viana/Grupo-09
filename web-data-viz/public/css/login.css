@@ -19,6 +19,7 @@ body {
     background: linear-gradient(90deg, rgb(255, 255, 255), rgb(188, 188, 252)); /* Background = fundo. O linear-gradiant é para fazer como se fosse uma mistura de cores*/
 }
 
+
 .Up{
     display: flex;
     justify-content: center;
