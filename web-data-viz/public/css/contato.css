@@ -138,6 +138,22 @@
       text-decoration: none;
       color: rgba(1, 42, 74, 1);
     }
+  
+    #mapa{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    
+    iframe {
+      max-width: 100%;
+      width: 600px;
+      height: 450px;
+      border-radius: 10px;
+      border: 0 ;
+    }
 
 
     @media screen and (max-width: 1980px) {
