@@ -494,16 +494,110 @@
 
     };
 
+// =============================================================
+// 📌 IMPLEMENTAR FILTRO DE ESTADOS POR REGIÃO
+// -------------------------------------------------------------
+// ✔️ Separar os estados por região em um objeto chamado "regioes"
+// ✔️ Criar um <select> para a REGIÃO e outro para os ESTADOS (checkboxes)
+// ✔️ Quando a REGIÃO for selecionada, atualizar os ESTADOS disponíveis
+// ✔️ Manter a opção "Todos" tanto na lista de regiões quanto de estados
+// 🧠 Lembrete: usar addEventListener ou onchange para reagir à troca de região
+// -------------------------------------------------------------
+// 🌎 Exemplo da estrutura do objeto regioes:
+//
+// const regioes = {
+//     "Todos": [
+//         "Todos", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
+//         "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ",
+//         "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+//     ],
+//     "Norte": ["Todos", "AC", "AP", "AM", "PA", "RO", "RR", "TO"],
+//     "Nordeste": ["Todos", "AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"],
+//     "Centro-Oeste": ["Todos", "DF", "GO", "MT", "MS"],
+//     "Sudeste": ["Todos", "ES", "MG", "RJ", "SP"],
+//     "Sul": ["Todos", "PR", "RS", "SC"]
+// };
+//
+// Funções:
+// 
+// function checkBox() {
+//     const checkboxContainer = document.getElementById("checkboxUf");
+//     const selectContainer = document.getElementById("regiaoSelect");
+//     
+//     // Cria o select de regiões se ainda não existir
+//     if (!selectContainer.innerHTML) {
+//         let selectHTML = `<label for="regiao">Região:</label>
+//         <select id="regiao" onchange="atualizarEstados()">
+//         `;
+//
+//         for (let regiao in regioes) {
+//             selectHTML += `<option value="${regiao}">${regiao}</option>`;
+//         }
+//         selectHTML += `</select>`;
+//         selectContainer.innerHTML = selectHTML;
+//     }
+//
+//     // Renderiza os checkboxes da região selecionada
+//     atualizarEstados();
+// }
+//
+// function atualizarEstados() {
+//     const regiaoSelecionada = document.getElementById("regiao").value;
+//     const estados = regioes[regiaoSelecionada];
+//
+//     const checkboxContainer = document.getElementById("checkboxUf");
+//     checkboxContainer.innerHTML = `Estados`;
+//
+//     for (let i = 0; i < estados.length; i++) {
+//         const marcado = i == 0 ? "checked" : "";
+//
+//         checkboxContainer.innerHTML += `
+//         <div class="div_checkbox">
+//             <input type="checkbox" class="input_checkbox" id="input_checkbox${i}" value="${estados[i]}" onclick="selecionarUnico(this)" ${marcado}>
+//             ${estados[i]}
+//         </div>`;
+//     }
+//
+//     atualizarGraficos(estados[0]); // Atualiza com o primeiro estado da lista
+// }
+//
+// function selecionarUnico(estadoClicado) {
+//     const checkboxes = document.querySelectorAll('.input_checkbox');
+//
+//     checkboxes.forEach(i => {
+//         if (i !== estadoClicado) {
+//             i.checked = false;
+//         }
+//     });
+//
+//     if (estadoClicado.checked) {
+//         atualizarGraficos(estadoClicado.value);
+//     }
+// }
+//
+// function atualizarGraficos(estado) {
+//     if (estado == "Geral" || estado == "Todos") {
+//         compracaoConsumo.innerHTML = `Comparação do consumo com o ano anterior`;
+//         compracaoConsumoPorConsumidor.innerHTML = `Consumo médio por consumidor`;
+//         tituloGrande.innerHTML = `TOP 10 - Porcentagem de Participação por Estado`;
+//         quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
+//         tiposEnergia.innerHTML = `Tipos de Energia mais consumidas`;
+//     } else {
+//         // lógica para atualizar com estado específico
+//     }
+// }
+// =============================================================
 
     function checkBox() {
+
         const estados = [
-            "Geral", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
+            "Todos", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
             "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ",
             "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
         ];
 
         const checkboxContainer = document.getElementById("checkboxUf");
-        checkboxContainer.innerHTML = `Filtro`;
+        checkboxContainer.innerHTML = `Estados`;
 
         for (let i = 0; i < estados.length; i++) {
             const marcado = i == 0 ? "checked" : "";
