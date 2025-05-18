@@ -42,7 +42,7 @@
   align-items: center;
   flex-direction: column;
 
-  .tituloDaDashboard {
+  & .tituloDaDashboard {
     display: flex;
     width: 100%;
     height: 10%;
@@ -50,13 +50,9 @@
     justify-content: center;
     align-items: center;
 
-
-
-    pomba {
+    & pomba {
       color: #0d425f;
-      font-size: 60px;
-
-
+      font-size: 40px;
     }
   }
 
@@ -72,32 +68,136 @@
 
   .checkboxUf {
     height: 100%;
-    width: 9%;
+    width: 20%;
+    display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: center;
     color: #77adcb;
     font-family: "Poppins", sans-serif;
-    font-size: 1.5vw;
+    font-size: ;
 
-    & .div_checkbox {
+
+    .limiteTamanho {
+      height: 90%;
+      width: 100%;
       display: flex;
-      margin-left: 23%;
-      height: 3.1%;
-      gap: 10%;
-      font-size: 1vw;
-      accent-color: #77adcb;
-      font-weight: 300;
-      cursor: pointer;
-      color: black;
+      flex-direction: column;
+      align-items: center;
+
+      & .tudo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        font-size: 20px;
+        ;
+
+        .parteCima {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          border: #77adcb solid 2px;
+
+
+        }
+
+        .parteBaixo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+          border: #77adcb solid 2px;
+
+           .selectTodas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: #77adcb solid 2px;
+            text-align: center;
+            width: 100%;  
+            gap: 8px;
+      
+          }
+          .select {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: #77adcb solid 2px;
+            text-align: center;
+            width: 100%;
+
+              .textos{
+                width: 100%;
+                display: flex;
+                
+                p{
+                  width: 80%;
+                }
+                .iconeSeta{
+                  width: 20%;
+                }
+              }
+          }
+
+        
+          .select:hover{
+              cursor: pointer;
+              background-color: #77adcb;
+              color: white;
+            }
+
+
+          .selectSul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            width: 100%;
+
+            .textos{
+                width: 100%;
+                display: flex;
+                
+                 p{
+                  width: 80%;
+                }
+                .iconeSeta{
+                  width: 20%;
+                }
+              }
+              }
+            
+          }
+          .selectSul:hover{
+              cursor: pointer;
+              background-color: #77adcb;
+              color: white;
+            }
+
+        }
+
+
+
+
+
+
+      }
+
+
+
     }
 
-    & input {
-      display: flex;
-    }
+
   }
 
-  & .graficosEKpis {
+  .graficosEKpis {
     display: flex;
     height: 100%;
     width: 47%;
@@ -109,6 +209,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
+
 
       & .kpis {
         width: 100%;
@@ -254,7 +355,7 @@
     }
   }
 
-  & .mapaBrasil {
+  .mapaBrasil {
     display: flex;
     height: 100%;
     width: 48%;

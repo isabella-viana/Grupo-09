@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="css/padronizacao.css">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/dashboard.js"></script>
+
+
 
     <title>ELEVA - Dashboard</title>
 </head>
@@ -57,11 +60,70 @@
 
         <div class="container-section">
             <div class="container">
+
                 <div class="tituloDaDashboard">
-                    <pomba>Teste de Título</pomba>
+                    <pomba>Dashboard - Análise de Consumo de energia</pomba>
                 </div>
                 <div class="conteudoDash">
-                    <div class="checkboxUf" id="checkboxUf"></div>
+                    <div class="checkboxUf" id="checkboxUf">
+                        <div class="limiteTamanho">
+                            <div class="tudo">
+                                <div class="parteCima">
+                                    <div class="regioes">Regiões</div>
+                                </div>
+                                <div class="parteBaixo">
+
+                                    <div class="selectTodas">
+                                        Todas<input type="checkbox" onclick="fecharOutrosMenusESelecionarTodos(this)">
+                                        <div class="inputs"></div>
+                                    </div>
+                                    <div class="select" id="norte" onclick="selecaoRegioes(this)">
+                                        <div class="textos">
+                                            <p>Norte</p>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                        </div>
+                                        <div class="inputs" id="inputNorte"></div>
+                                    </div>
+
+                                    <div class="select" id="nordeste" onclick="selecaoRegioes(this)">
+                                        <div class="textos">
+                                            <p>Nordeste</p>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                        </div>
+                                        <div class="inputs" id="inputNordeste"></div>
+                                    </div>
+
+                                    <div class="select" id="centroOeste" onclick="selecaoRegioes(this)">
+                                        <div class="textos">
+                                            <p>Centro-Oeste</p>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                        </div>
+                                        <div class="inputs" id="inputCentroOeste"></div>
+                                    </div>
+
+                                    <div class="select" id="sudeste" onclick="selecaoRegioes(this)">
+                                        <div class="textos">
+                                            <p>Sudeste</p>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                        </div>
+                                        <div class="inputs" id="inputSudeste"></div>
+                                    </div>
+
+                                    <div class="select" id="sul" onclick="selecaoRegioes(this)">
+                                        <div class="textos">
+                                            <p>Sul</p>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                        </div>
+                                        <div class="inputs" id="inputSul"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
 
                     <div class="graficosEKpis">
 
@@ -94,10 +156,7 @@
 
                             <div class="graficoGrande">
                                 <div class="estrutura">
-                                    <div class="tituloGraficoGrande" id="tituloGrande">TOP 10 - Porcentagem de
-                                        Participação
-                                        por
-                                        Estado</div>
+                                    <div class="tituloGraficoGrande" id="tituloGrande">Quantidade de Consumidores</div>
                                     <div class="graficoG">
                                         <div id="meuGrafico" style="width: 100%; height: 85%"></div>
                                     </div>
@@ -107,8 +166,8 @@
 
                             <div class="graficosPequenos">
                                 <div class="estrutura">
-                                    <div class="tituloGraficoPequenos" id="quantidadeConsumidores">Quantidade de
-                                        consumidores</div>
+                                    <div class="tituloGraficoPequenos" id="quantidadeConsumidores">Consumo de energia
+                                        por região (%)</div>
                                     <div class="graficoP">
                                         <div id="qtdConsumidores" style="width: 100%; height: 95%"></div>
                                     </div>
@@ -292,770 +351,3 @@
 
 
 </html>
-<script>
-
-
-    function adicionarUsuario() {
-        window.location.href = "./gerenciamento.html"
-    }
-    function irAtividade() {
-        window.location.href = "./atividades.html"
-    }
-    function sair() {
-        window.location.href = "./index.html"
-    }
-    function irParaDashboard() {
-        window.location.href = "./dashboard.html"
-    }
-
-    window.onload = function () {
-
-        coresGrafico();
-        checkBox();
-
-        var numeroAleatorio = Math.random() * 9 - 4;
-        var numeroAleatorio2 = Math.random() * 109;
-
-        if (numeroAleatorio > 0) {
-
-            kpiDado.style.color = "green"
-
-            kpiDado.innerHTML = `+ ${numeroAleatorio.toFixed(2)}<span>%</span> <i class="bi bi-arrow-up-short"></i>`
-
-        } else {
-
-            kpiDado.style.color = "red"
-
-            kpiDado.innerHTML = `${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-down-short"></i>`
-        }
-
-
-        if (numeroAleatorio2 > 0) {
-
-            comparacaoCPC.innerHTML = `${numeroAleatorio2.toFixed(1)} <span>MWh</span> <i class="bi bi-lightning-charge-fill"></i>`
-
-        } else {
-
-            comparacaoCPC.innerHTML = `${numeroAleatorio2.toFixed(1)} <span>MWh</span> <i class="bi bi-lightning-charge-fill"></i>`
-        }
-
-        // gráfico principal
-
-        Highcharts.chart('meuGrafico', {
-            chart: {
-                type: 'column'
-            },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: null
-            },
-            subtitle: {
-                text: null
-            },
-            xAxis: {
-                categories: [
-                    'BA', 'SP', 'PR', 'SC', 'RJ',
-                    'PA', 'RS', 'MG', 'PE', 'CE'
-                ],
-                title: {
-                    text: null
-                }
-            },
-            yAxis: {
-                visible: false
-            },
-            plotOptions: {
-                column: {
-                    dataLabels: {
-                        enabled: true,
-                        inside: false,
-                        y: -10,
-                        format: '{y}%',
-                        style: {
-                            fontWeight: 'bold',
-                            color: 'black'
-                        }
-                    },
-                    borderWidth: 0
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            series: [{
-                name: 'Consumo de Energia',
-                data: [15.7, 14.1, 13.0, 12.0, 11.2, 10.6, 10.4, 9.2, 8.9, 7.7]
-            }]
-        });
-
-        // Gráfico de Pizza 
-
-        Highcharts.chart('energiasMaisConsumidas', {
-            chart: {
-                type: 'pie'
-            },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: null
-            },
-            subtitle: {
-                text: null
-            },
-            tooltip: {
-                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    dataLabels: {
-                        enabled: false,
-                        format: '{point.name}: {point.percentage:.1f}%'
-                    },
-                    showInLegend: true
-                }
-            },
-            legend: {
-                enabled: true,
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'middle',
-                itemMarginBottom: 8,
-                symbolRadius: 6,
-                symbolHeight: 10,
-                symbolWidth: 10,
-                navigation: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: 'Valor',
-                data: [
-                    { name: 'Hidrelétrica', y: 120 },
-                    { name: 'Eólica', y: 95 },
-                    { name: 'Nuclear', y: 78 },
-                    { name: 'Gás Natural', y: 133 },
-                    { name: 'Outros', y: 22 }
-                ]
-            }]
-        });
-
-        Highcharts.chart('qtdConsumidores', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: null
-            },
-            xAxis: {
-                categories: [
-                    '2020', '2021', '2022', '2023', '2024', '2025'
-                ],
-                title: {
-                    text: null
-                },
-                lineWidth: 0,
-                tickWidth: 0,
-                gridLineWidth: 0
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: null
-                },
-                allowDecimals: true,
-                lineWidth: 0,
-                tickWidth: 0,
-                gridLineWidth: 0,
-                labels: {
-                    enabled: false
-                }
-            },
-            credits: {
-                enabled: false
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                column: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-            series: [{
-                name: 'Consumidores',
-                data: [2200, 2350, 2500, 2650, 2800, 2950]
-            }]
-        });
-
-    };
-
-// =============================================================
-// 📌 IMPLEMENTAR FILTRO DE ESTADOS POR REGIÃO
-// -------------------------------------------------------------
-// ✔️ Separar os estados por região em um objeto chamado "regioes"
-// ✔️ Criar um <select> para a REGIÃO e outro para os ESTADOS (checkboxes)
-// ✔️ Quando a REGIÃO for selecionada, atualizar os ESTADOS disponíveis
-// ✔️ Manter a opção "Todos" tanto na lista de regiões quanto de estados
-// 🧠 Lembrete: usar addEventListener ou onchange para reagir à troca de região
-// -------------------------------------------------------------
-// 🌎 Exemplo da estrutura do objeto regioes:
-//
-// const regioes = {
-//     "Todos": [
-//         "Todos", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
-//         "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ",
-//         "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
-//     ],
-//     "Norte": ["Todos", "AC", "AP", "AM", "PA", "RO", "RR", "TO"],
-//     "Nordeste": ["Todos", "AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"],
-//     "Centro-Oeste": ["Todos", "DF", "GO", "MT", "MS"],
-//     "Sudeste": ["Todos", "ES", "MG", "RJ", "SP"],
-//     "Sul": ["Todos", "PR", "RS", "SC"]
-// };
-//
-// Funções:
-// 
-// function checkBox() {
-//     const checkboxContainer = document.getElementById("checkboxUf");
-//     const selectContainer = document.getElementById("regiaoSelect");
-//     
-//     // Cria o select de regiões se ainda não existir
-//     if (!selectContainer.innerHTML) {
-//         let selectHTML = `<label for="regiao">Região:</label>
-//         <select id="regiao" onchange="atualizarEstados()">
-//         `;
-//
-//         for (let regiao in regioes) {
-//             selectHTML += `<option value="${regiao}">${regiao}</option>`;
-//         }
-//         selectHTML += `</select>`;
-//         selectContainer.innerHTML = selectHTML;
-//     }
-//
-//     // Renderiza os checkboxes da região selecionada
-//     atualizarEstados();
-// }
-//
-// function atualizarEstados() {
-//     const regiaoSelecionada = document.getElementById("regiao").value;
-//     const estados = regioes[regiaoSelecionada];
-//
-//     const checkboxContainer = document.getElementById("checkboxUf");
-//     checkboxContainer.innerHTML = `Estados`;
-//
-//     for (let i = 0; i < estados.length; i++) {
-//         const marcado = i == 0 ? "checked" : "";
-//
-//         checkboxContainer.innerHTML += `
-//         <div class="div_checkbox">
-//             <input type="checkbox" class="input_checkbox" id="input_checkbox${i}" value="${estados[i]}" onclick="selecionarUnico(this)" ${marcado}>
-//             ${estados[i]}
-//         </div>`;
-//     }
-//
-//     atualizarGraficos(estados[0]); // Atualiza com o primeiro estado da lista
-// }
-//
-// function selecionarUnico(estadoClicado) {
-//     const checkboxes = document.querySelectorAll('.input_checkbox');
-//
-//     checkboxes.forEach(i => {
-//         if (i !== estadoClicado) {
-//             i.checked = false;
-//         }
-//     });
-//
-//     if (estadoClicado.checked) {
-//         atualizarGraficos(estadoClicado.value);
-//     }
-// }
-//
-// function atualizarGraficos(estado) {
-//     if (estado == "Geral" || estado == "Todos") {
-//         compracaoConsumo.innerHTML = `Comparação do consumo com o ano anterior`;
-//         compracaoConsumoPorConsumidor.innerHTML = `Consumo médio por consumidor`;
-//         tituloGrande.innerHTML = `TOP 10 - Porcentagem de Participação por Estado`;
-//         quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
-//         tiposEnergia.innerHTML = `Tipos de Energia mais consumidas`;
-//     } else {
-//         // lógica para atualizar com estado específico
-//     }
-// }
-// =============================================================
-
-    function checkBox() {
-
-        const estados = [
-            "Todos", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
-            "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ",
-            "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
-        ];
-
-        const checkboxContainer = document.getElementById("checkboxUf");
-        checkboxContainer.innerHTML = `Estados`;
-
-        for (let i = 0; i < estados.length; i++) {
-            const marcado = i == 0 ? "checked" : "";
-
-            checkboxContainer.innerHTML += `
-        <div class="div_checkbox">
-            <input type="checkbox" class="input_checkbox" id="input_checkbox${i}" value="${estados[i]}" onclick="selecionarUnico(this)" ${marcado}>
-            ${estados[i]}
-        </div>`;
-        }
-    }
-
-
-    function selecionarUnico(estadoClicado) {
-        const checkboxes = document.querySelectorAll('.input_checkbox');
-
-        //Amigos de grupo, aqui estou perguntando se o estado que foi clicado é diferente do estado que esta agora.
-        checkboxes.forEach(i => {
-            if (i !== estadoClicado) {
-                i.checked = false;
-            }
-        });
-
-        if (estadoClicado.checked) {
-            atualizarGraficos(estadoClicado.value);
-        }
-    }
-    function atualizarGraficos(estado) {
-        if (estado == "Geral") {
-            compracaoConsumo.innerHTML = `Comparação do consumo com o ano anterior`;
-            compracaoConsumoPorConsumidor.innerHTML = `Consumo médio por consumidor`;
-            tituloGrande.innerHTML = `TOP 10 - Porcentagem de Participação por Estado `;
-            quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
-            tiposEnergia.innerHTML = `Tipos de Energia mais consumidas`
-
-
-
-            Highcharts.chart('meuGrafico', {
-                chart: {
-                    type: 'column'
-                },
-                credits: {
-                    enabled: false
-                },
-                title: {
-                    text: null
-                },
-                subtitle: {
-                    text: null
-                },
-                xAxis: {
-                    categories: [
-                        'BA', 'SP', 'PR', 'SC', 'RJ',
-                        'PA', 'RS', 'MG', 'PE', 'CE'
-                    ],
-                    title: {
-                        text: null
-                    }
-                },
-                yAxis: {
-                    visible: false
-                },
-                plotOptions: {
-                    column: {
-                        dataLabels: {
-                            enabled: true,
-                            inside: false,
-                            y: -10,
-                            format: '{y}%',
-                            style: {
-                                fontWeight: 'bold',
-                                color: 'black'
-                            }
-                        },
-                        borderWidth: 0
-                    }
-                },
-                legend: {
-                    enabled: false
-                },
-                series: [{
-                    name: 'Consumo de Energia',
-                    data: [15.7, 14.1, 13.0, 12.0, 11.2, 10.6, 10.4, 9.2, 8.9, 7.7]
-                }]
-            });
-
-            Highcharts.chart('energiasMaisConsumidas', {
-                chart: {
-                    type: 'pie'
-                },
-                credits: {
-                    enabled: false
-                },
-                title: {
-                    text: null
-                },
-                subtitle: {
-                    text: null
-                },
-                tooltip: {
-                    pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        dataLabels: {
-                            enabled: false,
-                            format: '{point.name}: {point.percentage:.1f}%'
-                        },
-                        showInLegend: true
-                    }
-                },
-                legend: {
-                    enabled: true,
-                    layout: 'vertical',
-                    align: 'left',
-                    verticalAlign: 'middle',
-                    itemMarginBottom: 8,
-                    symbolRadius: 6,
-                    symbolHeight: 10,
-                    symbolWidth: 10,
-                    navigation: {
-                        enabled: false
-                    }
-                },
-                series: [{
-                    name: 'Valor',
-                    data: [
-                        { name: 'Hidrelétrica', y: 120 },
-                        { name: 'Eólica', y: 95 },
-                        { name: 'Nuclear', y: 78 },
-                        { name: 'Gás Natural', y: 133 },
-                        { name: 'Outros', y: 22 }
-                    ]
-                }]
-            });
-            Highcharts.chart('qtdConsumidores', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: null
-                },
-                xAxis: {
-                    categories: [
-                        '2015', '2016', '2017', '2018', '2019',
-                        '2020', '2021', '2022', '2023', '2024', '2025'
-                    ],
-                    title: {
-                        text: null
-                    },
-                    lineWidth: 0,
-                    tickWidth: 0,
-                    gridLineWidth: 0
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: null
-                    },
-                    allowDecimals: true,
-                    lineWidth: 0,
-                    tickWidth: 0,
-                    gridLineWidth: 0,
-                    labels: {
-                        enabled: false
-                    }
-                },
-                credits: {
-                    enabled: false
-                },
-                legend: {
-                    enabled: false
-                },
-                plotOptions: {
-                    column: {
-                        dataLabels: {
-                            enabled: true
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Consumidores',
-                    data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
-                }]
-            });
-
-
-            return;
-        }
-
-
-        //!TESTE FUTURO - NÃO MEXER! isso fará uma mudança de cor de acordo com o estado selecionado
-
-        // const estadoSelecionado = [];
-        // if (estadoSelecionado.length == 0) {
-        //     estadoSelecionado.push(estado);
-        // } else {
-        //     estadoSelecionado[0].style.stroke = ("black");
-        //     estadoSelecionado.splice(0);
-        //     estadoSelecionado.push(estado);
-        // }
-        // estadoSelecionado[0].style.stroke = ("white")
-
-
-        tituloGrande.innerHTML = `Quantidade de energia consumida`;
-        quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
-
-
-
-        // Aqui estamos colocando números aleatórios para gerar os gráficos
-        var numeroAleatorio = Math.random() * 9 - 4;
-        var numeroAleatorio2 = Math.random() * 109 - 10;
-
-        if (numeroAleatorio > 0) {
-            kpiDado.style.color = "green"
-            kpiDado.innerHTML = `+ ${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-up-short"></i>`
-        } else {
-            kpiDado.style.color = "red"
-            kpiDado.innerHTML = `${numeroAleatorio.toFixed(2)} <span>%</span> <i class="bi bi-arrow-down-short"></i>`
-        }
-
-        if (numeroAleatorio2 > 0) {
-
-            comparacaoCPC.innerHTML = ` ${numeroAleatorio2.toFixed(1)} <span>MWh</span> <i class="bi bi-lightning-charge-fill"></i>`
-        } else {
-
-            comparacaoCPC.innerHTML = `${numeroAleatorio2.toFixed(1)} <span>MWh</span><i class="bi bi-lightning-charge-fill"></i>`
-        }
-
-
-
-
-
-        Highcharts.chart('meuGrafico', {
-            chart: {
-                type: 'line'
-            },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: null
-            },
-            subtitle: {
-                text: null
-            },
-            xAxis: {
-                categories: [
-                    '2015', '2016', '2017', '2018', '2019',
-                    '2020', '2021', '2022', '2023', '2024', '2025'
-                ],
-
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: '(MWh)',
-                    align: 'high'
-                },
-                labels: {
-                    overflow: 'justify'
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: true
-                }
-            },
-            legend: {
-                enabled: false
-            },
-            series: [{
-                name: 'Energia Consumida',
-                data: [420, 450, 470, 500, 530, 480, 520, 550, 590, 620, 640]
-            }]
-        });
-
-        Highcharts.chart('qtdConsumidores', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: null
-            },
-            xAxis: {
-                categories: [
-                    '2015', '2016', '2017', '2018', '2019',
-                    '2020', '2021', '2022', '2023', '2024', '2025'
-                ],
-                title: {
-                    text: null
-                },
-                lineWidth: 0,
-                tickWidth: 0,
-                gridLineWidth: 0
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: null
-                },
-                allowDecimals: false,
-                lineWidth: 0,
-                tickWidth: 0,
-                gridLineWidth: 0,
-                labels: {
-                    enabled: false
-                }
-            },
-            credits: {
-                enabled: false
-            },
-            legend: {
-                enabled: false
-            },
-            plotOptions: {
-                column: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-            series: [{
-                name: 'Consumidores',
-                data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
-            }]
-        });
-
-        Highcharts.chart('energiasMaisConsumidas', {
-            chart: {
-                type: 'pie'
-            },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: null
-            },
-            subtitle: {
-                text: null
-            },
-            tooltip: {
-                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    dataLabels: {
-                        enabled: false,
-                        format: '{point.name}: {point.percentage:.1f}%'
-                    },
-                    showInLegend: true
-                }
-            },
-            legend: {
-                enabled: true,
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'middle',
-                itemMarginBottom: 8,
-                symbolRadius: 6,
-                symbolHeight: 10,
-                symbolWidth: 10,
-                navigation: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: 'Valor',
-                data: [
-                    { name: 'Hidrelétrica', y: 120 },
-                    { name: 'Eólica', y: 95 },
-                    { name: 'Nuclear', y: 78 },
-                    { name: 'Gás Natural', y: 133 },
-                    { name: 'Outros', y: 22 }
-                ]
-            }]
-        });
-
-    }
-    function coresGrafico() {
-        var estados = [];
-        var numerosAleatorios = [
-            1, // Acre
-            3, // Alagoas
-            1, // Amapá
-            3, // Amazonas
-            5, // Bahia
-            4, // Ceará
-            6, // Distrito Federal
-            5, // Espírito Santo
-            5, // Goiás
-            3, // Maranhão
-            5, // Mato Grosso
-            4, // Mato Grosso do Sul
-            7, // Minas Gerais 
-            3, // Pará
-            2, // Paraíba
-            6, // Paraná
-            5, // Pernambuco
-            3, // Piauí
-            7, // Rio de Janeiro 
-            3, // Rio Grande do Norte
-            6, // Rio Grande do Sul
-            2, // Rondônia
-            1, // Roraima
-            5, // Santa Catarina
-            7, // São Paulo 
-            2, // Sergipe
-            2  // Tocantins
-        ];
-
-
-
-        var nomesEstados = [
-            'BR-AC', 'BR-AL', 'BR-AP', 'BR-AM', 'BR-BA',
-
-            'BR-CE', 'BR-DF', 'BR-ES', 'BR-GO', 'BR-MA',
-
-            'BR-MT', 'BR-MS', 'BR-MG', 'BR-PA', 'BR-PB',
-
-            'BR-PR', 'BR-PE', 'BR-PI', 'BR-RJ', 'BR-RN',
-
-            'BR-RS', 'BR-RO', 'BR-RR', 'BR-SC', 'BR-SP',
-
-            'BR-SE', 'BR-TO'
-        ];
-
-        for (var i = 0; i < nomesEstados.length; i++) {
-            var estadoAtual = document.getElementById(nomesEstados[i]);
-            estados.push(estadoAtual);
-        }
-
-        for (var i = 0; i < estados.length; i++) {
-            if (numerosAleatorios[i] == 1) {
-                estados[i].style.fill = '#8ee89e';
-            } else if (numerosAleatorios[i] == 2) {
-                estados[i].style.fill = '#d6f26a';
-            } else if (numerosAleatorios[i] == 3) {
-                estados[i].style.fill = '#fff05e';
-            } else if (numerosAleatorios[i] == 4) {
-                estados[i].style.fill = '#ffc145';
-            } else if (numerosAleatorios[i] == 5) {
-                estados[i].style.fill = '#ff914d';
-            } else if (numerosAleatorios[i] == 6) {
-                estados[i].style.fill = '#ff5e5e';
-            } else if (numerosAleatorios[i] == 7) {
-                estados[i].style.fill = '#d94343';
-            }
-
-
-
-
-
-        }
-    }
-
-
-</script>
