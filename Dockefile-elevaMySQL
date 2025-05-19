@@ -1,0 +1,14 @@
+FROM mysql:8.0
+
+# Define a senha do root
+ENV MYSQL_ROOT_PASSWORD=sptech
+
+# Define o banco de dados padrão
+ENV MYSQL_DATABASE=eleva
+
+# Não precisa definir MYSQL_USER e MYSQL_PASSWORD, assim o root será o usuário principal
+
+# Copia o script SQL para inicializar o banco
+COPY ./src/database/script-tabelas.sql
+
+EXPOSE 3306
