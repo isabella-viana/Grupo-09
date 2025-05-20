@@ -4,16 +4,11 @@ FROM node:18
 # 2. Definir diretório de trabalho dentro do container
 WORKDIR /web-data-viz
 
-# 3. Clonar o repositório
-RUN apt-get update && apt-get install -y git \
-    && git clone https://github.com/isabella-viana/Grupo-09.git . \
-    && rm -rf .git
-
-# 4. Instalar dependências
+# 3. Instalar dependências
 RUN npm install
 
-# 5. Expor a porta correta
+# 4. Expor a porta correta
 EXPOSE 8080
 
-# 6. Comando padrão para iniciar a aplicação
+# 5. Comando padrão para iniciar a aplicação
 CMD ["npm", "start"]
