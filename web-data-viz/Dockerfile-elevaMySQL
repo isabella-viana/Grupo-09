@@ -6,7 +6,7 @@ ENV MYSQL_ROOT_PASSWORD=sptech
 ENV MYSQL_DATABASE=eleva
 
 #Copia scripts de inicialização
-COPY ./web-data-viz/src/database/script-tabelas.sql /docker-entrypoint-initdb.d/
+COPY ./src/database/script-tabelas.sql /docker-entrypoint-initdb.d/
 
 #Exponha a porta padrão do MySQL
 EXPOSE 3306
