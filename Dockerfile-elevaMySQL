@@ -1,0 +1,12 @@
+FROM mysql:latest
+
+
+#Define as variáveis de ambiente esperadas pela imagem oficial do MySQL
+ENV MYSQL_ROOT_PASSWORD=sptech
+ENV MYSQL_DATABASE=eleva
+
+#Copia scripts de inicialização
+COPY ./web-data-viz/src/database/script-tabelas.sql /docker-entrypoint-initdb.d/
+
+#Exponha a porta padrão do MySQL
+EXPOSE 3306
