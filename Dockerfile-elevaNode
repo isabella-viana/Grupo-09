@@ -2,7 +2,7 @@
 FROM node:18
 
 # 2. Definir diretório de trabalho dentro do container
-WORKDIR /app
+WORKDIR /web-data-viz
 
 # 3. Clonar o repositório
 RUN apt-get update && apt-get install -y git \
