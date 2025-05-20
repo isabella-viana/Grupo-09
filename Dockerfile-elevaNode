@@ -1,13 +1,19 @@
 FROM node:18
 
+# Cria o diretório de trabalho no container
 WORKDIR /web-data-viz
 
+# Copia o package.json e o package-lock.json (se houver)
 COPY package*.json ./
 
+# Instala as dependências
 RUN npm install
 
+# Copia todo o restante da aplicação
 COPY . .
 
+# Expõe a porta usada pela aplicação (ajuste se for diferente)
 EXPOSE 8080
 
-CMD ["npm", "start"]
+# Comando para iniciar o app
+CMD ["node", "app.js"]
