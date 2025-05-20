@@ -1,0 +1,14 @@
+# 1. Usar a imagem oficial do Node.js
+FROM node:18
+
+# 2. Definir diretório de trabalho dentro do container
+WORKDIR /web-data-viz
+
+# 3. Instalar dependências
+RUN npm install
+
+# 4. Expor a porta correta
+EXPOSE 8080
+
+# 5. Comando padrão para iniciar a aplicação
+CMD ["npm", "start"]
