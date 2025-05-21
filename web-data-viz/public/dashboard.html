@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="gerenciar.css">
     <link rel="stylesheet" href="css/padronizacao.css">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
@@ -74,45 +73,50 @@
                                 <div class="parteBaixo">
 
                                     <div class="selectTodas">
-                                        Todas<input type="checkbox" onclick="fecharOutrosMenusESelecionarTodos(this)">
-                                        <div class="inputs"></div>
+                                        Todas<input type="checkbox" value="todas" onclick="selecionarUnico(this)"
+                                            id="todas">
                                     </div>
-                                    <div class="select" id="norte" onclick="selecaoRegioes(this)">
+                                    <div class="select" id="norte" onclick="selecaoRegioes(this.id)">
                                         <div class="textos">
                                             <p>Norte</p>
-                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"
+                                                    id="icone_norte"></i></div>
                                         </div>
                                         <div class="inputs" id="inputNorte"></div>
                                     </div>
 
-                                    <div class="select" id="nordeste" onclick="selecaoRegioes(this)">
+                                    <div class="select" id="nordeste" onclick="selecaoRegioes(this.id)">
                                         <div class="textos">
                                             <p>Nordeste</p>
-                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"
+                                                    id="icone_nordeste"></i></div>
                                         </div>
                                         <div class="inputs" id="inputNordeste"></div>
                                     </div>
 
-                                    <div class="select" id="centroOeste" onclick="selecaoRegioes(this)">
+                                    <div class="select" id="centroOeste" onclick="selecaoRegioes(this.id)">
                                         <div class="textos">
                                             <p>Centro-Oeste</p>
-                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"
+                                                    id="icone_centroOeste"></i></div>
                                         </div>
                                         <div class="inputs" id="inputCentroOeste"></div>
                                     </div>
 
-                                    <div class="select" id="sudeste" onclick="selecaoRegioes(this)">
+                                    <div class="select" id="sudeste" onclick="selecaoRegioes(this.id)">
                                         <div class="textos">
                                             <p>Sudeste</p>
-                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"
+                                                    id="icone_sudeste"></i></div>
                                         </div>
                                         <div class="inputs" id="inputSudeste"></div>
                                     </div>
 
-                                    <div class="select" id="sul" onclick="selecaoRegioes(this)">
+                                    <div class="select" id="sul" onclick="selecaoRegioes(this.id)">
                                         <div class="textos">
                                             <p>Sul</p>
-                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill"></i></div>
+                                            <div class="iconeSeta"><i class="bi bi-caret-down-fill" id="icone_sul"></i>
+                                            </div>
                                         </div>
                                         <div class="inputs" id="inputSul"></div>
                                     </div>

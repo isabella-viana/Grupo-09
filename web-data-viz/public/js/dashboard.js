@@ -16,12 +16,7 @@ window.onload = function () {
     atualizarGraficos(todas);
     coresGrafico();
     numerosAleatorios()
-    // checkBox();
-
-
-
-
-
+    checkBox(todas);
 };
 
 function numerosAleatorios() {
@@ -53,9 +48,6 @@ function numerosAleatorios() {
 }
 
 
-
-
-
 function selecionarUnico(estadoClicado) {
     const checkboxes = document.querySelectorAll('.input_checkbox');
 
@@ -69,18 +61,120 @@ function selecionarUnico(estadoClicado) {
     if (estadoClicado.checked) {
         atualizarGraficos(estadoClicado.value);
     }
+    verificar(estadoClicado.value)
+}
+function verificar(estado) {
+    console.log("Entrei no verificar(estado)");
+
+    fetch("/usuarios/verificar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            estadoServer: estado
+        })
+
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO verificar()!");
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log("Dados completos:", json);
+                console.log("Em formato JSON:", JSON.stringify(json));
+
+                
+                const ANOS = json.map(item => item.ano);
+                const CONSUMIDORES = json.map(item => Number(item.consumidores_dezembro)); // converte string para número
+
+               
+                sessionStorage.setItem("ANOS", JSON.stringify(ANOS));
+                sessionStorage.setItem("CONSUMIDORES", JSON.stringify(CONSUMIDORES));
+
+    
+                console.log("Anos:", ANOS);
+                console.log("Consumidores:", CONSUMIDORES);
+                criarGraficoConsumidores(ANOS, CONSUMIDORES);
+            });
+        } else {
+            console.log("Erro ao puxar os dados do back-end.");
+        }
+    }).catch(function (erro) {
+        console.log("Erro na requisição:", erro);
+    });
+
+    return false;
+}
+
+const anos = JSON.parse(sessionStorage.getItem("ANOS"));
+const consumidores = JSON.parse(sessionStorage.getItem("CONSUMIDORES"));
+
+var graficoConsumidores = []
+
+function criarGraficoConsumidores(anos, consumidores) {
+
+console.log("Estou tentando criar os gráficos")
+ console.log("Anos:", anos);
+ console.log("Consumidores:", consumidores);
+
+    Highcharts.chart('meuGrafico', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: null
+        },
+        xAxis: {
+            categories: [
+                anos[0], anos[1], anos[2], anos[3], anos[4],
+                anos[5], anos[6], anos[7], anos[8], anos[9]
+            ],
+            title: {
+                text: null
+            },
+            lineWidth: 0,
+            tickWidth: 0,
+            gridLineWidth: 0
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: null
+            },
+            allowDecimals: true,
+            lineWidth: 0,
+            tickWidth: 0,
+            gridLineWidth: 0,
+            labels: {
+                enabled: false
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        series: [{
+            name: 'Consumidores',
+            data: [consumidores[0], consumidores[1], consumidores[2], consumidores[3], consumidores[4],
+            consumidores[5], consumidores[6], consumidores[7], consumidores[8], consumidores[9]]
+        }]
+    });
 }
 function atualizarGraficos(estado) {
+    var id = estado.id
     if (estado == "todas") {
-        compracaoConsumo.innerHTML = `Comparação do consumo com o ano anterior`;
-        compracaoConsumoPorConsumidor.innerHTML = `Consumo médio por consumidor`;
-        tituloGrande.innerHTML = `TOP 10 - Porcentagem de Participação por Estado `;
-        quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
-        tiposEnergia.innerHTML = `Tipos de Energia mais consumidas`
-        numerosAleatorios();
-
-        // gráfico principal
-
+        criarGraficoConsumidores(anos, consumidores)
         Highcharts.chart('qtdConsumidores', {
             chart: {
                 type: 'column'
@@ -129,59 +223,8 @@ function atualizarGraficos(estado) {
             }]
         });
 
-        // Gráfico de Pizza 
-
-        Highcharts.chart('energiasMaisConsumidas', {
-            chart: {
-                type: 'pie'
-            },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: null
-            },
-            subtitle: {
-                text: null
-            },
-            tooltip: {
-                pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    dataLabels: {
-                        enabled: false,
-                        format: '{point.name}: {point.percentage:.1f}%'
-                    },
-                    showInLegend: true
-                }
-            },
-            legend: {
-                enabled: true,
-                layout: 'vertical',
-                align: 'left',
-                verticalAlign: 'middle',
-                itemMarginBottom: 8,
-                symbolRadius: 6,
-                symbolHeight: 10,
-                symbolWidth: 10,
-                navigation: {
-                    enabled: false
-                }
-            },
-            series: [{
-                name: 'Valor',
-                data: [
-                    { name: 'Hidrelétrica', y: 120 },
-                    { name: 'Eólica', y: 95 },
-                    { name: 'Nuclear', y: 78 },
-                    { name: 'Gás Natural', y: 133 },
-                    { name: 'Outros', y: 22 }
-                ]
-            }]
-        });
-
-        Highcharts.chart('meuGrafico', {
+    } else {
+        Highcharts.chart('qtdConsumidores', {
             chart: {
                 type: 'column'
             },
@@ -231,129 +274,64 @@ function atualizarGraficos(estado) {
                 data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
             }]
         });
+        Highcharts.chart('meuGrafico', {
+            chart: {
+                type: 'column'
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: null
+            },
+            xAxis: {
+                categories: [
+                    'Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'
+                ],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                visible: false
+            },
+            plotOptions: {
+                column: {
+                    dataLabels: {
+                        enabled: true,
+                        inside: false,
+                        y: -10,
+                        format: '{y}%',
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'black'
+                        }
+                    },
+                    borderWidth: 0
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            series: [{
+                name: 'Consumo de Energia',
+                data: [15.7, 14.1, 13.0, 12.0, 11.2]
+            }]
+        });
 
-        return;
     }
-
-
-    //!TESTE FUTURO - NÃO MEXER! isso fará uma mudança de cor de acordo com o estado selecionado
-
-    // const estadoSelecionado = [];
-    // if (estadoSelecionado.length == 0) {
-    //     estadoSelecionado.push(estado);
-    // } else {
-    //     estadoSelecionado[0].style.stroke = ("black");
-    //     estadoSelecionado.splice(0);
-    //     estadoSelecionado.push(estado);
-    // }
-    // estadoSelecionado[0].style.stroke = ("white")
-
-
-    tituloGrande.innerHTML = `Quantidade de energia consumida`;
-    quantidadeConsumidores.innerHTML = `Quantidade de consumidores`;
-
-
 
     // Aqui estamos colocando números aleatórios para gerar os gráficos
     numerosAleatorios();
 
-    Highcharts.chart('meuGrafico', {
-        chart: {
-            type: 'line'
-        },
-        credits: {
-            enabled: false
-        },
-        title: {
-            text: null
-        },
-        subtitle: {
-            text: null
-        },
-        xAxis: {
-            categories: [
-                '2015', '2016', '2017', '2018', '2019',
-                '2020', '2021', '2022', '2023', '2024', '2025'
-            ],
 
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: '(MWh)',
-                align: 'high'
-            },
-            labels: {
-                overflow: 'justify'
-            }
-        },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: true
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        series: [{
-            name: 'Energia Consumida',
-            data: [420, 450, 470, 500, 530, 480, 520, 550, 590, 620, 640]
-        }]
-    });
 
-    Highcharts.chart('qtdConsumidores', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: null
-        },
-        xAxis: {
-            categories: [
-                '2015', '2016', '2017', '2018', '2019',
-                '2020', '2021', '2022', '2023', '2024', '2025'
-            ],
-            title: {
-                text: null
-            },
-            lineWidth: 0,
-            tickWidth: 0,
-            gridLineWidth: 0
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: null
-            },
-            allowDecimals: false,
-            lineWidth: 0,
-            tickWidth: 0,
-            gridLineWidth: 0,
-            labels: {
-                enabled: false
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            column: {
-                dataLabels: {
-                    enabled: true
-                }
-            }
-        },
-        series: [{
-            name: 'Consumidores',
-            data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
-        }]
-    });
+
+
+    // Gráfico de Pizza
 
     Highcharts.chart('energiasMaisConsumidas', {
         chart: {
@@ -405,67 +383,86 @@ function atualizarGraficos(estado) {
         }]
     });
 
+
+
+
 }
-var menuAberto = null;
-function selecaoRegioes(conteudo) {
-    // Fecha todos os outros .inputs (limpa o conteúdo)
-    const todasAsInputs = document.querySelectorAll('.inputs');
 
-    //Amigos, estou criando uma função fantasma que vai limpar o conteúdo de todos os inputs
-    // e depois colocar o conteúdo do input que foi clicado
-    todasAsInputs.forEach(div => div.innerHTML = '');
-
-    const divInputs = conteudo.querySelector('.inputs');
-    menuAberto = divInputs;
-    const idSelecionado = conteudo.id;
-
+function checkBox() {
     const estadosNorte = ["AC", "AP", "AM", "PA", "RO", "RR", "TO"];
     const estadosNordeste = ["AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"];
     const estadosCentroOeste = ["DF", "GO", "MT", "MS"];
     const estadosSudeste = ["ES", "MG", "RJ", "SP"];
     const estadosSul = ["PR", "RS", "SC"];
 
-    if (menuAberto.innerHTML !== '') {
-        fecharOutrosMenusESelecionarTodos();
-    }
-    var estados = [];
+    const estados = {
+        Norte: estadosNorte,
+        Nordeste: estadosNordeste,
+        CentroOeste: estadosCentroOeste,
+        Sudeste: estadosSudeste,
+        Sul: estadosSul
+    };
 
-    if (idSelecionado === "norte") {
-        estados = estadosNorte;
-    } else if (idSelecionado === "nordeste") {
-        estados = estadosNordeste;
-    } else if (idSelecionado === "centroOeste") {
-        estados = estadosCentroOeste;
-    } else if (idSelecionado === "sudeste") {
-        estados = estadosSudeste;
-    } else if (idSelecionado === "sul") {
-        estados = estadosSul;
-    }
+    const regioes = Object.keys(estados);
+    const valores = Object.values(estados);
 
-    for (let i = 0; i < estados.length; i++) {
+    for (let i = 0; i < regioes.length; i++) {
+        const regiao = regioes[i];
+        const listaEstados = valores[i];
 
-        divInputs.innerHTML += `
-        <div class="div_checkbox">
-            <input type="checkbox" class="input_checkbox" id="input_checkbox${i}" value="${estados[i]}" onclick="selecionarUnico(this)">
-            ${estados[i]}
-        </div>`;
+        const container = document.getElementById(`input${regiao}`);
+        container.innerHTML = ""; // limpa o conteúdo antes
+
+        for (let j = 0; j < listaEstados.length; j++) {
+            const estado = listaEstados[j];
+
+            container.innerHTML += `
+                <div class="div_checkbox">
+                    <input type="checkbox" class="input_checkbox" id="input_checkbox_${regiao}_${j}" value="${estado}" onclick="selecionarUnico(this)">
+                    ${estado}
+                </div>
+            `;
+        }
+        inputNorte.style.display = 'none'
+        inputNordeste.style.display = 'none'
+        inputCentroOeste.style.display = 'none'
+        inputSudeste.style.display = 'none'
+        inputSul.style.display = 'none'
     }
 }
 
 
-function fecharOutrosMenusESelecionarTodos(todas) {
-    //Mesma logica do anterior
-    const todasAsInputs = document.querySelectorAll('.inputs');
-    todasAsInputs.forEach(div => div.innerHTML = '');
-    var Geral = "todas"
-    atualizarGraficos(Geral)
+
+
+function selecaoRegioes(nome) {
+    var icone = document.getElementById(`icone_${nome}`)
+    inputNorte.style.display = 'none'
+    inputNordeste.style.display = 'none'
+    inputCentroOeste.style.display = 'none'
+    inputSudeste.style.display = 'none'
+    inputSul.style.display = 'none'
+
+    if (nome == "norte") {
+
+        inputNorte.style.display = 'block'
+        return
+    } else if (nome == "nordeste") {
+        inputNordeste.style.display = 'block'
+        return
+    } else if (nome == "centroOeste") {
+        inputCentroOeste.style.display = 'block'
+        return
+    } else if (nome == "sudeste") {
+        inputSudeste.style.display = 'block'
+        return
+    } else {
+
+
+        inputSul.style.display = 'block'
+    }
 
 
 }
-
-
-
-
 
 function coresGrafico() {
     var estados = [];
@@ -482,19 +479,19 @@ function coresGrafico() {
         3, // Maranhão
         5, // Mato Grosso
         4, // Mato Grosso do Sul
-        7, // Minas Gerais 
+        7, // Minas Gerais
         3, // Pará
         2, // Paraíba
         6, // Paraná
         5, // Pernambuco
         3, // Piauí
-        7, // Rio de Janeiro 
+        7, // Rio de Janeiro
         3, // Rio Grande do Norte
         6, // Rio Grande do Sul
         2, // Rondônia
         1, // Roraima
         5, // Santa Catarina
-        7, // São Paulo 
+        7, // São Paulo
         2, // Sergipe
         2  // Tocantins
     ];
@@ -537,10 +534,7 @@ function coresGrafico() {
             estados[i].style.fill = '#d94343';
         }
 
-
-
-
-
     }
 
 }
+
