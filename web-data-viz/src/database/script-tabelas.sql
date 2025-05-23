@@ -1,4 +1,4 @@
-CREATE database eleva;
+CREATE DATABASE IF NOT EXISTS eleva;
 USE eleva;
 
 CREATE TABLE empresa (
