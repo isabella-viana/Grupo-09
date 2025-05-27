@@ -11,8 +11,6 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
 </head>
 
 <body>
@@ -33,21 +31,20 @@
         </div>
 
         <div class="icone" id="atividade" onclick="irAtividade()">
-          <i class="bi bi-bell"></i>
+          <i class="icone-notificacao"></i>
           <p>Atividade</p>
         </div>
 
         <div class="icone" id="dash" onclick="irParaDashboard()">
-          <i class="bi bi-speedometer2"></i>
+          <i class="icone-dashboard"></i>
           <p>Dashboard</p>
         </div>
 
         <div class="icone" id="grupos" onclick="adicionarUsuario()">
-          <i class="bi bi-people"></i>
+          <i class="icone-grupos"></i>
           <p>Grupos</p>
         </div>
       </div>
-
 
       <div class="icone-saida" onclick="sair()">
         <img src="assets/gerenciador/sair.svg" alt="">
@@ -60,74 +57,85 @@
       <table class="tabela-participantes">
         <thead>
           <tr>
-            <th colspan="1" class="alinha-direita">
+            <th colspan="3" class="alinha-direita"></th>
             <th>
               <div class="botoes-direita">
                 <button class="botao adicionar" onclick="telaContato()">
-
                   Adicionar Participante
-                  <i class="bi bi-plus-circle"></i>
+                  <i class="icone-adicionar"></i>
                 </button>
+              </div>
             </th>
             <th>
               <button class="botao excluir">
                 Excluir Selecionado
-                <i class="bi bi-trash3"></i>
+                <i class="icone-excluir"></i>
               </button>
+            </th>
+            <th>
+              <div class="botoes-direita">
+                <button class="botao adicionar">
+                  Editar
+                  <i class="icone-editar"></i>
+                </button>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Guilherme Queiroz</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Tecled</td>
+            <td>View</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Isabella Viana</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Scrum</td>
+            <td>View</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Matheus Martinez</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>PO</td>
+            <td>View</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Pedro Gandin</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Gerente</td>
+            <td>Edit</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Victor Hugo</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>CIO</td>
+            <td>ADM</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Vinícius Gonçalves</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Supervisor</td>
+            <td>Edit</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    </th>
-    <th>
-      <div class="botoes-direita">
-        <button class="botao adicionar">
-          Editar
-          <i class="bi bi-pencil-square"></i>
-        </button>
-    </th>
-    </tr>
-    </thead>
-    <tbody id="tabela-corpo">
-      <tr>
-        <td><input type="checkbox" class="check-participante" /></td>
-        <td>Guilherme Queiroz</td>
-        <td>usuarioeleva@gmail.com</td>
-        <td>11 9999-9990</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" class="check-participante" /></td>
-        <td>Isabella Viana</td>
-        <td>usuarioeleva@gmail.com</td>
-        <td>11 9999-9990</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" class="check-participante" /></td>
-        <td>Matheus Martinez</td>
-        <td>usuarioeleva@gmail.com</td>
-        <td>11 9999-9990</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" class="check-participante" /></td>
-        <td>Pedro Gandin</td>
-        <td>usuarioeleva@gmail.com</td>
-        <td>11 9999-9990</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" class="check-participante" /></td>
-        <td>Victor Hugo</td>
-        <td>usuarioeleva@gmail.com</td>
-        <td>11 9999-9990</td>
-      </tr>
-      <tr>
-        <td><input type="checkbox" class="check-participante" /></td>
-        <td>Vinícius Gonçalves</td>
-        <td>usuarioeleva@gmail.com</td>
-        <td>11 9999-9990</td>
-      </tr>
-    </tbody>
-    </table>
-  </div>
 
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
@@ -138,8 +146,6 @@
   const tabelaCorpo = document.getElementById("tabela-corpo");
   const botaoAdicionar = document.querySelector(".botao.adicionar");
   const botaoExcluir = document.querySelector(".botao.excluir");
-  const botaoCancelar = document.getElementById("cancelar-adicao");
-  const botaoConfirmar = document.getElementById("confirmar-adicao");
   const formAdicionar = document.getElementById("form-adicionar");
 
   function adicionarUsuario() {
@@ -175,12 +181,41 @@
 
 
 
-  botaoExcluir.addEventListener("click", () => {
+    botaoExcluir.addEventListener("click", async () => {
     const selecionados = document.querySelectorAll(".check-participante:checked");
-    selecionados.forEach(checkbox => {
-      checkbox.closest("tr").remove();
+    const ids = Array.from(selecionados).map(checkbox => {
+      return checkbox.closest("tr").dataset.id;
     });
+
+    if (ids.length === 0) return alert("Selecione pelo menos um participante.");
+
+    try {
+      await fetch('http://localhost:3000/participantes', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids })
+      });
+      carregarParticipantes();
+    } catch (erro) {
+      console.error("Erro ao excluir participantes:", erro);
+    }
   });
+
+
+  async function editarParticipante(id, nome, email, telefone) {
+    try {
+      await fetch(`http://localhost:3000/participantes/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, telefone })
+      });
+      carregarParticipantes();
+    } catch (erro) {
+      console.error("Erro ao editar participante:", erro);
+    }
+  }
+
+    window.onload = carregarParticipantes;
 
 
 </script>
