@@ -184,36 +184,69 @@
     botaoExcluir.addEventListener("click", async () => {
     const selecionados = document.querySelectorAll(".check-participante:checked");
     const ids = Array.from(selecionados).map(checkbox => {
-      return checkbox.closest("tr").dataset.id;
+        return checkbox.closest("tr").dataset.id;
     });
 
-    if (ids.length === 0) return alert("Selecione pelo menos um participante.");
-
-    try {
-      await fetch('http://localhost:3000/participantes', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ids })
-      });
-      carregarParticipantes();
-    } catch (erro) {
-      console.error("Erro ao excluir participantes:", erro);
+    if (ids.length === 0) {
+        window.alert("Selecione pelo menos um participante.");
+        return;
     }
-  });
 
+    console.log("Criar função de apagar participantes escolhidos - IDs:", ids);
 
-  async function editarParticipante(id, nome, email, telefone) {
     try {
-      await fetch(`http://localhost:3000/participantes/${id}`, {
+        const resposta = await fetch('http://localhost:3000/participantes', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ids })
+        });
+
+        if (resposta.ok) {
+            window.alert("Participantes deletados com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+        
+            carregarParticipantes();
+        } else if (resposta.status == 404) {
+            window.alert("Erro 404 - Participantes não encontrados.");
+        } else {
+            throw new Error("Houve um erro ao tentar excluir os participantes! Código da resposta: " + resposta.status);
+        }
+    } catch (erro) {
+        console.error("#ERRO:", erro);
+        window.alert("Erro ao excluir participantes. Verifique o console para mais detalhes.");
+    }
+});
+
+
+
+ function editarParticipante(id, nome, email, telefone) {
+    console.log("Criar função de editar participante - ID:", id);
+
+    fetch(`http://localhost:3000/participantes/${id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ nome, email, telefone })
-      });
-      carregarParticipantes();
-    } catch (erro) {
-      console.error("Erro ao editar participante:", erro);
-    }
-  }
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            window.alert("Participante atualizado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+            carregarParticipantes(); 
+        } else if (resposta.status == 404) {
+            window.alert("Erro 404 - Participante não encontrado.");
+        } else {
+            throw new Error("Houve um erro ao tentar editar o participante! Código da resposta: " + resposta.status);
+        }
+    })
+    .catch(function (erro) {
+        console.error("#ERRO:", erro);
+        window.alert("Erro ao editar participante. Verifique o console para mais detalhes.");
+    });
+}
+
+
 
     window.onload = carregarParticipantes;
 

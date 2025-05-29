@@ -3,37 +3,53 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #e9f3f8, #ffffff);
 }
+
+html, body{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
 
 .container {
     display: flex;
-    justify-content: center;
     align-items: flex-start;
-    padding: 40px;
-    gap: 40px;
+    width: 100%;
+    height: 100%;
+   
+
 }
 
 .solicitacoes {
-    background-color: #e9f3f8;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+     background: linear-gradient(to bottom, #ffffff 0%, #77ADCB 50%, #ffffff 100%);
+     width: 50%;
+     height: 100%;
 }
 
 .solicitacoes h2 {
     text-align: center;
-    color: #336699;
+    color: #2E7094;
     margin-bottom: 20px;
+    position: relative;
+    bottom: -4%;
+    font-size: 50px;
+     font-weight: 400;
 }
 
 table {
-    width: 100%;
+    position: relative;
+    bottom: -5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 60%;
     border-collapse: collapse;
     background-color: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+     text-align: center;
 }
 
 th, td {
@@ -44,7 +60,7 @@ th, td {
 
 th {
     background-color: #f0f8ff;
-    color: #336699;
+    color: #77ADCB;
     font-weight: 600;
 }
 
@@ -57,46 +73,77 @@ td {
     background-color: white;
     padding: 30px;
     border-radius: 15px;
-    width: 300px;
-    position: relative;
+    width: 50%;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    height: 100%;
+     
 }
 
 .formulario h2 {
     text-align: center;
     color: #77ADCB;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-weight: 100;
+    font-size: 55px;
 }
 
-form {
+
+.formulario form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px; 
+    width: 100%;
+    align-items: center;
 }
 
-input {
+.formulario input {
     padding: 10px;
     border: none;
     border-radius: 10px;
     background-color: #e9f3f8;
     font-size: 14px;
     outline: none;
+    width: 80%;
+    
+}
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
 
-button {
+.campo p {
+    margin: 0 0 5px 5px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.campo input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e9f3f8;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.formulario button {
     padding: 12px;
     background-color: #77ADCB;
     color: white;
     border: none;
     border-radius: 20px;
-    font-weight: bold;
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
+    width: 40%;
+    font-size: 25px;
+
 }
 
-button:hover {
+.formulario button:hover {
     background-color: #5d94b2;
 }
 
@@ -107,6 +154,6 @@ button:hover {
 }
 
 .home-icon img {
-    width: 25px;
-    height: 25px;
+    width: 60px;
+    height: 60px;
 }
