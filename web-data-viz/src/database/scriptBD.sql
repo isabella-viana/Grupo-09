@@ -1,23 +1,12 @@
+CREATE DATABASE eleva;
+use eleva;
+
 CREATE TABLE uf (
     idUF INT PRIMARY KEY,
     UF VARCHAR(45),
     cidade VARCHAR(45),
     endereco_idendereco INT,
     empresa_idempresa INT
-);
-
-CREATE TABLE endereco (
-    idendereco INT PRIMARY KEY,
-    logradouro VARCHAR(45),
-    numero INT,
-    bairro VARCHAR(45),
-    cidade VARCHAR(45),
-    cep VARCHAR(45),
-    apelido VARCHAR(45),
-    empresa_idempresa INT,
-    usuario_idUsuario INT,
-    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa),
-    FOREIGN KEY (usuario_idUsuario) REFERENCES Usuario(idUsuario)
 );
 
 CREATE TABLE empresa (
@@ -39,6 +28,20 @@ CREATE TABLE usuario (
     dataNascimento DATE,
     empresa_idempresa INT,
     FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa)
+);
+
+CREATE TABLE endereco (
+    idendereco INT PRIMARY KEY,
+    logradouro VARCHAR(45),
+    numero INT,
+    bairro VARCHAR(45),
+    cidade VARCHAR(45),
+    cep VARCHAR(45),
+    apelido VARCHAR(45),
+    empresa_idempresa INT,
+    usuario_idUsuario INT,
+    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa),
+    FOREIGN KEY (usuario_idUsuario) REFERENCES Usuario(idUsuario)
 );
 
 CREATE TABLE leads (
@@ -83,3 +86,5 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
+
+drop database eleva;
