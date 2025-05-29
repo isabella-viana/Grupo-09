@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Endereço</title>
+    <link rel="stylesheet" href="css/padronizacao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/adicionar_empresa.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="imgs/Logo.png" alt="">
+        </div>
+    </header>
+
+    <main>
+        <div class="cabecalho-esquerdo">
+
+            <div class="opcoes-cabecalho">
+                <div class="foto-usuario">
+                    <img src="assets/gerenciador/User.svg" alt="">
+                    <p>Eleva User</p>
+                </div>
+
+                <div class="icone" id="dash" onclick="irParaDashboard()">
+                    <i class="bi bi-speedometer2"></i>
+                    <p>Dashboard</p>
+                </div>
+
+                <div class="icone" id="atividade" onclick="irAtividade()">
+                    <i class="bi bi-building"></i>
+                    <p>Empresas</p>
+                </div>
+
+                <div class="icone" id="atividade" onclick="irAtividade()">
+                    <i class="bi bi-geo-alt"></i>
+                    <p>Endereços</p>
+                </div>
+
+                <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                    <i class="bi bi-people"></i>
+                    <p>Gerenciar</p>
+                </div>
+
+                <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                    <i class="bi bi-person"></i>
+                    <p>Conta</p>
+                </div>
+            </div>
+
+
+            <div class="icone-saida" onclick="sair()">
+                <img src="assets/gerenciador/sair.svg" alt="">
+            </div>
+        </div>
+
+        <div class="cadastro">
+            <div class="titulo">
+                <h1>Editar Endereço</h1>
+            </div>
+
+            <div class="infos-cadastro">
+                <div class="infos">
+                    <div class="inputs">
+                        <p>CEP</p>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Bairro</p>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Endereço</p>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Número</p>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="infos">
+                    <div class="inputs">
+                        <p>Complemento</p>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputs">
+                        <p>CNPJ</p>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Apelido</p>
+                        <input type="text">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Gerente</p>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="adicionar">
+                <button>Alterar</button>
+            </div>
+        </div>
+    </main>
+
+
+
+</body>
+
+</html>
