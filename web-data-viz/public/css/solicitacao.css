@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e9f3f8, #ffffff);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 40px;
+}
+
+.solicitacoes {
+    background-color: #e9f3f8;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.solicitacoes h2 {
+    text-align: center;
+    color: #336699;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f0f8ff;
+    color: #336699;
+    font-weight: 600;
+}
+
+td {
+    color: #333;
+    border-top: 1px solid #f0f0f0;
+}
+
+.formulario {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    position: relative;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.formulario h2 {
+    text-align: center;
+    color: #77ADCB;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e9f3f8;
+    font-size: 14px;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-color: #77ADCB;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5d94b2;
+}
+
+.home-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.home-icon img {
+    width: 25px;
+    height: 25px;
+}
