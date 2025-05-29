@@ -27,7 +27,7 @@ CREATE TABLE usuario (
     cargo VARCHAR(45),
     dataNascimento DATE,
     empresa_idempresa INT,
-    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa)
+    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade
 );
 
 CREATE TABLE endereco (
@@ -40,8 +40,8 @@ CREATE TABLE endereco (
     apelido VARCHAR(45),
     empresa_idempresa INT,
     usuario_idUsuario INT,
-    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa),
-    FOREIGN KEY (usuario_idUsuario) REFERENCES Usuario(idUsuario)
+    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade,
+    FOREIGN KEY (usuario_idUsuario) REFERENCES Usuario(idUsuario) on delete cascade
 );
 
 CREATE TABLE leads (
@@ -59,7 +59,7 @@ CREATE TABLE contrato (
     data_vigencia DATETIME,
     multa_recissoria DECIMAL,
     empresa_idempresa INT,
-    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa)
+    FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade
 );
 
 CREATE TABLE configuracao_slack (
@@ -70,7 +70,7 @@ CREATE TABLE configuracao_slack (
 );
 
 CREATE TABLE log (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY auto_increment,
     dataHora DATETIME,
     categoria VARCHAR(45),
     origem VARCHAR(100),
@@ -78,13 +78,15 @@ CREATE TABLE log (
 );
 
 CREATE TABLE energia_historico (
-    idConsumo_energia INT PRIMARY KEY,
-	classe VARCHAR(45),
-    dataHora DATE,
+    idConsumo_energia INT PRIMARY KEY auto_increment,
+	dataHora DATETIME,
+    classe VARCHAR(45),
 	consumo DOUBLE,
     consumidores INT,
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
+
+select * from energia_historico limit 56000;
 
 drop database eleva;
