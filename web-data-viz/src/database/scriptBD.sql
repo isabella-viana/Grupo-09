@@ -87,6 +87,9 @@ CREATE TABLE energia_historico (
     regiao VARCHAR(45)
 );
 
-select * from energia_historico limit 56000;
+select * from energia_historico;
 
+select * from log;
 drop database eleva;
+
+
