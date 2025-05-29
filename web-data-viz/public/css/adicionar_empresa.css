@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+main {
+  width: 100%;
+  height: 92%;
+  display: flex;
+  align-items: center;
+}
+
+.cadastro {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.titulo {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo h1 {
+  font-weight: 400;
+  color: #012a4a;
+}
+
+.infos-cadastro {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+
+.infos {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs {
+  margin: 3vh;
+}
+
+.inputs p {
+  color: #012a4a;
+}
+
+.inputs input {
+  border-style: none;
+  width: 60vh;
+  height: 4.5vh;
+  border-radius: 1.5vh;
+  background-color: rgba(161, 188, 209, 0.3);
+  margin-top: 1vh;
+}
+
+.adicionar {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adicionar button {
+  width: 10vw;
+  height: 5vh;
+  cursor: pointer;
+  font-size: 17px;
+  border-style: none;
+  border-radius: 2vh;
+  background-color: rgb(119, 173, 203);
+  color: white;
+  margin-bottom: 7vh;
+}
