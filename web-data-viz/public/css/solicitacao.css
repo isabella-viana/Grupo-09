@@ -23,7 +23,7 @@ html, body{
 }
 
 .solicitacoes {
-     background: linear-gradient(to bottom, #ffffff 0%, #77ADCB 50%, #ffffff 100%);
+     background: linear-gradient(to bottom, #ffffff 0%, #98bfd3 70%, #ffffff 100%);
      width: 50%;
      height: 100%;
 }
@@ -31,11 +31,11 @@ html, body{
 .solicitacoes h2 {
     text-align: center;
     color: #2E7094;
-    margin-bottom: 20px;
+    margin-bottom: 4vh;
     position: relative;
     bottom: -4%;
-    font-size: 50px;
-     font-weight: 400;
+    font-size: 8.2vh;
+     font-weight:390;
 }
 
 table {
@@ -54,8 +54,8 @@ table {
 
 th, td {
     padding: 12px 20px;
-    text-align: left;
     font-size: 14px;
+    text-align: center;
 }
 
 th {
@@ -141,6 +141,7 @@ td {
     width: 40%;
     font-size: 25px;
 
+
 }
 
 .formulario button:hover {
@@ -156,4 +157,5 @@ td {
 .home-icon img {
     width: 60px;
     height: 60px;
+
 }
