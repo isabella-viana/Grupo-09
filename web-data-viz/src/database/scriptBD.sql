@@ -2,7 +2,7 @@ CREATE DATABASE eleva;
 use eleva;
 
 CREATE TABLE uf (
-    idUF INT PRIMARY KEY,
+    idUF INT PRIMARY KEY auto_increment,
     UF VARCHAR(45),
     cidade VARCHAR(45),
     endereco_idendereco INT,
@@ -10,7 +10,7 @@ CREATE TABLE uf (
 );
 
 CREATE TABLE empresa (
-    idempresa INT PRIMARY KEY,
+    idempresa INT PRIMARY KEY auto_increment,
     razao_social VARCHAR(45),
     nome_fantasia VARCHAR(45),
     senha VARCHAR(45),
@@ -20,7 +20,7 @@ CREATE TABLE empresa (
 );
 
 CREATE TABLE usuario (
-    idUsuario INT PRIMARY KEY,
+    idUsuario INT PRIMARY KEY auto_increment,
     cpf CHAR(11),
     email VARCHAR(45),
     senha VARCHAR(45),
@@ -31,7 +31,7 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE endereco (
-    idendereco INT PRIMARY KEY,
+    idendereco INT PRIMARY KEY auto_increment,
     logradouro VARCHAR(45),
     numero INT,
     bairro VARCHAR(45),
@@ -72,9 +72,9 @@ CREATE TABLE configuracao_slack (
 CREATE TABLE log (
     id INT PRIMARY KEY auto_increment,
     dataHora DATETIME,
-    categoria VARCHAR(45),
-    origem VARCHAR(100),
-    mensagem VARCHAR(45)
+    origem VARCHAR(45),
+    categoria VARCHAR(100),
+    mensagem VARCHAR(450)
 );
 
 CREATE TABLE energia_historico (
@@ -91,5 +91,3 @@ select * from energia_historico;
 
 select * from log;
 drop database eleva;
-
-
