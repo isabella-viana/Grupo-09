@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -22,14 +22,14 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                                    res.json({
-                                       
-                                        email: resultadoAutenticar[0].email,
-                                        senha: resultadoAutenticar[0].senha
-                                       
-                                    });
-                                
-                        
+                        res.json({
+
+                            email: resultadoAutenticar[0].email,
+                            senha: resultadoAutenticar[0].senha
+
+                        });
+
+
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -89,8 +89,34 @@ function cadastrar(req, res) {
             );
     }
 }
+function verificarDados(req, res) {
+    var estadoSelecionado = req.body.estadoServer;
+    console.log("Estado selecionado: ", estadoSelecionado);
+
+    usuarioModel.verificar(estadoSelecionado)
+        .then(function (resultadoAutenticar) {
+            console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+            console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
+
+            if (resultadoAutenticar.length > 0) {
+               
+                res.json(resultadoAutenticar);
+            } else {
+                res.status(403).send("Não foi possível encontrar dados para o estado.");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar dados:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
+
+
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    verificarDados
 }
