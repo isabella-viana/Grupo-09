@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.titulo {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.gerenciador {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#endereco-button{
+    font-size: "Poppins" ;
+    border-radius: 20px;
+    width: 120px;
+    height: 40px;
+    color: white;
+    background-color: rgba(61, 110, 137, 1);
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.buttons{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;  
+}
+
+#icons-button{
+    padding-left: 3px;
+    font-size: 14px;
+    height: 20px;
+    color: white;
+}
+
+#id-column{
+    width: 120px;
+    border-radius: 5px;
+}
+
+#id-cadastro{
+    width: 120px;
+    border-radius: 5px;
+}
+
+table{
+    margin-top: 20px;
+}
+
+th{
+    height: 40px;
+    width: 200px;
+    font-weight: 300;
+    color: white;
+    background-color: rgba(119, 173, 203, 1); 
+}
+tr{
+    border: 2px solid black;
+}
+
+th {
+ 
+  }
+
+  td {
+    padding: 8px;
+    border: 1px solid #3e6a82; /* linhas discretas */
+    text-align: center;
+  }
