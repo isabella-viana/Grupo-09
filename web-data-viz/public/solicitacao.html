@@ -73,10 +73,44 @@ function cadastrarEmpresa() {
         return false;
     }
 
-    if (senhaVar.length < 6) {
-        alert('A senha deve ter pelo menos 6 caracteres!');
+    if (!razaoSocialVar) {
+        alert("Por favor, preencha a Razão Social!");
+        destacarCampo(input_razao_social);
         return false;
     }
+    if (!nomeFantasiaVar) {
+        alert("Por favor, preencha o Nome Fantasia!");
+        destacarCampo(input_nome_fantasia);
+        return false;
+    }
+    if (!emailVar) {
+        alert("Por favor, preencha o Email!");
+        destacarCampo(input_email);
+        return false;
+    }
+   
+    if (!/\S+@\S+\.\S+/.test(emailVar)) {
+        alert("Por favor, informe um email válido!");
+        destacarCampo(input_email);
+        return false;
+    }
+    if (!cnpjVar) {
+        alert("Por favor, preencha o CNPJ!");
+        destacarCampo(input_cnpj);
+        return false;
+    }
+
+    if (!senhaVar) {
+        alert("Por favor, preencha a Senha!");
+        destacarCampo(input_senha);
+        return false;
+    }
+    if (senhaVar.length < 6) {
+        alert("A senha deve ter pelo menos 6 caracteres!");
+        destacarCampo(input_senha);
+        return false;
+    }
+
 
     fetch("/empresas/cadastrar", {
         method: "POST",
