@@ -98,7 +98,7 @@ header {
 
     p {
       margin: 0;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: white;
       margin-left: 9px;
     }
@@ -109,13 +109,14 @@ header {
     height: 10vh;
     width: 7h;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-end;
     cursor: pointer;
     margin-bottom: 2vh;
 
     & img {
-      height: 6vh;
+      height: 4vh;
+      margin-left: 7vw;
     }
 
     i {
@@ -157,29 +158,71 @@ header {
   }
 }
 
-#atividade {
+#enderecos {
   transition: background-color 0.3s;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
-#atividade:hover {
+#enderecos img {
+  padding-right: 1vh;
+}
+
+#enderecos:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#gerenciar {
+  transition: background-color 0.3s;
+  border-radius: 15px;
+}
+
+#gerenciar img {
+  height: 4.5vh;
+  padding-right: 0.5vh;
+}
+
+#gerenciar p {
+  padding-right: vh;
+}
+
+#gerenciar:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#conta {
+  transition: background-color 0.3s;
+  border-radius: 15px;
+}
+
+#conta img {
+  padding-right: 2vh;
+}
+#conta p {
+  padding-right: 3vh;
+}
+
+#conta:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 #dash {
   transition: background-color 0.3s;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 
 #dash:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-#grupos {
-  transition: background-color 0.3s;
-  border-radius: 25px;
+#solicitacao img {
+  height: 5vh;
 }
 
-#grupos:hover {
+#solicitacao {
+  transition: background-color 0.3s;
+  border-radius: 15px;
+}
+
+#solicitacao:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
