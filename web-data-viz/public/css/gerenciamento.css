@@ -37,7 +37,7 @@ body {
     font-weight: 400;
     margin-top: -6vh;
     margin-bottom: 7vh;
-    color: #77adcb;
+    color: #012A4A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,8 +51,16 @@ body {
   gap: 1vh;
 }
 
+.titulo{
+  font-size: 2.5vh;
+  color: white;
+  font-weight: 300;
+
+}
+
+
 .botao {
-  background-color: #77adcb;
+  background-color: #3D6E89;
   color: white;
   border: none;
   padding: 1vh 2vh;
@@ -97,6 +105,7 @@ body {
 .botoes-direita {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
   gap: 10px;
   padding: 10px;
 }
@@ -110,6 +119,13 @@ body {
   border-radius: 1vh;
   overflow: hidden;
   box-shadow: 0 0.2vh 0.8vh rgba(0, 0, 0, 0.1);
+}
+
+.tabela-participantes th,
+.tabela-participantes td {
+  padding: 1.5vh;
+  text-align: left;
+  border: 0.1vh solid #e0e0e0; /* <- Aqui é o que mostra as linhas de TODAS as direções */
 }
 
 .tabela-participantes thead {

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="../public/login_cadastro.html">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
-    
+
 </head>
 
 <body>
@@ -16,14 +16,14 @@
 
         <div class="form-box login">
             <form action="" onsubmit="return false">
-                <div class="arrow" >
+                <div class="arrow">
                     <a href="index.html">
-                        <img src="imgs/icons8-arrow-64.png" alt="" >
+                        <img src="assets/login_cadastro/icons8-arrow-64.png" alt="">
                     </a>
                 </div>
                 <div class="Up">
                     <h1>ELEVA</h1>
-                    <img class="Text-h1" src="imgs/logo-menu.png" alt="">
+                    <img class="Text-h1" src="assets/logo-menu.png" alt="">
                 </div>
 
                 <div class="input_box">
@@ -33,7 +33,7 @@
                     <input type="password" placeholder="Senha" required id="Input_senha_login">
                 </div>
                 <div class="button-cadas">
-                <button type="submit" class="btn" onclick="entrar()">Login</button>
+                    <button type="submit" class="btn" onclick="entrar()">Login</button>
                 </div>
             </form>
         </div>
@@ -42,12 +42,12 @@
             <form action="" onsubmit="return false">
                 <div class="arrow2" onclick="voltarIndex()">
                     <a href="index.html">
-                        <img src="imgs/icons8-arrow-64 (1).png" alt="">
+                        <img src="assets/login_cadastro/icons8-arrow-64 (1).png" alt="">
                     </a>
                 </div>
                 <div class="Up">
                     <h1>Registro</h1>
-                    <img src="imgs/logo-menu.png" alt="">
+                    <img src="assets/logo-menu.png" alt="">
                 </div>
                 <div class="input_box">
                     <input type="text" id="input_nome" placeholder="Nome" required>
@@ -56,10 +56,10 @@
                     <input type="text" id="input_email" placeholder="Email" required>
                 </div>
                 <div class="input_box">
-                    <input type="number" id="input_cnpj"  placeholder="CNPJ" required>
+                    <input type="number" id="input_cnpj" placeholder="CNPJ" required>
                 </div>
                 <div class="input_box">
-                    <input type="password" id="input_senha" placeholder="Senha"  required>
+                    <input type="password" id="input_senha" placeholder="Senha" required>
                 </div>
                 <div class="input_box">
                     <input type="password" id="confirmacao_senha_input" placeholder="Confirmar sua senha" required>
@@ -70,12 +70,12 @@
         </div>
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
-                <img src="imgs/image 78 (1).png" alt="">
+                <img src="assets/login_cadastro/image 78 (1).png" alt="">
                 <h1>Ainda não Elevou a sua <br> empresa?</h1>
                 <button class="btn cadastre-btn">Cadastre-se</button>
             </div>
             <div class="toggle-panel toggle-right">
-                <img src="imgs/93028489-89b2-42cd-a602-8f54e9e238b1 1 (1).png" alt="">
+                <img src="assets/login_cadastro/93028489-89b2-42cd-a602-8f54e9e238b1 1 (1).png" alt="">
                 <h1>Já é um de nossos <br>clientes?</h1>
                 <button class="btn login-btn">Login</button>
             </div>
@@ -84,8 +84,8 @@
 
     <script src="js/login2.js"></script>
     <script>
-        function voltarIndex(){
-            
+        function voltarIndex() {
+
             window.location.href = "../public/index.html";
         }
         function cadastrar() {
@@ -144,7 +144,7 @@
                         window.location.href = "./login_cadastro.html";
 
 
-                        
+
                     } else {
                         throw "Houve um erro ao tentar realizar o cadastro!";
                     }
@@ -156,62 +156,62 @@
             return false;
         }
         function entrar() {
-       
 
-       var emailVar = Input_email_login.value;
-       var senhaVar = Input_senha_login.value;
 
-       if (emailVar == "" || senhaVar == "") {
-        alert("Preencha todos os campos para continuar");
-    
-           return false;
-       }
-      
+            var emailVar = Input_email_login.value;
+            var senhaVar = Input_senha_login.value;
 
-       console.log("FORM LOGIN: ", emailVar);
-       console.log("FORM SENHA: ", senhaVar);
+            if (emailVar == "" || senhaVar == "") {
+                alert("Preencha todos os campos para continuar");
 
-       fetch("/usuarios/autenticar", {
-           method: "POST",
-           headers: {
-               "Content-Type": "application/json"
-           },
-           body: JSON.stringify({
-               emailServer: emailVar,
-               senhaServer: senhaVar
-           })
-       }).then(function (resposta) {
-           console.log("ESTOU NO THEN DO entrar()!")
-        
-           if (resposta.ok) {
-               console.log(resposta);
+                return false;
+            }
 
-               resposta.json().then(json => {
-                  
-                   console.log(json);
-                   console.log(JSON.stringify(json));
-                   sessionStorage.EMAIL_USUARIO = json.email;
-                   sessionStorage.NOME_USUARIO = json.nome;
 
-              
-               });
-      
-                      window.location.href = "./atividades.html"
-                  
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
 
-           } else {
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
 
-               console.log("Houve um erro ao tentar realizar o login!");
-          
-               alert('Usuario ou senha incorretos')
-           }
+                if (resposta.ok) {
+                    console.log(resposta);
 
-       }).catch(function (erro) {
-           console.log(erro);
-       })
+                    resposta.json().then(json => {
 
-       return false;
-   }
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+
+
+                    });
+
+                    window.location.href = "./atividades.html"
+
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    alert('Usuario ou senha incorretos')
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
     </script>
 
 

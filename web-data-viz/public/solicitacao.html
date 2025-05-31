@@ -17,76 +17,156 @@
                         <th>CNPJ</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Caramico Org</td>
-                        <td>usuarioeleva@gmail.com.br</td>
-                        <td>97.806.070/0001-73</td>
-                    </tr>
-                    <tr>
-                        <td>Anatel</td>
-                        <td>usuarioeleva@gmail.com.br</td>
-                        <td>97.806.070/0001-73</td>
-                    </tr>
-                    <tr>
-                        <td>EnergiaUps</td>
-                        <td>usuarioeleva@gmail.com.br</td>
-                        <td>97.806.070/0001-73</td>
-                    </tr>
-                    <tr>
-                        <td>Matrix Corps</td>
-                        <td>usuarioeleva@gmail.com.br</td>
-                        <td>97.806.070/0001-73</td>
-                    </tr>
-                    <tr>
-                        <td>EnergyDown</td>
-                        <td>usuarioeleva@gmail.com.br</td>
-                        <td>97.806.070/0001-73</td>
-                    </tr>
-                    <tr>
-                        <td>Brazil Energy</td>
-                        <td>usuarioeleva@gmail.com.br</td>
-                        <td>97.806.070/0001-73</td>
-                    </tr>
+                <tbody id="tabela_empresas">
+                    <!-- Conteúdo será inserido pelo JavaScript -->
                 </tbody>
             </table>
         </div>
 
         <div class="formulario">
             <h2>ELEVA</h2>
-           <form>
-  <div class="campo">
-    <p>Razao Social</p>
-    <input type="text" placeholder="">
-  </div>
+            <form onsubmit="return cadastrarEmpresa()">
+                <div class="campo">
+                    <p>Razão Social</p>
+                    <input type="text" id="input_razao_social" placeholder="">
+                </div>
 
-  <div class="campo">
-    <p>Nome Apelido</p>
-    <input type="text" placeholder="">
-  </div>
+                <div class="campo">
+                    <p>Nome Fantasia</p>
+                    <input type="text" id="input_nome_fantasia" placeholder="">
+                </div>
 
-  <div class="campo">
-    <p>Nome Fantasia</p>
-    <input type="text" placeholder="">
-  </div>
+                <div class="campo">
+                    <p>Email</p>
+                    <input type="email" id="input_email" placeholder="">
+                </div>
 
-  <div class="campo">
-    <p>CNPJ</p>
-    <input type="text" placeholder="">
-  </div>
+                <div class="campo">
+                    <p>CNPJ</p>
+                    <input type="text" id="input_cnpj" placeholder="">
+                </div>
 
-  <div class="campo">
-    <p>CEP</p>
-    <input type="text" placeholder="">
-  </div>
+                <div class="campo">
+                    <p>Senha</p>
+                    <input type="password" id="input_senha" placeholder="">
+                </div>
 
-  <button id="registrar">Registrar</button>
-</form>
+                <button type="submit">Registrar</button>
+            </form>
 
             <div class="home-icon">
                 <img src="imgs/home.png" alt="Home" />
             </div>
         </div>
     </div>
+
+    <script>
+function cadastrarEmpresa() {
+    var razaoSocialVar = input_razao_social.value;
+    var nomeFantasiaVar = input_nome_fantasia.value;
+    var emailVar = input_email.value;
+    var cnpjVar = input_cnpj.value;
+    var senhaVar = input_senha.value;
+
+    if (!razaoSocialVar || !nomeFantasiaVar || !emailVar || !cnpjVar || !senhaVar) {
+        alert('Preencha todos os campos!');
+        return false;
+    }
+
+    if (!razaoSocialVar) {
+        alert("Por favor, preencha a Razão Social!");
+        destacarCampo(input_razao_social);
+        return false;
+    }
+    if (!nomeFantasiaVar) {
+        alert("Por favor, preencha o Nome Fantasia!");
+        destacarCampo(input_nome_fantasia);
+        return false;
+    }
+    if (!emailVar) {
+        alert("Por favor, preencha o Email!");
+        destacarCampo(input_email);
+        return false;
+    }
+   
+    if (!/\S+@\S+\.\S+/.test(emailVar)) {
+        alert("Por favor, informe um email válido!");
+        destacarCampo(input_email);
+        return false;
+    }
+    if (!cnpjVar) {
+        alert("Por favor, preencha o CNPJ!");
+        destacarCampo(input_cnpj);
+        return false;
+    }
+
+    if (!senhaVar) {
+        alert("Por favor, preencha a Senha!");
+        destacarCampo(input_senha);
+        return false;
+    }
+    if (senhaVar.length < 6) {
+        alert("A senha deve ter pelo menos 6 caracteres!");
+        destacarCampo(input_senha);
+        return false;
+    }
+
+
+    fetch("/empresas/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            razaoSocial: razaoSocialVar,
+            nomeFantasia: nomeFantasiaVar,
+            email: emailVar,
+            cnpj: cnpjVar,
+            senha: senhaVar
+        }),
+    })
+  .then(res => {
+    if (res.ok) {
+        alert('Empresa cadastrada com sucesso!');
+        window.location.reload(); 
+    } else {
+        return res.json().then(data => {
+            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
+        });
+    }
+})
+
+    .catch(erro => {
+        console.error("#ERRO:", erro);
+    });
+
+    return false;
+}
+
+function carregarEmpresasPendentes() {
+    fetch("/empresas/pendentes")
+    .then(res => res.json())
+    .then(empresas => {
+        const tbody = document.querySelector(".solicitacoes tbody");
+        tbody.innerHTML = "";
+
+        empresas.forEach(empresa => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${empresa.nome_fantasia}</td>
+                <td>${empresa.email}</td>
+                <td>${empresa.cnpj}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    })
+    .catch(erro => {
+        console.error("Erro ao carregar empresas:", erro);
+    });
+}
+
+window.onload = carregarEmpresasPendentes;
+</script>
+
 </body>
 </html>
