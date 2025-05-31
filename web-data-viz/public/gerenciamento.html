@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELEVA - Gerenciar Participantes</title>
+  <title>Gerenciamento de usuários | Eleva</title>
   <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/gerenciamento.css">
   <link rel="stylesheet" href="css/padronizacao.css">
@@ -21,7 +21,7 @@
     </div>
   </header>
 
-  <div class="container-principal">
+  <main>
     <div class="cabecalho-esquerdo">
 
       <div class="opcoes-cabecalho">
@@ -30,112 +30,80 @@
           <p>Eleva User</p>
         </div>
 
-        <div class="icone" id="atividade" onclick="irAtividade()">
-          <i class="icone-notificacao"></i>
-          <p>Atividade</p>
-        </div>
-
         <div class="icone" id="dash" onclick="irParaDashboard()">
-          <i class="icone-dashboard"></i>
+          <i class="bi bi-speedometer2"></i>
           <p>Dashboard</p>
         </div>
 
+        <div class="icone" id="atividade" onclick="irAtividade()">
+          <i class="bi bi-building"></i>
+          <p>Empresas</p>
+        </div>
+
+        <div class="icone" id="atividade" onclick="irAtividade()">
+          <i class="bi bi-geo-alt"></i>
+          <p>Endereços</p>
+        </div>
+
         <div class="icone" id="grupos" onclick="adicionarUsuario()">
-          <i class="icone-grupos"></i>
-          <p>Grupos</p>
+          <i class="bi bi-people"></i>
+          <p>Gerenciar</p>
+        </div>
+
+        <div class="icone" id="grupos" onclick="adicionarUsuario()">
+          <i class="bi bi-person"></i>
+          <p>Conta</p>
         </div>
       </div>
+
 
       <div class="icone-saida" onclick="sair()">
         <img src="assets/gerenciador/sair.svg" alt="">
       </div>
     </div>
 
-    <div class="container-section">
-      <h1>Gerenciar Participantes</h1>
-
-      <table class="tabela-participantes">
-        <thead>
-          <tr>
-            <th colspan="3" class="alinha-direita"></th>
-            <th>
-              <div class="botoes-direita">
-                <button class="botao adicionar" onclick="telaContato()">
-                  Adicionar Participante
-                  <i class="icone-adicionar"></i>
-                </button>
-              </div>
-            </th>
-            <th>
-              <button class="botao excluir">
-                Excluir Selecionado
-                <i class="icone-excluir"></i>
-              </button>
-            </th>
-            <th>
-              <div class="botoes-direita">
-                <button class="botao adicionar">
-                  Editar
-                  <i class="icone-editar"></i>
-                </button>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="tabela-corpo">
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Guilherme Queiroz</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Tecled</td>
-            <td>View</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Isabella Viana</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Scrum</td>
-            <td>View</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Matheus Martinez</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>PO</td>
-            <td>View</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Pedro Gandin</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Gerente</td>
-            <td>Edit</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Victor Hugo</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>CIO</td>
-            <td>ADM</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Vinícius Gonçalves</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Supervisor</td>
-            <td>Edit</td>
-          </tr>
-        </tbody>
-      </table>
+    <div>
+      <h1>Gerenciar participantes</h1>
     </div>
 
-    <script src="script.js"></script>
+    <div>
+      <button>
+        <p>Remover</p><img src="assets/excluir.svg" alt="">
+      </button>
+      <button>
+        <p>Adicionar</p><img src="assets/adicionar.svg" alt="">
+      </button>
+      <button>
+        <p>Editar</p><img src="assets/editar.svg" alt="">
+      </button>
+    </div>
+
+
+
+
+
+
+    <table> <!-- Cria uma tabela -->
+      <thead> <!-- Define o cabeçalho da tabela -->
+        <tr> <!-- Define uma linha no cabeçalho da tabela -->
+          <th>Nome</th> <!-- Defina uma coluna dentro da linha -->
+          <th>E-mail</th>
+          <th>Celular</th>
+          <th>Área</th>
+          <th>Nível</th>
+        </tr>
+      </thead>
+      <tbody> <!-- Cria o corpo da tabela -->
+        <tr> <!--Mesma lógica do tr no cabeçalho -->
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 </body>
 
 </html>
@@ -143,45 +111,16 @@
 
 
 <script>
-  const tabelaCorpo = document.getElementById("tabela-corpo");
-  const botaoAdicionar = document.querySelector(".botao.adicionar");
-  const botaoExcluir = document.querySelector(".botao.excluir");
-  const formAdicionar = document.getElementById("form-adicionar");
-
-  function adicionarUsuario() {
-        window.location.href = "./gerenciamento.html"
-    }
-    function irAtividade() {
-        window.location.href = "./atividades.html"
-    }
-    function sair() {
-        window.location.href = "./index.html"
-    }
-    function irParaDashboard() {
-        window.location.href = "./dashboard.html"
-    }
 
   botaoAdicionar.addEventListener("click", () => {
     formAdicionar.style.display = "flex";
   });
 
-
-
-  function telaContato() {
-
-    window.location.href = "./gerenciar.html"
-
-  }
-
-
   botaoCancelar.addEventListener("click", () => {
     formAdicionar.style.display = "none";
   });
 
-
-
-
-    botaoExcluir.addEventListener("click", async () => {
+  botaoExcluir.addEventListener("click", async () => {
     const selecionados = document.querySelectorAll(".check-participante:checked");
     const ids = Array.from(selecionados).map(checkbox => {
       return checkbox.closest("tr").dataset.id;
@@ -215,7 +154,7 @@
     }
   }
 
-    window.onload = carregarParticipantes;
+  window.onload = carregarParticipantes;
 
 
 </script>
