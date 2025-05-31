@@ -1,199 +1,199 @@
-  <!DOCTYPE html>
-  <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELEVA - Gerenciar Participantes</title>
-    <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/gerenciamento.css">
-    <link rel="stylesheet" href="css/padronizacao.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELEVA - Gerenciar Participantes</title>
+  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/gerenciamento.css">
+  <link rel="stylesheet" href="css/padronizacao.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
-  <body onload="carregarParticipantes()">
+<body onload="carregarParticipantes()">
 
 
-    <header>
-      <div class="header-container">
-        <img src="imgs/Logo.png" alt="">
-      </div>
-    </header>
+  <header>
+    <div class="header-container">
+      <img src="assets/home/logo.svg" alt="">
+    </div>
+  </header>
 
-    <div class="container-principal">
-      <div class="cabecalho-esquerdo">
+  <div class="container-principal">
+    <div class="cabecalho-esquerdo">
 
-        <div class="opcoes-cabecalho">
-          <div class="foto-usuario">
-            <img src="assets/gerenciador/User.svg" alt="">
-            <p>Eleva User</p>
-          </div>
-
-           <div class="icone" id="atividade" onclick="irAtividade()">
-                    <i class="bi bi-bell"></i>
-                    <p>Atividade</p>
-                </div>
-
-                <div class="icone" id="dash" onclick="irParaDashboard()">
-                    <i class="bi bi-speedometer2"></i>
-                    <p>Dashboard</p>
-                </div>
-
-                <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                    <i class="bi bi-people"></i>
-                    <p>Grupos</p>
-                </div>
-
-                <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
-                  <i class="bi bi-bookmark-check"></i>
-                    <p>Solicitações</p>
-                </div>
+      <div class="opcoes-cabecalho">
+        <div class="foto-usuario">
+          <img src="assets/gerenciador/User.svg" alt="">
+          <p>Eleva User</p>
         </div>
 
-        <div class="icone-saida" onclick="sair()">
-          <img src="assets/gerenciador/sair.svg" alt="">
+        <div class="icone" id="atividade" onclick="irAtividade()">
+          <i class="bi bi-bell"></i>
+          <p>Atividade</p>
+        </div>
+
+        <div class="icone" id="dash" onclick="irParaDashboard()">
+          <i class="bi bi-speedometer2"></i>
+          <p>Dashboard</p>
+        </div>
+
+        <div class="icone" id="grupos" onclick="adicionarUsuario()">
+          <i class="bi bi-people"></i>
+          <p>Grupos</p>
+        </div>
+
+        <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
+          <i class="bi bi-bookmark-check"></i>
+          <p>Solicitações</p>
         </div>
       </div>
 
+      <div class="icone-saida" onclick="sair()">
+        <img src="assets/gerenciador/sair.svg" alt="">
+      </div>
+    </div>
 
-      <div class="container-section">
-        <h1>Gerenciar Participantes</h1>
+
+    <div class="container-section">
+      <h1>Gerenciar Participantes</h1>
 
 
-                 <div class="botoes-direita">
+      <div class="botoes-direita">
 
-                   <button class="botao adicionar" onclick="telaContato()">
-                    Adicionar
-                   <i class="bi bi-plus-circle"></i>
-                  </button>
-               
-                  <button class="botao excluir">
-                  Excluir
-                     <i class="bi bi-trash"></i>
-                     </button>
+        <button class="botao adicionar" onclick="telaContato()">
+          Adicionar
+          <i class="bi bi-plus-circle"></i>
+        </button>
 
-                      <button class="botao adicionar" style="margin-right: 5%;">
-                    Editar
-                 <i class="bi bi-pencil-square"></i>
-                  </button>
-                
-                </div>
+        <button class="botao excluir">
+          Excluir
+          <i class="bi bi-trash"></i>
+        </button>
 
-        <table class="tabela-participantes">
-          <thead>
-            <tr>
-               <th  class="titulo"> </th>
-              <th  class="titulo"> Nome </th>
-               <th  class="titulo"> Email </th>
-                <th  class="titulo"> Telefone </th>
-                 <th  class="titulo"> Área</th>
-                  <th  class="titulo"> Nível </th>
-               
-            
-            </tr>
-          </thead>
-          <tbody id="tabela-corpo">
-            <tr>
-              <td><input type="checkbox" class="check-participante" /></td>
-              <td>Guilherme Queiroz</td>
-              <td>usuarioeleva@gmail.com</td>
-              <td>11 9999-9990</td>
-              <td>Tecled</td>
-              <td>View</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="check-participante" /></td>
-              <td>Isabella Viana</td>
-              <td>usuarioeleva@gmail.com</td>
-              <td>11 9999-9990</td>
-              <td>Scrum</td>
-              <td>View</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="check-participante" /></td>
-              <td>Matheus Martinez</td>
-              <td>usuarioeleva@gmail.com</td>
-              <td>11 9999-9990</td>
-              <td>PO</td>
-              <td>View</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="check-participante" /></td>
-              <td>Pedro Gandin</td>
-              <td>usuarioeleva@gmail.com</td>
-              <td>11 9999-9990</td>
-              <td>Gerente</td>
-              <td>Edit</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="check-participante" /></td>
-              <td>Victor Hugo</td>
-              <td>usuarioeleva@gmail.com</td>
-              <td>11 9999-9990</td>
-              <td>CIO</td>
-              <td>ADM</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" class="check-participante" /></td>
-              <td>Vinícius Gonçalves</td>
-              <td>usuarioeleva@gmail.com</td>
-              <td>11 9999-9990</td>
-              <td>Supervisor</td>
-              <td>Edit</td>
-            </tr>
-          </tbody>
-        </table>
+        <button class="botao adicionar" style="margin-right: 5%;">
+          Editar
+          <i class="bi bi-pencil-square"></i>
+        </button>
+
       </div>
 
-      <script src="script.js"></script>
-  </body>
-
-  </html>
-
-
-
-  <script>
-    const tabelaCorpo = document.getElementById("tabela-corpo");
-    const botaoAdicionar = document.querySelector(".botao.adicionar");
-    const botaoExcluir = document.querySelector(".botao.excluir");
-    const formAdicionar = document.getElementById("form-adicionar");
-
-    function adicionarUsuario() {
-      window.location.href = "./gerenciamento.html"
-    }
-    function irAtividade() {
-      window.location.href = "./atividades.html"
-    }
-    function sair() {
-      window.location.href = "./index.html"
-    }
-    function irParaDashboard() {
-      window.location.href = "./dashboard.html"
-    }
-
-      function irParaSolicitacao() {
-      window.location.href = "./solicitacao.html"
-    }
+      <table class="tabela-participantes">
+        <thead>
+          <tr>
+            <th class="titulo"> </th>
+            <th class="titulo"> Nome </th>
+            <th class="titulo"> Email </th>
+            <th class="titulo"> Telefone </th>
+            <th class="titulo"> Área</th>
+            <th class="titulo"> Nível </th>
 
 
-    botaoAdicionar.addEventListener("click", () => {
-      formAdicionar.style.display = "flex";
-    });
+          </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Guilherme Queiroz</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Tecled</td>
+            <td>View</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Isabella Viana</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Scrum</td>
+            <td>View</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Matheus Martinez</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>PO</td>
+            <td>View</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Pedro Gandin</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Gerente</td>
+            <td>Edit</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Victor Hugo</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>CIO</td>
+            <td>ADM</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>Vinícius Gonçalves</td>
+            <td>usuarioeleva@gmail.com</td>
+            <td>11 9999-9990</td>
+            <td>Supervisor</td>
+            <td>Edit</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
 
 
 
-    function telaContato() {
+<script>
+  const tabelaCorpo = document.getElementById("tabela-corpo");
+  const botaoAdicionar = document.querySelector(".botao.adicionar");
+  const botaoExcluir = document.querySelector(".botao.excluir");
+  const formAdicionar = document.getElementById("form-adicionar");
 
-      window.location.href = "./gerenciar.html"
+  function adicionarUsuario() {
+    window.location.href = "./gerenciamento.html"
+  }
+  function irAtividade() {
+    window.location.href = "./atividades.html"
+  }
+  function sair() {
+    window.location.href = "./index.html"
+  }
+  function irParaDashboard() {
+    window.location.href = "./dashboard.html"
+  }
 
-    }
+  function irParaSolicitacao() {
+    window.location.href = "./solicitacao.html"
+  }
 
 
-    botaoCancelar.addEventListener("click", () => {
-      formAdicionar.style.display = "none";
-    });
+  botaoAdicionar.addEventListener("click", () => {
+    formAdicionar.style.display = "flex";
+  });
+
+
+
+  function telaContato() {
+
+    window.location.href = "./gerenciar.html"
+
+  }
+
+
+  botaoCancelar.addEventListener("click", () => {
+    formAdicionar.style.display = "none";
+  });
 
 
   function carregarParticipantes() {
@@ -234,60 +234,60 @@
 
 
 
-    function deletarParticipantes(ids) {
-      fetch('http://localhost:3000/participantes', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ids })
+  function deletarParticipantes(ids) {
+    fetch('http://localhost:3000/participantes', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ids })
+    })
+      .then(resposta => {
+        if (resposta.ok) {
+          alert(`Participantes deletados com sucesso pelo usuário de email: ${sessionStorage.getItem("EMAIL_USUARIO")}!`);
+          carregarParticipantes();
+        } else if (resposta.status === 404) {
+          alert("Participantes não encontrados.");
+        } else {
+          throw new Error(`Erro ao tentar deletar participantes. Código: ${resposta.status}`);
+        }
       })
-        .then(resposta => {
-          if (resposta.ok) {
-            alert(`Participantes deletados com sucesso pelo usuário de email: ${sessionStorage.getItem("EMAIL_USUARIO")}!`);
-            carregarParticipantes();
-          } else if (resposta.status === 404) {
-            alert("Participantes não encontrados.");
-          } else {
-            throw new Error(`Erro ao tentar deletar participantes. Código: ${resposta.status}`);
-          }
-        })
-        .catch(erro => {
-          console.error("#ERRO:", erro);
-          alert("Erro ao excluir participantes. Veja o console para detalhes.");
-        });
-    }
+      .catch(erro => {
+        console.error("#ERRO:", erro);
+        alert("Erro ao excluir participantes. Veja o console para detalhes.");
+      });
+  }
 
 
 
 
-    function editarParticipante(id, nome, email, telefone) {
-      console.log("Criar função de editar participante - ID:", id);
+  function editarParticipante(id, nome, email, telefone) {
+    console.log("Criar função de editar participante - ID:", id);
 
-      fetch(`http://localhost:3000/participantes/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome, email, telefone })
+    fetch(`http://localhost:3000/participantes/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ nome, email, telefone })
+    })
+      .then(function (resposta) {
+        if (resposta.ok) {
+          window.alert("Participante atualizado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+          carregarParticipantes();
+        } else if (resposta.status == 404) {
+          window.alert("Erro 404 - Participante não encontrado.");
+        } else {
+          throw new Error("Houve um erro ao tentar editar o participante! Código da resposta: " + resposta.status);
+        }
       })
-        .then(function (resposta) {
-          if (resposta.ok) {
-            window.alert("Participante atualizado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-            carregarParticipantes();
-          } else if (resposta.status == 404) {
-            window.alert("Erro 404 - Participante não encontrado.");
-          } else {
-            throw new Error("Houve um erro ao tentar editar o participante! Código da resposta: " + resposta.status);
-          }
-        })
-        .catch(function (erro) {
-          console.error("#ERRO:", erro);
-          window.alert("Erro ao editar participante. Verifique o console para mais detalhes.");
-        });
-    }
+      .catch(function (erro) {
+        console.error("#ERRO:", erro);
+        window.alert("Erro ao editar participante. Verifique o console para mais detalhes.");
+      });
+  }
 
 
 
-    window.onload = carregarParticipantes;
+  window.onload = carregarParticipantes;
 
 
-  </script>
+</script>
