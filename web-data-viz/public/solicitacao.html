@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro Empresas - ELEVA</title>
+    <title>Cadastro de Empresas | ELEVA</title>
     <link rel="stylesheet" href="css/solicitacao.css">
 </head>
+
 <body>
     <div class="container">
         <div class="solicitacoes">
@@ -61,112 +63,113 @@
     </div>
 
     <script>
-function cadastrarEmpresa() {
-    var razaoSocialVar = input_razao_social.value;
-    var nomeFantasiaVar = input_nome_fantasia.value;
-    var emailVar = input_email.value;
-    var cnpjVar = input_cnpj.value;
-    var senhaVar = input_senha.value;
+        function cadastrarEmpresa() {
+            var razaoSocialVar = input_razao_social.value;
+            var nomeFantasiaVar = input_nome_fantasia.value;
+            var emailVar = input_email.value;
+            var cnpjVar = input_cnpj.value;
+            var senhaVar = input_senha.value;
 
-    if (!razaoSocialVar || !nomeFantasiaVar || !emailVar || !cnpjVar || !senhaVar) {
-        alert('Preencha todos os campos!');
-        return false;
-    }
+            if (!razaoSocialVar || !nomeFantasiaVar || !emailVar || !cnpjVar || !senhaVar) {
+                alert('Preencha todos os campos!');
+                return false;
+            }
 
-    if (!razaoSocialVar) {
-        alert("Por favor, preencha a Razão Social!");
-        destacarCampo(input_razao_social);
-        return false;
-    }
-    if (!nomeFantasiaVar) {
-        alert("Por favor, preencha o Nome Fantasia!");
-        destacarCampo(input_nome_fantasia);
-        return false;
-    }
-    if (!emailVar) {
-        alert("Por favor, preencha o Email!");
-        destacarCampo(input_email);
-        return false;
-    }
-   
-    if (!/\S+@\S+\.\S+/.test(emailVar)) {
-        alert("Por favor, informe um email válido!");
-        destacarCampo(input_email);
-        return false;
-    }
-    if (!cnpjVar) {
-        alert("Por favor, preencha o CNPJ!");
-        destacarCampo(input_cnpj);
-        return false;
-    }
+            if (!razaoSocialVar) {
+                alert("Por favor, preencha a Razão Social!");
+                destacarCampo(input_razao_social);
+                return false;
+            }
+            if (!nomeFantasiaVar) {
+                alert("Por favor, preencha o Nome Fantasia!");
+                destacarCampo(input_nome_fantasia);
+                return false;
+            }
+            if (!emailVar) {
+                alert("Por favor, preencha o Email!");
+                destacarCampo(input_email);
+                return false;
+            }
 
-    if (!senhaVar) {
-        alert("Por favor, preencha a Senha!");
-        destacarCampo(input_senha);
-        return false;
-    }
-    if (senhaVar.length < 6) {
-        alert("A senha deve ter pelo menos 6 caracteres!");
-        destacarCampo(input_senha);
-        return false;
-    }
+            if (!/\S+@\S+\.\S+/.test(emailVar)) {
+                alert("Por favor, informe um email válido!");
+                destacarCampo(input_email);
+                return false;
+            }
+            if (!cnpjVar) {
+                alert("Por favor, preencha o CNPJ!");
+                destacarCampo(input_cnpj);
+                return false;
+            }
+
+            if (!senhaVar) {
+                alert("Por favor, preencha a Senha!");
+                destacarCampo(input_senha);
+                return false;
+            }
+            if (senhaVar.length < 6) {
+                alert("A senha deve ter pelo menos 6 caracteres!");
+                destacarCampo(input_senha);
+                return false;
+            }
 
 
-    fetch("/empresas/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            razaoSocial: razaoSocialVar,
-            nomeFantasia: nomeFantasiaVar,
-            email: emailVar,
-            cnpj: cnpjVar,
-            senha: senhaVar
-        }),
-    })
-  .then(res => {
-    if (res.ok) {
-        alert('Empresa cadastrada com sucesso!');
-        window.location.reload(); 
-    } else {
-        return res.json().then(data => {
-            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
-        });
-    }
-})
+            fetch("/empresas/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    razaoSocial: razaoSocialVar,
+                    nomeFantasia: nomeFantasiaVar,
+                    email: emailVar,
+                    cnpj: cnpjVar,
+                    senha: senhaVar
+                }),
+            })
+                .then(res => {
+                    if (res.ok) {
+                        alert('Empresa cadastrada com sucesso!');
+                        window.location.reload();
+                    } else {
+                        return res.json().then(data => {
+                            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
+                        });
+                    }
+                })
 
-    .catch(erro => {
-        console.error("#ERRO:", erro);
-    });
+                .catch(erro => {
+                    console.error("#ERRO:", erro);
+                });
 
-    return false;
-}
+            return false;
+        }
 
-function carregarEmpresasPendentes() {
-    fetch("/empresas/pendentes")
-    .then(res => res.json())
-    .then(empresas => {
-        const tbody = document.querySelector(".solicitacoes tbody");
-        tbody.innerHTML = "";
+        function carregarEmpresasPendentes() {
+            fetch("/empresas/pendentes")
+                .then(res => res.json())
+                .then(empresas => {
+                    const tbody = document.querySelector(".solicitacoes tbody");
+                    tbody.innerHTML = "";
 
-        empresas.forEach(empresa => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
+                    empresas.forEach(empresa => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
                 <td>${empresa.nome_fantasia}</td>
                 <td>${empresa.email}</td>
                 <td>${empresa.cnpj}</td>
             `;
-            tbody.appendChild(tr);
-        });
-    })
-    .catch(erro => {
-        console.error("Erro ao carregar empresas:", erro);
-    });
-}
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(erro => {
+                    console.error("Erro ao carregar empresas:", erro);
+                });
+        }
 
-window.onload = carregarEmpresasPendentes;
-</script>
+        window.onload = carregarEmpresasPendentes;
+    </script>
 
 </body>
+
 </html>
