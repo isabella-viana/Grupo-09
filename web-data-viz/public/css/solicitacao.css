@@ -82,16 +82,18 @@ td {
 .formulario h2 {
     text-align: center;
     color: #77ADCB;
-    margin-bottom: 10px;
+    margin-top: 20px;
     font-weight: 100;
-    font-size: 55px;
+    font-size: 70px;
+    position: relative;
+      margin-bottom: 20px;
 }
 
 
 .formulario form {
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 10px; 
     width: 100%;
     align-items: center;
 }

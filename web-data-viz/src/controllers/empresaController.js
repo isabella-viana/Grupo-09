@@ -14,6 +14,12 @@ function listar(req, res) {
   });
 }
 
+function listarPendentes(req, res) {
+  empresaModel.listarPendentes().then((resultado) => {
+    res.status(200).json(resultado);
+  });
+}
+
 function buscarPorId(req, res) {
   var id = req.params.id;
 
@@ -23,20 +29,27 @@ function buscarPorId(req, res) {
 }
 
 function cadastrar(req, res) {
-  var cnpj = req.body.cnpj;
-  var razaoSocial = req.body.razaoSocial;
+  var { razaoSocial, nomeFantasia, email, cnpj, senha } = req.body;
 
-  empresaModel.buscarPorCnpj(cnpj).then((resultado) => {
-    if (resultado.length > 0) {
-      res
-        .status(401)
-        .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
-    } else {
-      empresaModel.cadastrar(razaoSocial, cnpj).then((resultado) => {
-        res.status(201).json(resultado);
-      });
-    }
-  });
+  if (!razaoSocial || !nomeFantasia || !email || !cnpj || !senha) {
+    return res.status(400).json({ mensagem: "Preencha todos os campos obrigatórios." });
+  }
+
+  empresaModel.buscarPorCnpj(cnpj)
+    .then((resultado) => {
+      if (resultado.length > 0) {
+        return res.status(409).json({ mensagem: "CNPJ já cadastrado." });
+      }
+
+      return empresaModel.cadastrarEmpresa(razaoSocial, nomeFantasia, email, cnpj, senha)
+        .then((resultado) => {
+          res.status(201).json({ mensagem: "Empresa cadastrada com sucesso!", dados: resultado });
+        });
+    })
+    .catch((erro) => {
+      console.error("Erro ao cadastrar empresa:", erro);
+      res.status(500).json({ mensagem: "Erro no servidor ao cadastrar empresa." });
+    });
 }
 
 module.exports = {
@@ -44,4 +57,5 @@ module.exports = {
   buscarPorId,
   cadastrar,
   listar,
+  listarPendentes
 };
