@@ -41,7 +41,7 @@ CREATE TABLE endereco (
     empresa_idempresa INT,
     usuario_idUsuario INT,
     FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade,
-    FOREIGN KEY (usuario_idUsuario) REFERENCES Usuario(idUsuario) on delete cascade
+    FOREIGN KEY (usuario_idUsuario) REFERENCES usuario(idUsuario) on delete cascade
 );
 
 CREATE TABLE leads (
