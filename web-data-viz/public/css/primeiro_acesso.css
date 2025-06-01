@@ -111,6 +111,18 @@ form {
     line-height: 1.6;
 }
 
+.requisitos{
+    color: #000;
+    transition: all 1.5s ease-in-out;
+}
+
+.requisitos .ok{
+    color: rgb(59, 231, 111);
+    font-weight: 400;
+    transition: all 0.5s ease-in-out;
+}
+
+
 .requisitos li {
     list-style: disc;
     margin-left: 15px;

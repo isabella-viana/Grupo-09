@@ -34,10 +34,10 @@
         <div class="requisitos">
           <p class="texto1" style="margin-top: 20px;">A senha deve conter:</p>
           <ul style="padding-left: 20px; margin-top: 10px;">
-            <li>Pelo menos 8 caracteres</li>
-            <li>Pelo menos 1 letra maiúscula</li>
-            <li>Pelo menos 1 letra minúscula</li>
-            <li>Pelo menos 1 número</li>
+            <li id="length" class="requisito">Pelo menos 8 caracteres</li>
+            <li id="uppercase" class="requisito">Pelo menos 1 letra maiúscula</li>
+            <li id="lowercase" class="requisito">Pelo menos 1 letra minúscula</li>
+            <li id="number" class="requisito">Pelo menos 1 número</li>
           </ul>
         </div>
       </form>
@@ -50,6 +50,7 @@
       </div>
     </div>
   </div>
+  <script src="js/primeiroAcesso.js"></script>
 
   <script>
     function cadastrar() {
