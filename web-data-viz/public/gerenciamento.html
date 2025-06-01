@@ -98,17 +98,9 @@
 
           </tr>
         </thead>
-        <tbody id="tabela-corpo">
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Guilherme Queiroz</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Tecled</td>
-            <td>View</td>
-          </tr>
-          
-  
+        <tbody id="tabelaCorpo">
+    
+      
         </tbody>
       </table>
     </div>
@@ -121,7 +113,7 @@
 
 
 <script>
-  const tabelaCorpo = document.getElementById("tabela-corpo");
+  const tabelaCorpo = document.getElementById("tabelaCorpo");
   const botaoAdicionar = document.querySelector(".botao.adicionar");
   const botaoExcluir = document.querySelector(".botao.excluir");
   const formAdicionar = document.getElementById("form-adicionar");
@@ -183,11 +175,18 @@
                 console.log("Dados completos:", json);
                 console.log("Em formato JSON:", JSON.stringify(json));
 
-
                 const NOME = json.map(item => item.nome);
                 const EMAIL_USUARIO = json.map(item => item.email);
                 const TELEFONE= json.map(item => item. telefone);
                 const CARGO = json.map(item => item.cargo);
+
+                sessionStorage.setItem("NOME", JSON.stringify(NOME));
+                sessionStorage.setItem("EMAIL", JSON.stringify(EMAIL_USUARIO));
+                sessionStorage.setItem("TELEFONE", JSON.stringify(TELEFONE));
+                sessionStorage.setItem("CARGO", JSON.stringify(CARGO));
+
+                atualizarNomesTabela(NOME,EMAIL_USUARIO,TELEFONE,CARGO);
+
                 
               
             });
@@ -197,6 +196,23 @@
     }).catch(function (erro) {
         console.log("Erro na requisição:", erro);
     });
+  }
+  
+  function atualizarNomesTabela(nomes, email , telefone , cargo){
+    tabelaCorpo.innerHTML=""
+
+    for(var i= 0; i < nomes.length ; i++){
+      tabelaCorpo.innerHTML+=`
+       <tr>
+            <td><input type="checkbox" class="check-participante" /></td>
+            <td>${nomes[i]}</td>
+            <td>${email[i]}</td>
+            <td>${telefone[i]}</td>
+            <td>${cargo[i]}</td>
+            <td>View</td>
+          </tr>
+      `;
+    }
   }
 
 
