@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELEVA</title>
+  <link rel="stylesheet" href="css/primeiro_acesso.css" />
+  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon" />
+</head>
+
+<body>
+  <div class="container active">
+    <div class="form-box register">
+
+      <form onsubmit="return false">
+        <div class="Up">
+          <h1>ELEVA</h1>
+            
+        </div>
+
+        <p class="texto1">Bem-vindo(a) ao sistema ELEVA!</p>
+        <p class="texto2">Finalize seu cadastro para começar a usar a plataforma.</p>
+
+        <div class="input_box">
+          <label for="input_senha">Senha:</label>
+          <input type="password" id="input_senha" placeholder="Digite sua senha" required />
+        </div>
+
+        <button type="submit" class="btn" onclick="cadastrar()">
+          <img src="assets/login_cadastro/cadeado.png" style="width: 20px; vertical-align: middle; margin-bottom: 5px;"> Criar senha
+        </button>
+
+        <div class="requisitos">
+          <p class="texto1" style="margin-top: 20px;">A senha deve conter:</p>
+          <ul style="padding-left: 20px; margin-top: 10px;">
+            <li id="length" class="requisito">Pelo menos 8 caracteres</li>
+            <li id="uppercase" class="requisito">Pelo menos 1 letra maiúscula</li>
+            <li id="lowercase" class="requisito">Pelo menos 1 letra minúscula</li>
+            <li id="number" class="requisito">Pelo menos 1 número</li>
+          </ul>
+        </div>
+      </form>
+    </div>
+
+    <div class="toggle-box">
+      <div class="toggle-panel toggle-right">
+        <img src="assets/login_cadastro/img_senhaNova.png" alt="Imagem ilustrativa" />
+        <h1>Crie a sua nova senha</h1>
+      </div>
+    </div>
+  </div>
+  <script src="js/primeiroAcesso.js"></script>
+
+  <script>
+    function cadastrar() {
+      const senhaVar = document.getElementById("input_senha").value;
+
+      if (senhaVar === "") {
+        alert("Digite uma senha para continuar.");
+        return false;
+      }
+
+      if (senhaVar.length < 8) {
+        alert("A senha deve ter pelo menos 8 caracteres!");
+        return false;
+      }
+
+      // Aqui você colocaria a lógica de envio para o backend
+      alert("Senha criada com sucesso!");
+      window.location.href = "./login_cadastro.html";
+    }
+  </script>
+</body>
+
+</html>
