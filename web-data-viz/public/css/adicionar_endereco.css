@@ -61,6 +61,7 @@ main {
   border-radius: 1.5vh;
   background-color: rgba(161, 188, 209, 0.3);
   margin-top: 1vh;
+  padding-left: 1vh;
 }
 
 .adicionar {
@@ -78,7 +79,7 @@ main {
   font-size: 17px;
   border-style: none;
   border-radius: 2vh;
-  background-color: rgb(119, 173, 203);
+  background-color: #3d6e89;
   color: white;
   margin-bottom: 7vh;
 }

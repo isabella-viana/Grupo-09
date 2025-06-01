@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/padronizacao.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/adicionar_empresa.css">
+    <link rel="stylesheet" href="css/adicionar_endereco.css">
 </head>
 
 <body>
@@ -29,35 +29,29 @@
                 </div>
 
                 <div class="icone" id="dash" onclick="irParaDashboard()">
-                    <i class="bi bi-speedometer2"></i>
+                    <img src="assets/cruds/dashboard.svg" alt="">
                     <p>Dashboard</p>
                 </div>
 
-                <div class="icone" id="atividade" onclick="irAtividade()">
-                    <i class="bi bi-building"></i>
-                    <p>Empresas</p>
-                </div>
-
-                <div class="icone" id="atividade" onclick="irAtividade()">
-                    <i class="bi bi-geo-alt"></i>
+                <div class="icone" id="enderecos" onclick="irParaEnderecos()">
+                    <img src="assets/cruds/enderecos.svg" alt="">
                     <p>Endereços</p>
                 </div>
 
-                <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                    <i class="bi bi-people"></i>
+                <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
+                    <img src="assets/cruds/gerenciar.svg" alt="">
                     <p>Gerenciar</p>
                 </div>
 
-                <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                    <i class="bi bi-person"></i>
+                <div class="icone" id="conta" onclick="irParaConta()">
+                    <img src="assets/cruds/conta.svg" alt="">
                     <p>Conta</p>
                 </div>
                 <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
-                    <i class="bi bi-bookmark-check"></i>
+                    <img src="assets/cruds/solicitacoes.svg" alt="">
                     <p>Solicitações</p>
                 </div>
             </div>
-
 
             <div class="icone-saida" onclick="sair()">
                 <img src="assets/gerenciador/sair.svg" alt="">

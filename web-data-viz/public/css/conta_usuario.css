@@ -7,6 +7,19 @@ main {
   align-items: center;
 }
 
+.titulo {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo h1 {
+  font-weight: 400;
+  color: #012a4a;
+}
+
 .conta {
   width: 100%;
   height: 100%;
@@ -14,4 +27,71 @@ main {
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+}
+
+.conta-conteudo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conta-dados {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 8vw;
+}
+
+.conta-dados button {
+  width: 8vw;
+  height: 4vh;
+  cursor: pointer;
+  font-size: 14px;
+  border-style: none;
+  border-radius: 1.5vh;
+  background-color: #3d6e89;
+  color: white;
+  margin-top: 2.5vh;
+  margin-left: 6px;
+}
+
+.imagem-usuario {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imagem-usuario img {
+  height: 30vh;
+}
+
+.imagem-usuario p {
+  color: #012a4a;
+  margin-top: 2vh;
+  cursor: pointer;
+}
+
+.inputs {
+  margin: 1vh;
+}
+
+.inputs p {
+  color: #012a4a;
+}
+
+.inputs input {
+  border-style: none;
+  width: 60vh;
+  height: 4.5vh;
+  border-radius: 1.5vh;
+  background-color: rgba(161, 188, 209, 0.3);
+  margin-top: 0.5vh;
+  padding-left: 1vh;
 }
