@@ -40,9 +40,30 @@ function buscarClasse(req,res){
     });
 }
 
+function buscarMapaCalor(){
+    medidaModel.buscarMapaCalor()
+    console.log("Entrei no buscarMapaCalor do Model")
+    .then(function (resultadoMapaCalor) {
+        console.log(`\nResultados encontrados: ${resultadoMapaCalor.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoMapaCalor)}`);
+
+        if (resultadoMapaCalor.length > 0) {
+           
+            res.json(resultadoMapaCalor);
+        } else {
+            res.status(403).send("Não foi possível encontrar dados");
+        }
+    })
+    .catch(function (erro) {
+        console.error("Erro ao buscar dados:", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     verificarDados,
-    buscarClasse
+    buscarClasse,
+    buscarMapaCalor
 
 }

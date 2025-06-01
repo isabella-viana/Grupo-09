@@ -11,4 +11,9 @@ router.get("/buscarClasse", function(req,res){
 medidaController.buscarClasse(req,res)
 })
 
+router.get("/buscarMapaCalor", function(req,res){
+medidaController.buscarMapaCalor(req,res)
+})
+
+
 module.exports = router;

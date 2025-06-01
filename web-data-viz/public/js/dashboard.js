@@ -11,12 +11,13 @@ function irParaDashboard() {
     window.location.href = "./dashboard.html"
 }
 
+
 window.onload = function () {
     var todas = "todas";
-
     buscarClasses();
     coresMapa();
     checkBox(todas);
+   // buscarMapaCalor();
 
     const checkboxTodas = document.querySelector('input[type="checkbox"][value="todas"]');
     if (checkboxTodas) {
@@ -66,10 +67,49 @@ function selecionarUnico(estadoClicado) {
         }
     });
 
-    if (estadoClicado.checked) {
-        atualizarGraficos(estadoClicado.value);
-    }
+
     verificar(estadoClicado.value)
+}
+
+function buscarMapaCalor() {
+
+    fetch("/medidas/buscarMapaCalor", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO buscarMapaCalor()!");
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log("Dados completos:", json);
+                console.log("Em formato JSON:", JSON.stringify(json));
+
+
+                const  UFMAPACALOR= json.map(item => item.UFMAPACALOR);
+                const  CONSUMOTOTALMAPACALOR= json.map(item => Number(item.CONSUMOTOTALMAPACALOR));
+
+                sessionStorage.setItem("UFMAPACALOR", JSON.stringify(UFMAPACALOR));
+                sessionStorage.setItem("CONSUMOTOTALMAPACALOR", JSON.stringify(CONSUMOTOTALMAPACALOR));
+
+                console.log("UF do mapa de calor", UFMAPACALOR);
+                console.log("Consumo do mapa de calor", CONSUMOTOTALMAPACALOR);      
+
+            //  coresMapa(UFMAPACALOR, CONSUMOTOTALMAPACALOR)
+            });
+        } else {
+            console.log("Erro ao puxar os dados do back-end.");
+        }
+    }).catch(function (erro) {
+        console.log("Erro na requisição:", erro);
+    });
+
+    return false;
+    
 }
 
 function buscarClasses(){
@@ -111,7 +151,7 @@ function buscarClasses(){
                 console.log("Porcentagem do consumo:", PORCENTAGEM_CONSUMO_CLASSE);
                 console.log("Porcentagem Total do Ultimo Ano",CONSUMOTOTAL)
 
-             //criarGraficoClasse(CLASSE,CONSUMO_CLASSE, PORCENTAGEM_CONSUMO_CLASSE, CONSUMOTOTAL)
+             criarGraficoClasse(CLASSE,CONSUMO_CLASSE, PORCENTAGEM_CONSUMO_CLASSE, CONSUMOTOTAL)
             });
         } else {
             console.log("Erro ao puxar os dados do back-end.");
@@ -179,7 +219,60 @@ const consumidores = JSON.parse(sessionStorage.getItem("CONSUMIDORES"));
 
 var graficoConsumidores = []
 
+function criarGraficoClasse(classe, consumoClasse,porcentagemClasse,consumoTotal){
+    if(classe == null || consumoClasse == null || porcentagemClasse == null || consumoTotal == null){
+        return null}
 
+    console.log("Estou tentando criar o gráfico de classes")
+    Highcharts.chart('energiasMaisConsumidas', {
+        chart: {
+            type: 'pie'
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: null
+        },
+        subtitle: {
+            text: null
+        },
+        tooltip: {
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: false,
+                    format: '{point.name}: {point.percentage:.1f}%'
+                },
+                showInLegend: true
+            }
+        },
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'middle',
+            itemMarginBottom: 8,
+            symbolRadius: 6,
+            symbolHeight: 10,
+            symbolWidth: 10,
+            navigation: {
+                enabled: false
+            }
+        },
+        series: [{
+            name: 'Valor',
+            data: [
+                { name: `${classe[0]}`, y: porcentagemClasse[0] },
+                { name: `${classe[1]}`, y: porcentagemClasse[1] },
+                { name: `${classe[2]}`, y: porcentagemClasse[2] },
+            ]
+        }]
+    });
+
+}
 function criarGraficoConsumidores(anos, consumidores, estado) {
 
     if (anos == null || consumidores == null) {
@@ -191,8 +284,8 @@ function criarGraficoConsumidores(anos, consumidores, estado) {
     console.log("Estado:", estado);
 
     if (estado != "todas") {
-        tituloGrande.innerHTML = `Quantidade de consumo`
-        quantidadeConsumidores.innerHTML = `Quantidade de consumidores`
+        tituloGrande.innerHTML = `Quantidade de consumo total do estado`
+        quantidadeConsumidores.innerHTML = `Quantidade de consumidores totais`
 
         Highcharts.chart('qtdConsumo', {
             chart: {
@@ -247,7 +340,7 @@ function criarGraficoConsumidores(anos, consumidores, estado) {
             }]
         });
     } else {
-        tituloGrande.innerHTML = `Quantidade de consumidores`
+        tituloGrande.innerHTML = `Quantidade de consumidores totais do país`
         quantidadeConsumidores.innerHTML = `Participação do consumo de energia por região`
 
         Highcharts.chart('meuGrafico', {
@@ -438,159 +531,6 @@ function criarGraficoConsumo(anos, consumo, estado) {
     }
 
 
-}
-function atualizarGraficos(estado) {
-    Highcharts.chart('qtdConsumo', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: null
-        },
-        xAxis: {
-            categories: [
-                '2015', '2016', '2017', '2018', '2019',
-                '2020', '2021', '2022', '2023', '2024', '2025'
-            ],
-            title: {
-                text: null
-            },
-            lineWidth: 0,
-            tickWidth: 0,
-            gridLineWidth: 0
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: null
-            },
-            allowDecimals: true,
-            lineWidth: 0,
-            tickWidth: 0,
-            gridLineWidth: 0,
-            labels: {
-                enabled: false
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            column: {
-                dataLabels: {
-                    enabled: true
-                }
-            }
-        },
-        series: [{
-            name: 'Consumidores',
-            data: [1500, 1600, 1750, 1900, 2050, 2200, 2350, 2500, 2650, 2800, 2950]
-        }]
-    });
-    Highcharts.chart('meuGrafico', {
-        chart: {
-            type: 'column'
-        },
-        credits: {
-            enabled: false
-        },
-        title: {
-            text: null
-        },
-        subtitle: {
-            text: null
-        },
-        xAxis: {
-            categories: [
-                'Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'
-            ],
-            title: {
-                text: null
-            }
-        },
-        yAxis: {
-            visible: false
-        },
-        plotOptions: {
-            column: {
-                dataLabels: {
-                    enabled: true,
-                    inside: false,
-                    y: -10,
-                    format: '{y}%',
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'black'
-                    }
-                },
-                borderWidth: 0
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        series: [{
-            name: 'Consumo de Energia',
-            data: [15.7, 14.1, 13.0, 12.0, 11.2]
-        }]
-    });
-
-
-
-
-
-    Highcharts.chart('energiasMaisConsumidas', {
-        chart: {
-            type: 'pie'
-        },
-        credits: {
-            enabled: false
-        },
-        title: {
-            text: null
-        },
-        subtitle: {
-            text: null
-        },
-        tooltip: {
-            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: false,
-                    format: '{point.name}: {point.percentage:.1f}%'
-                },
-                showInLegend: true
-            }
-        },
-        legend: {
-            enabled: true,
-            layout: 'vertical',
-            align: 'left',
-            verticalAlign: 'middle',
-            itemMarginBottom: 8,
-            symbolRadius: 6,
-            symbolHeight: 10,
-            symbolWidth: 10,
-            navigation: {
-                enabled: false
-            }
-        },
-        series: [{
-            name: 'Valor',
-            data: [
-                { name: 'Hidrelétrica', y: 120 },
-                { name: 'Eólica', y: 95 },
-                { name: 'Nuclear', y: 78 },
-                { name: 'Gás Natural', y: 133 },
-                { name: 'Outros', y: 22 }
-            ]
-        }]
-    });
 }
 
 function checkBox() {

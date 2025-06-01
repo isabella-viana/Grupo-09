@@ -76,9 +76,28 @@ GROUP BY classe;
     return database.executar(instrucaoSql);
 }
 
+
+function buscarMapaCalor() {
+    console.log("entrei na função buscarMapaCalor do model");
+
+    var instrucaoSql = `SELECT
+    uf,
+    ROUND(SUM(consumo), 2) AS consumo_total_2024
+FROM energia_historico
+WHERE YEAR(dataHora) = 2024
+GROUP BY uf
+ORDER BY uf ASC;
+`;
+
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     verificar,
-    buscarClasse   
+    buscarClasse,
+    buscarMapaCalor
 };
 
 
