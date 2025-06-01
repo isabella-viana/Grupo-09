@@ -1,4 +1,4 @@
-CREATE DATABASE eleva;
+CREATE DATABASE IF NOT EXISTS eleva;
 use eleva;
 
 CREATE TABLE uf (
@@ -21,9 +21,7 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
-    nome VARCHAR(60),
     cpf CHAR(11),
-    telefone varchar(15),
     email VARCHAR(45),
     senha VARCHAR(45),
     cargo VARCHAR(45),
@@ -88,3 +86,16 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
+
+select * from energia_historico;
+select * from log;
+
+
+truncate table log;
+truncate table energia_historico;
+
+
+
+
+select * from log;
+drop database eleva;
