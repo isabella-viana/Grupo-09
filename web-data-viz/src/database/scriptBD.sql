@@ -86,16 +86,3 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
-
-select * from energia_historico;
-select * from log;
-
-
-truncate table log;
-truncate table energia_historico;
-
-
-
-
-select * from log;
-drop database eleva;
