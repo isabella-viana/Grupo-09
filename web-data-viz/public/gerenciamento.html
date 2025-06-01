@@ -84,25 +84,28 @@
         </button>
 
       </div>
-
-      <table class="tabela-participantes">
-        <thead>
-          <tr>
-            <th class="titulo"> </th>
-            <th class="titulo"> Nome </th>
-            <th class="titulo"> Email </th>
-            <th class="titulo"> Telefone </th>
-            <th class="titulo"> Área</th>
-            <th class="titulo"> Nível </th>
-
-
-          </tr>
-        </thead>
-        <tbody id="tabelaCorpo">
-    
+      <div class="tabela">
+        <table class="tabela-participantes" >
+          <thead>
+            <tr>
+              <th class="titulo"> </th>
+              <th class="titulo"> Nome </th>
+              <th class="titulo"> Email </th>
+              <th class="titulo"> Telefone </th>
+              <th class="titulo"> Área</th>
+              <th class="titulo"> Nível </th>
+  
+  
+            </tr>
+          </thead>
+          <tbody id="tabelaCorpo">
       
-        </tbody>
-      </table>
+        
+          </tbody>
+        </table>
+      </div>
+
+  
     </div>
 
     <script src="script.js"></script>
@@ -203,7 +206,7 @@
 
     for(var i= 0; i < nomes.length ; i++){
       tabelaCorpo.innerHTML+=`
-       <tr>
+       <tr style="position: sticky;">
             <td><input type="checkbox" class="check-participante" /></td>
             <td>${nomes[i]}</td>
             <td>${email[i]}</td>

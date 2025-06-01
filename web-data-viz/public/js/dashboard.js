@@ -13,7 +13,8 @@ function irParaDashboard() {
 
 window.onload = function () {
     var todas = "todas";
-    atualizarGraficos(todas);
+
+    buscarClasses();
     coresMapa();
     checkBox(todas);
 
@@ -70,10 +71,61 @@ function selecionarUnico(estadoClicado) {
     }
     verificar(estadoClicado.value)
 }
+
+function buscarClasses(){
+    console.log("Entrei no buscarClasse()");
+
+    fetch("/medidas/buscarClasse", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO buscarClasses()!");
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log("Dados completos:", json);
+                console.log("Em formato JSON:", JSON.stringify(json));
+
+
+                const CLASSE = json.map(item => item.classe);
+                const CONSUMO_CLASSE = json.map(item => Number(item.consumo_total_classe));
+                const PORCENTAGEM_CONSUMO_CLASSE = json.map(item =>item.percentual_consumo);
+                const CONSUMOTOTAL = json.map(item => Number(item.consumo_total_2024));
+               
+
+
+
+                sessionStorage.setItem("CLASSSE", JSON.stringify(CLASSE));
+                sessionStorage.setItem("CONSUMO_CLASSE", JSON.stringify(CONSUMO_CLASSE));
+                sessionStorage.setItem("PORCENTAGEM_CONSUMO_CLASSE", JSON.stringify(PORCENTAGEM_CONSUMO_CLASSE));
+                sessionStorage.setItem("CONSUMOTOTAL", JSON.stringify(CONSUMOTOTAL));
+
+
+                console.log("Classe:", CLASSE);
+                console.log("Consumo da Classe", CONSUMO_CLASSE);
+                console.log("Porcentagem do consumo:", PORCENTAGEM_CONSUMO_CLASSE);
+                console.log("Porcentagem Total do Ultimo Ano",CONSUMOTOTAL)
+
+             //criarGraficoClasse(CLASSE,CONSUMO_CLASSE, PORCENTAGEM_CONSUMO_CLASSE, CONSUMOTOTAL)
+            });
+        } else {
+            console.log("Erro ao puxar os dados do back-end.");
+        }
+    }).catch(function (erro) {
+        console.log("Erro na requisição:", erro);
+    });
+
+    return false;
+}
 function verificar(estado) {
     console.log("Entrei no verificar(estado)");
 
-    fetch("/usuarios/verificar", {
+    fetch("/medidas/verificar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -12,8 +12,5 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.post("/verificar", function(req , res){
-    usuarioController.verificarDados(req,res)
-})
 
 module.exports = router;
