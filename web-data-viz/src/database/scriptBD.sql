@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS eleva;
+CREATE DATABASE eleva;
 use eleva;
 
 CREATE TABLE uf (
@@ -21,7 +21,9 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
+    nome VARCHAR(60),
     cpf CHAR(11),
+    telefone VARCHAR(15),
     email VARCHAR(45),
     senha VARCHAR(45),
     cargo VARCHAR(45),
@@ -41,7 +43,7 @@ CREATE TABLE endereco (
     empresa_idempresa INT,
     usuario_idUsuario INT,
     FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade,
-    FOREIGN KEY (usuario_idUsuario) REFERENCES usuario(idUsuario) on delete cascade
+    FOREIGN KEY (usuario_idUsuario) REFERENCES Usuario(idUsuario) on delete cascade
 );
 
 CREATE TABLE leads (
@@ -86,6 +88,5 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
-
 
 
