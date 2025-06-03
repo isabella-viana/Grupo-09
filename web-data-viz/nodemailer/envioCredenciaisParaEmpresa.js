@@ -9,7 +9,7 @@ async function enviarCredenciaisParaEmpresa() {
     },
   });
 
-  // Gerar uma senha aleatória simples (8 caracteres alfanuméricos)
+  // aqui gera uma senha aleatoria de até 8 digitos.
   function gerarSenhaAleatoria() {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let senha = "";
@@ -41,7 +41,7 @@ Equipe Eleva
 
   const mailOptions = {
     from: "viniciusgcosta0122@gmail.com",
-    to: "pedrogandincfg@hotmail.com", // substitua pelo email real da empresa
+    to: "pedrogandincfg@hotmail.com", // aqui a gente bota o e-mail da empresa 
     subject: "Seja bem-vindo à Eleva! Suas credenciais de acesso",
     text: textoEmail,
   };
@@ -50,5 +50,4 @@ Equipe Eleva
   console.log("Email de credenciais enviado!");
 }
 
-// Testar só o envio
 enviarCredenciaisParaEmpresa().catch(console.error);

@@ -32,11 +32,10 @@ Telefone: 11999999999
   console.log("Email enviado!");
 }
 
-// Testar só o envio sem servidor:
+
 enviarEmail().catch(console.error);
 
 /*
-// Depois que terminar o backend, descomente isso pra rodar o servidor:
 
 app.post("/cadastro", async (req, res) => {
   try {

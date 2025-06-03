@@ -15,9 +15,10 @@ function irParaDashboard() {
 window.onload = function () {
     var todas = "todas";
     buscarClasses();
+     buscarMapaCalor();
     coresMapa();
     checkBox(todas);
-   // buscarMapaCalor();
+
 
     const checkboxTodas = document.querySelector('input[type="checkbox"][value="todas"]');
     if (checkboxTodas) {
@@ -72,6 +73,7 @@ function selecionarUnico(estadoClicado) {
 }
 
 function buscarMapaCalor() {
+    console.log("Estou no buscarMapaCalor()")
 
     fetch("/medidas/buscarMapaCalor", {
         method: "GET",

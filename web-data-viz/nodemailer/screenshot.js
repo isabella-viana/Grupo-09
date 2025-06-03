@@ -1,22 +1,21 @@
 const puppeteer = require("puppeteer");
 const cron = require("node-cron");
 const nodemailer = require("nodemailer");
-const path = require("path");
-const fs = require("fs");
+const waitOn = require("wait-on");
 
 async function tirarPrint() {
-  const browser = await puppeteer.launch();
+  // ✅ Espera até o servidor estar online
+  await waitOn({ resources: ["http://localhost:3000/dashboard.html"], timeout: 10000 });
+
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
   const page = await browser.newPage();
 
-  await page.setViewport({
-    width: 1920,
-    height: 1080,
-  });
+  await page.setViewport({ width: 1920, height: 1080 });
 
-  const filePath = `file://${path.join(__dirname, "..", "public", "dashboard.html")}`;
-
-
-  await page.goto(filePath, { waitUntil: "networkidle0" });
+  await page.goto("http://localhost:3000/dashboard.html", { waitUntil: "networkidle0" });
   await page.screenshot({ path: "PrintDashboard.png", fullPage: true });
 
   await browser.close();
@@ -45,20 +44,24 @@ async function enviarEmail() {
   };
 
   await transporter.sendMail(mailOptions);
-  console.log("Email enviado com sucesso!");
+  console.log("✅ Email enviado com sucesso!");
 }
 
 cron.schedule("0 20 * * *", async () => {
   try {
-    console.log("Iniciando tarefa agendada...");
+    console.log("🕒 Iniciando tarefa agendada...");
     await tirarPrint();
     await enviarEmail();
   } catch (error) {
-    console.error("Erro durante a execução:", error);
+    console.error("❌ Erro durante execusção agendada:", error);
   }
 });
 
 (async () => {
-  await tirarPrint();
-  await enviarEmail();
+  try {
+    await tirarPrint();
+    await enviarEmail();
+  } catch (error) {
+    console.error("❌ Erro durante execução imediata:", error);
+  }
 })();
