@@ -23,7 +23,7 @@ Telefone: 11999999999
 
   const mailOptions = {
     from: "viniciusgcosta0122@gmail.com",
-    to: "pedrogandincfg@hotmail.com",
+    to: "victor.hsouza@sptech.school",
     subject: "Novo lead - Solicitação de credenciais",
     text: textoEmail,
   };

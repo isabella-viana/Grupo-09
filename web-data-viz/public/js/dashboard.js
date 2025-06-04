@@ -15,7 +15,7 @@ function irParaDashboard() {
 window.onload = function () {
     var todas = "todas";
     buscarClasses();
-     buscarMapaCalor();
+    buscarMapaCalor();
     coresMapa();
     checkBox(todas);
 
@@ -205,6 +205,9 @@ function verificar(estado) {
                 criarGraficoConsumidores(ANOS, CONSUMIDORES, estado);
                 criarGraficoConsumo(ANOS, CONSUMO, estado);
                 atualizarKPIs(ANOS, CONSUMO, CONSUMIDORES, estado)
+
+        
+             
             });
         } else {
             console.log("Erro ao puxar os dados do back-end.");

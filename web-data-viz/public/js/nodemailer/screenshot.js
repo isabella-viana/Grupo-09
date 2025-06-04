@@ -1,24 +1,32 @@
 const puppeteer = require("puppeteer");
-const cron = require("node-cron");
 const nodemailer = require("nodemailer");
 const waitOn = require("wait-on");
+const cron = require("node-cron"); 
 
 async function tirarPrint() {
-  // ✅ Espera até o servidor estar online
-  await waitOn({ resources: ["http://localhost:3000/dashboard.html"], timeout: 10000 });
+  await waitOn({ 
+    resources: ["http://localhost:3333/dashboard.html"], 
+    timeout: 5000 
+  });
 
   const browser = await puppeteer.launch({
     headless: "new",
     args: ["--no-sandbox", "--disable-setuid-sandbox"]
   });
-  const page = await browser.newPage();
 
+  const page = await browser.newPage();
   await page.setViewport({ width: 1920, height: 1080 });
 
-  await page.goto("http://localhost:3000/dashboard.html", { waitUntil: "networkidle0" });
+  await page.goto("http://localhost:3333/dashboard.html", {
+    waitUntil: "networkidle0",
+  });
+
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
   await page.screenshot({ path: "PrintDashboard.png", fullPage: true });
 
   await browser.close();
+  console.log("📸 Screenshot capturado com sucesso!");
 }
 
 async function enviarEmail() {
@@ -26,13 +34,13 @@ async function enviarEmail() {
     service: "gmail",
     auth: {
       user: "viniciusgcosta0122@gmail.com",
-      pass: "qgmr bkjq gyhn qdhh",
+      pass: "qgmr bkjq gyhn qdhh", 
     },
   });
 
   const mailOptions = {
     from: "viniciusgcosta0122@gmail.com",
-    to: "pedrogandincfg@hotmail.com",
+    to: "victor.hsouza@sptech.school",
     subject: "Print automático do Dashboard",
     text: "Segue em anexo o print da dashboard.",
     attachments: [
@@ -47,21 +55,22 @@ async function enviarEmail() {
   console.log("✅ Email enviado com sucesso!");
 }
 
-cron.schedule("0 20 * * *", async () => {
-  try {
-    console.log("🕒 Iniciando tarefa agendada...");
-    await tirarPrint();
-    await enviarEmail();
-  } catch (error) {
-    console.error("❌ Erro durante execusção agendada:", error);
-  }
-});
-
 (async () => {
   try {
+    console.log("🚀 Execução manual...");
     await tirarPrint();
     await enviarEmail();
   } catch (error) {
-    console.error("❌ Erro durante execução imediata:", error);
+    console.error("❌ Erro durante execução:", error);
   }
 })();
+
+cron.schedule("0 20 * * *", async () => {
+  try {
+    console.log("⏰ Execução automática iniciada às 20h...");
+    await tirarPrint();
+    await enviarEmail();
+  } catch (error) {
+    console.error("❌ Erro na execução automática:", error);
+  }
+});
