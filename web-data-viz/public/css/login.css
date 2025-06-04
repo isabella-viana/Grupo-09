@@ -38,7 +38,7 @@ body {
     right: 10%;
 }
 .arrow2 {
-    height: 20px;
+    height: 90px;
     position: relative;
 }
 
@@ -96,7 +96,7 @@ form {
 
 
 .container h1 {
-    font-size: 40px;
+    font-size: 23px;
     margin: -10px 0;
     font-weight: 300;
 }
@@ -155,8 +155,7 @@ text-align: center;
 }
 
 .toggle-box img{
-    height: 50%;
-    width: 55%;
+    width: 75%;
 }
 
 .toggle-box::before {
@@ -177,7 +176,7 @@ text-align: center;
 }
 
 .toggle-box h1{
-    font-size: 30px;
+    font-size: 23px;
     color: white;
     }
 
@@ -259,7 +258,7 @@ text-align: center;
 @media screen and (max-height: 800px) {
     .container.active h1 {
        font-size: 20px;
-       margin-top: 10px;
+       margin-top: -20px;
     }
     .arrow2 img {
         margin-top: 40px;

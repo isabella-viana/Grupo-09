@@ -14,7 +14,7 @@
 <body>
     <div class="container">
 
-        <!-- FORMULÁRIO DE LOGIN -->
+       
         <div class="form-box login">
             <form action="" onsubmit="return false">
                 <div class="arrow">
@@ -39,7 +39,7 @@
             </form>
         </div>
 
-        <!-- FORMULÁRIO DE REGISTRO -->
+      
         <div class="form-box register">
             <form action="" onsubmit="return false">
                 <div class="arrow2" onclick="voltarIndex()">
@@ -64,16 +64,8 @@
                 <div class="input_box">
                     <input type="number" id="input_cnpj" placeholder="CNPJ" required>
                 </div>
-                <div class="input_box">
-                    <input type="password" id="input_senha" placeholder="Senha" required>
-                </div>
-                <div class="input_box">
-                    <input type="password" id="confirmacao_senha_input" placeholder="Confirmar sua senha" required>
-                </div>
-                <div class="input_box">
-                    <input type="text" id="input_situacao" placeholder="Situação da Empresa" required>
-                </div>
-
+               
+              
                 <button type="submit" class="btn" onclick="cadastrar()">Cadastre-se</button>
             </form>
         </div>
@@ -81,12 +73,12 @@
        
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
-                <img src="assets/login_cadastro/image 78 (1).png" alt="">
+                <img src="assets/login_cadastro/login.png" alt="">
                 <h1>Ainda não Elevou a sua <br> empresa?</h1>
                 <button class="btn cadastre-btn">Cadastre-se</button>
             </div>
             <div class="toggle-panel toggle-right">
-                <img src="assets/login_cadastro/93028489-89b2-42cd-a602-8f54e9e238b1 1 (1).png" alt="">
+                <img src="assets/login_cadastro/cadastro.png" alt="">
                 <h1>Já é um de nossos <br>clientes?</h1>
                 <button class="btn login-btn">Login</button>
             </div>
@@ -128,7 +120,7 @@
             }
 
 
-            // Enviando o valor da nova input
+            
             fetch("/usuarios/cadastrar", {
                 method: "POST",
                 headers: {
