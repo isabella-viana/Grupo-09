@@ -12,9 +12,10 @@
 </head>
 
 <body>
+
     <div class="container">
 
-       
+
         <div class="form-box login">
             <form action="" onsubmit="return false">
                 <div class="arrow">
@@ -39,7 +40,7 @@
             </form>
         </div>
 
-      
+
         <div class="form-box register">
             <form action="" onsubmit="return false">
                 <div class="arrow2" onclick="voltarIndex()">
@@ -47,30 +48,32 @@
                         <img src="assets/login_cadastro/icons8-arrow-64 (1).png" alt="Voltar">
                     </a>
                 </div>
+
                 <div class="Up">
                     <h1>Registro</h1>
                     <img src="assets/logo-menu.png" alt="Logo">
                 </div>
 
+                 <div class="input_box">
+                    <input type="text" id="input_nome_fantasia" placeholder="Nome Fantasia" required>
+                </div>
                 <div class="input_box">
                     <input type="text" id="input_razao_social" placeholder="Razão Social" required>
                 </div>
-                <div class="input_box">
-                    <input type="text" id="input_nome_fantasia" placeholder="Nome Fantasia" required>
-                </div>
+               
                 <div class="input_box">
                     <input type="text" id="input_email" placeholder="Email" required>
                 </div>
                 <div class="input_box">
                     <input type="number" id="input_cnpj" placeholder="CNPJ" required>
                 </div>
-               
-              
-                <button type="submit" class="btn" onclick="cadastrar()">Cadastre-se</button>
+
+
+                <button type="submit" class="btn" onclick="EnviarSolicitacao()">Cadastre-se</button>
             </form>
         </div>
 
-       
+
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
                 <img src="assets/login_cadastro/login.png" alt="">
@@ -91,47 +94,36 @@
 
             window.location.href = "../public/index.html";
         }
-        function cadastrar() {
+        function EnviarSolicitacao(){
 
-            var Var = input_nome.value;
+            var nome_fantasiaVar = input_nome_fantasia.value;
+            var razao_socialVar = input_razao_social.value;
             var emailVar = input_email.value;
             var cnpjVar = input_cnpj.value;
-            var senhaVar = input_senha.value;
-            var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
 
             if (
-                nomeVar == "" ||
+                nome_fantasiaVar == "" ||
+                razao_socialVar == "" ||
                 emailVar == "" ||
-                senhaVar == "" ||
-                confirmacaoSenhaVar == ""
+                cnpjVar == "" 
             ) {
                 alert('Preencha todos os campos para continuar');
 
                 return false;
             }
-            if (senhaVar != confirmacaoSenhaVar) {
-                alert('As senhas não são iguais')
-                return false
-            }
-            if (senhaVar.lenght >= 6) {
-                alert('A senha deve ter pelo menos 6 numeros!')
-                return false
-            }
 
-
-            
-            fetch("/usuarios/cadastrar", {
+            fetch("/leads/EnviarSolicitacao", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nomeVar,
+                    nome_fantasiaVarServer: nome_fantasiaVar,
+                    razao_socialServer: razao_socialVar,
                     emailServer: emailVar,
                     cnpjServer: cnpjVar,
-                    senhaServer: senhaVar,
+                    
 
                 }),
             })
@@ -157,6 +149,7 @@
 
             return false;
         }
+        
         function entrar() {
 
 
