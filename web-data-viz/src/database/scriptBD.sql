@@ -11,8 +11,8 @@ CREATE TABLE uf (
 
 CREATE TABLE empresa (
     idempresa INT PRIMARY KEY auto_increment,
-    razao_social VARCHAR(45),
     nome_fantasia VARCHAR(45),
+    razao_social VARCHAR(45),
     senha VARCHAR(45),
     cnpj CHAR(14),
     email VARCHAR(45),
@@ -50,11 +50,11 @@ CREATE TABLE endereco (
 
 CREATE TABLE leads (
     id INT PRIMARY KEY,
-    nome_solicitante VARCHAR(45),
+    nome_fantasia VARCHAR(45),
     razao_social VARCHAR(45),
     email VARCHAR(45),
-    foiEnviado boolean,
     cnpj CHAR(14),
+    foiEnviado boolean
 );
 
 CREATE TABLE contrato (
@@ -92,5 +92,11 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
+
+
+drop database eleva;
+
+select * from energia_historico;
+
 
 
