@@ -49,7 +49,7 @@ CREATE TABLE endereco (
 );
 
 CREATE TABLE leads (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY auto_increment,
     nome_fantasia VARCHAR(45),
     razao_social VARCHAR(45),
     email VARCHAR(45),
