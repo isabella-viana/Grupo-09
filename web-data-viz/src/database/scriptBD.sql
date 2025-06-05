@@ -13,10 +13,8 @@ CREATE TABLE empresa (
     idempresa INT PRIMARY KEY auto_increment,
     nome_fantasia VARCHAR(45),
     razao_social VARCHAR(45),
-    senha VARCHAR(45),
     cnpj CHAR(14),
-    email VARCHAR(45),
-    situacao VARCHAR(45)
+    situacao VARCHAR(45),
 );
 
 CREATE TABLE usuario (

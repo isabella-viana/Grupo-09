@@ -50,51 +50,48 @@ function autenticar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     console.log('Entrei na função cadastrar')
-    var nome_solicitante = req.body.nome_solicitanteServer;
-    var razao_social = req.body.razao_socialServer;
-    var email = req.body.emailServer;
-    var cnpj = req.body.cnpjServer;
-    var isSend = req.body.isSend;
+    var cnpj = req.body.cnpj;
+    var nomeRepresentante = req.body.nomeRepresentante;
+    var emailRepresentante = req.body.emailRepresentante;
+    var cpf = req.body.cpf;
 
     // Faça as validações dos valores
-    if (nome_solicitante == undefined) {
+    if (nomeRepresentante == undefined) {
         res.status(400).send("Seu nome está undefined!");
         console.log('aaaaa')
-    } else if (razao_social == undefined) {
+    } else if (emailRepresentante == undefined) {
         res.status(400).send("Sua razao_social está undefined!");
         console.log('bbbb')
     }
-    else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-        console.log('c')
-    } else if (cnpj == undefined) {
+    else if (cpf == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
         console.log('dddddd')
     } else {
         console.log('passei das validações')
 
+        usuarioModel.buscarId(cnpj)
+            .then((resultado) => {
+                if (resultado.length > 0) {
+                     return usuarioModel.cadastrar(nomeRepresentante, emailRepresentante, cpf, resposta.id[0])
+                        .then(
+                            function (resultado) {
+                            res.json(resultado);
+                            }
+                        )
+                } else {
+                return res.status(409).json({ mensagem: "Não encontrei o CNPJ" });
+                }
+            })
+            .catch((erro) => {
+                console.error("Erro ao buscar CNPJ:", erro);
+                res.status(500).json({ mensagem: "Erro no servidor ao buscar CNPJ." });
+            });
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome_solicitante, razao_social, email, cnpj)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+
     }
+
+    
 }
-
-
-
-
 
 module.exports = {
     autenticar,

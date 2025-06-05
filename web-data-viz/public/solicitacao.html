@@ -39,21 +39,26 @@
                     <input type="text" id="input_nome_fantasia" placeholder="">
                 </div>
 
-                <div class="campo">
-                    <p>Email</p>
-                    <input type="email" id="input_email" placeholder="">
-                </div>
-
-                <div class="campo">
+                 <div class="campo">
                     <p>CNPJ</p>
                     <input type="text" id="input_cnpj" placeholder="">
                 </div>
 
-                <div class="campo">
-                    <p>Senha</p>
-                    <input type="password" id="input_senha" placeholder="">
+                 <div class="campo">
+                    <p>Nome Representante</p>
+                    <input type="text" id="input_nome_representante" placeholder="">
                 </div>
 
+                <div class="campo">
+                    <p>Email Representante</p>
+                    <input type="email" id="input_email_representante" placeholder="">
+                </div>
+
+                 <div class="campo">
+                    <p>CPF</p>
+                    <input type="text" id="input_cpf" placeholder="">
+                </div>
+            
                 <button type="submit" onclick="cadastrarEmpresa()">Registrar</button>
             </form>
 
@@ -68,11 +73,9 @@
             
             var razaoSocialVar = input_razao_social.value;
             var nomeFantasiaVar = input_nome_fantasia.value;
-            var emailVar = input_email.value;
             var cnpjVar = input_cnpj.value;
-            var senhaVar = input_senha.value;
 
-            if (!razaoSocialVar || !nomeFantasiaVar || !emailVar || !cnpjVar || !senhaVar) {
+            if (!razaoSocialVar || !nomeFantasiaVar || !cnpjVar) {
                 alert('Preencha todos os campos!');
                 return false;
             }
@@ -87,31 +90,9 @@
                 destacarCampo(input_nome_fantasia);
                 return false;
             }
-            if (!emailVar) {
-                alert("Por favor, preencha o Email!");
-                destacarCampo(input_email);
-                return false;
-            }
-
-            if (!/\S+@\S+\.\S+/.test(emailVar)) {
-                alert("Por favor, informe um email válido!");
-                destacarCampo(input_email);
-                return false;
-            }
             if (!cnpjVar) {
                 alert("Por favor, preencha o CNPJ!");
                 destacarCampo(input_cnpj);
-                return false;
-            }
-
-            if (!senhaVar) {
-                alert("Por favor, preencha a Senha!");
-                destacarCampo(input_senha);
-                return false;
-            }
-            if (senhaVar.length < 6) {
-                alert("A senha deve ter pelo menos 6 caracteres!");
-                destacarCampo(input_senha);
                 return false;
             }
 
@@ -125,14 +106,13 @@
                 body: JSON.stringify({
                     razaoSocial: razaoSocialVar,
                     nomeFantasia: nomeFantasiaVar,
-                    email: emailVar,
-                    cnpj: cnpjVar,
-                    senha: senhaVar
+                    cnpj: cnpjVar
                 }),
             })
                 .then(res => {
                     if (res.ok) {
                         alert('Empresa cadastrada com sucesso!');
+                        cadastrarUsuario()
                         window.location.reload();
                     } else {
                         return res.json().then(data => {
@@ -147,6 +127,70 @@
 
             return false;
         }
+
+//CADASTRANDO USUÁRIO PARA EMPRESA
+
+        function cadastrarUsuario() {
+            
+            var nomeRepresentante = input_nome_representante.value;
+            var emailRepresentante = input_email_representante.value;
+            var cpfVar = input_cpf.value;
+            var cnpjVar = input_cnpj.value;
+
+            if (!nomeRepresentante || !emailRepresentante || !cpfVar) {
+                alert('Preencha todos os campos!');
+                return false;
+            }
+
+            if (!nomeRepresentante) {
+                alert("Por favor, preencha a Razão Social!");
+                destacarCampo(input_razao_social);
+                return false;
+            }
+            if (!emailRepresentante) {
+                alert("Por favor, preencha o Nome Fantasia!");
+                destacarCampo(input_nome_fantasia);
+                return false;
+            }
+            if (!cpfVar) {
+                alert("Por favor, preencha o CPF!");
+                destacarCampo(input_cnpj);
+                return false;
+            }
+
+            fetch("/usuario/cadastrar", {
+
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nomeRepresentante: nomeRepresentanteVar,
+                    emailRepresentante: emailRepresentanteVar,
+                    cpf: cpfVar,
+                    cnpj: cnpjVar
+                }),
+            })
+                .then(res => {
+                    if (res.ok) {
+                        alert('Usuario cadastrado com sucesso!');
+                        console.log('Chamada para o cadastro realizado com sucesso')
+                        window.location.reload();
+                    } else {
+                        return res.json().then(data => {
+                            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
+                        });
+                    }
+                })
+
+                .catch(erro => {
+                    console.error("#ERRO:", erro);
+                });
+
+            return false;
+        }
+
+
 
         function carregarEmpresasPendentes() {
 
@@ -175,7 +219,6 @@
 
         window.onload = carregarEmpresasPendentes();
 
-        
     </script>
 
 </body>

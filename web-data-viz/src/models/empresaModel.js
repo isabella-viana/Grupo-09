@@ -15,10 +15,10 @@ function buscarPorCnpj(cnpj) {
   return database.executar(instrucaoSql);
 }
 
-function cadastrarEmpresa(razaoSocial, nomeFantasia, email, cnpj, senha) {
+function cadastrarEmpresa(razaoSocial, nomeFantasia, cnpj) {
   var instrucaoSql = `
-      INSERT INTO empresa (razao_social, nome_fantasia, email, cnpj, senha, situacao)
-      VALUES ('${razaoSocial}', '${nomeFantasia}', '${email}', '${cnpj}', '${senha}', 'Pendente');
+      INSERT INTO empresa (razao_social, nome_fantasia, cnpj, situacao)
+      VALUES ('${razaoSocial}', '${nomeFantasia}','${cnpj}',  'Pendente');
   `;
   return database.executar(instrucaoSql);
 }
