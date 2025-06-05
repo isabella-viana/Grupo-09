@@ -48,7 +48,8 @@ CREATE TABLE leads (
     id INT PRIMARY KEY,
     nome_solicitante VARCHAR(45),
     razao_social VARCHAR(45),
-    email VARCHAR(45)
+    email VARCHAR(45),
+    foiEnviado boolean
 );
 
 CREATE TABLE contrato (
