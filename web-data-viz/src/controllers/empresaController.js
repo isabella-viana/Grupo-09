@@ -14,11 +14,6 @@ function listar(req, res) {
   });
 }
 
-function listarPendentes(req, res) {
-  empresaModel.listarPendentes().then((resultado) => {
-    res.status(200).json(resultado);
-  });
-}
 
 function buscarPorId(req, res) {
   var id = req.params.id;
@@ -57,5 +52,4 @@ module.exports = {
   buscarPorId,
   cadastrar,
   listar,
-  listarPendentes
 };

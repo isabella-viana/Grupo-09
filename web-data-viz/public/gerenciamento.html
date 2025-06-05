@@ -84,71 +84,28 @@
         </button>
 
       </div>
+      <div class="tabela">
+        <table class="tabela-participantes" >
+          <thead>
+            <tr>
+              <th class="titulo"> </th>
+              <th class="titulo"> Nome </th>
+              <th class="titulo"> Email </th>
+              <th class="titulo"> Telefone </th>
+              <th class="titulo"> Área</th>
+              <th class="titulo"> Nível </th>
+  
+  
+            </tr>
+          </thead>
+          <tbody id="tabelaCorpo">
+      
+        
+          </tbody>
+        </table>
+      </div>
 
-      <table class="tabela-participantes">
-        <thead>
-          <tr>
-            <th class="titulo"> </th>
-            <th class="titulo"> Nome </th>
-            <th class="titulo"> Email </th>
-            <th class="titulo"> Telefone </th>
-            <th class="titulo"> Área</th>
-            <th class="titulo"> Nível </th>
-
-
-          </tr>
-        </thead>
-        <tbody id="tabela-corpo">
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Guilherme Queiroz</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Tecled</td>
-            <td>View</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Isabella Viana</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Scrum</td>
-            <td>View</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Matheus Martinez</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>PO</td>
-            <td>View</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Pedro Gandin</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Gerente</td>
-            <td>Edit</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Victor Hugo</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>CIO</td>
-            <td>ADM</td>
-          </tr>
-          <tr>
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>Vinícius Gonçalves</td>
-            <td>usuarioeleva@gmail.com</td>
-            <td>11 9999-9990</td>
-            <td>Supervisor</td>
-            <td>Edit</td>
-          </tr>
-        </tbody>
-      </table>
+  
     </div>
 
     <script src="script.js"></script>
@@ -159,7 +116,7 @@
 
 
 <script>
-  const tabelaCorpo = document.getElementById("tabela-corpo");
+  const tabelaCorpo = document.getElementById("tabelaCorpo");
   const botaoAdicionar = document.querySelector(".botao.adicionar");
   const botaoExcluir = document.querySelector(".botao.excluir");
   const formAdicionar = document.getElementById("form-adicionar");
@@ -180,6 +137,10 @@
   function irParaSolicitacao() {
     window.location.href = "./solicitacao.html"
   }
+  
+  windon.onload = ()=>{
+    carregarParticipantes();
+  };
 
 
   botaoAdicionar.addEventListener("click", () => {
@@ -201,38 +162,60 @@
 
 
   function carregarParticipantes() {
-    fetch('http://localhost:3000/participantes')
-      .then(resposta => {
-        if (!resposta.ok) {
-          throw new Error(`Erro ao carregar participantes: ${resposta.status}`);
+    fetch("/participantes/listar", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO verificar()!");
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log("Dados completos:", json);
+                console.log("Em formato JSON:", JSON.stringify(json));
+
+                const NOME = json.map(item => item.nome);
+                const EMAIL_USUARIO = json.map(item => item.email);
+                const TELEFONE= json.map(item => item. telefone);
+                const CARGO = json.map(item => item.cargo);
+
+                sessionStorage.setItem("NOME", JSON.stringify(NOME));
+                sessionStorage.setItem("EMAIL", JSON.stringify(EMAIL_USUARIO));
+                sessionStorage.setItem("TELEFONE", JSON.stringify(TELEFONE));
+                sessionStorage.setItem("CARGO", JSON.stringify(CARGO));
+
+                atualizarNomesTabela(NOME,EMAIL_USUARIO,TELEFONE,CARGO);
+
+                
+              
+            });
+        } else {
+            console.log("Erro ao puxar os dados do back-end.");
         }
-        return resposta.json();
-      })
-      .then(participantes => {
-        const tabelaCorpo = document.getElementById("tabela-corpo");
-        tabelaCorpo.innerHTML = ""; // limpa tabela antes de preencher
+    }).catch(function (erro) {
+        console.log("Erro na requisição:", erro);
+    });
+  }
+  
+  function atualizarNomesTabela(nomes, email , telefone , cargo){
+    tabelaCorpo.innerHTML=""
 
-        participantes.forEach(funcionario => {
-          // monta uma linha <tr> com data-id do funcionário
-          const tr = document.createElement("tr");
-          tr.dataset.id = funcionario.idfuncionario;
-
-          tr.innerHTML = `
+    for(var i= 0; i < nomes.length ; i++){
+      tabelaCorpo.innerHTML+=`
+       <tr style="position: sticky;">
             <td><input type="checkbox" class="check-participante" /></td>
-            <td>${funcionario.nome || ''}</td>
-            <td>${funcionario.email || ''}</td>
-            <td>${funcionario.telefone || ''}</td>
-            <td>${funcionario.cargo || ''}</td>
-            <td>Edit</td>
-          `;
-
-          tabelaCorpo.appendChild(tr);
-        });
-      })
-      .catch(erro => {
-        console.error("#ERRO carregarParticipantes:", erro);
-        alert("Erro ao carregar participantes. Veja o console para detalhes.");
-      });
+            <td>${nomes[i]}</td>
+            <td>${email[i]}</td>
+            <td>${telefone[i]}</td>
+            <td>${cargo[i]}</td>
+            <td>View</td>
+          </tr>
+      `;
+    }
   }
 
 
@@ -291,7 +274,6 @@
 
 
 
-  window.onload = carregarParticipantes;
 
 
 </script>

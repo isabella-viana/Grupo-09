@@ -10,15 +10,6 @@ function listar() {
   return database.executar(instrucaoSql);
 }
 
-function listarPendentes() {
-  var instrucaoSql = `
-    SELECT idEmpresa, nome_fantasia, email, cnpj
-    FROM empresa
-    WHERE situacao IS NULL OR situacao = 'Pendente'
-  `;
-  return database.executar(instrucaoSql);
-}
-
 function buscarPorCnpj(cnpj) {
   var instrucaoSql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`;
   return database.executar(instrucaoSql);
@@ -35,7 +26,6 @@ function cadastrarEmpresa(razaoSocial, nomeFantasia, email, cnpj, senha) {
 module.exports = {
   buscarPorId,
   listar,
-  listarPendentes,
   buscarPorCnpj,
   cadastrarEmpresa
 };

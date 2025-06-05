@@ -1,48 +1,69 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
+function verificarDados(req, res) {
+    var estadoSelecionado = req.body.estadoServer;
+    console.log("Estado selecionado: ", estadoSelecionado);
 
-    const limite_linhas = 7;
+    medidaModel.verificar(estadoSelecionado)
+        .then(function (resultadoAutenticar) {
+            console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+            console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
 
-    var idAquario = req.params.idAquario;
+            if (resultadoAutenticar.length > 0) {
+               
+                res.json(resultadoAutenticar);
+            } else {
+                res.status(403).send("Não foi possível encontrar dados para o estado.");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar dados:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+function buscarClasse(req,res){
+    medidaModel.buscarClasse()
+    .then(function (resultadoBuscarClasse) {
+        console.log(`\nResultados encontrados: ${resultadoBuscarClasse.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoBuscarClasse)}`);
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
+        if (resultadoBuscarClasse.length > 0) {
+           
+            res.json(resultadoBuscarClasse);
         } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+            res.status(403).send("Não foi possível encontrar dados");
         }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+    })
+    .catch(function (erro) {
+        console.error("Erro ao buscar dados:", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
 
+function buscarMapaCalor(){
+    medidaModel.buscarMapaCalor()
+    console.log("Entrei no buscarMapaCalor do Model")
+    .then(function (resultadoMapaCalor) {
+        console.log(`\nResultados encontrados: ${resultadoMapaCalor.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoMapaCalor)}`);
 
-function buscarMedidasEmTempoReal(req, res) {
-
-    var idAquario = req.params.idAquario;
-
-    console.log(`Recuperando medidas em tempo real`);
-
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
+        if (resultadoMapaCalor.length > 0) {
+           
+            res.json(resultadoMapaCalor);
         } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+            res.status(403).send("Não foi possível encontrar dados");
         }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+    })
+    .catch(function (erro) {
+        console.error("Erro ao buscar dados:", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
+
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    verificarDados,
+    buscarClasse,
+    buscarMapaCalor
 
 }

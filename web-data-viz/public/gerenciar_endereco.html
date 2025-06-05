@@ -1,0 +1,179 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endereços</title>
+    <link rel="stylesheet" href="css/padronizacao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/gerenciar_endereco.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="imgs/Logo.png" alt="">
+        </div>
+    </header>
+
+    <main>
+        <div class="cabecalho-esquerdo">
+
+            <div class="opcoes-cabecalho">
+                <div class="foto-usuario">
+                    <img src="assets/gerenciador/User.svg" alt="">
+                    <p>Eleva User</p>
+                </div>
+
+                <div class="icone" id="dash" onclick="irParaDashboard()">
+                    <i class="bi bi-speedometer2"></i>
+                    <p>Dashboard</p>
+                </div>
+
+                <div class="icone" id="atividade" onclick="irAtividade()">
+                    <i class="bi bi-building"></i>
+                    <p>Empresas</p>
+                </div>
+
+                <div class="icone" id="atividade" onclick="irAtividade()">
+                    <i class="bi bi-geo-alt"></i>
+                    <p>Endereços</p>
+                </div>
+
+                <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                    <i class="bi bi-people"></i>
+                    <p>Gerenciar</p>
+                </div>
+
+                <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                    <i class="bi bi-person"></i>
+                    <p>Conta</p>
+                </div>
+            </div>
+
+
+            <div class="icone-saida" onclick="sair()">
+                <img src="assets/gerenciador/sair.svg" alt="">
+            </div>
+        </div>
+
+        <div class="gerenciador">
+
+            <div class="titulo">
+                <p>Gerenciar Endereços</p>
+            </div>
+
+            <div class="buttons">
+
+            <button onclick="removerEndereco()" id="endereco-button">
+                Remover <i class="bi bi-dash-circle" id="icons-button"></i>
+            </button>
+
+            <button onclick="adicionarEndereco()" id="endereco-button">
+                Adicionar <i class="bi bi-plus-circle" id="icons-button"></i>
+            </button>
+
+            <button onclick="editarEndereco()" id="endereco-button">
+                Editar <i class="bi bi-pencil" id="#icons-button"></i>
+            </button>
+
+              </div>
+
+
+
+            <table id="tabelaUsuarios">    
+  <thead>
+    <tr>
+      <th id="id-column">ID</th>
+      <th>CEP</th>
+      <th>Endereço</th>
+      <th>Gerente</th>
+      <th id="id-cadastro">Cadastro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>21</td>
+      <td>28222222</td>
+      <td>São Paulo, blabla</td>
+      <td>Juninho</td>
+      <td>23</td>
+    </tr>
+    <tr>
+     <td>21</td>
+      <td>28222222</td>
+      <td>São Paulo, blabla</td>
+      <td>Juninho</td>
+      <td>23</td>
+    </tr>
+     <tr>
+     <td>21</td>
+      <td>28222222</td>
+      <td>São Paulo, blabla</td>
+      <td>Juninho</td>
+      <td>23</td>
+    </tr>
+     <tr>
+     <td>21</td>
+      <td>28222222</td>
+      <td>São Paulo, blabla</td>
+      <td>Juninho</td>
+      <td>23</td>
+    </tr>
+     <tr>
+     <td>21</td>
+      <td>28222222</td>
+      <td>São Paulo, blabla</td>
+      <td>Juninho</td>
+      <td>23</td>
+    </tr>
+     <tr>
+     <td>21</td>
+      <td>28222222</td>
+      <td>São Paulo, blabla</td>
+      <td>Juninho</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+
+  <body onload="CriarTabela()">
+</table>
+
+
+
+
+<script>
+    
+async function CriarTabela() {
+  console.log("Entrei na função Criar Tabela");
+
+  try {
+    const resposta = await fetch("/gerenciamento/listarEnderecos");
+    const enderecos = await resposta.json();
+
+    const tabela = document.getElementById("tabelaUsuarios").getElementsByTagName("tbody")[0];
+    tabela.innerHTML = ""; // Limpa antes de preencher
+
+    enderecos.forEach(endereco => {
+      const linha = tabela.insertRow();
+
+      linha.insertCell(0).textContent = endereco.idendereco; // ID
+      linha.insertCell(1).textContent = endereco.cep; // CEP
+
+      // Endereço completo
+      const enderecoCompleto = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}`;
+      linha.insertCell(2).textContent = enderecoCompleto;
+
+      // Gerente (email ou cargo)
+      linha.insertCell(3).textContent = `${endereco.email} (${endereco.cargo})`;
+
+      // Cadastro (nome fantasia, pode ser null)
+      linha.insertCell(4).textContent = endereco.nome_fantasia ?? "Sem cadastro";
+    });
+
+  } catch (erro) {
+    console.error("Erro ao buscar dados:", erro);
+  }
+  window.onload = CriarTabela;
+}
+</script>

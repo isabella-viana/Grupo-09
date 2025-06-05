@@ -50,21 +50,23 @@ function autenticar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     console.log('Entrei na função cadastrar')
-    var nome = req.body.nomeServer;
+    var nome_solicitante = req.body.nome_solicitanteServer;
+    var razao_social = req.body.razao_socialServer;
     var email = req.body.emailServer;
     var cnpj = req.body.cnpjServer;
-    var senha = req.body.senhaServer;
+    var isSend = req.body.isSend;
 
     // Faça as validações dos valores
-    if (nome == undefined) {
+    if (nome_solicitante == undefined) {
         res.status(400).send("Seu nome está undefined!");
         console.log('aaaaa')
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+    } else if (razao_social == undefined) {
+        res.status(400).send("Sua razao_social está undefined!");
         console.log('bbbb')
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-        console.log('ccccccc')
+    }
+    else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+        console.log('c')
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
         console.log('dddddd')
@@ -72,7 +74,7 @@ function cadastrar(req, res) {
         console.log('passei das validações')
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, cnpj, senha)
+        usuarioModel.cadastrar(nome_solicitante, razao_social, email, cnpj)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -89,27 +91,6 @@ function cadastrar(req, res) {
             );
     }
 }
-function verificarDados(req, res) {
-    var estadoSelecionado = req.body.estadoServer;
-    console.log("Estado selecionado: ", estadoSelecionado);
-
-    usuarioModel.verificar(estadoSelecionado)
-        .then(function (resultadoAutenticar) {
-            console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-            console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
-
-            if (resultadoAutenticar.length > 0) {
-               
-                res.json(resultadoAutenticar);
-            } else {
-                res.status(403).send("Não foi possível encontrar dados para o estado.");
-            }
-        })
-        .catch(function (erro) {
-            console.error("Erro ao buscar dados:", erro.sqlMessage);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
 
 
 
@@ -118,5 +99,4 @@ function verificarDados(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    verificarDados
 }

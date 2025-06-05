@@ -21,8 +21,9 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
-    nome VARCHAR(45),
+    nome VARCHAR(60), 
     cpf CHAR(11),
+    telefone VARCHAR(15),
     email VARCHAR(45),
     senha VARCHAR(45),
     cargo VARCHAR(45),
@@ -52,7 +53,8 @@ CREATE TABLE leads (
     nome_solicitante VARCHAR(45),
     razao_social VARCHAR(45),
     email VARCHAR(45),
-    foiEnviado boolean
+    foiEnviado boolean,
+    cnpj CHAR(14),
 );
 
 CREATE TABLE contrato (
@@ -91,7 +93,4 @@ CREATE TABLE energia_historico (
     regiao VARCHAR(45)
 );
 
-select * from energia_historico;
 
-select * from log;
-drop database eleva;

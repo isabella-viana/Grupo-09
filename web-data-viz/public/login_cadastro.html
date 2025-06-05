@@ -12,18 +12,20 @@
 </head>
 
 <body>
+
     <div class="container">
+
 
         <div class="form-box login">
             <form action="" onsubmit="return false">
                 <div class="arrow">
                     <a href="index.html">
-                        <img src="assets/login_cadastro/icons8-arrow-64.png" alt="">
+                        <img src="assets/login_cadastro/icons8-arrow-64.png" alt="Voltar">
                     </a>
                 </div>
                 <div class="Up">
                     <h1>ELEVA</h1>
-                    <img class="Text-h1" src="assets/logo-menu.png" alt="">
+                    <img class="Text-h1" src="assets/logo-menu.png" alt="Logo">
                 </div>
 
                 <div class="input_box">
@@ -38,44 +40,48 @@
             </form>
         </div>
 
+
         <div class="form-box register">
             <form action="" onsubmit="return false">
                 <div class="arrow2" onclick="voltarIndex()">
                     <a href="index.html">
-                        <img src="assets/login_cadastro/icons8-arrow-64 (1).png" alt="">
+                        <img src="assets/login_cadastro/icons8-arrow-64 (1).png" alt="Voltar">
                     </a>
                 </div>
+
                 <div class="Up">
                     <h1>Registro</h1>
-                    <img src="assets/logo-menu.png" alt="">
+                    <img src="assets/logo-menu.png" alt="Logo">
+                </div>
+
+                 <div class="input_box">
+                    <input type="text" id="input_nome_fantasia" placeholder="Nome Fantasia" required>
                 </div>
                 <div class="input_box">
-                    <input type="text" id="input_nome" placeholder="Nome" required>
+                    <input type="text" id="input_razao_social" placeholder="Razão Social" required>
                 </div>
+               
                 <div class="input_box">
                     <input type="text" id="input_email" placeholder="Email" required>
                 </div>
                 <div class="input_box">
                     <input type="number" id="input_cnpj" placeholder="CNPJ" required>
                 </div>
-                <div class="input_box">
-                    <input type="password" id="input_senha" placeholder="Senha" required>
-                </div>
-                <div class="input_box">
-                    <input type="password" id="confirmacao_senha_input" placeholder="Confirmar sua senha" required>
-                </div>
 
-                <button type="submit" class="btn" onclick="cadastrar()">Cadastre-se</button>
+
+                <button type="submit" class="btn" onclick="EnviarSolicitacao()">Cadastre-se</button>
             </form>
         </div>
+
+
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
-                <img src="assets/login_cadastro/image 78 (1).png" alt="">
+                <img src="assets/login_cadastro/login.png" alt="">
                 <h1>Ainda não Elevou a sua <br> empresa?</h1>
                 <button class="btn cadastre-btn">Cadastre-se</button>
             </div>
             <div class="toggle-panel toggle-right">
-                <img src="assets/login_cadastro/93028489-89b2-42cd-a602-8f54e9e238b1 1 (1).png" alt="">
+                <img src="assets/login_cadastro/cadastro.png" alt="">
                 <h1>Já é um de nossos <br>clientes?</h1>
                 <button class="btn login-btn">Login</button>
             </div>
@@ -88,48 +94,36 @@
 
             window.location.href = "../public/index.html";
         }
-        function cadastrar() {
+        function EnviarSolicitacao(){
 
-            var nomeVar = input_nome.value;
+            var nome_fantasiaVar = input_nome_fantasia.value;
+            var razao_socialVar = input_razao_social.value;
             var emailVar = input_email.value;
             var cnpjVar = input_cnpj.value;
-            var senhaVar = input_senha.value;
-            var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-
-            // Verificando se há algum campo em branco
             if (
-                nomeVar == "" ||
+                nome_fantasiaVar == "" ||
+                razao_socialVar == "" ||
                 emailVar == "" ||
-                senhaVar == "" ||
-                confirmacaoSenhaVar == ""
+                cnpjVar == "" 
             ) {
                 alert('Preencha todos os campos para continuar');
 
                 return false;
             }
-            if (senhaVar != confirmacaoSenhaVar) {
-                alert('As senhas não são iguais')
-                return false
-            }
-            if (senhaVar.lenght >= 6) {
-                alert('A senha deve ter pelo menos 6 numeros!')
-                return false
-            }
 
-
-            // Enviando o valor da nova input
-            fetch("/usuarios/cadastrar", {
+            fetch("/leads/EnviarSolicitacao", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nomeVar,
+                    nome_fantasiaVarServer: nome_fantasiaVar,
+                    razao_socialServer: razao_socialVar,
                     emailServer: emailVar,
                     cnpjServer: cnpjVar,
-                    senhaServer: senhaVar,
+                    
 
                 }),
             })
@@ -155,6 +149,7 @@
 
             return false;
         }
+        
         function entrar() {
 
 
@@ -196,7 +191,7 @@
 
                     });
 
-                    window.location.href = "./atividades.html"
+                    window.location.href = "./dashboard.html"
 
 
                 } else {

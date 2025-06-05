@@ -19,8 +19,4 @@ router.get("/listar", function (req, res) {
   empresaController.listar(req, res);
 });
 
-router.get("/pendentes", function (req, res) {
-  empresaController.listarPendentes(req, res);
-});
-
 module.exports = router;

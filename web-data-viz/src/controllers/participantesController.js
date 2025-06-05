@@ -2,11 +2,20 @@ const participantesModel = require('../models/participantesModel');
 
 function listar(req, res) {
     participantesModel.listar()
-        .then(resultado => res.json(resultado))
-        .catch(erro => {
-            console.error("Erro ao listar participantes:", erro);
-            res.status(500).json(erro);
-        });
+    .then(function (resultadoListar) {
+        console.log(`\nResultados encontrados: ${resultadoListar.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoListar)}`);
+
+        if (resultadoListar.length > 0) {
+            res.json(resultadoListar);
+        } else {
+            res.status(403).send("Não foi possível encontrar dados para o estado.");
+        }
+    })
+    .catch(function (erro) {
+        console.error("Erro ao buscar dados:", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
 function deletar(req, res) {
@@ -41,3 +50,4 @@ module.exports = {
     deletar,
     editar
 };
+
