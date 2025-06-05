@@ -18,7 +18,7 @@ main {
 
 .titulo {
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,11 +31,11 @@ main {
 
 .infos-cadastro {
   width: 70%;
-  height: 70%;
+  height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 
 .infos {
@@ -47,7 +47,7 @@ main {
 }
 
 .inputs {
-  margin: 3vh;
+  margin: 2vh;
 }
 
 .inputs p {
@@ -81,5 +81,4 @@ main {
   border-radius: 2vh;
   background-color: #3d6e89;
   color: white;
-  margin-bottom: 7vh;
 }
