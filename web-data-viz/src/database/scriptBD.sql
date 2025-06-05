@@ -21,6 +21,7 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
+    nome VARCHAR(45),
     cpf CHAR(11),
     email VARCHAR(45),
     senha VARCHAR(45),
@@ -38,6 +39,8 @@ CREATE TABLE endereco (
     cidade VARCHAR(45),
     cep VARCHAR(45),
     apelido VARCHAR(45),
+    gerente VARCHAR(45),
+    complemento VARCHAR(45),
     empresa_idempresa INT,
     usuario_idUsuario INT,
     FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade,
