@@ -54,13 +54,13 @@
                     <img src="assets/logo-menu.png" alt="Logo">
                 </div>
 
-                 <div class="input_box">
+                <div class="input_box">
                     <input type="text" id="input_nome_fantasia" placeholder="Nome Fantasia" required>
                 </div>
                 <div class="input_box">
                     <input type="text" id="input_razao_social" placeholder="Razão Social" required>
                 </div>
-               
+
                 <div class="input_box">
                     <input type="text" id="input_email" placeholder="Email" required>
                 </div>
@@ -94,7 +94,7 @@
 
             window.location.href = "../public/index.html";
         }
-        function EnviarSolicitacao(){
+        function EnviarSolicitacao() {
 
             var nome_fantasiaVar = input_nome_fantasia.value;
             var razao_socialVar = input_razao_social.value;
@@ -105,7 +105,7 @@
                 nome_fantasiaVar == "" ||
                 razao_socialVar == "" ||
                 emailVar == "" ||
-                cnpjVar == "" 
+                cnpjVar == ""
             ) {
                 alert('Preencha todos os campos para continuar');
 
@@ -123,7 +123,7 @@
                     razao_socialServer: razao_socialVar,
                     emailServer: emailVar,
                     cnpjServer: cnpjVar,
-                    
+
 
                 }),
             })
@@ -149,61 +149,85 @@
 
             return false;
         }
-        
-        function entrar() {
+
+       function entrar() {
+    console.log("Estou tentando entrar no sistema!");
+
+    var emailVar = Input_email_login.value;
+    var senhaVar = Input_senha_login.value;
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log("Dados completos:", json);
+
+                const ID_EMPRESA = json.idEmpresa;
+                const QTD_ACESSOS = Number(json.qtdAcessos);
+                const CPF = json.cpf;
+
+                sessionStorage.setItem("ID_EMPRESA", ID_EMPRESA);
+                sessionStorage.setItem("QTD_ACESSOS", QTD_ACESSOS);
+                sessionStorage.setItem("CPF", CPF);
+
+                if (QTD_ACESSOS > 0) {
+                    window.location.href = "./dashboard.html";
+                } else {
+                    adicionarAcesso(CPF);
+                    window.location.href = "./primeiro_login.html";
+                }
+            }).catch(function (erro) {
+                console.log("Erro ao converter resposta em JSON:", erro);
+            });
+        } else {
+            console.log("Houve um erro ao tentar realizar o login!");
+            alert('Usuário ou senha incorretos');
+        }
+    }).catch(function (erro) {
+        console.log("Erro na requisição fetch:", erro);
+    });
+
+    return false;
+}
 
 
-            var emailVar = Input_email_login.value;
-            var senhaVar = Input_senha_login.value;
+        function adicionarAcesso(cpf) {
+            console.log("Estou tentando adicionar um acesso!");
 
-            if (emailVar == "" || senhaVar == "") {
-                alert("Preencha todos os campos para continuar");
-
-                return false;
-            }
-
-
-            console.log("FORM LOGIN: ", emailVar);
-            console.log("FORM SENHA: ", senhaVar);
-
-            fetch("/usuarios/autenticar", {
+            fetch("/usuarios/adicionarAcesso", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
+                    cpfServer: cpf
                 })
             }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
+                console.log("ESTOU NO THEN DO adicionarAcesso()!")
 
                 if (resposta.ok) {
-                    console.log(resposta);
-
-                    resposta.json().then(json => {
-
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-
-
-                    });
-
-                    window.location.href = "./dashboard.html"
-
-
+                    console.log("Acesso adicionado com sucesso!");
                 } else {
-
-                    console.log("Houve um erro ao tentar realizar o login!");
-
-                    alert('Usuario ou senha incorretos')
+                    throw "Houve um erro ao tentar adicionar o acesso!";
                 }
-
             }).catch(function (erro) {
-                console.log(erro);
-            })
+                console.log(`#ERRO: ${erro}`);
+            });
 
             return false;
         }

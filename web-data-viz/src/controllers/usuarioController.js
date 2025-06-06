@@ -23,9 +23,9 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
                         res.json({
-
-                            email: resultadoAutenticar[0].email,
-                            senha: resultadoAutenticar[0].senha
+                            idEmpresa: resultadoAutenticar[0].empresa_idempresa,
+                            qtdAcessos: resultadoAutenticar[0].qtdAcessos,
+                            cpf: resultadoAutenticar[0].cpf,
 
                         });
 
@@ -71,35 +71,50 @@ function cadastrar(req, res) {
     } else {
         console.log('passei das validações')
 
-         usuarioModel.buscarId(cnpj)
+        usuarioModel.buscarId(cnpj)
             .then((resultado) => {
                 if (resultado.length > 0) {
                     console.log('Id encontrado:', resultado[0].idempresa);
 
-                 var senhaAleatoria = Math.random().toString(36).slice(-8); 
-                 return usuarioModel.cadastrar(resultado[0].idempresa, nomeRepresentante, emailRepresentante, cpf, senhaAleatoria)
+                    var senhaAleatoria = Math.random().toString(36).slice(-8);
+                    return usuarioModel.cadastrar(resultado[0].idempresa, nomeRepresentante, emailRepresentante, cpf, senhaAleatoria)
                         .then(
                             function (resultado) {
-                            res.json(resultado);
+                                res.json(resultado);
                             }
                         )
                 } else {
-                return res.status(409).json({ mensagem: "Não encontrei o CNPJ" });
+                    return res.status(409).json({ mensagem: "Não encontrei o CNPJ" });
                 }
             })
             .catch((erro) => {
                 console.error("Erro ao buscar CNPJ:", erro);
                 res.status(500).json({ mensagem: "Erro no servidor ao buscar CNPJ." });
             });
-            
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
 
     }
 
-    
+
 }
+function adicionarAcesso(req, res) {
+    var cpf = req.body.cpfServer;
+
+    usuarioModel.adicionarAcesso(cpf)
+        .then(function () {
+            res.status(200).json({ mensagem: "Acesso adicionado com sucesso!" });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+            res.status(500).json({ erro: erro.sqlMessage });
+        });
+}
+
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    adicionarAcesso
 }
