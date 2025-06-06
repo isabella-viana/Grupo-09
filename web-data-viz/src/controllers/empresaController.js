@@ -53,5 +53,5 @@ module.exports = {
   buscarPorCnpj,
   buscarPorId,
   cadastrar,
-  listar,
+  listar
 };

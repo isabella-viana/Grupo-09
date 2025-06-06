@@ -47,6 +47,8 @@ function autenticar(req, res) {
 
 }
 
+
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     console.log('Entrei na função cadastrar')
@@ -58,21 +60,24 @@ function cadastrar(req, res) {
     // Faça as validações dos valores
     if (nomeRepresentante == undefined) {
         res.status(400).send("Seu nome está undefined!");
-        console.log('aaaaa')
+        console.log('nomeRepresentante nulo')
     } else if (emailRepresentante == undefined) {
         res.status(400).send("Sua razao_social está undefined!");
-        console.log('bbbb')
+        console.log('emailRepresentante nulo')
     }
     else if (cpf == undefined) {
-        res.status(400).send("Seu cnpj está undefined!");
-        console.log('dddddd')
+        res.status(400).send("Seu cpf está undefined!");
+        console.log('cpf nulo')
     } else {
         console.log('passei das validações')
 
-        usuarioModel.buscarId(cnpj)
+         usuarioModel.buscarId(cnpj)
             .then((resultado) => {
                 if (resultado.length > 0) {
-                     return usuarioModel.cadastrar(nomeRepresentante, emailRepresentante, cpf, resposta.id[0])
+                    console.log('Id encontrado:', resultado[0].idempresa);
+
+                 var senhaAleatoria = Math.random().toString(36).slice(-8); 
+                 return usuarioModel.cadastrar(resultado[0].idempresa, nomeRepresentante, emailRepresentante, cpf, senhaAleatoria)
                         .then(
                             function (resultado) {
                             res.json(resultado);
@@ -86,6 +91,7 @@ function cadastrar(req, res) {
                 console.error("Erro ao buscar CNPJ:", erro);
                 res.status(500).json({ mensagem: "Erro no servidor ao buscar CNPJ." });
             });
+            
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
 
     }
@@ -95,5 +101,5 @@ function cadastrar(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar,
+    cadastrar
 }

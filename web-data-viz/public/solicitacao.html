@@ -112,6 +112,7 @@
                 .then(res => {
                     if (res.ok) {
                         alert('Empresa cadastrada com sucesso!');
+                     console.log('Chamada para o cadastro realizado com sucesso')
                         cadastrarUsuario()
                         window.location.reload();
                     } else {
@@ -131,34 +132,35 @@
 //CADASTRANDO USUÁRIO PARA EMPRESA
 
         function cadastrarUsuario() {
+            console.log("Cadastrando usuário para a empresa...");
             
-            var nomeRepresentante = input_nome_representante.value;
-            var emailRepresentante = input_email_representante.value;
+            var nomeRepresentanteVar = input_nome_representante.value;
+            var emailRepresentanteVar = input_email_representante.value;
             var cpfVar = input_cpf.value;
             var cnpjVar = input_cnpj.value;
 
-            if (!nomeRepresentante || !emailRepresentante || !cpfVar) {
+            if (!nomeRepresentanteVar || !emailRepresentanteVar || !cpfVar) {
                 alert('Preencha todos os campos!');
                 return false;
             }
 
-            if (!nomeRepresentante) {
-                alert("Por favor, preencha a Razão Social!");
-                destacarCampo(input_razao_social);
+            if (!nomeRepresentanteVar) {
+                alert("Por favor, preencha o nome do representante!");
+                destacarCampo(input_nome_representante);
                 return false;
             }
-            if (!emailRepresentante) {
-                alert("Por favor, preencha o Nome Fantasia!");
-                destacarCampo(input_nome_fantasia);
+            if (!emailRepresentanteVar) {
+                alert("Por favor, preencha o email do representante!");
+                destacarCampo(input_email_representante);
                 return false;
             }
             if (!cpfVar) {
                 alert("Por favor, preencha o CPF!");
-                destacarCampo(input_cnpj);
+                destacarCampo(input_cpf);
                 return false;
             }
 
-            fetch("/usuario/cadastrar", {
+            fetch("/usuarios/cadastro", {
 
                 method: "POST",
                 headers: {
@@ -189,7 +191,6 @@
 
             return false;
         }
-
 
 
         function carregarEmpresasPendentes() {

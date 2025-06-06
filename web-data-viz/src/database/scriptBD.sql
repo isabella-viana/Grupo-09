@@ -1,4 +1,4 @@
-CREATE DATABASE eleva;
+CREATE DATABASE IF NOT EXISTS eleva;
 use eleva;
 
 CREATE TABLE uf (
@@ -14,7 +14,7 @@ CREATE TABLE empresa (
     nome_fantasia VARCHAR(45),
     razao_social VARCHAR(45),
     cnpj CHAR(14),
-    situacao VARCHAR(45),
+    situacao VARCHAR(45)
 );
 
 CREATE TABLE usuario (
@@ -90,11 +90,3 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
-
-
-drop database eleva;
-
-select * from energia_historico;
-
-
-

@@ -18,7 +18,7 @@ function buscarPorCnpj(cnpj) {
 function cadastrarEmpresa(razaoSocial, nomeFantasia, cnpj) {
   var instrucaoSql = `
       INSERT INTO empresa (razao_social, nome_fantasia, cnpj, situacao)
-      VALUES ('${razaoSocial}', '${nomeFantasia}','${cnpj}',  'Pendente');
+      VALUES ('${razaoSocial}', '${nomeFantasia}','${cnpj}',  'Ativo');
   `;
   return database.executar(instrucaoSql);
 }

@@ -1,13 +1,13 @@
 var database = require("../database/config");
 
-function buscarPorId(cnpj){
+function buscarId(cnpj) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarPorId(): ", cnpj);
     
-    var instrucaoSql = ` SELECT id, nomeRepresentante, emailRepresentante, cpf FROM usuario WHERE cnpj = '${cnpj}'; `;
+    var instrucaoSql = ` SELECT idempresa FROM empresa WHERE cnpj = '${cnpj}'; `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
+    
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha);
    
@@ -20,19 +20,20 @@ function autenticar(email, senha) {
 
 }
 
-
-function cadastrar(nomeRepresentante, emailRepresentante, cpf) {
+function cadastrar( idEmpresa ,nomeRepresentante, emailRepresentante, cpf, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar(): ", nomeRepresentante, emailRepresentante, cpf);
    
     var instrucaoSql = `
-        INSERT INTO usuario (nomeRepresentante, emailRepresentante, cpf) VALUES ('${nomeRepresentante}', '${emailRepresentante}', '${cpf}');
+         INSERT INTO usuario (nome, email, cpf, senha , cargo, empresa_idempresa ) VALUES ('${nomeRepresentante}', '${emailRepresentante}' , '${cpf}', '${senha}', 'ADM', ${idEmpresa});
+        ;
     `;
    
     console.log("Executando a instrução SQL para cadastrar o usuário: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 module.exports = {
     autenticar,
     cadastrar,
-    buscarPorId
+    buscarId
 };
