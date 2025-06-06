@@ -34,9 +34,39 @@ function buscarPorId(cnpj) {
   return database.executar(instrucaoSql);
 }
 
+function atualizarEndereco(
+  cep,
+  logradouro,
+  numeroStr,
+  bairro,
+  cidade,
+  estado,
+  idempresa,
+  idusuario,
+  complemento,
+  apelido
+) {
+  var instrucaoSql = `
+    UPDATE endereco 
+    SET logradouro = '${logradouro}',
+        numero = ${numeroStr},
+        bairro = '${bairro}',
+        cidade = '${cidade}',
+        estado = '${estado}',
+        empresa_idempresa = ${idempresa},
+        usuario_idUsuario = ${idusuario},
+        complemento = '${complemento}',
+        apelido = '${apelido}'
+    WHERE cep = '${cep}';
+  `;
+
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarPorCEP,
   buscarPorNome,
   cadastrarEndereco,
   buscarPorId,
+  atualizarEndereco,
 };

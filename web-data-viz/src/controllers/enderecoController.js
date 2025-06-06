@@ -127,9 +127,69 @@ function cadastrarEndereco(req, res) {
   });
 }
 
+function atualizarEndereco(req, res) {
+  var {
+    cep,
+    logradouro,
+    numeroStr,
+    bairro,
+    cidade,
+    estado,
+    cnpj,
+    gerente,
+    complemento,
+    apelido,
+  } = req.body;
+
+  enderecoModel.buscarPorId(cnpj).then((resultadoEmpresa) => {
+    if (resultadoEmpresa.length == 0) {
+      return res
+        .status(404)
+        .json({ mensagem: "Empresa não encontrada pelo CNPJ." });
+    }
+
+    var idempresa = resultadoEmpresa[0].idempresa;
+
+    enderecoModel.buscarPorNome(gerente).then((resultadoUsuario) => {
+      if (resultadoUsuario.length == 0) {
+        return res
+          .status(404)
+          .json({ mensagem: "Usuário (gerente) não encontrado pelo nome." });
+      }
+
+      var idusuario = resultadoUsuario[0].idUsuario;
+
+      enderecoModel
+        .atualizarEndereco(
+          cep,
+          logradouro,
+          numeroStr,
+          bairro,
+          cidade,
+          estado,
+          idempresa,
+          idusuario,
+          complemento,
+          apelido
+        )
+        .then((resultado) => {
+          res.status(200).json({
+            mensagem: "Endereço atualizado com sucesso!",
+            dados: resultado,
+          });
+        })
+        .catch((erro) => {
+          console.error("Erro ao atualizar o endereço:", erro);
+          res.status(500).json({ mensagem: "Erro ao atualizar endereço." });
+        });
+    });
+  });
+}
+
 module.exports = {
   buscarPorCEP,
   buscarPorNome,
   cadastrarEndereco,
   buscarPorId,
+  atualizarEndereco,
 };
