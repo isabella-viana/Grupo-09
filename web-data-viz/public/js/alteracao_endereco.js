@@ -1,29 +1,64 @@
-function adicionarEndereco(event) {
-  event.preventDefault();
+function adicionarEndereco() {
+  var cep = document.getElementById("cep").value.trim();
+  var logradouro = document.getElementById("logradouro").value.trim();
+  var numeroStr = document.getElementById("numero").value.trim();
+  var numero = Number(numeroStr);
+  var bairro = document.getElementById("bairro").value.trim();
+  var cidade = document.getElementById("cidade").value.trim();
+  var estado = document.getElementById("estado").value.trim();
+  var cnpj = document.getElementById("cnpj").value.trim();
+  var gerente = document.getElementById("gerente").value.trim();
+  var complemento = document.getElementById("complemento").value.trim();
+  var apelido = document.getElementById("apelido").value.trim();
 
-  const cep = document.getElementById("cep").value.trim();
-  const logradouro = document.getElementById("logradouro").value.trim();
-  const numeroStr = document.getElementById("numero").value.trim();
-  const numero = Number(numeroStr);
-  const bairro = document.getElementById("bairro").value.trim();
-  const cidade = document.getElementById("cidade").value.trim();
-  const estado = document.getElementById("estado").value.trim();
-  const cnpj = document.getElementById("cnpj").value.trim();
-  const gerente = document.getElementById("gerente").value.trim();
-  const complemento = document.getElementById("complemento").value.trim();
-  const apelido = document.getElementById("apelido").value.trim();
-
-  // Validação básica dos campos obrigatórios
-  if (!cep || !cnpj || !gerente) {
-    alert("Por favor, preencha os campos obrigatórios: CEP, CNPJ e Gerente.");
-    return;
+  if (!cep) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
   }
 
-  if (!logradouro || !numeroStr || !bairro || !cidade || !estado) {
-    alert(
-      "Por favor, preencha todos os campos do endereço (logradouro, número, bairro, cidade, estado)."
-    );
-    return;
+  if (!logradouro) {
+    alert("Por favor, preencha o campo de Logradouro");
+    return false;
+  }
+
+  if (!numeroStr) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!bairro) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!cidade) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!estado) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!cnpj) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!gerente) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!complemento) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
+  }
+
+  if (!apelido) {
+    alert("Por favor, preencha o campo de CEP");
+    return false;
   }
 
   if (isNaN(numero) || numero <= 0) {
@@ -31,39 +66,38 @@ function adicionarEndereco(event) {
     return;
   }
 
-  const endereco = {
-    cep,
-    logradouro,
-    numero,
-    bairro,
-    cidade,
-    estado,
-    cnpj,
-    gerente,
-    complemento,
-    apelido,
-  };
-
-  fetch("/endereco", {
+  fetch("/endereco/cadastrar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(endereco),
+    body: JSON.stringify({
+      cep: cep,
+      logradouro: logradouro,
+      numeroStr: numeroStr,
+      bairro: bairro,
+      cidade: cidade,
+      estado: estado,
+      cnpj: cnpj,
+      gerente: gerente,
+      complemento: complemento,
+      apelido: apelido,
+    }),
   })
-    .then((resposta) => {
-      if (resposta.ok) {
-        alert("Endereço adicionado com sucesso!");
+    .then((res) => {
+      if (res.ok) {
+        alert("Endereço cadastrado com sucesso!");
         window.location.reload();
       } else {
-        resposta.json().then((data) => {
-          console.error("Erro do servidor:", data);
-          alert("Erro ao adicionar endereço: " + data.erro);
+        return res.json().then((data) => {
+          throw new Error(data.mensagem || "Erro ao cadastrar endereço.");
         });
       }
     })
+
     .catch((erro) => {
-      console.error("Erro de conexão:", erro);
-      alert("Erro ao conectar com o servidor.");
+      console.error("#ERRO:", erro);
     });
+
+  return false;
 }

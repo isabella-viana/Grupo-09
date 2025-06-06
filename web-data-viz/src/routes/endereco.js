@@ -1,7 +1,21 @@
-const express = require("express");
-const router = express.Router();
-const enderecoController = require("../controllers/enderecoController");
+var express = require("express");
+var router = express.Router();
+var enderecoController = require("../controllers/enderecoController");
 
-router.post("/", enderecoController.inserirEndereco);
+router.post("/cadastrar", function (req, res) {
+  enderecoController.cadastrarEndereco(req, res);
+});
+
+router.post("/buscarId", function (req, res) {
+  enderecoController.buscarPorId(req, res);
+});
+
+router.post("/buscarCep", function (req, res) {
+  enderecoController.buscarPorCEP(req, res);
+});
+
+router.post("/buscarNome", function (req, res) {
+  enderecoController.buscarPorNome(req, res);
+});
 
 module.exports = router;
