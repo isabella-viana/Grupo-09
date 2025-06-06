@@ -1,7 +1,7 @@
 //var ambiente_processo = 'producao';
-var ambiente_processo = "desenvolvimento";
+var ambiente_processo = 'desenvolvimento';
 
-var caminho_env = ambiente_processo === "producao" ? ".env" : ".env.dev";
+var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 // Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
 // A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
 
@@ -19,11 +19,9 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
-var leadsRouter = require("./src/routes/leads");
+var aquariosRouter = require("./src/routes/aquarios");
 var empresasRouter = require("./src/routes/empresas");
-var gereciamentoRouter = require("./src/routes/gerenciamento");
-var participantesRouter = require("./src/routes/participantes");
-var enderecoRouter = require("./src/routes/endereco");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,19 +29,21 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
 
-
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/leads", leadsRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
+app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
-app.use("/gerenciamento", gereciamentoRouter);
-app.use("/participantes", participantesRouter);
-app.use("/endereco", enderecoRouter);
+
+app.delete("/gerenciamento/removerEndereco/:idendereco", (req, res) => {
+    console.log("DELETE recebido no teste, id:", req.params.idendereco);
+    res.status(200).send("Teste DELETE OK");
+  });
+  
 
 app.listen(PORTA_APP, function () {
-  console.log(`
+    console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
     ##   ##  ##       ##  ##            ## ##     ####      ##      ####             ##  ##     ##         ##  
     ##   ##  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##        ##   
@@ -58,5 +58,3 @@ app.listen(PORTA_APP, function () {
     \tSe .:producao:. você está se conectando ao banco remoto. \n\n
     \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
 });
-
-
