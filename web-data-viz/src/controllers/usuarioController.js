@@ -47,6 +47,26 @@ function autenticar(req, res) {
 
 }
 
+function atualizarSenha(req, res) {
+    var cpf = req.body.cpfServer;
+    var senha = req.body.senha;
+
+    usuarioModel.atualizarSenha(senha,cpf)
+        .then(function () {
+            res.json({
+                mensagem: "Senha atualizada com sucesso!"
+            });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("\nHouve um erro ao atualizar a senha! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
+
+
 
 
 function cadastrar(req, res) {
@@ -116,5 +136,6 @@ function adicionarAcesso(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    adicionarAcesso
+    adicionarAcesso,
+    atualizarSenha
 }

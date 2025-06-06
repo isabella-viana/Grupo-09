@@ -36,17 +36,29 @@ function adicionarAcesso(cpf) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function adicionarAcesso(): ", cpf);
 
     var instrucaoSql = `
-       UPDATE usuario SET qtd_acesso = 1 WHERE cpf = '${cpf}';
+       UPDATE usuario SET qtdAcessos = 1 WHERE cpf = '${cpf}';
 
     `;
 
     console.log("Executando a instrução SQL para adicionar acesso: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function atualizarSenha(senha , cpf){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarSenha(): ", senha, cpf);
+
+    var instrucaoSql = `
+       UPDATE usuario SET senha = '${senha}' WHERE cpf = '${cpf}';
+    `;
+
+    console.log("Executando a instrução SQL para atualizar a senha: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
 
 module.exports = {
     autenticar,
     cadastrar,
     buscarId,
-    adicionarAcesso
+    adicionarAcesso,
+    atualizarSenha
 };

@@ -188,7 +188,7 @@
                 if (QTD_ACESSOS > 0) {
                     window.location.href = "./dashboard.html";
                 } else {
-                    adicionarAcesso(CPF);
+                    
                     window.location.href = "./primeiro_login.html";
                 }
             }).catch(function (erro) {
@@ -205,32 +205,6 @@
     return false;
 }
 
-
-        function adicionarAcesso(cpf) {
-            console.log("Estou tentando adicionar um acesso!");
-
-            fetch("/usuarios/adicionarAcesso", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    cpfServer: cpf
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO adicionarAcesso()!")
-
-                if (resposta.ok) {
-                    console.log("Acesso adicionado com sucesso!");
-                } else {
-                    throw "Houve um erro ao tentar adicionar o acesso!";
-                }
-            }).catch(function (erro) {
-                console.log(`#ERRO: ${erro}`);
-            });
-
-            return false;
-        }
     </script>
 
 

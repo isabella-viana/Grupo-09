@@ -16,5 +16,9 @@ router.post("/adicionarAcesso", function (req, res) {
     usuarioController.adicionarAcesso(req, res);
 });
 
+router.post("/atualizarSenha", (req,res)=>{
+    usuarioController.atualizarSenha(req, res);
+})
+
 
 module.exports = router;
