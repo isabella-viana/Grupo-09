@@ -19,6 +19,7 @@
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "puppeteer": "^24.10.0",
+    "sweetalert2": "^11.22.0",
     "wait-on": "^8.0.3"
   },
   "devDependencies": {

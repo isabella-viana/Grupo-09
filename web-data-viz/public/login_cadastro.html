@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="../public/login_cadastro.html">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -69,7 +71,7 @@
                 </div>
 
 
-                <button type="submit" class="btn" onclick="EnviarSolicitacao()">Solicitar-se</button>
+                <button type="submit" class="btn" onclick="EnviarSolicitacao()">Solicitar</button>
             </form>
         </div>
 
@@ -78,7 +80,7 @@
             <div class="toggle-panel toggle-left">
                 <img src="assets/login_cadastro/login.png" alt="">
                 <h1>Ainda não Elevou a sua <br> empresa?</h1>
-                <button class="btn cadastre-btn">Cadastre-se</button>
+                <button class="btn cadastre-btn">Solicitar Cadastro</button>
             </div>
             <div class="toggle-panel toggle-right">
                 <img src="assets/login_cadastro/cadastro.png" alt="">
@@ -107,7 +109,12 @@
                 emailVar == "" ||
                 cnpjVar == ""
             ) {
-                alert('Preencha todos os campos para continuar');
+
+                Swal.fire({
+                    title: "",
+                    text: "Preencha todos os campos para continuar",
+                    icon: "question"
+                });
 
                 return false;
             }
@@ -132,7 +139,13 @@
 
                     if (resposta.ok) {
 
-                        alert('Cadastro realizado com sucesso!')
+
+
+                        Swal.fire({
+                            title: "Solicitação enviada com sucesso!')",
+                            icon: "success",
+                            draggable: true
+                        });
 
 
                         window.location.href = "./login_cadastro.html";
@@ -140,6 +153,12 @@
 
 
                     } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Erro",
+                            text: "Houve um erro ao tentar realizar o cadastro!",
+
+                        });
                         throw "Houve um erro ao tentar realizar o cadastro!";
                     }
                 })
@@ -150,62 +169,68 @@
             return false;
         }
 
-       function entrar() {
-    console.log("Estou tentando entrar no sistema!");
+        function entrar() {
+            console.log("Estou tentando entrar no sistema!");
 
-    var emailVar = Input_email_login.value;
-    var senhaVar = Input_senha_login.value;
+            var emailVar = Input_email_login.value;
+            var senhaVar = Input_senha_login.value;
 
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
 
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!");
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!");
 
-        if (resposta.ok) {
-            console.log(resposta);
+                if (resposta.ok) {
+                    console.log(resposta);
 
-            resposta.json().then(json => {
-                console.log("Dados completos:", json);
+                    resposta.json().then(json => {
+                        console.log("Dados completos:", json);
 
-                const ID_EMPRESA = json.idEmpresa;
-                const QTD_ACESSOS = Number(json.qtdAcessos);
-                const CPF = json.cpf;
+                        const ID_EMPRESA = json.idEmpresa;
+                        const QTD_ACESSOS = Number(json.qtdAcessos);
+                        const CPF = json.cpf;
 
-                sessionStorage.setItem("ID_EMPRESA", ID_EMPRESA);
-                sessionStorage.setItem("QTD_ACESSOS", QTD_ACESSOS);
-                sessionStorage.setItem("CPF", CPF);
-                sessionStorage.setItem("emailUsuario", emailVar);
-                
+                        sessionStorage.setItem("ID_EMPRESA", ID_EMPRESA);
+                        sessionStorage.setItem("QTD_ACESSOS", QTD_ACESSOS);
+                        sessionStorage.setItem("CPF", CPF);
+                        sessionStorage.setItem("emailUsuario", emailVar);
 
-                if (QTD_ACESSOS > 0) {
-                    window.location.href = "./dashboard.html";
+
+                        if (QTD_ACESSOS > 0) {
+                            window.location.href = "./dashboard.html";
+                        } else {
+
+                            window.location.href = "./primeiro_login.html";
+                        }
+                    }).catch(function (erro) {
+                        console.log("Erro ao converter resposta em JSON:", erro);
+                    });
                 } else {
-                    
-                    window.location.href = "./primeiro_login.html";
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Erro",
+                        text: "Usuário ou senha incorretos",
+
+                    });
                 }
             }).catch(function (erro) {
-                console.log("Erro ao converter resposta em JSON:", erro);
+                console.log("Erro na requisição fetch:", erro);
             });
-        } else {
-            console.log("Houve um erro ao tentar realizar o login!");
-            alert('Usuário ou senha incorretos');
-        }
-    }).catch(function (erro) {
-        console.log("Erro na requisição fetch:", erro);
-    });
 
-    return false;
-}
+            return false;
+        }
 
     </script>
 

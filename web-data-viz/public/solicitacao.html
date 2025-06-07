@@ -6,6 +6,8 @@
     <title>Cadastro de Empresas | ELEVA</title>
     <link rel="stylesheet" href="css/solicitacao.css">
     <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -111,13 +113,16 @@
             })
                 .then(res => {
                     if (res.ok) {
-                        alert('Empresa cadastrada com sucesso!');
                         console.log('Chamada para o cadastro realizado com sucesso');
                         cadastrarUsuario();
                     } else {
-                        return res.json().then(data => {
-                            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
-                        });
+                            Swal.fire({
+                                        icon: "error",
+                                        title: "Oops...",
+                                        text: "Erro ao cadastrar empresa!",
+                                        
+                                    });
+                                    return
                     }
                 })
                 .catch(erro => {
@@ -135,8 +140,8 @@
             var emailRepresentanteVar = document.getElementById('input_email_representante').value;
             var cpfVar = document.getElementById('input_cpf').value;
             var cnpjVar = document.getElementById('input_cnpj').value;
-            var senhaVar =  Math.random().toString(36).slice(-8);
-    
+            var senhaVar = Math.random().toString(36).slice(-8);
+
             if (!nomeRepresentanteVar || !emailRepresentanteVar || !cpfVar) {
                 alert('Preencha todos os campos!');
                 return false;
@@ -173,7 +178,13 @@
             })
                 .then(res => {
                     if (res.ok) {
-                        alert('Usuário cadastrado com sucesso!');
+                        Swal.fire({
+                            title: "Cadastro da empresa e do representante realizado com sucesso!",
+                            icon: "success",
+                            draggable: true
+                        });
+
+
                         console.log('Chamada para o cadastro realizado com sucesso');
 
                         fetch("/envioCredenciais/envio", {
@@ -183,26 +194,33 @@
                             },
                             body: JSON.stringify({
                                 emailRepresentante: emailRepresentanteVar,
-                                senha:senhaVar
+                                senha: senhaVar
                             }),
                         })
                             .then(res => {
                                 if (res.ok) {
-                                    alert('Credenciais enviadas para o email do representante!');
 
                                 } else {
-                                    return res.json().then(data => {
-                                        throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
+                                    Swal.fire({
+                                        icon: "error",
+                                        title: "Erro",
+                                        text: "Erro ao enviar as credenciais!",
+                                     
                                     });
+                                    return
                                 }
                             })
                             .catch(erro => {
                                 console.error("#ERRO:", erro);
                             });
                     } else {
-                        return res.json().then(data => {
-                            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
-                        });
+                           Swal.fire({
+                                        icon: "error",
+                                        title: "Erro",
+                                        text: "Erro ao cadastrar usuário!",
+                                       
+                                    });
+                                    return
                     }
                 })
 
