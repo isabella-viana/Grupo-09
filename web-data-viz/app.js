@@ -24,13 +24,13 @@ var empresasRouter = require("./src/routes/empresas");
 var gereciamentoRouter = require("./src/routes/gerenciamento");
 var participantesRouter = require("./src/routes/participantes");
 var enderecoRouter = require("./src/routes/endereco");
+var contaRouter = require("./src/routes/conta");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
-
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
@@ -41,6 +41,7 @@ app.use("/empresas", empresasRouter);
 app.use("/gerenciamento", gereciamentoRouter);
 app.use("/participantes", participantesRouter);
 app.use("/endereco", enderecoRouter);
+app.use("/conta", contaRouter);
 
 app.listen(PORTA_APP, function () {
   console.log(`
@@ -58,5 +59,3 @@ app.listen(PORTA_APP, function () {
     \tSe .:producao:. você está se conectando ao banco remoto. \n\n
     \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
 });
-
-

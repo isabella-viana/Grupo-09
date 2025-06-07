@@ -21,7 +21,8 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
-    nome VARCHAR(60), 
+    nome VARCHAR(60),
+    userName VARCHAR(60), 
     cpf CHAR(11),
     telefone VARCHAR(15),
     email VARCHAR(45),
