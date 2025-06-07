@@ -54,13 +54,13 @@
                     <img src="assets/logo-menu.png" alt="Logo">
                 </div>
 
-                 <div class="input_box">
+                <div class="input_box">
                     <input type="text" id="input_nome_fantasia" placeholder="Nome Fantasia" required>
                 </div>
                 <div class="input_box">
                     <input type="text" id="input_razao_social" placeholder="Razão Social" required>
                 </div>
-               
+
                 <div class="input_box">
                     <input type="text" id="input_email" placeholder="Email" required>
                 </div>
@@ -69,7 +69,7 @@
                 </div>
 
 
-                <button type="submit" class="btn" onclick="EnviarSolicitacao()">Cadastre-se</button>
+                <button type="submit" class="btn" onclick="EnviarSolicitacao()">Solicitar-se</button>
             </form>
         </div>
 
@@ -94,7 +94,7 @@
 
             window.location.href = "../public/index.html";
         }
-        function EnviarSolicitacao(){
+        function EnviarSolicitacao() {
 
             var nome_fantasiaVar = input_nome_fantasia.value;
             var razao_socialVar = input_razao_social.value;
@@ -105,7 +105,7 @@
                 nome_fantasiaVar == "" ||
                 razao_socialVar == "" ||
                 emailVar == "" ||
-                cnpjVar == "" 
+                cnpjVar == ""
             ) {
                 alert('Preencha todos os campos para continuar');
 
@@ -123,7 +123,7 @@
                     razao_socialServer: razao_socialVar,
                     emailServer: emailVar,
                     cnpjServer: cnpjVar,
-                    
+
 
                 }),
             })
@@ -149,64 +149,62 @@
 
             return false;
         }
-        
-        function entrar() {
 
+       function entrar() {
+    console.log("Estou tentando entrar no sistema!");
 
-            var emailVar = Input_email_login.value;
-            var senhaVar = Input_senha_login.value;
+    var emailVar = Input_email_login.value;
+    var senhaVar = Input_senha_login.value;
 
-            if (emailVar == "" || senhaVar == "") {
-                alert("Preencha todos os campos para continuar");
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
 
-                return false;
-            }
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
 
+        if (resposta.ok) {
+            console.log(resposta);
 
-            console.log("FORM LOGIN: ", emailVar);
-            console.log("FORM SENHA: ", senhaVar);
+            resposta.json().then(json => {
+                console.log("Dados completos:", json);
 
-            fetch("/usuarios/autenticar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
+                const ID_EMPRESA = json.idEmpresa;
+                const QTD_ACESSOS = Number(json.qtdAcessos);
+                const CPF = json.cpf;
 
-                if (resposta.ok) {
-                    console.log(resposta);
+                sessionStorage.setItem("ID_EMPRESA", ID_EMPRESA);
+                sessionStorage.setItem("QTD_ACESSOS", QTD_ACESSOS);
+                sessionStorage.setItem("CPF", CPF);
 
-                    resposta.json().then(json => {
-
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-
-
-                    });
-
-                    window.location.href = "./dashboard.html"
-
-
+                if (QTD_ACESSOS > 0) {
+                    window.location.href = "./dashboard.html";
                 } else {
-
-                    console.log("Houve um erro ao tentar realizar o login!");
-
-                    alert('Usuario ou senha incorretos')
+                    
+                    window.location.href = "./primeiro_login.html";
                 }
-
             }).catch(function (erro) {
-                console.log(erro);
-            })
-
-            return false;
+                console.log("Erro ao converter resposta em JSON:", erro);
+            });
+        } else {
+            console.log("Houve um erro ao tentar realizar o login!");
+            alert('Usuário ou senha incorretos');
         }
+    }).catch(function (erro) {
+        console.log("Erro na requisição fetch:", erro);
+    });
+
+    return false;
+}
+
     </script>
 
 

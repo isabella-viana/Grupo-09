@@ -23,9 +23,9 @@ function autenticar(req, res) {
                         console.log(resultadoAutenticar);
 
                         res.json({
-
-                            email: resultadoAutenticar[0].email,
-                            senha: resultadoAutenticar[0].senha
+                            idEmpresa: resultadoAutenticar[0].empresa_idempresa,
+                            qtdAcessos: resultadoAutenticar[0].qtdAcessos,
+                            cpf: resultadoAutenticar[0].cpf,
 
                         });
 
@@ -47,56 +47,95 @@ function autenticar(req, res) {
 
 }
 
-function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    console.log('Entrei na função cadastrar')
-    var nome_solicitante = req.body.nome_solicitanteServer;
-    var razao_social = req.body.razao_socialServer;
-    var email = req.body.emailServer;
-    var cnpj = req.body.cnpjServer;
-    var isSend = req.body.isSend;
+function atualizarSenha(req, res) {
+    var cpf = req.body.cpfServer;
+    var senha = req.body.senha;
 
-    // Faça as validações dos valores
-    if (nome_solicitante == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-        console.log('aaaaa')
-    } else if (razao_social == undefined) {
-        res.status(400).send("Sua razao_social está undefined!");
-        console.log('bbbb')
-    }
-    else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-        console.log('c')
-    } else if (cnpj == undefined) {
-        res.status(400).send("Seu cnpj está undefined!");
-        console.log('dddddd')
-    } else {
-        console.log('passei das validações')
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome_solicitante, razao_social, email, cnpj)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+    usuarioModel.atualizarSenha(senha,cpf)
+        .then(function () {
+            res.json({
+                mensagem: "Senha atualizada com sucesso!"
+            });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("\nHouve um erro ao atualizar a senha! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
 }
 
 
 
 
 
+
+function cadastrar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    console.log('Entrei na função cadastrar')
+    var cnpj = req.body.cnpj;
+    var nomeRepresentante = req.body.nomeRepresentante;
+    var emailRepresentante = req.body.emailRepresentante;
+    var cpf = req.body.cpf;
+    var senha = req.body.senha;
+
+    // Faça as validações dos valores
+    if (nomeRepresentante == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+        console.log('nomeRepresentante nulo')
+    } else if (emailRepresentante == undefined) {
+        res.status(400).send("Sua razao_social está undefined!");
+        console.log('emailRepresentante nulo')
+    }
+    else if (cpf == undefined) {
+        res.status(400).send("Seu cpf está undefined!");
+        console.log('cpf nulo')
+    } else {
+        console.log('passei das validações')
+
+        usuarioModel.buscarId(cnpj)
+            .then((resultado) => {
+                if (resultado.length > 0) {
+                    console.log('Id encontrado:', resultado[0].idempresa);
+
+                    return usuarioModel.cadastrar(resultado[0].idempresa, nomeRepresentante, emailRepresentante, cpf, senha)
+                        .then(
+                            function (resultado) {
+                                res.json(resultado);
+                            }
+                        )
+                } else {
+                    return res.status(409).json({ mensagem: "Não encontrei o CNPJ" });
+                }
+            })
+            .catch((erro) => {
+                console.error("Erro ao buscar CNPJ:", erro);
+                res.status(500).json({ mensagem: "Erro no servidor ao buscar CNPJ." });
+            });
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+
+    }
+
+
+}
+function adicionarAcesso(req, res) {
+    var cpf = req.body.cpfServer;
+
+    usuarioModel.adicionarAcesso(cpf)
+        .then(function () {
+            res.status(200).json({ mensagem: "Acesso adicionado com sucesso!" });
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+            res.status(500).json({ erro: erro.sqlMessage });
+        });
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
+    adicionarAcesso,
+    atualizarSenha
 }

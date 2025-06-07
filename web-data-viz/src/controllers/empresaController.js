@@ -24,9 +24,11 @@ function buscarPorId(req, res) {
 }
 
 function cadastrar(req, res) {
-  var { razaoSocial, nomeFantasia, email, cnpj, senha } = req.body;
+  var razaoSocial = req.body.razaoSocial;
+  var nomeFantasia = req.body.nomeFantasia;
+  var cnpj = req.body.cnpj;
 
-  if (!razaoSocial || !nomeFantasia || !email || !cnpj || !senha) {
+  if (!razaoSocial || !nomeFantasia  || !cnpj) {
     return res.status(400).json({ mensagem: "Preencha todos os campos obrigatórios." });
   }
 
@@ -36,7 +38,7 @@ function cadastrar(req, res) {
         return res.status(409).json({ mensagem: "CNPJ já cadastrado." });
       }
 
-      return empresaModel.cadastrarEmpresa(razaoSocial, nomeFantasia, email, cnpj, senha)
+      return empresaModel.cadastrarEmpresa(razaoSocial, nomeFantasia, cnpj)
         .then((resultado) => {
           res.status(201).json({ mensagem: "Empresa cadastrada com sucesso!", dados: resultado });
         });
@@ -51,5 +53,5 @@ module.exports = {
   buscarPorCnpj,
   buscarPorId,
   cadastrar,
-  listar,
+  listar
 };

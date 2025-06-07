@@ -25,6 +25,8 @@ var gereciamentoRouter = require("./src/routes/gerenciamento");
 var participantesRouter = require("./src/routes/participantes");
 var enderecoRouter = require("./src/routes/endereco");
 var contaRouter = require("./src/routes/conta");
+var envioCredenciaisRouter = require("./src/routes/envioCredenciais");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -41,6 +43,7 @@ app.use("/empresas", empresasRouter);
 app.use("/gerenciamento", gereciamentoRouter);
 app.use("/participantes", participantesRouter);
 app.use("/endereco", enderecoRouter);
+app.use("/envioCredenciais", envioCredenciaisRouter);
 app.use("/conta", contaRouter);
 
 app.listen(PORTA_APP, function () {

@@ -32,7 +32,6 @@ function EnviarSolicitacao(req, res) {
     } else {
         console.log('passei das validações')
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         leadsModel.EnviarSolicitacao(nome_fantasia, razao_social, email, cnpj)
             .then(
                 function (resultado) {

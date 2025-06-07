@@ -13,7 +13,7 @@ function EnviarSolicitacao(nome_fantasia, razao_social, email, cnpj) {
     console.log("Entrei no model com:", nome_fantasia, razao_social, email, cnpj);
 
     var instrucaoSql = `
-        INSERT INTO leads (nome_fantasia, razao_social, email, cnpj, isSend)
+        INSERT INTO leads (nome_fantasia, razao_social, email, cnpj, foiEnviado)
         VALUES ('${nome_fantasia}', '${razao_social}', '${email}', '${cnpj}', false);
     `;
 

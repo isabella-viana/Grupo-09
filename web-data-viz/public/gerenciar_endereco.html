@@ -1,179 +1,194 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endereços</title>
-    <link rel="stylesheet" href="css/padronizacao.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/gerenciar_endereco.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endereços</title>
+  <link rel="stylesheet" href="css/padronizacao.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="css/gerenciar_endereco.css">
+  <script src="js/gerenciar_endereco.js"></script>
 </head>
 
 <body>
 
-    <header>
-        <div class="header-container">
-            <img src="imgs/Logo.png" alt="">
-        </div>
-    </header>
+  <header>
+      <div class="header-container">
+          <img src="imgs/Logo.png" alt="">
+      </div>
+  </header>
 
-    <main>
-        <div class="cabecalho-esquerdo">
+  <main>
+      <div class="cabecalho-esquerdo">
 
-            <div class="opcoes-cabecalho">
-                <div class="foto-usuario">
-                    <img src="assets/gerenciador/User.svg" alt="">
-                    <p>Eleva User</p>
-                </div>
-
-                <div class="icone" id="dash" onclick="irParaDashboard()">
-                    <i class="bi bi-speedometer2"></i>
-                    <p>Dashboard</p>
-                </div>
-
-                <div class="icone" id="atividade" onclick="irAtividade()">
-                    <i class="bi bi-building"></i>
-                    <p>Empresas</p>
-                </div>
-
-                <div class="icone" id="atividade" onclick="irAtividade()">
-                    <i class="bi bi-geo-alt"></i>
-                    <p>Endereços</p>
-                </div>
-
-                <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                    <i class="bi bi-people"></i>
-                    <p>Gerenciar</p>
-                </div>
-
-                <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                    <i class="bi bi-person"></i>
-                    <p>Conta</p>
-                </div>
-            </div>
-
-
-            <div class="icone-saida" onclick="sair()">
-                <img src="assets/gerenciador/sair.svg" alt="">
-            </div>
-        </div>
-
-        <div class="gerenciador">
-
-            <div class="titulo">
-                <p>Gerenciar Endereços</p>
-            </div>
-
-            <div class="buttons">
-
-            <button onclick="removerEndereco()" id="endereco-button">
-                Remover <i class="bi bi-dash-circle" id="icons-button"></i>
-            </button>
-
-            <button onclick="adicionarEndereco()" id="endereco-button">
-                Adicionar <i class="bi bi-plus-circle" id="icons-button"></i>
-            </button>
-
-            <button onclick="editarEndereco()" id="endereco-button">
-                Editar <i class="bi bi-pencil" id="#icons-button"></i>
-            </button>
-
+          <div class="opcoes-cabecalho">
+              <div class="foto-usuario">
+                  <img src="assets/gerenciador/User.svg" alt="">
+                  <p>Eleva User</p>
               </div>
 
+              <div class="icone" id="dash" onclick="irParaDashboard()">
+                  <i class="bi bi-speedometer2"></i>
+                  <p>Dashboard</p>
+              </div>
+
+              <div class="icone" id="atividade" onclick="irAtividade()">
+                  <i class="bi bi-building"></i>
+                  <p>Empresas</p>
+              </div>
+
+              <div class="icone" id="atividade" onclick="irAtividade()">
+                  <i class="bi bi-geo-alt"></i>
+                  <p>Endereços</p>
+              </div>
+
+              <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                  <i class="bi bi-people"></i>
+                  <p>Gerenciar</p>
+              </div>
+
+              <div class="icone" id="grupos" onclick="adicionarUsuario()">
+                  <i class="bi bi-person"></i>
+                  <p>Conta</p>
+              </div>
+          </div>
 
 
-            <table id="tabelaUsuarios">    
-  <thead>
-    <tr>
-      <th id="id-column">ID</th>
-      <th>CEP</th>
-      <th>Endereço</th>
-      <th>Gerente</th>
-      <th id="id-cadastro">Cadastro</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>21</td>
-      <td>28222222</td>
-      <td>São Paulo, blabla</td>
-      <td>Juninho</td>
-      <td>23</td>
-    </tr>
-    <tr>
-     <td>21</td>
-      <td>28222222</td>
-      <td>São Paulo, blabla</td>
-      <td>Juninho</td>
-      <td>23</td>
-    </tr>
-     <tr>
-     <td>21</td>
-      <td>28222222</td>
-      <td>São Paulo, blabla</td>
-      <td>Juninho</td>
-      <td>23</td>
-    </tr>
-     <tr>
-     <td>21</td>
-      <td>28222222</td>
-      <td>São Paulo, blabla</td>
-      <td>Juninho</td>
-      <td>23</td>
-    </tr>
-     <tr>
-     <td>21</td>
-      <td>28222222</td>
-      <td>São Paulo, blabla</td>
-      <td>Juninho</td>
-      <td>23</td>
-    </tr>
-     <tr>
-     <td>21</td>
-      <td>28222222</td>
-      <td>São Paulo, blabla</td>
-      <td>Juninho</td>
-      <td>23</td>
-    </tr>
-  </tbody>
+          <div class="icone-saida" onclick="sair()">
+              <img src="assets/gerenciador/sair.svg" alt="">
+          </div>
+      </div>
 
-  <body onload="CriarTabela()">
+      <div class="gerenciador">
+
+          <div class="titulo">
+              <p>Gerenciar Endereços</p>
+          </div>
+
+          <div class="buttons">
+
+          <button onclick="removerEndereco()" id="endereco-button">
+              Remover <i class="bi bi-dash-circle" id="icons-button"></i>
+          </button>
+          
+          <button onclick="adicionarEndereco()" id="endereco-button">
+              Adicionar <i class="bi bi-plus-circle" id="icons-button"></i>
+          </button>
+          
+          <button onclick="editarEndereco()" id="endereco-button">
+              Editar <i class="bi bi-pencil" id="icons-button"></i>
+          </button>
+
+            </div>
+
+          
+
+          <table>    
+<thead>
+  <tr>
+    <th id="id-column">ID</th>
+    <th>CEP</th>
+    <th>Endereço</th>
+    <th>Gerente</th>
+    <th id="id-cadastro">Nome da Loja</th>
+    <th class="col-acoes" style="display: none;">Ação</th>
+  </tr>
+</thead>
+<tbody>
+</tbody>
 </table>
 
 
 
 
 <script>
-    
-async function CriarTabela() {
-  console.log("Entrei na função Criar Tabela");
 
-  try {
-    const resposta = await fetch("/gerenciamento/listarEnderecos");
-    const enderecos = await resposta.json();
 
-    const tabela = document.getElementById("tabelaUsuarios").getElementsByTagName("tbody")[0];
-    tabela.innerHTML = ""; // Limpa antes de preencher
+  
+  async function CriarTabela() {
+console.log("Entrei na função Criar Tabela");
 
-    enderecos.forEach(endereco => {
-      const linha = tabela.insertRow();
+const email = sessionStorage.getItem('emailUsuario');
+console.log(email);
 
-      linha.insertCell(0).textContent = endereco.idendereco; // ID
-      linha.insertCell(1).textContent = endereco.cep; // CEP
+try {
+  // Passa o email na query string para a rota
+  const resposta = await fetch(`/gerenciamento/listarEnderecos?email=${encodeURIComponent(email)}`);
+  const enderecos = await resposta.json();
 
-      // Endereço completo
-      const enderecoCompleto = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}`;
-      linha.insertCell(2).textContent = enderecoCompleto;
+  const tabela = document.getElementById("tabelaUsuarios").getElementsByTagName("tbody")[0];
+  tabela.innerHTML = ""; // Limpa antes de preencher
 
-      // Gerente (email ou cargo)
-      linha.insertCell(3).textContent = `${endereco.email} (${endereco.cargo})`;
+  enderecos.forEach(endereco => {
+    const linha = tabela.insertRow();
 
-      // Cadastro (nome fantasia, pode ser null)
-      linha.insertCell(4).textContent = endereco.nome_fantasia ?? "Sem cadastro";
-    });
+    linha.insertCell(0).textContent = endereco.idendereco;
+    linha.insertCell(1).textContent = endereco.cep;
 
-  } catch (erro) {
-    console.error("Erro ao buscar dados:", erro);
-  }
-  window.onload = CriarTabela;
+    const enderecoCompleto = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}`;
+    linha.insertCell(2).textContent = enderecoCompleto;
+
+    linha.insertCell(3).textContent = `${endereco.email} (${endereco.cargo})`;
+
+    linha.insertCell(4).textContent = endereco.nome_fantasia ?? "Sem cadastro";
+
+
+     const celulaAcoes = linha.insertCell(5);
+celulaAcoes.classList.add("col-acoes");
+celulaAcoes.style.display = "none";
+celulaAcoes.innerHTML = `<i class="bi bi-trash" style="color:red; cursor:pointer; font-size: 30px;" onclick="removerLinha(this)"></i>`;
+  });
+
+
+
+} catch (erro) {
+  console.error("Erro ao buscar dados:", erro);
+} 
 }
+window.onload = CriarTabela;
+
+
+let modoRemoverAtivo = false;
+
+function removerEndereco() {
+const colunasAcoes = document.querySelectorAll(".col-acoes");
+modoRemoverAtivo = !modoRemoverAtivo;
+
+colunasAcoes.forEach(col => {
+  col.style.display = modoRemoverAtivo ? "table-cell" : "none";
+});
+}
+
+async function removerLinha(iconElement) {
+// Pega a linha (tr) que contém o ícone clicado
+const linha = iconElement.closest('tr');
+
+// Pega o ID do endereço na primeira célula da linha
+const idEndereco = linha.cells[0].textContent;
+
+// Confirma se o usuário quer mesmo remover
+const confirma = confirm(`Deseja realmente remover o endereço ID ${idEndereco}?`);
+if (!confirma) return;
+
+try {
+  // Faz requisição DELETE para a API do backend
+  const resposta = await fetch(`/gerenciamento/removerEndereco/${idEndereco}`, {
+    method: 'DELETE'
+  });
+
+  if (resposta.ok) {
+    // Remove a linha da tabela se deu certo
+    linha.remove();
+    alert('Endereço removido com sucesso!');
+  } else {
+    // Caso dê erro, mostra mensagem
+    alert('Erro ao remover endereço.');
+    console.error('Erro na resposta do servidor:', resposta.statusText);
+  }
+} catch (erro) {
+  alert('Erro na comunicação com o servidor.');
+  console.error(erro);
+}
+}
+
+
 </script>

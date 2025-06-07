@@ -205,18 +205,39 @@ h2 {
 }
 
 label {
-  font-size: 2vh;
+  font-size: 2.5vh;
   font-weight: 100;
   color: white;
   display: flex;
   align-items: center;
 }
 
-.form-container input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
+.form-container {
+ background: #77adcb;
+    padding: 2vw;
+    border-radius: 10px;
+    width: 40vw;
+    height: 45vw;
+    max-width: 400px;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 40%;
+    margin-bottom: 25%;
+    justify-content: center;
+}
+
+
+#containerForm {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .form-botoes {
@@ -226,33 +247,38 @@ label {
 }
 
 .form-botoes button {
-  padding: 8px 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 20px;
+  width: 12vw;
+  height: 4vw;
+
 }
 
-#confirmar-adicao {
+#confirmar-edicao {
   background-color: white;
   color: #77adcb;
   transition: all 0.2s ease-in-out;
 }
 
-#confirmar-adicao:hover {
+#confirmar-edicao:hover {
   background-color: #5f94b1;
   color: white;
   transform: scale(1.05);
 }
 
-#cancelar-adicao {
+#cancelar-edicao {
   background-color: white;
   color: #5f94b1;
   transition: all 0.2s ease-in-out;
 }
 
-#cancelar-adicao:hover {
+#cancelar-edicao:hover {
   background-color: #5f94b1;
   color: white;
   transform: scale(1.05);
 }
+
+
