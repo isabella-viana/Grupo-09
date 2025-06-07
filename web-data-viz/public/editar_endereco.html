@@ -67,55 +67,65 @@
                 <div class="infos">
                     <div class="inputs">
                         <p>CEP</p>
-                        <input type="text">
+                        <input type="text" id="cep" maxlength="8" pattern="\d{8}" placeholder="Somente números">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Estado</p>
+                        <input type="text" id="estado">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Cidade</p>
+                        <input type="text" id="cidade">
                     </div>
 
                     <div class="inputs">
                         <p>Bairro</p>
-                        <input type="text">
+                        <input type="text" id="bairro">
                     </div>
 
                     <div class="inputs">
-                        <p>Endereço</p>
-                        <input type="text">
-                    </div>
-
-                    <div class="inputs">
-                        <p>Número</p>
-                        <input type="text">
+                        <p>Logradouro</p>
+                        <input type="text" id="logradouro">
                     </div>
                 </div>
+
                 <div class="infos">
                     <div class="inputs">
+                        <p>Número</p>
+                        <input type="number" id="numero">
+                    </div>
+
+                    <div class="inputs">
                         <p>Complemento</p>
-                        <input type="text">
+                        <input type="text" id="complemento">
                     </div>
 
                     <div class="inputs">
                         <p>CNPJ</p>
-                        <input type="text">
+                        <input type="text" id="cnpj" maxlength="14" pattern="\d{14}" placeholder="Somente números">
                     </div>
 
                     <div class="inputs">
                         <p>Apelido</p>
-                        <input type="text">
+                        <input type="text" id="apelido">
                     </div>
 
                     <div class="inputs">
                         <p>Gerente</p>
-                        <input type="text">
+                        <input type="text" id="gerente">
                     </div>
                 </div>
             </div>
 
             <div class="adicionar">
-                <button>Alterar</button>
+                <button type="button" onclick="editarEndereco()">Alterar</button>
             </div>
+
         </div>
     </main>
-
-
-
+    <script src="js/alteracao_endereco.js"></script>
 </body>
 
 </html>

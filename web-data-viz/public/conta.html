@@ -67,41 +67,41 @@
             <div class="conta-conteudo">
                 <div class="conta-dados">
                     <div class="inputs">
-                        <p>Primeiro nome</p>
-                        <input type="text" placeholder="">
-                    </div>
-
-                    <div class="inputs">
-                        <p>Sobrenome</p>
-                        <input type="text" placeholder="">
+                        <p>Nome</p>
+                        <input type="text" placeholder="" id="nome">
                     </div>
 
                     <div class="inputs">
                         <p>Usuário</p>
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="" id="userName">
+                    </div>
+
+                    <div class="inputs">
+                        <p>Contato</p>
+                        <input type="text" placeholder="" id="contato">
                     </div>
 
                     <div class="inputs">
                         <p>E-mail</p>
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="" id="email">
                     </div>
 
                     <div class="inputs">
                         <p>Cargo</p>
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="" id="cargo">
                     </div>
 
                     <div class="inputs">
                         <p>Empresa associada</p>
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="CNPJ" id="cnpj">
                     </div>
 
                     <div class="inputs">
                         <p>Senha</p>
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="" id="senha">
                     </div>
 
-                    <button>Salvar</button>
+                    <button type="button" onclick="cadastrar()">Cadastrar</button>
                 </div>
 
                 <div class="imagem-usuario">
@@ -158,8 +158,9 @@
             </div>
         </div>
 
-
     </main>
+
+    <script src="js/conta.js"></script>
 </body>
 
 </html>

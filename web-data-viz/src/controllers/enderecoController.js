@@ -1,72 +1,195 @@
-const enderecoModel = require("../models/enderecoModel");
-const db = require("../database/config");
+var enderecoModel = require("../models/enderecoModel");
 
-exports.inserirEndereco = (req, res) => {
-  const {
+function buscarPorCEP(req, res) {
+  var cep = req.query.cep;
+
+  enderecoModel
+    .buscarPorCEP(cep)
+    .then((resultado) => {
+      if (!resultado || resultado.length === 0) {
+        console.error("Nenhum endereço encontrado com o CEP:", cep);
+        res.status(404).json({ mensagem: "Endereço não encontrado." });
+        return;
+      }
+
+      res.status(200).json(resultado);
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar por CEP:", erro);
+      res.status(500).json({ erro: "Erro ao buscar o endereço por CEP." });
+    });
+}
+
+function buscarPorNome(req, res) {
+  var gerente = req.query.gerente;
+
+  enderecoModel
+    .buscarPorNome(gerente)
+    .then((resultado) => {
+      if (resultado.length === 0) {
+        console.error("Usuário (gerente) não encontrado no banco!");
+        res.status(404).json({ erro: "Usuário não encontrado" });
+        return;
+      }
+
+      var idUsuario = resultado[0].idUsuario;
+
+      res.status(200).json({ idUsuario });
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar por nome:", erro);
+      res.status(500).json({ erro: "Erro ao buscar por nome" });
+    });
+}
+
+function buscarPorId(req, res) {
+  var cnpj = req.query.cnpj;
+
+  enderecoModel
+    .buscarPorId(cnpj)
+    .then((resultado) => {
+      if (!resultado || resultado.length === 0) {
+        console.error("Nenhuma empresa encontrada com o CNPJ:", cnpj);
+        res.status(404).json({ mensagem: "Empresa não encontrada." });
+        return;
+      }
+
+      res.status(200).json(resultado);
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar por ID:", erro);
+      res.status(500).json({ erro: "Erro ao buscar a empresa por CNPJ." });
+    });
+}
+
+function cadastrarEndereco(req, res) {
+  var {
     cep,
-    cidade,
-    bairro,
     logradouro,
-    numero,
-    complemento,
-    cnpj,
-    apelido,
-    gerente,
+    numeroStr,
+    bairro,
+    cidade,
     estado,
+    cnpj,
+    gerente,
+    complemento,
+    apelido,
   } = req.body;
 
-  const sqlEmpresa = "SELECT idempresa FROM empresa WHERE cnpj = ?";
-  db.query(sqlEmpresa, [cnpj], (errEmpresa, empresaRows) => {
-    if (errEmpresa) {
-      console.error("Erro ao buscar empresa:", errEmpresa);
-      return res.status(500).json({ erro: "Erro ao buscar empresa." });
-    }
-
-    if (empresaRows.length === 0) {
+  enderecoModel.buscarPorId(cnpj).then((resultadoEmpresa) => {
+    if (resultadoEmpresa.length == 0) {
       return res
         .status(404)
-        .json({ erro: "Empresa com este CNPJ não encontrada." });
+        .json({ mensagem: "Empresa não encontrada pelo CNPJ." });
     }
 
-    const empresa_idempresa = empresaRows[0].idempresa;
+    var idempresa = resultadoEmpresa[0].idempresa;
 
-    const sqlUsuario =
-      "SELECT idUsuario FROM usuario WHERE nome LIKE ? LIMIT 1";
-    db.query(sqlUsuario, [`%${gerente}%`], (errUsuario, usuarioRows) => {
-      if (errUsuario) {
-        console.error("Erro ao buscar usuário:", errUsuario);
-        return res.status(500).json({ erro: "Erro ao buscar gerente." });
-      }
-
-      if (usuarioRows.length === 0) {
+    enderecoModel.buscarPorNome(gerente).then((resultadoUsuario) => {
+      if (resultadoUsuario.length == 0) {
         return res
           .status(404)
-          .json({ erro: "Usuário (gerente) não encontrado." });
+          .json({ mensagem: "Usuário (gerente) não encontrado pelo nome." });
       }
 
-      const usuario_idUsuario = usuarioRows[0].idUsuario;
+      var idUsuario = resultadoUsuario[0].idUsuario;
 
-      const dadosEndereco = {
-        cep,
-        cidade,
-        bairro,
-        logradouro,
-        numero: Number(numero),
-        complemento,
-        apelido,
-        empresa_idempresa,
-        usuario_idUsuario,
-        estado,
-      };
-
-      enderecoModel.inserirEndereco(dadosEndereco, (erro, resultado) => {
-        if (erro) {
-          console.error("Erro ao inserir endereço:", erro);
-          return res.status(500).json({ erro: "Erro ao cadastrar endereço." });
+      enderecoModel.buscarPorCEP(cep).then((resultadoCEP) => {
+        if (resultadoCEP.length > 0) {
+          return res.status(409).json({ mensagem: "CEP já cadastrado." });
         }
 
-        res.status(201).json({ mensagem: "Endereço cadastrado com sucesso!" });
+        enderecoModel
+          .cadastrarEndereco(
+            cep,
+            logradouro,
+            numeroStr,
+            bairro,
+            cidade,
+            estado,
+            idempresa,
+            idUsuario,
+            complemento,
+            apelido
+          )
+          .then((resultado) => {
+            res.status(201).json({
+              mensagem: "Endereço cadastrado com sucesso!",
+              dados: resultado,
+            });
+          })
+          .catch((erro) => {
+            console.error("Erro ao cadastrar o endereço:", erro);
+            res.status(500).json({ mensagem: "Erro ao cadastrar endereço." });
+          });
       });
     });
   });
+}
+
+function atualizarEndereco(req, res) {
+  var {
+    cep,
+    logradouro,
+    numeroStr,
+    bairro,
+    cidade,
+    estado,
+    cnpj,
+    gerente,
+    complemento,
+    apelido,
+  } = req.body;
+
+  enderecoModel.buscarPorId(cnpj).then((resultadoEmpresa) => {
+    if (resultadoEmpresa.length == 0) {
+      return res
+        .status(404)
+        .json({ mensagem: "Empresa não encontrada pelo CNPJ." });
+    }
+
+    var idempresa = resultadoEmpresa[0].idempresa;
+
+    enderecoModel.buscarPorNome(gerente).then((resultadoUsuario) => {
+      if (resultadoUsuario.length == 0) {
+        return res
+          .status(404)
+          .json({ mensagem: "Usuário (gerente) não encontrado pelo nome." });
+      }
+
+      var idusuario = resultadoUsuario[0].idUsuario;
+
+      enderecoModel
+        .atualizarEndereco(
+          cep,
+          logradouro,
+          numeroStr,
+          bairro,
+          cidade,
+          estado,
+          idempresa,
+          idusuario,
+          complemento,
+          apelido
+        )
+        .then((resultado) => {
+          res.status(200).json({
+            mensagem: "Endereço atualizado com sucesso!",
+            dados: resultado,
+          });
+        })
+        .catch((erro) => {
+          console.error("Erro ao atualizar o endereço:", erro);
+          res.status(500).json({ mensagem: "Erro ao atualizar endereço." });
+        });
+    });
+  });
+}
+
+module.exports = {
+  buscarPorCEP,
+  buscarPorNome,
+  cadastrarEndereco,
+  buscarPorId,
+  atualizarEndereco,
 };
