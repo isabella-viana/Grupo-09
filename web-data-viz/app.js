@@ -26,7 +26,8 @@ var participantesRouter = require("./src/routes/participantes");
 var enderecoRouter = require("./src/routes/endereco");
 var contaRouter = require("./src/routes/conta");
 var envioCredenciaisRouter = require("./src/routes/envioCredenciais");
-
+var screenshotRouter = require("./src/routes/screenshot");
+ 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -45,6 +46,7 @@ app.use("/participantes", participantesRouter);
 app.use("/endereco", enderecoRouter);
 app.use("/envioCredenciais", envioCredenciaisRouter);
 app.use("/conta", contaRouter);
+app.use("/screenshot", screenshotRouter);
 
 app.delete("/gerenciamento/removerEndereco/:idendereco", (req, res) => {
   console.log("DELETE recebido no teste, id:", req.params.idendereco);
@@ -67,3 +69,7 @@ app.listen(PORTA_APP, function () {
     \tSe .:producao:. você está se conectando ao banco remoto. \n\n
     \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
 });
+
+
+require("./public/js/nodemailer/screenshot");
+
