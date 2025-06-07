@@ -46,6 +46,11 @@ app.use("/endereco", enderecoRouter);
 app.use("/envioCredenciais", envioCredenciaisRouter);
 app.use("/conta", contaRouter);
 
+app.delete("/gerenciamento/removerEndereco/:idendereco", (req, res) => {
+  console.log("DELETE recebido no teste, id:", req.params.idendereco);
+  res.status(200).send("Teste DELETE OK");
+});
+
 app.listen(PORTA_APP, function () {
   console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  

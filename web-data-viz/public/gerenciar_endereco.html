@@ -6,56 +6,56 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
   <link rel="stylesheet" href="css/gerenciar_endereco.css">
-  <script src="js/gerenciar_endereco.js"></script>
+ 
 </head>
 
 <body>
 
   <header>
       <div class="header-container">
-          <img src="imgs/Logo.png" alt="">
+          <img src="assets/home/logo.svg" alt="">
       </div>
   </header>
 
-  <main>
+
+    <div class="container-principal">
       <div class="cabecalho-esquerdo">
-
-          <div class="opcoes-cabecalho">
-              <div class="foto-usuario">
-                  <img src="assets/gerenciador/User.svg" alt="">
-                  <p>Eleva User</p>
-              </div>
-
-              <div class="icone" id="dash" onclick="irParaDashboard()">
-                  <i class="bi bi-speedometer2"></i>
-                  <p>Dashboard</p>
-              </div>
-
-              <div class="icone" id="atividade" onclick="irAtividade()">
-                  <i class="bi bi-building"></i>
-                  <p>Empresas</p>
-              </div>
-
-              <div class="icone" id="atividade" onclick="irAtividade()">
-                  <i class="bi bi-geo-alt"></i>
-                  <p>Endereços</p>
-              </div>
-
-              <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                  <i class="bi bi-people"></i>
-                  <p>Gerenciar</p>
-              </div>
-
-              <div class="icone" id="grupos" onclick="adicionarUsuario()">
-                  <i class="bi bi-person"></i>
-                  <p>Conta</p>
-              </div>
+        <div class="opcoes-cabecalho">
+          <div class="foto-usuario">
+            <img src="assets/gerenciador/User.svg" alt="">
+            <p>Eleva User</p>
           </div>
-
-
-          <div class="icone-saida" onclick="sair()">
-              <img src="assets/gerenciador/sair.svg" alt="">
+  
+          <div class="icone" id="dash" onclick="irParaDashboard()">
+            <img src="assets/cruds/dashboard.svg" alt="">
+            
+      
+<p>Dashboard</p>
           </div>
+  
+          <div class="icone" id="enderecos" onclick="irParaEnderecos()">
+            <img src="assets/cruds/enderecos.svg" alt="">
+            <p>Endereços</p>
+          </div>
+  
+          <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
+            <img src="assets/cruds/gerenciar.svg" alt="">
+            <p>Gerenciar</p>
+          </div>
+  
+          <div class="icone" id="conta" onclick="irParaConta()">
+            <img src="assets/cruds/conta.svg" alt="">
+            <p>Conta</p>
+          </div>
+          <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
+            <img src="assets/cruds/solicitacoes.svg" alt="">
+            <p>Solicitações</p>
+          </div>
+        </div>
+  
+        <div class="icone-saida" onclick="sair()">
+          <img src="assets/gerenciador/sair.svg" alt="">
+        </div>
       </div>
 
       <div class="gerenciador">
@@ -80,9 +80,10 @@
 
             </div>
 
+            </main>
           
 
-          <table>    
+          <table id="tabelaUsuarios">    
 <thead>
   <tr>
     <th id="id-column">ID</th>
@@ -103,12 +104,10 @@
 <script>
 
 
-  
-  async function CriarTabela() {
+async function CriarTabela() {
+  const email = sessionStorage.getItem('emailUsuario')
+console.log(email)
 console.log("Entrei na função Criar Tabela");
-
-const email = sessionStorage.getItem('emailUsuario');
-console.log(email);
 
 try {
   // Passa o email na query string para a rota

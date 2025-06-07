@@ -26,8 +26,7 @@ function autenticar(req, res) {
                             idEmpresa: resultadoAutenticar[0].empresa_idempresa,
                             qtdAcessos: resultadoAutenticar[0].qtdAcessos,
                             cpf: resultadoAutenticar[0].cpf,
-
-                        });
+                        }); 
 
 
                     } else if (resultadoAutenticar.length == 0) {

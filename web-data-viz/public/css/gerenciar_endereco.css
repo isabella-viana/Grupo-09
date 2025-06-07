@@ -41,9 +41,47 @@ main {
 }
 
 .buttons{
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: flex-end;  
+}
+
+
+table#tabelaUsuarios {
+  border-collapse: collapse; /* Mantém bordas unidas */
+  width: 80%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+#tabelaUsuarios th,
+#tabelaUsuarios td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+
+}
+
+#tabelaUsuarios th {
+  background-color: rgba(119, 173, 203, 1);
+  color: #444;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  font-weight: 300;
+}
+
+#tabelaUsuarios tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Ação (ícone de remover) */
+.col-acoes {
+  text-align: center;
 }
 
 #icons-button{
@@ -68,18 +106,38 @@ table{
 }
 
 th{
-    height: 40px;
-    width: 200px;
-    font-weight: 300;
-    color: white;
-    background-color: rgba(119, 173, 203, 1); 
+   
+    border: 2px solid rgb(255, 255, 255);
 }
 tr{
-    border: 2px solid black;
+ 
+    border: 1px solid black;
 }
 
   td {
     padding: 8px;
     border: 1px solid #3e6a82; /* linhas discretas */
-    text-align: center;
+  
   }
+
+  /* Linhas alternadas */
+#tabelaUsuarios tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Cantos arredondados */
+#tabelaUsuarios th:first-child {
+  border-top-left-radius: 10px;
+}
+
+#tabelaUsuarios th:last-child {
+  border-top-right-radius: 10px;
+}
+
+#tabelaUsuarios tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+#tabelaUsuarios tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
