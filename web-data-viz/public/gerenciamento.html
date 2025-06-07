@@ -2,26 +2,22 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gerenciar Participantes | ELEVA</title>
-  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
-  <link rel="stylesheet" href="css/gerenciamento.css">
-  <link rel="stylesheet" href="css/padronizacao.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="css/gerenciamento.css" />
+  <link rel="stylesheet" href="css/padronizacao.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
   <script src="js/direcionadores.js"></script>
 </head>
 
 <body onload="carregarParticipantes()">
-
-
-  <header>
-    <div class="header-container">
-      <img src="assets/home/logo.svg" alt="">
-    </div>
-  </header>
+  
 
   <div class="container-principal">
     <div class="cabecalho-esquerdo">
@@ -33,7 +29,11 @@
 
         <div class="icone" id="dash" onclick="irParaDashboard()">
           <img src="assets/cruds/dashboard.svg" alt="">
-          <p>Dashboard</p>
+          <header>
+    <div class="header-container">
+      <img src="assets/home/logo.svg" alt="">
+    </div>
+  </header><p>Dashboard</p>
         </div>
 
         <div class="icone" id="enderecos" onclick="irParaEnderecos()">
@@ -61,219 +61,305 @@
       </div>
     </div>
 
-
     <div class="container-section">
       <h1>Gerenciar Participantes</h1>
 
-
       <div class="botoes-direita">
-
         <button class="botao adicionar" onclick="telaContato()">
           Adicionar
           <i class="bi bi-plus-circle"></i>
         </button>
 
-        <button class="botao excluir">
+        <button class="botao excluir" onclick="executarExclusao()">
           Excluir
           <i class="bi bi-trash"></i>
         </button>
 
-        <button class="botao adicionar" style="margin-right: 5%;">
+        <button class="botao adicionar editar-btn" style="margin-right: 5%">
           Editar
           <i class="bi bi-pencil-square"></i>
         </button>
-
       </div>
+
       <div class="tabela">
-        <table class="tabela-participantes" >
+        <table class="tabela-participantes">
           <thead>
             <tr>
-              <th class="titulo"> </th>
-              <th class="titulo"> Nome </th>
-              <th class="titulo"> Email </th>
-              <th class="titulo"> Telefone </th>
-              <th class="titulo"> Área</th>
-              <th class="titulo"> Nível </th>
-  
-  
+              <th class="titulo"></th>
+              <th class="titulo">Nome</th>
+              <th class="titulo">Email</th>
+              <th class="titulo">Telefone</th>
+              <th class="titulo">Área</th>
+              <th class="titulo">Nível</th>
             </tr>
           </thead>
           <tbody id="tabelaCorpo">
-      
-        
-          </tbody>
-        </table>
-      </div>
-
-  
-    </div>
-
-    <script src="script.js"></script>
-</body>
-
-</html>
-
-
-
-<script>
-  const tabelaCorpo = document.getElementById("tabelaCorpo");
-  const botaoAdicionar = document.querySelector(".botao.adicionar");
-  const botaoExcluir = document.querySelector(".botao.excluir");
-  const formAdicionar = document.getElementById("form-adicionar");
-
-  function adicionarUsuario() {
-    window.location.href = "./gerenciamento.html"
-  }
-  function irAtividade() {
-    window.location.href = "./atividades.html"
-  }
-  function sair() {
-    window.location.href = "./index.html"
-  }
-  function irParaDashboard() {
-    window.location.href = "./dashboard.html"
-  }
-
-  function irParaSolicitacao() {
-    window.location.href = "./solicitacao.html"
-  }
-  
-  windon.onload = ()=>{
-    carregarParticipantes();
-  };
-
-
-  botaoAdicionar.addEventListener("click", () => {
-    formAdicionar.style.display = "flex";
-  });
-
-
-
-  function telaContato() {
-
-    window.location.href = "./gerenciar.html"
-
-  }
-
-
-  botaoCancelar.addEventListener("click", () => {
-    formAdicionar.style.display = "none";
-  });
-
-
-  function carregarParticipantes() {
-    fetch("/participantes/listar", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO verificar()!");
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log("Dados completos:", json);
-                console.log("Em formato JSON:", JSON.stringify(json));
-
-                const NOME = json.map(item => item.nome);
-                const EMAIL_USUARIO = json.map(item => item.email);
-                const TELEFONE= json.map(item => item. telefone);
-                const CARGO = json.map(item => item.cargo);
-
-                sessionStorage.setItem("NOME", JSON.stringify(NOME));
-                sessionStorage.setItem("EMAIL", JSON.stringify(EMAIL_USUARIO));
-                sessionStorage.setItem("TELEFONE", JSON.stringify(TELEFONE));
-                sessionStorage.setItem("CARGO", JSON.stringify(CARGO));
-
-                atualizarNomesTabela(NOME,EMAIL_USUARIO,TELEFONE,CARGO);
-
-                
-              
-            });
-        } else {
-            console.log("Erro ao puxar os dados do back-end.");
-        }
-    }).catch(function (erro) {
-        console.log("Erro na requisição:", erro);
-    });
-  }
-  
-  function atualizarNomesTabela(nomes, email , telefone , cargo){
-    tabelaCorpo.innerHTML=""
-
-    for(var i= 0; i < nomes.length ; i++){
-      tabelaCorpo.innerHTML+=`
-       <tr style="position: sticky;">
-            <td><input type="checkbox" class="check-participante" /></td>
-            <td>${nomes[i]}</td>
-            <td>${email[i]}</td>
-            <td>${telefone[i]}</td>
-            <td>${cargo[i]}</td>
+          <tr style="position: sticky;">
+            <td><input type="checkbox" class="check-participante" data-id="4"></td>
+            <td>Guilherme</td>
+            <td>usuario@empresa.com</td>
+            <td>125693</td>
+            <td>Analista</td>
             <td>View</td>
           </tr>
-      `;
+        
+          <tr style="position: sticky;">
+            <td><input type="checkbox" class="check-participante" data-id="5"></td>
+            <td>isa</td>
+            <td>usuario@empresa.com</td>
+            <td>1193332174</td>
+            <td>Analista</td>
+            <td>View</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+ 
+    
+    
+    <div id="containerForm" style="display: none;">
+
+  <form id="formEditar" class="form-container" >
+    <h2>Editar Participante</h2>
+
+    <input type="hidden" id="editarId" name="id" value="5">
+
+    <label for="editarNome">Nome:</label>
+    <input type="text" id="editarNome" name="nome" required="">
+
+    <label for="editarEmail">Email:</label>
+    <input type="email" id="editarEmail" name="email" required="">
+
+    <label for="editarTelefone">Telefone:</label>
+    <input type="tel" id="editarTelefone" name="telefone" required="">
+
+    <label for="editarCargo">Cargo:</label>
+    <input type="text" id="editarCargo" name="cargo" required="">
+
+    <div class="form-botoes">
+      <button type="submit" id="confirmar-edicao">Salvar</button>
+    <button type="button" id="cancelar-edicao" onclick="fecharcontainerForm()">Cancelar</button>
+
+    </div>
+  </form>
+</div>
+
+  <script>
+   
+    const tabelaCorpo = document.getElementById("tabelaCorpo");
+
+    function adicionarUsuario() {
+      window.location.href = "./gerenciamento.html";
     }
-  }
 
+    function irAtividade() {
+      window.location.href = "./atividades.html";
+    }
 
+    function sair() {
+      window.location.href = "./index.html";
+    }
 
+    function irParaDashboard() {
+      window.location.href = "./dashboard.html";
+    }
 
-  function deletarParticipantes(ids) {
-    fetch('http://localhost:3000/participantes', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ids })
-    })
-      .then(resposta => {
-        if (resposta.ok) {
-          alert(`Participantes deletados com sucesso pelo usuário de email: ${sessionStorage.getItem("EMAIL_USUARIO")}!`);
-          carregarParticipantes();
-        } else if (resposta.status === 404) {
-          alert("Participantes não encontrados.");
-        } else {
-          throw new Error(`Erro ao tentar deletar participantes. Código: ${resposta.status}`);
-        }
+    function irParaSolicitacao() {
+      window.location.href = "./solicitacao.html";
+    }
+
+    function telaContato() {
+      window.location.href = "./gerenciar.html";
+    }
+
+    window.onload = () => {
+      carregarParticipantes();
+    };
+
+    function carregarParticipantes() {
+      fetch("/participantes/listar", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch(erro => {
-        console.error("#ERRO:", erro);
-        alert("Erro ao excluir participantes. Veja o console para detalhes.");
+        .then((resposta) => {
+          if (resposta.ok) {
+            resposta.json().then((json) => {
+              console.log("Dados recebidos:", json);
+              const IDS = json.map((item) => item.idUsuario);
+              const NOME = json.map((item) => item.nome);
+              const EMAIL_USUARIO = json.map((item) => item.email);
+              const TELEFONE = json.map((item) => item.telefone);
+              const CARGO = json.map((item) => item.cargo);
+
+              atualizarNomesTabela(IDS, NOME, EMAIL_USUARIO, TELEFONE, CARGO);
+            });
+          } else {
+            console.log("Erro ao puxar os dados do back-end.");
+          }
+        })
+        .catch((erro) => {
+          console.log("Erro na requisição:", erro);
+        });
+    }
+
+    function executarExclusao() {
+      const checkboxes = document.querySelectorAll(".check-participante:checked");
+      const idsSelecionados = Array.from(checkboxes).map((cb) =>
+        Number(cb.dataset.id)
+      );
+
+      if (idsSelecionados.length === 0) {
+        alert("Selecione pelo menos um participante para excluir.");
+        return;
+      }
+
+      if (confirm("Tem certeza que deseja excluir os participantes selecionados?")) {
+        deletarParticipantes(idsSelecionados);
+      }
+    }
+
+    function atualizarNomesTabela(ids, nomes, emails, telefones, cargos) {
+      tabelaCorpo.innerHTML = "";
+
+      for (let i = 0; i < nomes.length; i++) {
+        tabelaCorpo.innerHTML += `
+          <tr style="position: sticky;">
+            <td><input type="checkbox" class="check-participante" data-id="${ids[i]}" /></td>
+            <td>${nomes[i]}</td>
+            <td>${emails[i]}</td>
+            <td>${telefones[i]}</td>
+            <td>${cargos[i]}</td>
+            <td>View</td>
+          </tr>
+        `;
+      }
+    }
+
+    function deletarParticipantes(ids) {
+      let deletados = 0;
+
+      ids.forEach((id) => {
+        fetch(`/participantes/${id}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((resposta) => {
+            if (resposta.ok) {
+              return resposta.json(); 
+            } else {
+              throw new Error(
+                `Erro ao deletar participante ID ${id}: ${resposta.status}`
+              );
+            }
+          })
+          .then((data) => {
+            deletados++;
+            if (deletados === ids.length) {
+              alert(data.mensagem); 
+              carregarParticipantes(); 
+            }
+          })
+          .catch((erro) => {
+            console.error("#ERRO ao deletar participante:", erro);
+            alert("Erro ao excluir participantes. Veja o console para detalhes.");
+          });
       });
-  }
+    }
 
 
+   
+    function abrircontainerForm(id) {
+      const linha = [...tabelaCorpo.rows].find((row) => {
+        const checkbox = row.querySelector(".check-participante");
+        return checkbox && Number(checkbox.dataset.id) === id;
+      });
 
+      if (!linha) {
+        alert("Selecione um participante para editar.");
+        return;
+      }
 
-  function editarParticipante(id, nome, email, telefone) {
-    console.log("Criar função de editar participante - ID:", id);
+     
+      const nome = linha.cells[1].innerText;
+      const email = linha.cells[2].innerText;
+      const telefone = linha.cells[3].innerText;
+      const cargo = linha.cells[4].innerText;
 
-    fetch(`http://localhost:3000/participantes/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ nome, email, telefone })
-    })
-      .then(function (resposta) {
-        if (resposta.ok) {
-          window.alert("Participante atualizado com sucesso pelo usuário de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-          carregarParticipantes();
-        } else if (resposta.status == 404) {
-          window.alert("Erro 404 - Participante não encontrado.");
-        } else {
-          throw new Error("Houve um erro ao tentar editar o participante! Código da resposta: " + resposta.status);
-        }
+      document.getElementById("editarId").value = id;
+      document.getElementById("editarNome").value = nome;
+      document.getElementById("editarEmail").value = email;
+      document.getElementById("editarTelefone").value = telefone;
+      document.getElementById("editarCargo").value = cargo;
+
+      document.getElementById("containerForm").style.display = "block";
+    }
+
+  
+    function fecharcontainerForm() {
+      document.getElementById("containerForm").style.display = "none";
+    }
+
+   
+    document.getElementById("formEditar").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const id = document.getElementById("editarId").value;
+      const nome = document.getElementById("editarNome").value.trim();
+      const email = document.getElementById("editarEmail").value.trim();
+      const telefone = document.getElementById("editarTelefone").value.trim();
+      const cargo = document.getElementById("editarCargo").value.trim();
+
+      if (!nome || !email || !telefone || !cargo) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+     
+      fetch(`/participantes/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nome, email, telefone, cargo }),
       })
-      .catch(function (erro) {
-        console.error("#ERRO:", erro);
-        window.alert("Erro ao editar participante. Verifique o console para mais detalhes.");
-      });
-  }
+        .then((resposta) => {
+          if (resposta.ok) {
+            alert("Participante atualizado com sucesso!");
+            fecharcontainerForm();
+            carregarParticipantes();
+          } else if (resposta.status === 404) {
+            alert("Participante não encontrado.");
+          } else {
+            throw new Error("Erro ao editar participante. Código: " + resposta.status);
+          }
+        })
+        .catch((erro) => {
+          console.error("#ERRO ao editar participante:", erro);
+          alert("Erro ao editar participante. Veja o console para detalhes.");
+        });
+    });
+
+    document.querySelector(".editar-btn").addEventListener("click", () => {
+      const checkboxes = document.querySelectorAll(".check-participante:checked");
+      if (checkboxes.length === 0) {
+        alert("Selecione um participante para editar.");
+        return;
+      }
+      if (checkboxes.length > 1) {
+        alert("Selecione apenas um participante para editar.");
+        return;
+      }
+      const id = Number(checkboxes[0].dataset.id);
+      abrircontainerForm(id);
+    });
+  
+  </script>
 
 
-
-
-
-</script>
+</body>
+</html>

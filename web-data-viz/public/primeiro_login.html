@@ -53,6 +53,7 @@
   <script src="js/primeiroAcesso.js"></script>
 
   <script>
+    
     function cadastrar() {
       const senhaVar = document.getElementById("input_senha").value;
 
@@ -75,7 +76,7 @@
       atualizarSenha(senhaVar, cpf);
       
 
-      window.location.href = "./conta_usuario.html";
+      
     } 
     function atualizarSenha(senha,cpf){
       console.log("Atualizando senha no servidor...");
@@ -96,6 +97,7 @@
                     if (res.ok) {
                         alert('Usuario cadastrado com sucesso!');                 
                         console.log('Chamada para o cadastro realizado com sucesso')
+                     
                          adicionarAcesso(cpf);
                             window.location.href = "./dashboard.html";
                     } else {

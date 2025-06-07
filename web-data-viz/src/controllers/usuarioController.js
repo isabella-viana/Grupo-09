@@ -76,6 +76,7 @@ function cadastrar(req, res) {
     var nomeRepresentante = req.body.nomeRepresentante;
     var emailRepresentante = req.body.emailRepresentante;
     var cpf = req.body.cpf;
+    var senha = req.body.senha;
 
     // Faça as validações dos valores
     if (nomeRepresentante == undefined) {
@@ -96,8 +97,7 @@ function cadastrar(req, res) {
                 if (resultado.length > 0) {
                     console.log('Id encontrado:', resultado[0].idempresa);
 
-                    var senhaAleatoria = Math.random().toString(36).slice(-8);
-                    return usuarioModel.cadastrar(resultado[0].idempresa, nomeRepresentante, emailRepresentante, cpf, senhaAleatoria)
+                    return usuarioModel.cadastrar(resultado[0].idempresa, nomeRepresentante, emailRepresentante, cpf, senha)
                         .then(
                             function (resultado) {
                                 res.json(resultado);

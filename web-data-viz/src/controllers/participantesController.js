@@ -2,46 +2,51 @@ const participantesModel = require('../models/participantesModel');
 
 function listar(req, res) {
     participantesModel.listar()
-    .then(function (resultadoListar) {
-        console.log(`\nResultados encontrados: ${resultadoListar.length}`);
-        console.log(`Resultados: ${JSON.stringify(resultadoListar)}`);
-
-        if (resultadoListar.length > 0) {
-            res.json(resultadoListar);
-        } else {
-            res.status(403).send("Não foi possível encontrar dados para o estado.");
-        }
-    })
-    .catch(function (erro) {
-        console.error("Erro ao buscar dados:", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+        .then(resultadoListar => {
+            console.log(`Resultados encontrados: ${resultadoListar.length}`);
+            if (resultadoListar.length > 0) {
+                res.json(resultadoListar);
+            } else {
+                res.status(204).send(); // sem conteúdo
+            }
+        })
+        .catch(erro => {
+            console.error("Erro ao listar participantes:", erro);
+            res.status(500).json({ erro: "Erro ao listar participantes." });
+        });
 }
 
 function deletar(req, res) {
-    const { ids } = req.body;
+    const id = req.params.id;
 
-    if (!Array.isArray(ids) || ids.length === 0) {
-        return res.status(400).send("Lista de IDs inválida ou vazia.");
+    if (!id) {
+        return res.status(400).json({ erro: "ID não fornecido." });
     }
 
-    participantesModel.deletar(ids)
-        .then(resultado => res.json({ mensagem: "Participantes deletados com sucesso!" }))
+    participantesModel.deletarPorId(id)
+        .then(() => {
+            res.json({ mensagem: "Participante deletado com sucesso!" });
+        })
         .catch(erro => {
-            console.error("Erro ao deletar participantes:", erro);
-            res.status(500).json(erro);
+            console.error("Erro ao deletar participante:", erro);
+            res.status(500).json({ erro: "Erro ao deletar participante.", detalhes: erro.sqlMessage || erro.message });
         });
 }
 
 function editar(req, res) {
     const id = req.params.id;
-    const { nome, email, telefone } = req.body;
+    const { nome, email, telefone, cargo } = req.body;
 
-    participantesModel.editar(id, nome, email, telefone)
-        .then(resultado => res.json({ mensagem: "Participante editado com sucesso!" }))
+   
+    if (!nome && !email && !telefone && !cargo) {
+        return res.status(400).json({ erro: "Nenhum dado para atualizar." });
+    }
+
+    participantesModel.editar(id, nome, email, telefone, cargo)
+        .then(() => res.json({ mensagem: "Participante editado com sucesso!" }))
         .catch(erro => {
             console.error("Erro ao editar participante:", erro);
-            res.status(500).json(erro);
+            res.status(500).json({ erro: "Erro ao editar participante." });
         });
 }
 
@@ -50,4 +55,3 @@ module.exports = {
     deletar,
     editar
 };
-

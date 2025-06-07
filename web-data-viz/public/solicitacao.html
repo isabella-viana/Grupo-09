@@ -39,12 +39,12 @@
                     <input type="text" id="input_nome_fantasia" placeholder="">
                 </div>
 
-                 <div class="campo">
+                <div class="campo">
                     <p>CNPJ</p>
                     <input type="text" id="input_cnpj" placeholder="">
                 </div>
 
-                 <div class="campo">
+                <div class="campo">
                     <p>Nome Representante</p>
                     <input type="text" id="input_nome_representante" placeholder="">
                 </div>
@@ -54,11 +54,11 @@
                     <input type="email" id="input_email_representante" placeholder="">
                 </div>
 
-                 <div class="campo">
+                <div class="campo">
                     <p>CPF</p>
                     <input type="text" id="input_cpf" placeholder="">
                 </div>
-            
+
                 <button type="submit" onclick="cadastrarEmpresa()">Registrar</button>
             </form>
 
@@ -68,12 +68,14 @@
         </div>
     </div>
 
+
     <script>
+
         function cadastrarEmpresa() {
-            
-            var razaoSocialVar = input_razao_social.value;
-            var nomeFantasiaVar = input_nome_fantasia.value;
-            var cnpjVar = input_cnpj.value;
+
+            var razaoSocialVar = document.getElementById('input_razao_social').value;
+            var nomeFantasiaVar = document.getElementById('input_nome_fantasia').value;
+            var cnpjVar = document.getElementById('input_cnpj').value;
 
             if (!razaoSocialVar || !nomeFantasiaVar || !cnpjVar) {
                 alert('Preencha todos os campos!');
@@ -82,23 +84,21 @@
 
             if (!razaoSocialVar) {
                 alert("Por favor, preencha a Razão Social!");
-                destacarCampo(input_razao_social);
+                destacarCampo(document.getElementById('input_razao_social'));
                 return false;
             }
             if (!nomeFantasiaVar) {
                 alert("Por favor, preencha o Nome Fantasia!");
-                destacarCampo(input_nome_fantasia);
+                destacarCampo(document.getElementById('input_nome_fantasia'));
                 return false;
             }
             if (!cnpjVar) {
                 alert("Por favor, preencha o CNPJ!");
-                destacarCampo(input_cnpj);
+                destacarCampo(document.getElementById('input_cnpj'));
                 return false;
             }
 
-
             fetch("/empresas/cadastrar", {
-
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -112,16 +112,14 @@
                 .then(res => {
                     if (res.ok) {
                         alert('Empresa cadastrada com sucesso!');
-                     console.log('Chamada para o cadastro realizado com sucesso')
-                        cadastrarUsuario()
-                        window.location.reload();
+                        console.log('Chamada para o cadastro realizado com sucesso');
+                        cadastrarUsuario();
                     } else {
                         return res.json().then(data => {
                             throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
                         });
                     }
                 })
-
                 .catch(erro => {
                     console.error("#ERRO:", erro);
                 });
@@ -129,16 +127,16 @@
             return false;
         }
 
-//CADASTRANDO USUÁRIO PARA EMPRESA
-
         function cadastrarUsuario() {
-            console.log("Cadastrando usuário para a empresa...");
-            
-            var nomeRepresentanteVar = input_nome_representante.value;
-            var emailRepresentanteVar = input_email_representante.value;
-            var cpfVar = input_cpf.value;
-            var cnpjVar = input_cnpj.value;
 
+            console.log("Cadastrando usuário para a empresa...");
+
+            var nomeRepresentanteVar = document.getElementById('input_nome_representante').value;
+            var emailRepresentanteVar = document.getElementById('input_email_representante').value;
+            var cpfVar = document.getElementById('input_cpf').value;
+            var cnpjVar = document.getElementById('input_cnpj').value;
+            var senhaVar =  Math.random().toString(36).slice(-8);
+    
             if (!nomeRepresentanteVar || !emailRepresentanteVar || !cpfVar) {
                 alert('Preencha todos os campos!');
                 return false;
@@ -146,22 +144,21 @@
 
             if (!nomeRepresentanteVar) {
                 alert("Por favor, preencha o nome do representante!");
-                destacarCampo(input_nome_representante);
+                destacarCampo(document.getElementById('input_nome_representante'));
                 return false;
             }
             if (!emailRepresentanteVar) {
                 alert("Por favor, preencha o email do representante!");
-                destacarCampo(input_email_representante);
+                destacarCampo(document.getElementById('input_email_representante'));
                 return false;
             }
             if (!cpfVar) {
                 alert("Por favor, preencha o CPF!");
-                destacarCampo(input_cpf);
+                destacarCampo(document.getElementById('input_cpf'));
                 return false;
             }
 
             fetch("/usuarios/cadastro", {
-
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -170,14 +167,38 @@
                     nomeRepresentante: nomeRepresentanteVar,
                     emailRepresentante: emailRepresentanteVar,
                     cpf: cpfVar,
-                    cnpj: cnpjVar
+                    cnpj: cnpjVar,
+                    senha: senhaVar
                 }),
             })
                 .then(res => {
                     if (res.ok) {
-                        alert('Usuario cadastrado com sucesso!');
-                        console.log('Chamada para o cadastro realizado com sucesso')
-                        window.location.reload();
+                        alert('Usuário cadastrado com sucesso!');
+                        console.log('Chamada para o cadastro realizado com sucesso');
+
+                        fetch("/envioCredenciais/envio", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                emailRepresentante: emailRepresentanteVar,
+                                senha:senhaVar
+                            }),
+                        })
+                            .then(res => {
+                                if (res.ok) {
+                                    alert('Credenciais enviadas para o email do representante!');
+
+                                } else {
+                                    return res.json().then(data => {
+                                        throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
+                                    });
+                                }
+                            })
+                            .catch(erro => {
+                                console.error("#ERRO:", erro);
+                            });
                     } else {
                         return res.json().then(data => {
                             throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
@@ -192,9 +213,7 @@
             return false;
         }
 
-
         function carregarEmpresasPendentes() {
-
             console.log("Carregando empresas pendentes...");
             fetch("/leads/pendentes")
                 .then(res => res.json())
@@ -205,11 +224,11 @@
                     empresas.forEach(empresa => {
                         const tr = document.createElement("tr");
                         tr.innerHTML = `
-                <td>${empresa.razao_social}</td>
-                <td>${empresa.nome_fantasia}</td>
-                <td>${empresa.email}</td>
-                <td>${empresa.cnpj}</td>
-            `;
+                        <td>${empresa.razao_social}</td>
+                        <td>${empresa.nome_fantasia}</td>
+                        <td>${empresa.email}</td>
+                        <td>${empresa.cnpj}</td>
+                    `;
                         tbody.appendChild(tr);
                     });
                 })
@@ -218,7 +237,10 @@
                 });
         }
 
-        window.onload = carregarEmpresasPendentes();
+        window.onload = carregarEmpresasPendentes;
+
+
+
 
     </script>
 

@@ -1,29 +1,54 @@
 const database = require("../database/config");
 
 function listar() {
-  const instrucaoSql = `
-   SELECT  nome , email , telefone , cargo FROM usuario where empresa_idempresa = 1;
-  `;
-  return database.executar(instrucaoSql);
+    const instrucaoSql = `
+        SELECT idUsuario, nome, email, telefone, cargo 
+        FROM usuario 
+        WHERE empresa_idempresa = 1;
+    `;
+    return database.executar(instrucaoSql);
 }
 
-function deletarPorIds(ids) {
-  const idsString = ids.join(',');  
-  const instrucaoSql = `DELETE FROM usuario WHERE idUsuario IN (${idsString})`;
-  return database.executar(instrucaoSql);
+function deletarPorId(id) {
+    const instrucaoSql = `
+        DELETE FROM usuario WHERE idUsuario = ?;
+    `;
+    return database.executar(instrucaoSql, [id]);
 }
 
-function editar(id, { email, telefone }) {
-  const instrucaoSql = `
-    UPDATE usuario 
-    SET email = '${email}', telefone = '${telefone}' 
-    WHERE idUsuario = ${id}
-  `;
-  return database.executar(instrucaoSql);
+function editar(id, nome, email, telefone, cargo) {
+    let campos = [];
+    let valores = [];
+
+    if (nome) {
+        campos.push("nome = ?");
+        valores.push(nome);
+    }
+    if (email) {
+        campos.push("email = ?");
+        valores.push(email);
+    }
+    if (telefone) {
+        campos.push("telefone = ?");
+        valores.push(telefone);
+    }
+    if (cargo) {
+        campos.push("cargo = ?");
+        valores.push(cargo);
+    }
+
+    if (campos.length === 0) {
+        return Promise.reject(new Error("Nenhum campo para atualizar"));
+    }
+
+    const instrucaoSql = `UPDATE usuario SET ${campos.join(", ")} WHERE idUsuario = ?;`;
+    valores.push(id);
+
+    return database.executar(instrucaoSql, valores);
 }
 
 module.exports = {
-  listar,
-  deletarPorIds,
-  editar
+    listar,
+    deletarPorId,
+    editar
 };

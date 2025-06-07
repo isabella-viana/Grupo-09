@@ -25,7 +25,7 @@ CREATE TABLE usuario (
     email VARCHAR(45),
     senha VARCHAR(45),
     cargo VARCHAR(45),
-    qtdAcesso INT,
+    qtdAcessos INT,
     dataNascimento DATE,
     empresa_idempresa INT,
     FOREIGN KEY (empresa_idempresa) REFERENCES empresa(idempresa) on delete cascade
