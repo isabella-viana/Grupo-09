@@ -142,15 +142,16 @@
 
 
                         Swal.fire({
-                            title: "Solicitação enviada com sucesso!')",
+                            title: "Solicitação enviada com sucesso!",
                             icon: "success",
                             draggable: true
+
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+
+                                window.location.href = "./login_cadastro.html";
+                            }
                         });
-
-
-                        window.location.href = "./login_cadastro.html";
-
-
 
                     } else {
                         Swal.fire({
@@ -207,6 +208,7 @@
 
 
                         if (QTD_ACESSOS > 0) {
+                            
                             window.location.href = "./dashboard.html";
                         } else {
 
