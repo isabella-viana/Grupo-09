@@ -9,77 +9,72 @@
   <link rel="stylesheet" href="css/gerenciamento.css" />
   <link rel="stylesheet" href="css/padronizacao.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <script src="js/direcionadores.js"></script>
 </head>
 
 <body onload="carregarParticipantes()">
-  
+
 
   <div class="container-principal">
-    <div class="cabecalho-esquerdo">
-      <div class="opcoes-cabecalho">
-        <div class="foto-usuario">
-          <img src="assets/gerenciador/User.svg" alt="">
-          <p>Eleva User</p>
+       <div class="cabecalho-esquerdo">
+
+            <div class="opcoes-cabecalho">
+                <div class="foto-usuario">
+                    <img src="assets/gerenciador/User.svg" alt="">
+                    <p>Eleva User</p>
+                </div>
+
+                <div class="icone" id="dash" onclick="irParaDashboard()">
+                    <img src="assets/cruds/dashboard.svg" alt="">
+                    <p>Dashboard</p>
+                </div>
+
+                <div class="icone" id="enderecos" onclick="irParaEnderecos()">
+                    <img src="assets/cruds/enderecos.svg" alt="">
+                    <p>Endereços</p>
+                </div>
+
+                <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
+                    <img src="assets/cruds/gerenciar.svg" alt="">
+                    <p>Gerenciar</p>
+                </div>
+
+                <div class="icone" id="conta" onclick="irParaConta()">
+                    <img src="assets/cruds/conta.svg" alt="">
+                    <p>Conta</p>
+                </div>
+                <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
+                    <img src="assets/cruds/solicitacoes.svg" alt="">
+                    <p>Solicitações</p>
+                </div>
+            </div>
+
+            <div class="icone-saida" onclick="sair()">
+                <img src="assets/gerenciador/sair.svg" alt="">
+            </div>
         </div>
 
-        <div class="icone" id="dash" onclick="irParaDashboard()">
-          <img src="assets/cruds/dashboard.svg" alt="">
-          <header>
-    <div class="header-container">
-      <img src="assets/home/logo.svg" alt="">
-    </div>
-  </header><p>Dashboard</p>
-        </div>
+         <div class="container-section">
+           <h1>Gerenciar Participantes</h1>
 
-        <div class="icone" id="enderecos" onclick="irParaEnderecos()">
-          <img src="assets/cruds/enderecos.svg" alt="">
-          <p>Endereços</p>
-        </div>
+           <div class="botoes-direita">
+           <button class="botao adicionar" onclick="telaContato()">
+             Adicionar
+               <i class="bi bi-plus-circle"></i>
+                </button>
 
-        <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
-          <img src="assets/cruds/gerenciar.svg" alt="">
-          <p>Gerenciar</p>
-        </div>
+             <button class="botao excluir" onclick="executarExclusao()">
+            Excluir
+              <i class="bi bi-trash"></i>
+            </button>
 
-        <div class="icone" id="conta" onclick="irParaConta()">
-          <img src="assets/cruds/conta.svg" alt="">
-          <p>Conta</p>
-        </div>
-        <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
-          <img src="assets/cruds/solicitacoes.svg" alt="">
-          <p>Solicitações</p>
-        </div>
-      </div>
-
-      <div class="icone-saida" onclick="sair()">
-        <img src="assets/gerenciador/sair.svg" alt="">
-      </div>
-    </div>
-
-    <div class="container-section">
-      <h1>Gerenciar Participantes</h1>
-
-      <div class="botoes-direita">
-        <button class="botao adicionar" onclick="telaContato()">
-          Adicionar
-          <i class="bi bi-plus-circle"></i>
-        </button>
-
-        <button class="botao excluir" onclick="executarExclusao()">
-          Excluir
-          <i class="bi bi-trash"></i>
-        </button>
-
-        <button class="botao adicionar editar-btn" style="margin-right: 5%">
-          Editar
-          <i class="bi bi-pencil-square"></i>
-        </button>
-      </div>
+            <button class="botao adicionar editar-btn" style="margin-right: 5%">
+               Editar
+              <i class="bi bi-pencil-square"></i>
+               </button>
+             </div>
 
       <div class="tabela">
         <table class="tabela-participantes">
@@ -94,61 +89,60 @@
             </tr>
           </thead>
           <tbody id="tabelaCorpo">
-          <tr style="position: sticky;">
-            <td><input type="checkbox" class="check-participante" data-id="4"></td>
-            <td>Guilherme</td>
-            <td>usuario@empresa.com</td>
-            <td>125693</td>
-            <td>Analista</td>
-            <td>View</td>
-          </tr>
-        
-          <tr style="position: sticky;">
-            <td><input type="checkbox" class="check-participante" data-id="5"></td>
-            <td>isa</td>
-            <td>usuario@empresa.com</td>
-            <td>1193332174</td>
-            <td>Analista</td>
-            <td>View</td>
-          </tr>
-        </tbody>
+            <tr style="position: sticky;">
+              <td><input type="checkbox" class="check-participante" data-id="4"></td>
+              <td>Guilherme</td>
+              <td>usuario@empresa.com</td>
+              <td>125693</td>
+              <td>Analista</td>
+              <td>View</td>
+            </tr>
+
+            <tr style="position: sticky;">
+              <td><input type="checkbox" class="check-participante" data-id="5"></td>
+              <td>isa</td>
+              <td>usuario@empresa.com</td>
+              <td>1193332174</td>
+              <td>Analista</td>
+              <td>View</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
   </div>
 
  
-    
-    
-    <div id="containerForm" style="display: none;">
 
-  <form id="formEditar" class="form-container" >
-    <h2>Editar Participante</h2>
+  <div id="containerForm" style="display: none;">
 
-    <input type="hidden" id="editarId" name="id" value="5">
+    <form id="formEditar" class="form-container">
+      <h2>Editar Participante</h2>
 
-    <label for="editarNome">Nome:</label>
-    <input type="text" id="editarNome" name="nome" required="">
+      <input type="hidden" id="editarId" name="id" value="5">
 
-    <label for="editarEmail">Email:</label>
-    <input type="email" id="editarEmail" name="email" required="">
+      <label for="editarNome">Nome:</label>
+      <input type="text" id="editarNome" name="nome" required="">
 
-    <label for="editarTelefone">Telefone:</label>
-    <input type="tel" id="editarTelefone" name="telefone" required="">
+      <label for="editarEmail">Email:</label>
+      <input type="email" id="editarEmail" name="email" required="">
 
-    <label for="editarCargo">Cargo:</label>
-    <input type="text" id="editarCargo" name="cargo" required="">
+      <label for="editarTelefone">Telefone:</label>
+      <input type="tel" id="editarTelefone" name="telefone" required="">
 
-    <div class="form-botoes">
-      <button type="submit" id="confirmar-edicao">Salvar</button>
-    <button type="button" id="cancelar-edicao" onclick="fecharcontainerForm()">Cancelar</button>
+      <label for="editarCargo">Cargo:</label>
+      <input type="text" id="editarCargo" name="cargo" required="">
 
-    </div>
-  </form>
-</div>
+      <div class="form-botoes">
+        <button type="submit" id="confirmar-edicao">Salvar</button>
+        <button type="button" id="cancelar-edicao" onclick="fecharcontainerForm()">Cancelar</button>
+
+      </div>
+    </form>
+  </div>
 
   <script>
-   
+
     const tabelaCorpo = document.getElementById("tabelaCorpo");
 
     function adicionarUsuario() {
@@ -214,7 +208,11 @@
       );
 
       if (idsSelecionados.length === 0) {
-        alert("Selecione pelo menos um participante para excluir.");
+        Swal.fire({
+          title: "",
+          text: "Selecione pelo menos um participante para excluir",
+          icon: "question"
+        });
         return;
       }
 
@@ -250,7 +248,7 @@
         })
           .then((resposta) => {
             if (resposta.ok) {
-              return resposta.json(); 
+              return resposta.json();
             } else {
               throw new Error(
                 `Erro ao deletar participante ID ${id}: ${resposta.status}`
@@ -260,19 +258,24 @@
           .then((data) => {
             deletados++;
             if (deletados === ids.length) {
-              alert(data.mensagem); 
-              carregarParticipantes(); 
+              alert(data.mensagem);
+              carregarParticipantes();
             }
           })
           .catch((erro) => {
             console.error("#ERRO ao deletar participante:", erro);
-            alert("Erro ao excluir participantes. Veja o console para detalhes.");
+            Swal.fire({
+              icon: "error",
+              title: "Erro",
+              text: "Erro ao excluir participantes. Veja o console para detalhes",
+
+            });
           });
       });
     }
 
 
-   
+
     function abrircontainerForm(id) {
       const linha = [...tabelaCorpo.rows].find((row) => {
         const checkbox = row.querySelector(".check-participante");
@@ -280,11 +283,17 @@
       });
 
       if (!linha) {
-        alert("Selecione um participante para editar.");
+
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Selecione um participante para editar.",
+
+        });
         return;
       }
 
-     
+
       const nome = linha.cells[1].innerText;
       const email = linha.cells[2].innerText;
       const telefone = linha.cells[3].innerText;
@@ -299,12 +308,12 @@
       document.getElementById("containerForm").style.display = "block";
     }
 
-  
+
     function fecharcontainerForm() {
       document.getElementById("containerForm").style.display = "none";
     }
 
-   
+
     document.getElementById("formEditar").addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -315,11 +324,17 @@
       const cargo = document.getElementById("editarCargo").value.trim();
 
       if (!nome || !email || !telefone || !cargo) {
-        alert("Por favor, preencha todos os campos.");
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Por favor, preencha todos os campos.",
+
+        });
+
         return;
       }
 
-     
+
       fetch(`/participantes/${id}`, {
         method: "PUT",
         headers: {
@@ -329,37 +344,71 @@
       })
         .then((resposta) => {
           if (resposta.ok) {
-            alert("Participante atualizado com sucesso!");
+
+            Swal.fire({
+              title: "Participante atualizado com sucesso!",
+              icon: "success",
+              draggable: true
+            });
+
+
             fecharcontainerForm();
             carregarParticipantes();
           } else if (resposta.status === 404) {
-            alert("Participante não encontrado.");
-          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Erro",
+              text: "Participante não encontrado.",
+
+            });
+
+          }
+
+          else {
             throw new Error("Erro ao editar participante. Código: " + resposta.status);
           }
         })
         .catch((erro) => {
           console.error("#ERRO ao editar participante:", erro);
-          alert("Erro ao editar participante. Veja o console para detalhes.");
+          Swal.fire({
+            icon: "error",
+            title: "Erro",
+            text: "Erro ao editar participante. Veja o console para detalhes",
+
+          });
+
+
         });
     });
 
     document.querySelector(".editar-btn").addEventListener("click", () => {
       const checkboxes = document.querySelectorAll(".check-participante:checked");
       if (checkboxes.length === 0) {
-        alert("Selecione um participante para editar.");
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Selecione um participante para editar",
+        });
+
         return;
       }
       if (checkboxes.length > 1) {
-        alert("Selecione apenas um participante para editar.");
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Selecione apenas um participante para editar",
+
+        });
+
         return;
       }
       const id = Number(checkboxes[0].dataset.id);
       abrircontainerForm(id);
     });
-  
+
   </script>
 
 
 </body>
+
 </html>

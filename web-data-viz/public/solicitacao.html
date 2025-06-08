@@ -116,13 +116,13 @@
                         console.log('Chamada para o cadastro realizado com sucesso');
                         cadastrarUsuario();
                     } else {
-                            Swal.fire({
-                                        icon: "error",
-                                        title: "Oops...",
-                                        text: "Erro ao cadastrar empresa!",
-                                        
-                                    });
-                                    return
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Erro ao cadastrar empresa!",
+
+                        });
+                        return
                     }
                 })
                 .catch(erro => {
@@ -143,22 +143,45 @@
             var senhaVar = Math.random().toString(36).slice(-8);
 
             if (!nomeRepresentanteVar || !emailRepresentanteVar || !cpfVar) {
-                alert('Preencha todos os campos!');
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "Preencha todos os campos!",
+
+                });
+
                 return false;
             }
 
             if (!nomeRepresentanteVar) {
-                alert("Por favor, preencha o nome do representante!");
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "Por favor, preencha o nome do representante!",
+
+                });
                 destacarCampo(document.getElementById('input_nome_representante'));
                 return false;
             }
             if (!emailRepresentanteVar) {
-                alert("Por favor, preencha o email do representante!");
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "Por favor, preencha o email do representante!",
+
+                });
                 destacarCampo(document.getElementById('input_email_representante'));
                 return false;
             }
             if (!cpfVar) {
-                alert("Por favor, preencha o CPF!");
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "Por favor, preencha o CPF!",
+
+                });
                 destacarCampo(document.getElementById('input_cpf'));
                 return false;
             }
@@ -205,7 +228,7 @@
                                         icon: "error",
                                         title: "Erro",
                                         text: "Erro ao enviar as credenciais!",
-                                     
+
                                     });
                                     return
                                 }
@@ -214,13 +237,13 @@
                                 console.error("#ERRO:", erro);
                             });
                     } else {
-                           Swal.fire({
-                                        icon: "error",
-                                        title: "Erro",
-                                        text: "Erro ao cadastrar usuário!",
-                                       
-                                    });
-                                    return
+                        Swal.fire({
+                            icon: "error",
+                            title: "Erro",
+                            text: "Erro ao cadastrar usuário!",
+
+                        });
+                        return
                     }
                 })
 
