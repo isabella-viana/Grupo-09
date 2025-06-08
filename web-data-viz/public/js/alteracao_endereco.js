@@ -1,3 +1,26 @@
+window.addEventListener("load", () => {
+  const idempresa = sessionStorage.getItem("ID_EMPRESA");
+
+  if (!idempresa) {
+    console.error("ID_ENDERECO não encontrado no sessionStorage");
+    return;
+  }
+
+  fetch(`/endereco/buscarCnpj/${idempresa}`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Erro ao buscar informações.");
+      }
+      return res.json();
+    })
+    .then((dados) => {
+      document.getElementById("cnpj").value = dados.cnpj;
+    })
+    .catch((erro) => {
+      console.error("#ERRO ao carregar dados:", erro);
+    });
+});
+
 function adicionarEndereco() {
   var cep = document.getElementById("cep").value.trim();
   var logradouro = document.getElementById("logradouro").value.trim();

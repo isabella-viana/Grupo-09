@@ -26,4 +26,8 @@ router.get("/buscarInformacoes/:id", function (req, res) {
   enderecoController.buscarInformacoes(req, res);
 });
 
+router.get("/buscarCnpj/:id", function (req, res) {
+  enderecoController.buscarCnpj(req, res);
+});
+
 module.exports = router;

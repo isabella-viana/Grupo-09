@@ -21,6 +21,11 @@ function buscarInformacoes(idEndereco) {
   return database.executar(instrucao);
 }
 
+function buscarCnpj(idempresa) {
+  var instrucaoSql = `SELECT cnpj FROM empresa WHERE idempresa = ${idempresa};`;
+  return database.executar(instrucaoSql);
+}
+
 function buscarPorCEP(cep) {
   var instrucaoSql = `SELECT * FROM endereco WHERE cep = '${cep}';`;
   return database.executar(instrucaoSql);
@@ -92,4 +97,5 @@ module.exports = {
   buscarPorId,
   atualizarEndereco,
   buscarInformacoes,
+  buscarCnpj,
 };

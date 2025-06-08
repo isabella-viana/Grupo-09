@@ -21,6 +21,27 @@ function buscarInformacoes(req, res) {
     });
 }
 
+function buscarCnpj(req, res) {
+  var idempresa = req.params.id;
+
+  if (!idempresa) {
+    return res.status(400).json({ mensagem: "ID do CNPJ não fornecido." });
+  }
+
+  enderecoModel
+    .buscarCnpj(idempresa)
+    .then((resultado) => {
+      if (resultado.length === 0) {
+        return res.status(404).json({ mensagem: "CNPJ não encontrado." });
+      }
+      res.status(200).json(resultado[0]);
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar informações:", erro);
+      res.status(500).json({ mensagem: "Erro no servidor ao buscar dados." });
+    });
+}
+
 function buscarPorCEP(req, res) {
   var cep = req.query.cep;
 
@@ -204,4 +225,5 @@ module.exports = {
   buscarPorId,
   atualizarEndereco,
   buscarInformacoes,
+  buscarCnpj,
 };
