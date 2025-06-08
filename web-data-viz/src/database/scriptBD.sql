@@ -20,12 +20,14 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
-    nome VARCHAR(60), 
+    nome VARCHAR(60),
+	userName VARCHAR(60), 
     cpf CHAR(11),
     telefone VARCHAR(15),
     email VARCHAR(45),
     senha VARCHAR(45),
     cargo VARCHAR(45),
+    nivelAcesso VARCHAR(25),
     qtdAcessos INT,
     dataNascimento DATE,
     empresa_idempresa INT,
@@ -95,7 +97,3 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
-
-select * from usuario;
-
-drop database eleva;
