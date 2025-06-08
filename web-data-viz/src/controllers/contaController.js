@@ -1,13 +1,13 @@
 var contaModel = require("../models/contaModel");
 
 function buscarPorId(req, res) {
-  var idempresa = req.query.cnpj;
+  var cnpj = req.query.cnpj;
 
   enderecoModel
     .buscarPorId(cnpj)
     .then((resultado) => {
       if (!resultado || resultado.length === 0) {
-        console.error("Nenhuma empresa encontrada:", idempresa);
+        console.error("Nenhuma empresa encontrada com o CNPJ:", cnpj);
         res.status(404).json({ mensagem: "Empresa não encontrada." });
         return;
       }
@@ -52,49 +52,40 @@ function buscarPorEmailOuUsername(req, res) {
 }
 
 function cadastrarUsuario(req, res) {
-  var { nome, contato, userName, email, cargo, cpf, idempresa, senha } =
+  var { nome, contato, userName, email, cargo, cpf, senha, idempresa } =
     req.body;
 
-  contaModel.buscarPorId(idempresa).then((resultadoEmpresa) => {
-    if (resultadoEmpresa.length == 0) {
-      return res.status(404).json({ mensagem: "Empresa não encontrada." });
-    }
+  contaModel
+    .buscarPorEmailOuUsername(email, userName)
+    .then((resultadoUsuario) => {
+      if (resultadoUsuario.length > 0) {
+        return res.status(409).json({
+          mensagem: "Usuário já cadastrado com este e-mail ou nome de usuário.",
+        });
+      }
 
-    var idempresa = resultadoEmpresa[0].idempresa;
-
-    contaModel
-      .buscarPorEmailOuUsername(email, userName)
-      .then((resultadoUsuario) => {
-        if (resultadoUsuario.length > 0) {
-          return res.status(409).json({
-            mensagem:
-              "Usuário já cadastrado com este e-mail ou nome de usuário.",
+      contaModel
+        .cadastrarUsuario(
+          nome,
+          contato,
+          userName,
+          email,
+          cargo,
+          cpf,
+          senha,
+          idempresa
+        )
+        .then((resultado) => {
+          res.status(201).json({
+            mensagem: "Usuário cadastrado com sucesso!",
+            dados: resultado,
           });
-        }
-
-        contaModel
-          .cadastrarUsuario(
-            nome,
-            contato,
-            userName,
-            email,
-            cargo,
-            cpf,
-            senha,
-            idempresa
-          )
-          .then((resultado) => {
-            res.status(201).json({
-              mensagem: "Usuário cadastrado com sucesso!",
-              dados: resultado,
-            });
-          })
-          .catch((erro) => {
-            console.error("Erro ao cadastrar o usuário:", erro);
-            res.status(500).json({ mensagem: "Erro ao cadastrar usuário." });
-          });
-      });
-  });
+        })
+        .catch((erro) => {
+          console.error("Erro ao cadastrar o usuário:", erro);
+          res.status(500).json({ mensagem: "Erro ao cadastrar usuário." });
+        });
+    });
 }
 
 module.exports = {
