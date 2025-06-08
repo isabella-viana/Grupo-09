@@ -11,6 +11,7 @@
   pointer-events: auto;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   height: 100vh;
   width: 100vw;
@@ -50,7 +51,7 @@ body {
   gap: 1vh;
 }
 
-.titulo{
+.titulo {
   font-size: 2.5vh;
   color: white;
   font-weight: 300;
@@ -110,18 +111,18 @@ body {
 }
 
 /* Tabela */
-.tabela{
+.tabela {
   width: 80%;
   height: 60%;
-    overflow-y: auto;
+  overflow-y: auto;
   overflow-x: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 .tabela-participantes {
   width: 100%;
-  table-layout: fixed; 
-  overflow-y:hidden;
+  table-layout: fixed;
+  overflow-y: hidden;
 }
 
 .tabela-participantes th,
@@ -165,6 +166,7 @@ body {
   object-fit: cover;
   vertical-align: middle;
 }
+
 .tabela-participantes td input[type="checkbox"] {
   width: 1.5vw;
   height: 1.5vw;
@@ -205,39 +207,39 @@ h2 {
 }
 
 label {
-  font-size: 2.5vh;
-  font-weight: 100;
+ font-size: 2.5vh;
+  font-weight: 400;
   color: white;
   display: flex;
   align-items: center;
 }
 
 .form-container {
- background: #77adcb;
-    padding: 2vw;
-    border-radius: 10px;
-    width: 40vw;
-    height: 45vw;
-    max-width: 400px;
-    flex-direction: column;
-    position: absolute;
-    margin-left: 40%;
-    margin-bottom: 25%;
-    justify-content: center;
+  background: #77adcb;
+  padding: 2vw;
+  border-radius: 10px;
+  width: 30vw;
+  height: 40vw;
+  max-width: 400px;
+  flex-direction: column;
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 3%;
+  justify-content: center;
 }
 
 
 #containerForm {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .form-botoes {
@@ -252,8 +254,8 @@ label {
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
-  width: 12vw;
-  height: 4vw;
+  width: 10vw;
+  height: 3vw;
 
 }
 
@@ -281,4 +283,22 @@ label {
   transform: scale(1.05);
 }
 
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"] {
+  width: 100%;
+  height: 30%;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.3s ease;
+  outline: none;
+  padding: 3%;
+}
 
+.form-container input:focus {
+  border-color: #012A4A;
+
+  background-color: rgba(255, 255, 255, 0.15);
+}
