@@ -1,3 +1,5 @@
+user.innerHTML = sessionStorage.getItem("NOME");
+
 function cadastrar() {
   const idempresa = sessionStorage.getItem("ID_EMPRESA");
   var nome = document.getElementById("nome").value.trim();
