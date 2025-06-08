@@ -1,6 +1,7 @@
 CREATE DATABASE IF NOT EXISTS eleva;
 use eleva;
 
+
 CREATE TABLE uf (
     idUF INT PRIMARY KEY auto_increment,
     UF VARCHAR(45),
@@ -19,8 +20,7 @@ CREATE TABLE empresa (
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
-    nome VARCHAR(60),
-    userName VARCHAR(60), 
+    nome VARCHAR(60), 
     cpf CHAR(11),
     telefone VARCHAR(15),
     email VARCHAR(45),
@@ -71,8 +71,11 @@ CREATE TABLE contrato (
 CREATE TABLE configuracao_slack (
     url VARCHAR(100) PRIMARY KEY,
     isAtivo TINYINT,
-    mensagem VARCHAR(100),
-    dataEnvio DATETIME
+    processo_etl TINYINT,
+    processo_solicitacao TINYINT,
+    dataEnvio TIMESTAMP,
+    idUsuario INT,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario) on delete cascade
 );
 
 CREATE TABLE log (
@@ -92,3 +95,7 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
+
+select * from usuario;
+
+drop database eleva;
