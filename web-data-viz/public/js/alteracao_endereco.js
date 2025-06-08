@@ -1,3 +1,6 @@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 function adicionarEndereco() {
   var cep = document.getElementById("cep").value.trim();
   var logradouro = document.getElementById("logradouro").value.trim();
@@ -12,57 +15,113 @@ function adicionarEndereco() {
   var apelido = document.getElementById("apelido").value.trim();
 
   if (!cep) {
-    alert("Por favor, preencha o campo de CEP");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha o campo de CEP",
+
+              });
     return false;
   }
 
   if (!logradouro) {
-    alert("Por favor, preencha o campo de Logradouro");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha o campo de Logradouro",
+
+              });
     return false;
   }
 
   if (!numeroStr) {
-    alert("Por favor, preencha o campo de CEP");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha o campo de numero",
+
+              });
+  
     return false;
   }
 
   if (!bairro) {
-    alert("Por favor, preencha o campo de CEP");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha o campo de bairro",
+
+              });
     return false;
   }
 
   if (!cidade) {
-    alert("Por favor, preencha o campo de CEP");
+  Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todo o campo de cidade",
+
+              });
     return false;
   }
 
   if (!estado) {
-    alert("Por favor, preencha o campo de CEP");
+   Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todo o campo estado",
+
+              });
     return false;
   }
 
   if (!cnpj) {
-    alert("Por favor, preencha o campo de CEP");
+   Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todo o campo CNPJ",
+
+              });
     return false;
   }
 
   if (!gerente) {
-    alert("Por favor, preencha o campo de CEP");
+   Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todo o campo gerente",
+
+              });
     return false;
   }
 
   if (!complemento) {
-    alert("Por favor, preencha o campo de CEP");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todo o campo complemento",
+
+              });
     return false;
   }
 
   if (!apelido) {
-    alert("Por favor, preencha o campo de CEP");
+  Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todos os campo apelido",
+
+              });
     return false;
   }
 
   if (isNaN(numero) || numero <= 0) {
-    alert("Por favor, insira um número válido para o campo Número.");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, insira um número válido para o campo Número",
+
+              });
     return;
   }
 
@@ -87,6 +146,12 @@ function adicionarEndereco() {
     .then((res) => {
       if (res.ok) {
         alert("Endereço cadastrado com sucesso!");
+         Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Endereço cadastrado com sucesso!",
+
+              });
         window.location.reload();
       } else {
         return res.json().then((data) => {
@@ -127,9 +192,12 @@ function editarEndereco() {
     !complemento,
     !apelido)
   ) {
-    alert(
-      "Para atualização do endereço é preciso passar todas as informações."
-    );
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Para atualização do endereço é preciso passar todas as informações",
+
+              });
     return false;
   }
 
@@ -153,7 +221,13 @@ function editarEndereco() {
   })
     .then((res) => {
       if (res.ok) {
-        alert("Endereço atualizado com sucesso!");
+         Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Endereço atualizado com sucesso!",
+
+              });
+
         window.location.reload();
       } else {
         return res.json().then((data) => {

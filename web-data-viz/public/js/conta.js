@@ -1,5 +1,6 @@
 // const nome = sessionStorage.NOME_USUARIO;
 // const email = sessionStorage.EMAIL_USUARIO;
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 function cadastrar() {
   var nome = document.getElementById("nome").value.trim();
@@ -11,7 +12,12 @@ function cadastrar() {
   var senha = document.getElementById("senha").value.trim();
 
   if (!nome || !contato || !userName || !email || !senha || !cnpj || !cargo) {
-    alert("Por favor, preencha todos os campos obrigatórios.");
+     Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Por favor, preencha todos os campos obrigatórios.",
+
+              });
     return;
   }
 
@@ -34,19 +40,35 @@ function cadastrar() {
   })
     .then((resposta) => {
       if (resposta.ok) {
-        alert("Usuário cadastrado com sucesso!");
+           Swal.fire({
+                title: "Usuário cadastrado com sucesso!",
+                icon: "success",
+                draggable: true
+              });
+
         window.location.reload();
       } else {
         resposta.json().then((data) => {
           console.error("Erro do servidor:", data);
+           Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Erro ao cadastrar usuário:.",
+
+              });
           alert(
-            "Erro ao cadastrar usuário: " + (data.erro || "Erro desconhecido.")
+             (data.erro || "Erro desconhecido.")
           );
         });
       }
     })
     .catch((erro) => {
       console.error("Erro de conexão:", erro);
-      alert("Erro ao conectar com o servidor.");
+       Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Erro ao conectar com o servidor.",
+
+              });
     });
 }
