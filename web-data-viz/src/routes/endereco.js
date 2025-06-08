@@ -18,8 +18,16 @@ router.post("/buscarNome", function (req, res) {
   enderecoController.buscarPorNome(req, res);
 });
 
-router.post("/atualizar", function (req, res) {
+router.put("/atualizar", function (req, res) {
   enderecoController.atualizarEndereco(req, res);
+});
+
+router.get("/buscarInformacoes/:id", function (req, res) {
+  enderecoController.buscarInformacoes(req, res);
+});
+
+router.get("/buscarCnpj/:id", function (req, res) {
+  enderecoController.buscarCnpj(req, res);
 });
 
 module.exports = router;
