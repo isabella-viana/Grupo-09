@@ -1,290 +1,233 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Empresas | ELEVA</title>
-    <link rel="stylesheet" href="css/solicitacao.css">
-    <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/padronizacao.css">
+  <link rel="stylesheet" href="css/solicitacao.css">
+  <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Dashboard | ELEVA</title>
 </head>
 
 <body>
-    <div class="container">
+  <header>
+    <div class="header-container">
+      <a href="./index.html"><img src="assets/home/logo.svg" alt=""></a>
+    </div>
+  </header>
+
+  <div class="container-principal">
+    <div class="cabecalho-esquerdo">
+      <div class="opcoes-cabecalho">
+        <div class="foto-usuario">
+          <img src="assets/gerenciador/User.svg" alt="">
+          <p>Eleva User</p>
+        </div>
+
+        <div class="icone" id="dash">
+          <i class="bi bi-bell-fill"></i>
+          <p>Solicitações</p>
+        </div>
+
+        <div class="icone" id="enderecos" onclick="irParaConfiguracoes()">
+          <i class="bi bi-gear-fill"></i>
+          <p>Configurações</p>
+        </div>
+      </div>
+
+      <div class="icone-saida" onclick="sair()">
+        <a href="./index.html"><img src="assets/gerenciador/sair.svg" alt="Sair"></a>
+      </div>
+    </div>
+
+    <div class="container-section">
+      <div class="container">
         <div class="solicitacoes">
-            <h2>Solicitações</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Razão social</th>
-                        <th>Nome empresa</th>
-                        <th>Email contato</th>
-                        <th>CNPJ</th>
-                    </tr>
-                </thead>
-                <tbody id="tabela_empresas">
-                </tbody>
-            </table>
+          <h2>Solicitações</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Razão social</th>
+                <th>Nome empresa</th>
+                <th>Email contato</th>
+                <th>CNPJ</th>
+              </tr>
+            </thead>
+            <tbody id="tabela_empresas"></tbody>
+          </table>
         </div>
 
         <div class="formulario">
-            <h2>ELEVA</h2>
-            <form onsubmit="return false;">
-                <div class="campo">
-                    <p>Razão Social</p>
-                    <input type="text" id="input_razao_social" placeholder="">
-                </div>
-
-                <div class="campo">
-                    <p>Nome Fantasia</p>
-                    <input type="text" id="input_nome_fantasia" placeholder="">
-                </div>
-
-                <div class="campo">
-                    <p>CNPJ</p>
-                    <input type="text" id="input_cnpj" placeholder="">
-                </div>
-
-                <div class="campo">
-                    <p>Nome Representante</p>
-                    <input type="text" id="input_nome_representante" placeholder="">
-                </div>
-
-                <div class="campo">
-                    <p>Email Representante</p>
-                    <input type="email" id="input_email_representante" placeholder="">
-                </div>
-
-                <div class="campo">
-                    <p>CPF</p>
-                    <input type="text" id="input_cpf" placeholder="">
-                </div>
-
-                <button type="submit" onclick="cadastrarEmpresa()">Registrar</button>
-            </form>
-
-            <div class="home-icon">
-                <img src="assets/cruds/home.svg" alt="Home" />
+          <h2>ELEVA</h2>
+          <form onsubmit="return false;">
+            <div class="campo">
+              <p>Razão Social</p>
+              <input type="text" id="input_razao_social" placeholder="">
             </div>
+
+            <div class="campo">
+              <p>Nome Fantasia</p>
+              <input type="text" id="input_nome_fantasia" placeholder="">
+            </div>
+
+            <div class="campo">
+              <p>CNPJ</p>
+              <input type="text" id="input_cnpj" placeholder="">
+            </div>
+
+            <div class="campo">
+              <p>Nome Representante</p>
+              <input type="text" id="input_nome_representante" placeholder="">
+            </div>
+
+            <div class="campo">
+              <p>Email Representante</p>
+              <input type="email" id="input_email_representante" placeholder="">
+            </div>
+
+            <div class="campo">
+              <p>CPF</p>
+              <input type="text" id="input_cpf" placeholder="">
+            </div>
+
+            <button type="submit" onclick="cadastrarEmpresa()">Registrar</button>
+          </form>
+
+          <div class="home-icon">
+            <img src="assets/cruds/home.svg" alt="Home" />
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
+  <script>
+    function irParaConfiguracoes() {
+      window.location.href = "./configuracaoSlack.html";
+    }
 
-    <script>
+    function destacarCampo(campo) {
+      campo.style.border = "2px solid red";
+    }
 
-        function cadastrarEmpresa() {
+    function cadastrarEmpresa() {
+      const razaoSocialVar = document.getElementById('input_razao_social').value;
+      const nomeFantasiaVar = document.getElementById('input_nome_fantasia').value;
+      const cnpjVar = document.getElementById('input_cnpj').value;
 
-            var razaoSocialVar = document.getElementById('input_razao_social').value;
-            var nomeFantasiaVar = document.getElementById('input_nome_fantasia').value;
-            var cnpjVar = document.getElementById('input_cnpj').value;
+      if (!razaoSocialVar || !nomeFantasiaVar || !cnpjVar) {
+        Swal.fire("Erro", "Preencha os campos da empresa!", "error");
+        return false;
+      }
 
-            if (!razaoSocialVar || !nomeFantasiaVar || !cnpjVar) {
-                alert('Preencha todos os campos!');
-                return false;
-            }
+      fetch("/empresas/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          razaoSocial: razaoSocialVar,
+          nomeFantasia: nomeFantasiaVar,
+          cnpj: cnpjVar
+        }),
+      })
+        .then(res => {
+          if (res.ok) {
+            console.log('Empresa cadastrada com sucesso');
+            cadastrarUsuario();
+          } else {
+            Swal.fire("Oops...", "Erro ao cadastrar empresa!", "error");
+          }
+        })
+        .catch(erro => {
+          console.error("#ERRO:", erro);
+        });
+    }
 
-            if (!razaoSocialVar) {
-                alert("Por favor, preencha a Razão Social!");
-                destacarCampo(document.getElementById('input_razao_social'));
-                return false;
-            }
-            if (!nomeFantasiaVar) {
-                alert("Por favor, preencha o Nome Fantasia!");
-                destacarCampo(document.getElementById('input_nome_fantasia'));
-                return false;
-            }
-            if (!cnpjVar) {
-                alert("Por favor, preencha o CNPJ!");
-                destacarCampo(document.getElementById('input_cnpj'));
-                return false;
-            }
+    function cadastrarUsuario() {
+      console.log("Cadastrando usuário para a empresa...");
 
-            fetch("/empresas/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    razaoSocial: razaoSocialVar,
-                    nomeFantasia: nomeFantasiaVar,
-                    cnpj: cnpjVar
-                }),
+      const nomeRepresentanteVar = document.getElementById('input_nome_representante').value;
+      const emailRepresentanteVar = document.getElementById('input_email_representante').value;
+      const cpfVar = document.getElementById('input_cpf').value;
+      const cnpjVar = document.getElementById('input_cnpj').value;
+      const senhaVar = Math.random().toString(36).slice(-8);
+
+      if (!nomeRepresentanteVar || !emailRepresentanteVar || !cpfVar) {
+        Swal.fire("Erro", "Preencha todos os dados do representante!", "error");
+        return false;
+      }
+
+      fetch("/usuarios/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeRepresentante: nomeRepresentanteVar,
+          emailRepresentante: emailRepresentanteVar,
+          cpf: cpfVar,
+          cnpj: cnpjVar,
+          senha: senhaVar
+        }),
+      })
+        .then(res => {
+          if (res.ok) {
+            Swal.fire("Sucesso", "Cadastro realizado com sucesso!", "success");
+            fetch("/envioCredenciais/envio", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                emailRepresentante: emailRepresentanteVar,
+                senha: senhaVar
+              }),
             })
-                .then(res => {
-                    if (res.ok) {
-                        console.log('Chamada para o cadastro realizado com sucesso');
-                        cadastrarUsuario();
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "Erro ao cadastrar empresa!",
+              .then(res => {
+                if (!res.ok) {
+                  Swal.fire("Erro", "Erro ao enviar as credenciais!", "error");
+                }
+              })
+              .catch(erro => {
+                console.error("#ERRO ENVIO CREDENCIAIS:", erro);
+              });
+          } else {
+            Swal.fire("Erro", "Erro ao cadastrar usuário!", "error");
+          }
+        })
+        .catch(erro => {
+          console.error("#ERRO USUARIO:", erro);
+        });
+    }
 
-                        });
-                        return
-                    }
-                })
-                .catch(erro => {
-                    console.error("#ERRO:", erro);
-                });
+    function carregarEmpresasPendentes() {
+      console.log("Carregando empresas pendentes...");
+      fetch("/leads/pendentes")
+        .then(res => res.json())
+        .then(empresas => {
+          const tbody = document.querySelector(".solicitacoes tbody");
+          tbody.innerHTML = "";
 
-            return false;
-        }
-
-        function cadastrarUsuario() {
-
-            console.log("Cadastrando usuário para a empresa...");
-
-            var nomeRepresentanteVar = document.getElementById('input_nome_representante').value;
-            var emailRepresentanteVar = document.getElementById('input_email_representante').value;
-            var cpfVar = document.getElementById('input_cpf').value;
-            var cnpjVar = document.getElementById('input_cnpj').value;
-            var senhaVar = Math.random().toString(36).slice(-8);
-
-            if (!nomeRepresentanteVar || !emailRepresentanteVar || !cpfVar) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Erro",
-                    text: "Preencha todos os campos!",
-
-                });
-
-                return false;
-            }
-
-            if (!nomeRepresentanteVar) {
-
-                Swal.fire({
-                    icon: "error",
-                    title: "Erro",
-                    text: "Por favor, preencha o nome do representante!",
-
-                });
-                destacarCampo(document.getElementById('input_nome_representante'));
-                return false;
-            }
-            if (!emailRepresentanteVar) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Erro",
-                    text: "Por favor, preencha o email do representante!",
-
-                });
-                destacarCampo(document.getElementById('input_email_representante'));
-                return false;
-            }
-            if (!cpfVar) {
-
-                Swal.fire({
-                    icon: "error",
-                    title: "Erro",
-                    text: "Por favor, preencha o CPF!",
-
-                });
-                destacarCampo(document.getElementById('input_cpf'));
-                return false;
-            }
-
-            fetch("/usuarios/cadastro", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    nomeRepresentante: nomeRepresentanteVar,
-                    emailRepresentante: emailRepresentanteVar,
-                    cpf: cpfVar,
-                    cnpj: cnpjVar,
-                    senha: senhaVar
-                }),
-            })
-                .then(res => {
-                    if (res.ok) {
-                        Swal.fire({
-                            title: "Cadastro da empresa e do representante realizado com sucesso!",
-                            icon: "success",
-                            draggable: true
-                        });
-
-
-                        console.log('Chamada para o cadastro realizado com sucesso');
-
-                        fetch("/envioCredenciais/envio", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({
-                                emailRepresentante: emailRepresentanteVar,
-                                senha: senhaVar
-                            }),
-                        })
-                            .then(res => {
-                                if (res.ok) {
-
-                                } else {
-                                    Swal.fire({
-                                        icon: "error",
-                                        title: "Erro",
-                                        text: "Erro ao enviar as credenciais!",
-
-                                    });
-                                    return
-                                }
-                            })
-                            .catch(erro => {
-                                console.error("#ERRO:", erro);
-                            });
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Erro",
-                            text: "Erro ao cadastrar usuário!",
-
-                        });
-                        return
-                    }
-                })
-
-                .catch(erro => {
-                    console.error("#ERRO:", erro);
-                });
-
-            return false;
-        }
-
-        function carregarEmpresasPendentes() {
-            console.log("Carregando empresas pendentes...");
-            fetch("/leads/pendentes")
-                .then(res => res.json())
-                .then(empresas => {
-                    const tbody = document.querySelector(".solicitacoes tbody");
-                    tbody.innerHTML = "";
-
-                    empresas.forEach(empresa => {
-                        const tr = document.createElement("tr");
-                        tr.innerHTML = `
-                        <td>${empresa.razao_social}</td>
-                        <td>${empresa.nome_fantasia}</td>
-                        <td>${empresa.email}</td>
-                        <td>${empresa.cnpj}</td>
-                    `;
-                        tbody.appendChild(tr);
-                    });
-                })
-                .catch(erro => {
-                    console.error("Erro ao carregar empresas:", erro);
-                });
-        }
-
-        window.onload = carregarEmpresasPendentes;
-
-
-
-
-    </script>
-
+          empresas.forEach(empresa => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${empresa.razao_social}</td>
+              <td>${empresa.nome_fantasia}</td>
+              <td>${empresa.email}</td>
+              <td>${empresa.cnpj}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(erro => {
+          console.error("#ERRO AO CARREGAR EMPRESAS:", erro);
+        });
+    }
+  </script>
 </body>
 
 </html>

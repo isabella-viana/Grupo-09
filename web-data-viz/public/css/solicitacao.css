@@ -12,6 +12,15 @@ html, body{
     height: 100%;
     cursor: default;
 }
+.container-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 87%;
+    height: 100%;
+    background: linear-gradient(90deg, #FFFFFF 6%, #77ADCB 100%);
+}
 
 
 .container {
@@ -32,11 +41,7 @@ html, body{
 .solicitacoes h2 {
     text-align: center;
     color: #2E7094;
-    margin-bottom: 4vh;
-    position: relative;
-    bottom: -4%;
-    font-size: 8.2vh;
-     font-weight:390;
+    margin-top: 5%;
 }
 
 table {
@@ -72,8 +77,6 @@ td {
 
 .formulario {
     background-color: white;
-    padding: 30px;
-    border-radius: 15px;
     width: 50%;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
     height: 100%;
@@ -83,18 +86,17 @@ td {
 .formulario h2 {
     text-align: center;
     color: #77ADCB;
-    margin-top: 20px;
     font-weight: 100;
-    font-size: 70px;
+    font-weight: 300;
+    font-size: 50px;
     position: relative;
-      margin-bottom: 20px;
+
 }
 
 
 .formulario form {
     display: flex;
     flex-direction: column;
-    gap: 10px; 
     width: 100%;
     align-items: center;
 }
@@ -113,6 +115,8 @@ td {
     display: flex;
     flex-direction: column;
     width: 80%;
+    height: 5%;
+
 }
 
 .campo p {
@@ -139,7 +143,7 @@ td {
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 8px;
     transition: background-color 0.3s ease;
     width: 40%;
     font-size: 25px;
@@ -153,8 +157,8 @@ td {
 
 .home-icon {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10%;
+    right: 3%;
 }
 
 .home-icon img {

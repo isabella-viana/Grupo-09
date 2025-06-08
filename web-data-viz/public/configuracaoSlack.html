@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/padronizacao.css">
+    <link rel="stylesheet" href="css/configuracaoSlack.css">
+    <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Dashboard | ELEVA</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="assets/home/logo.svg" alt="">
+        </div>
+    </header>
+
+    <div class="container-principal">
+
+
+        <div class="cabecalho-esquerdo">
+
+            <div class="opcoes-cabecalho">
+                <div class="foto-usuario">
+                    <img src="assets/gerenciador/User.svg" alt="">
+                    <p>Eleva User</p>
+                </div>
+
+                <div class="icone" id="dash" onclick="irParaSolicitacoes()">
+            <i class="bi bi-bell-fill"></i>
+                    <p>Solicitações</p>
+                </div>
+
+                <div class="icone" id="enderecos">
+                    <i class="bi bi-gear-fill"></i>
+                    <p>Configurações</p>
+                </div>
+
+            
+            </div>
+
+            <div class="icone-saida" onclick="sair()">
+                <img src="assets/gerenciador/sair.svg" alt="">
+            </div>
+        </div>
+
+
+        <div class="container-section">
+            <div class="informacoes">
+                <div class="titulo">
+                    <h1>Configurações Slack</h1>
+                </div>
+                <div class="subtitulos">
+                    <p>Personalize as notificações do seu slack, confira abaixo as opções</p>
+                </div>
+                <div class="checkboxs">
+                    <div class="checkbox">
+                        
+                        <div class="texto">
+                            <select name="solicitacao" id="solicitacao">
+                            <option value=""></option>
+                            <option value="true"> Ativado </option>
+                            <option value="false"> Desativado </option>
+                           </select>
+                            <p> Habilitar envio de notificação para o Slack </p>
+                        </div>
+                    </div>
+                    <div class="checkbox">
+
+                        <div class="texto">
+                            <select name="solicitacao" id="solicitacao">
+                            <option value=""></option>
+                            <option value="true"> Ativado </option>
+                            <option value="false"> Desativado </option>
+                           </select>
+                            <p> Receber notificação de processo da ETL</p>
+                        </div>
+                    </div>
+                    <div class="checkbox">
+
+                        <div class="texto">
+                           <select name="solicitacao" id="solicitacao">
+                            <option value=""></option>
+                            <option value="true"> Ativado </option>
+                            <option value="false"> Desativado </option>
+
+                           </select> <p> Receber notificação de novas solicitações </p>
+                        </div>
+                    </div>
+                </div>
+
+                <button> Salvar Informacoes</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <script>
+        function irParaSolicitacoes(){
+                window.location.href = "./solicitacao.html";
+        }
+    </script>
+
+</html>
