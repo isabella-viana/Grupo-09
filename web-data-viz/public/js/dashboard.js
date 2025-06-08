@@ -16,7 +16,6 @@ window.onload = function () {
     var todas = "todas";
     buscarClasses();
     buscarMapaCalor();
-    coresMapa();
     checkBox(todas);
 
 
@@ -92,16 +91,17 @@ function buscarMapaCalor() {
                 console.log("Em formato JSON:", JSON.stringify(json));
 
 
-                const  UFMAPACALOR= json.map(item => item.UFMAPACALOR);
-                const  CONSUMOTOTALMAPACALOR= json.map(item => Number(item.CONSUMOTOTALMAPACALOR));
+                const UFMAPACALOR = json.map(item => item.uf);
+                const CONSUMOTOTALMAPACALOR = json.map(item => Number(item.consumo_total_2024));
 
                 sessionStorage.setItem("UFMAPACALOR", JSON.stringify(UFMAPACALOR));
                 sessionStorage.setItem("CONSUMOTOTALMAPACALOR", JSON.stringify(CONSUMOTOTALMAPACALOR));
 
                 console.log("UF do mapa de calor", UFMAPACALOR);
-                console.log("Consumo do mapa de calor", CONSUMOTOTALMAPACALOR);      
-
-            //  coresMapa(UFMAPACALOR, CONSUMOTOTALMAPACALOR)
+                console.log("Consumo do mapa de calor", CONSUMOTOTALMAPACALOR);
+                console.log("Estou chamando a função coresMapa()")
+                console.log(UFMAPACALOR, CONSUMOTOTALMAPACALOR)
+                coresMapa(UFMAPACALOR, CONSUMOTOTALMAPACALOR)
             });
         } else {
             console.log("Erro ao puxar os dados do back-end.");
@@ -111,10 +111,10 @@ function buscarMapaCalor() {
     });
 
     return false;
-    
+
 }
 
-function buscarClasses(){
+function buscarClasses() {
     console.log("Entrei no buscarClasse()");
 
     fetch("/medidas/buscarClasse", {
@@ -136,9 +136,9 @@ function buscarClasses(){
 
                 const CLASSE = json.map(item => item.classe);
                 const CONSUMO_CLASSE = json.map(item => Number(item.consumo_total_classe));
-                const PORCENTAGEM_CONSUMO_CLASSE = json.map(item =>item.percentual_consumo);
+                const PORCENTAGEM_CONSUMO_CLASSE = json.map(item => item.percentual_consumo);
                 const CONSUMOTOTAL = json.map(item => Number(item.consumo_total_2024));
-               
+
 
 
 
@@ -151,9 +151,9 @@ function buscarClasses(){
                 console.log("Classe:", CLASSE);
                 console.log("Consumo da Classe", CONSUMO_CLASSE);
                 console.log("Porcentagem do consumo:", PORCENTAGEM_CONSUMO_CLASSE);
-                console.log("Porcentagem Total do Ultimo Ano",CONSUMOTOTAL)
+                console.log("Porcentagem Total do Ultimo Ano", CONSUMOTOTAL)
 
-             criarGraficoClasse(CLASSE,CONSUMO_CLASSE, PORCENTAGEM_CONSUMO_CLASSE, CONSUMOTOTAL)
+                criarGraficoClasse(CLASSE, CONSUMO_CLASSE, PORCENTAGEM_CONSUMO_CLASSE, CONSUMOTOTAL)
             });
         } else {
             console.log("Erro ao puxar os dados do back-end.");
@@ -206,8 +206,8 @@ function verificar(estado) {
                 criarGraficoConsumo(ANOS, CONSUMO, estado);
                 atualizarKPIs(ANOS, CONSUMO, CONSUMIDORES, estado)
 
-        
-             
+
+
             });
         } else {
             console.log("Erro ao puxar os dados do back-end.");
@@ -224,9 +224,10 @@ const consumidores = JSON.parse(sessionStorage.getItem("CONSUMIDORES"));
 
 var graficoConsumidores = []
 
-function criarGraficoClasse(classe, consumoClasse,porcentagemClasse,consumoTotal){
-    if(classe == null || consumoClasse == null || porcentagemClasse == null || consumoTotal == null){
-        return null}
+function criarGraficoClasse(classe, consumoClasse, porcentagemClasse, consumoTotal) {
+    if (classe == null || consumoClasse == null || porcentagemClasse == null || consumoTotal == null) {
+        return null
+    }
 
     console.log("Estou tentando criar o gráfico de classes")
     Highcharts.chart('energiasMaisConsumidas', {
@@ -391,9 +392,9 @@ function criarGraficoConsumidores(anos, consumidores, estado) {
                 column: {
                     dataLabels: {
                         enabled: true,
-                         style: {
-                    fontSize: '8.5px',
-                },
+                        style: {
+                            fontSize: '8.5px',
+                        },
 
                     }
                 }
@@ -520,9 +521,9 @@ function criarGraficoConsumo(anos, consumo, estado) {
                 column: {
                     dataLabels: {
                         enabled: true,
-                     style: {
-                    fontSize: '8.5px',
-                },
+                        style: {
+                            fontSize: '8.5px',
+                        },
                     }
                 }
             },
@@ -624,76 +625,49 @@ function selecaoRegioes(nome) {
 
 }
 
-function coresMapa() {
-    var estados = [];
-    var numerosAleatorios = [
-        1, // Acre
-        3, // Alagoas
-        1, // Amapá
-        3, // Amazonas
-        5, // Bahia
-        4, // Ceará
-        6, // Distrito Federal
-        5, // Espírito Santo
-        5, // Goiás
-        3, // Maranhão
-        5, // Mato Grosso
-        4, // Mato Grosso do Sul
-        7, // Minas Gerais
-        3, // Pará
-        2, // Paraíba
-        6, // Paraná
-        5, // Pernambuco
-        3, // Piauí
-        7, // Rio de Janeiro
-        3, // Rio Grande do Norte
-        6, // Rio Grande do Sul
-        2, // Rondônia
-        1, // Roraima
-        5, // Santa Catarina
-        7, // São Paulo
-        2, // Sergipe
-        2  // Tocantins
-    ];
+function coresMapa(UFs, Consumo) {
+    console.log(UFs)
+    console.log(Consumo)
 
+    var UfComMaisConsumo = UFs[0]
+    var ConsumoDoEstadoComMaisConsumo = Consumo[0]
+    var UfComMenosConsumo = UFs[0]
+    var ConsumoDoEstadoComMenosConsumo = Consumo[0]
+    var ConsumoTotal = 0
 
-
-    var nomesEstados = [
-        'BR-AC', 'BR-AL', 'BR-AP', 'BR-AM', 'BR-BA',
-
-        'BR-CE', 'BR-DF', 'BR-ES', 'BR-GO', 'BR-MA',
-
-        'BR-MT', 'BR-MS', 'BR-MG', 'BR-PA', 'BR-PB',
-
-        'BR-PR', 'BR-PE', 'BR-PI', 'BR-RJ', 'BR-RN',
-
-        'BR-RS', 'BR-RO', 'BR-RR', 'BR-SC', 'BR-SP',
-
-        'BR-SE', 'BR-TO'
-    ];
-
-    for (var i = 0; i < nomesEstados.length; i++) {
-        var estadoAtual = document.getElementById(nomesEstados[i]);
-        estados.push(estadoAtual);
-    }
-
-    for (var i = 0; i < estados.length; i++) {
-        if (numerosAleatorios[i] == 1) {
-            estados[i].style.fill = '#8ee89e';
-        } else if (numerosAleatorios[i] == 2) {
-            estados[i].style.fill = '#d6f26a';
-        } else if (numerosAleatorios[i] == 3) {
-            estados[i].style.fill = '#fff05e';
-        } else if (numerosAleatorios[i] == 4) {
-            estados[i].style.fill = '#ffc145';
-        } else if (numerosAleatorios[i] == 5) {
-            estados[i].style.fill = '#ff914d';
-        } else if (numerosAleatorios[i] == 6) {
-            estados[i].style.fill = '#ff5e5e';
-        } else if (numerosAleatorios[i] == 7) {
-            estados[i].style.fill = '#d94343';
+    for (let i = 0; i < UFs.length; i++) {
+        if (Consumo[i] > ConsumoDoEstadoComMaisConsumo) {
+            ConsumoDoEstadoComMaisConsumo = Consumo[i]
+            UfComMaisConsumo = UFs[i]
+        }
+        if (ConsumoDoEstadoComMaisConsumo > Consumo[i]) {
+            ConsumoDoEstadoComMenosConsumo = Consumo[i]
+            UfComMenosConsumo = UFs[i]
         }
 
+        ConsumoTotal += Consumo[i]
     }
+
+
+    for (var i = 0; i < UFs.length; i++) {
+        var porcentagemEstado = (Consumo[i] / ConsumoTotal) * 100;
+        const estado = document.getElementById('BR-' + UFs[i]);
+        if (porcentagemEstado <= 5) {
+            estado.style.fill = '#8ee89e';
+        } else if (porcentagemEstado <= 10) {
+            estado.style.fill = '#d6f26a';
+        } else if (porcentagemEstado <= 15) {
+            estado.style.fill = '#fff05e';
+        } else if (porcentagemEstado <= 20) {
+            estado.style.fill = '#ffc145';
+        } else if (porcentagemEstado <= 25) {
+            estado.style.fill = '#ff914d';
+        } else if (porcentagemEstado <= 30) {
+            estado.style.fill = '#ff5e5e';
+        } else {
+            estado.style.fill = '#d94343';
+        }
+    }
+
 
 }

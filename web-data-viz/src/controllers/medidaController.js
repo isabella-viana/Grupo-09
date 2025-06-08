@@ -40,9 +40,9 @@ function buscarClasse(req,res){
     });
 }
 
-function buscarMapaCalor(){
-    medidaModel.buscarMapaCalor()
+function buscarMapaCalor(req,res){
     console.log("Entrei no buscarMapaCalor do Model")
+    medidaModel.buscarMapaCalor() 
     .then(function (resultadoMapaCalor) {
         console.log(`\nResultados encontrados: ${resultadoMapaCalor.length}`);
         console.log(`Resultados: ${JSON.stringify(resultadoMapaCalor)}`);
