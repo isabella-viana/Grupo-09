@@ -1,12 +1,12 @@
 window.addEventListener("load", () => {
-  const idempresa = sessionStorage.getItem("ID_EMPRESA");
+  const idEndereco = sessionStorage.getItem("ID_ENDERECO");
 
-  if (!idempresa) {
+  if (!idEndereco) {
     console.error("ID_ENDERECO não encontrado no sessionStorage");
     return;
   }
 
-  fetch(`/endereco/buscarCnpj/${idempresa}`)
+  fetch(`/endereco/buscarInformacoes/${idEndereco}`)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Erro ao buscar informações.");
@@ -14,14 +14,24 @@ window.addEventListener("load", () => {
       return res.json();
     })
     .then((dados) => {
+      document.getElementById("cep").value = dados.cep;
+      document.getElementById("estado").value = dados.estado;
+      document.getElementById("cidade").value = dados.cidade;
+      document.getElementById("bairro").value = dados.bairro;
+      document.getElementById("logradouro").value = dados.logradouro;
+      document.getElementById("numero").value = dados.numero;
+      document.getElementById("complemento").value = dados.complemento;
       document.getElementById("cnpj").value = dados.cnpj;
+      document.getElementById("apelido").value = dados.apelido;
+      document.getElementById("gerente").value = dados.gerente;
     })
     .catch((erro) => {
       console.error("#ERRO ao carregar dados:", erro);
     });
 });
 
-function adicionarEndereco() {
+function editarEndereco() {
+  const idEndereco = sessionStorage.getItem("ID_ENDERECO");
   var cep = document.getElementById("cep").value.trim();
   var logradouro = document.getElementById("logradouro").value.trim();
   var numeroStr = document.getElementById("numero").value.trim();
@@ -34,62 +44,31 @@ function adicionarEndereco() {
   var complemento = document.getElementById("complemento").value.trim();
   var apelido = document.getElementById("apelido").value.trim();
 
-  if (!cep) {
-    alert("Por favor, preencha o campo de CEP");
+  if (
+    (!cep,
+    !logradouro,
+    !numeroStr,
+    !bairro,
+    !cidade,
+    !estado,
+    !cnpj,
+    !gerente,
+    !complemento,
+    !apelido)
+  ) {
+    alert(
+      "Para atualização do endereço é preciso passar todas as informações."
+    );
     return false;
   }
 
-  if (!logradouro) {
-    alert("Por favor, preencha o campo de Logradouro");
-    return false;
-  }
-
-  if (!numeroStr) {
-    alert("Por favor, preencha o campo de número");
-    return false;
-  }
-
-  if (!bairro) {
-    alert("Por favor, preencha o campo de bairro");
-    return false;
-  }
-
-  if (!cidade) {
-    alert("Por favor, preencha o campo de cidade");
-    return false;
-  }
-
-  if (!estado) {
-    alert("Por favor, preencha o campo de estado");
-    return false;
-  }
-
-  if (!gerente) {
-    alert("Por favor, preencha o campo de gerente");
-    return false;
-  }
-
-  if (!complemento) {
-    alert("Por favor, preencha o campo de complemento");
-    return false;
-  }
-
-  if (!apelido) {
-    alert("Por favor, preencha o campo de apelido");
-    return false;
-  }
-
-  if (isNaN(numero) || numero <= 0) {
-    alert("Por favor, insira um número válido para o campo Número.");
-    return;
-  }
-
-  fetch("/endereco/cadastrar", {
-    method: "POST",
+  fetch("/endereco/atualizar", {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      idEndereco: idEndereco,
       cep: cep,
       logradouro: logradouro,
       numeroStr: numeroStr,
@@ -104,11 +83,11 @@ function adicionarEndereco() {
   })
     .then((res) => {
       if (res.ok) {
-        alert("Endereço cadastrado com sucesso!");
+        alert("Endereço atualizado com sucesso!");
         window.location.reload();
       } else {
         return res.json().then((data) => {
-          throw new Error(data.mensagem || "Erro ao cadastrar endereço.");
+          throw new Error(data.mensagem || "Erro ao atualizar endereço.");
         });
       }
     })

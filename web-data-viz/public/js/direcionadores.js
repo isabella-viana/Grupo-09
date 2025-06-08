@@ -5,14 +5,16 @@ function irParaDashboard() {
   window.location.href = "./dashboard.html";
 }
 function irParaEnderecos() {
-  window.location.href = "./";
+  window.location.href = "./gerenciar_endereco.html";
 }
 function irParaGerenciar() {
   window.location.href = "./gerenciamento.html";
 }
+
 function irParaConta() {
   window.location.href = "./conta.html";
 }
+
 function irParaSolicitacao() {
   window.location.href = "./solicitacao.html";
 }

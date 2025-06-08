@@ -1,13 +1,13 @@
 var contaModel = require("../models/contaModel");
 
 function buscarPorId(req, res) {
-  var cnpj = req.query.cnpj;
+  var idempresa = req.query.cnpj;
 
   enderecoModel
     .buscarPorId(cnpj)
     .then((resultado) => {
       if (!resultado || resultado.length === 0) {
-        console.error("Nenhuma empresa encontrada com o CNPJ:", cnpj);
+        console.error("Nenhuma empresa encontrada:", idempresa);
         res.status(404).json({ mensagem: "Empresa não encontrada." });
         return;
       }
@@ -52,9 +52,10 @@ function buscarPorEmailOuUsername(req, res) {
 }
 
 function cadastrarUsuario(req, res) {
-  var { nome, contato, userName, email, cargo, cnpj, senha } = req.body;
+  var { nome, contato, userName, email, cargo, cpf, idempresa, senha } =
+    req.body;
 
-  contaModel.buscarPorId(cnpj).then((resultadoEmpresa) => {
+  contaModel.buscarPorId(idempresa).then((resultadoEmpresa) => {
     if (resultadoEmpresa.length == 0) {
       return res.status(404).json({ mensagem: "Empresa não encontrada." });
     }
@@ -78,6 +79,7 @@ function cadastrarUsuario(req, res) {
             userName,
             email,
             cargo,
+            cpf,
             senha,
             idempresa
           )

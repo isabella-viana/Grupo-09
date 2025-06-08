@@ -1,5 +1,47 @@
 var enderecoModel = require("../models/enderecoModel");
 
+function buscarInformacoes(req, res) {
+  var idEndereco = req.params.id;
+
+  if (!idEndereco) {
+    return res.status(400).json({ mensagem: "ID do endereço não fornecido." });
+  }
+
+  enderecoModel
+    .buscarInformacoes(idEndereco)
+    .then((resultado) => {
+      if (resultado.length === 0) {
+        return res.status(404).json({ mensagem: "Endereço não encontrado." });
+      }
+      res.status(200).json(resultado[0]);
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar informações:", erro);
+      res.status(500).json({ mensagem: "Erro no servidor ao buscar dados." });
+    });
+}
+
+function buscarCnpj(req, res) {
+  var idempresa = req.params.id;
+
+  if (!idempresa) {
+    return res.status(400).json({ mensagem: "ID do CNPJ não fornecido." });
+  }
+
+  enderecoModel
+    .buscarCnpj(idempresa)
+    .then((resultado) => {
+      if (resultado.length === 0) {
+        return res.status(404).json({ mensagem: "CNPJ não encontrado." });
+      }
+      res.status(200).json(resultado[0]);
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar informações:", erro);
+      res.status(500).json({ mensagem: "Erro no servidor ao buscar dados." });
+    });
+}
+
 function buscarPorCEP(req, res) {
   var cep = req.query.cep;
 
@@ -129,60 +171,50 @@ function cadastrarEndereco(req, res) {
 
 function atualizarEndereco(req, res) {
   var {
+    idEndereco,
     cep,
     logradouro,
     numeroStr,
     bairro,
     cidade,
     estado,
-    cnpj,
     gerente,
     complemento,
     apelido,
   } = req.body;
 
-  enderecoModel.buscarPorId(cnpj).then((resultadoEmpresa) => {
-    if (resultadoEmpresa.length == 0) {
+  enderecoModel.buscarPorNome(gerente).then((resultadoUsuario) => {
+    if (resultadoUsuario.length == 0) {
       return res
         .status(404)
-        .json({ mensagem: "Empresa não encontrada pelo CNPJ." });
+        .json({ mensagem: "Usuário (gerente) não encontrado pelo nome." });
     }
 
-    var idempresa = resultadoEmpresa[0].idempresa;
+    var idUsuario = resultadoUsuario[0].idUsuario;
 
-    enderecoModel.buscarPorNome(gerente).then((resultadoUsuario) => {
-      if (resultadoUsuario.length == 0) {
-        return res
-          .status(404)
-          .json({ mensagem: "Usuário (gerente) não encontrado pelo nome." });
-      }
-
-      var idusuario = resultadoUsuario[0].idUsuario;
-
-      enderecoModel
-        .atualizarEndereco(
-          cep,
-          logradouro,
-          numeroStr,
-          bairro,
-          cidade,
-          estado,
-          idempresa,
-          idusuario,
-          complemento,
-          apelido
-        )
-        .then((resultado) => {
-          res.status(200).json({
-            mensagem: "Endereço atualizado com sucesso!",
-            dados: resultado,
-          });
-        })
-        .catch((erro) => {
-          console.error("Erro ao atualizar o endereço:", erro);
-          res.status(500).json({ mensagem: "Erro ao atualizar endereço." });
+    enderecoModel
+      .atualizarEndereco(
+        idEndereco,
+        cep,
+        logradouro,
+        numeroStr,
+        bairro,
+        cidade,
+        estado,
+        idUsuario,
+        complemento,
+        apelido
+      )
+      .then((resultado) => {
+        res.status(200).json({
+          mensagem: "Endereço atualizado com sucesso!",
+          dados: resultado,
         });
-    });
+      })
+      .catch((erro) => {
+        console.error("Erro ao atualizar:", erro);
+        res.status(500).json({ erro: "Erro ao atualizar endereço." });
+      });
   });
 }
 
@@ -192,4 +224,6 @@ module.exports = {
   cadastrarEndereco,
   buscarPorId,
   atualizarEndereco,
+  buscarInformacoes,
+  buscarCnpj,
 };
