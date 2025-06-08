@@ -22,4 +22,8 @@ router.post("/atualizar", function (req, res) {
   enderecoController.atualizarEndereco(req, res);
 });
 
+router.get("/buscarInformacoes/:id", function (req, res) {
+  enderecoController.buscarInformacoes(req, res);
+});
+
 module.exports = router;

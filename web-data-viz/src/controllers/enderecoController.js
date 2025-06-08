@@ -1,5 +1,26 @@
 var enderecoModel = require("../models/enderecoModel");
 
+function buscarInformacoes(req, res) {
+  var idEndereco = req.params.id;
+
+  if (!idEndereco) {
+    return res.status(400).json({ mensagem: "ID do endereço não fornecido." });
+  }
+
+  enderecoModel
+    .buscarInformacoes(idEndereco)
+    .then((resultado) => {
+      if (resultado.length === 0) {
+        return res.status(404).json({ mensagem: "Endereço não encontrado." });
+      }
+      res.status(200).json(resultado[0]);
+    })
+    .catch((erro) => {
+      console.error("Erro ao buscar informações:", erro);
+      res.status(500).json({ mensagem: "Erro no servidor ao buscar dados." });
+    });
+}
+
 function buscarPorCEP(req, res) {
   var cep = req.query.cep;
 
@@ -192,4 +213,5 @@ module.exports = {
   cadastrarEndereco,
   buscarPorId,
   atualizarEndereco,
+  buscarInformacoes,
 };

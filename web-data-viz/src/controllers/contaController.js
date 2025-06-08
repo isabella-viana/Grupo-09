@@ -52,7 +52,8 @@ function buscarPorEmailOuUsername(req, res) {
 }
 
 function cadastrarUsuario(req, res) {
-  var { nome, contato, userName, email, cargo, idempresa, senha } = req.body;
+  var { nome, contato, userName, email, cargo, cpf, idempresa, senha } =
+    req.body;
 
   contaModel.buscarPorId(idempresa).then((resultadoEmpresa) => {
     if (resultadoEmpresa.length == 0) {

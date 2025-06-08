@@ -1,5 +1,26 @@
 var database = require("../database/config");
 
+function buscarInformacoes(idEndereco) {
+  var instrucao = `
+    SELECT 
+      e.cep,
+      e.logradouro,
+      e.numero,
+      e.bairro,
+      e.cidade,
+      e.estado,
+      e.apelido,
+      e.complemento,
+      emp.cnpj,
+      u.nome AS gerente
+    FROM endereco e
+    JOIN empresa emp ON e.empresa_idempresa = emp.idempresa
+    JOIN usuario u ON e.usuario_idUsuario = u.idUsuario
+    WHERE e.idendereco = ${idEndereco};
+  `;
+  return database.executar(instrucao);
+}
+
 function buscarPorCEP(cep) {
   var instrucaoSql = `SELECT * FROM endereco WHERE cep = '${cep}';`;
   return database.executar(instrucaoSql);
@@ -69,4 +90,5 @@ module.exports = {
   cadastrarEndereco,
   buscarPorId,
   atualizarEndereco,
+  buscarInformacoes,
 };

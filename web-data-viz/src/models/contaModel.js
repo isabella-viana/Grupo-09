@@ -31,7 +31,7 @@ function cadastrarUsuario(
       userName, 
       email, 
       cargo,
-      cpf 
+      cpf,
       senha, 
       empresa_idempresa
     ) VALUES (
