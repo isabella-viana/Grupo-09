@@ -1,16 +1,14 @@
-// const nome = sessionStorage.NOME_USUARIO;
-// const email = sessionStorage.EMAIL_USUARIO;
-
 function cadastrar() {
+  const idempresa = sessionStorage.getItem("ID_EMPRESA");
   var nome = document.getElementById("nome").value.trim();
   var contato = document.getElementById("contato").value.trim();
   var userName = document.getElementById("userName").value.trim();
   var email = document.getElementById("email").value.trim();
   var cargo = document.getElementById("cargo").value.trim();
-  var cnpj = document.getElementById("cnpj").value.trim();
+  var cpf = document.getElementById("cpf").value.trim();
   var senha = document.getElementById("senha").value.trim();
 
-  if (!nome || !contato || !userName || !email || !senha || !cnpj || !cargo) {
+  if (!nome || !contato || !userName || !email || !senha || !cargo || !cpf) {
     alert("Por favor, preencha todos os campos obrigatórios.");
     return;
   }
@@ -21,7 +19,8 @@ function cadastrar() {
     userName,
     email,
     cargo,
-    cnpj,
+    cpf,
+    idempresa,
     senha,
   };
 
