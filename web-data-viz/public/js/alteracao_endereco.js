@@ -1,5 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>;
-
 window.addEventListener("load", () => {
   const idempresa = sessionStorage.getItem("ID_EMPRESA");
 
@@ -37,102 +35,52 @@ function adicionarEndereco() {
   var apelido = document.getElementById("apelido").value.trim();
 
   if (!cep) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha o campo de CEP",
-    });
+    alert("Por favor, preencha o campo de CEP");
     return false;
   }
 
   if (!logradouro) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha o campo de Logradouro",
-    });
+    alert("Por favor, preencha o campo de Logradouro");
     return false;
   }
 
   if (!numeroStr) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha o campo de numero",
-    });
-
+    alert("Por favor, preencha o campo de número");
     return false;
   }
 
   if (!bairro) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha o campo de bairro",
-    });
+    alert("Por favor, preencha o campo de bairro");
     return false;
   }
 
   if (!cidade) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha todo o campo de cidade",
-    });
+    alert("Por favor, preencha o campo de cidade");
     return false;
   }
 
   if (!estado) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha todo o campo estado",
-    });
-    return false;
-  }
-
-  if (!cnpj) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha todo o campo CNPJ",
-    });
+    alert("Por favor, preencha o campo de estado");
     return false;
   }
 
   if (!gerente) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha todo o campo gerente",
-    });
+    alert("Por favor, preencha o campo de gerente");
     return false;
   }
 
   if (!complemento) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha todo o campo complemento",
-    });
+    alert("Por favor, preencha o campo de complemento");
     return false;
   }
 
   if (!apelido) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, preencha todos os campo apelido",
-    });
+    alert("Por favor, preencha o campo de apelido");
     return false;
   }
 
   if (isNaN(numero) || numero <= 0) {
-    Swal.fire({
-      icon: "error",
-      title: "Erro",
-      text: "Por favor, insira um número válido para o campo Número",
-    });
+    alert("Por favor, insira um número válido para o campo Número.");
     return;
   }
 

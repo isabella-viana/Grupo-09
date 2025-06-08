@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
-function buscarPorId(cnpj) {
-  var instrucaoSql = `SELECT idempresa FROM empresa WHERE cnpj = '${cnpj}';`;
+function buscarPorId(idempresa) {
+  var instrucaoSql = `SELECT idempresa FROM empresa WHERE cnpj = '${idempresa}';`;
   return database.executar(instrucaoSql);
 }
 
@@ -20,6 +20,7 @@ function cadastrarUsuario(
   userName,
   email,
   cargo,
+  cpf,
   senha,
   idempresa
 ) {
@@ -29,7 +30,8 @@ function cadastrarUsuario(
       telefone, 
       userName, 
       email, 
-      cargo, 
+      cargo,
+      cpf,
       senha, 
       empresa_idempresa
     ) VALUES (
@@ -37,7 +39,8 @@ function cadastrarUsuario(
       '${contato}', 
       '${userName}', 
       '${email}', 
-      '${cargo}', 
+      '${cargo}',
+      '${cpf}',  
       '${senha}', 
       ${idempresa}
     );

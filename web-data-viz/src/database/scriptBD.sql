@@ -39,6 +39,7 @@ CREATE TABLE endereco (
     numero INT,
     bairro VARCHAR(45),
     cidade VARCHAR(45),
+    estado VARCHAR(45),
     cep VARCHAR(45),
     apelido VARCHAR(45),
     gerente VARCHAR(45),
