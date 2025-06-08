@@ -18,7 +18,7 @@ router.post("/buscarNome", function (req, res) {
   enderecoController.buscarPorNome(req, res);
 });
 
-router.post("/atualizar", function (req, res) {
+router.put("/atualizar", function (req, res) {
   enderecoController.atualizarEndereco(req, res);
 });
 

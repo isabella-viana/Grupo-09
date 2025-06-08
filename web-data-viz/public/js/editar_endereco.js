@@ -31,6 +31,7 @@ window.addEventListener("load", () => {
 });
 
 function editarEndereco() {
+  const idEndereco = sessionStorage.getItem("ID_ENDERECO");
   var cep = document.getElementById("cep").value.trim();
   var logradouro = document.getElementById("logradouro").value.trim();
   var numeroStr = document.getElementById("numero").value.trim();
@@ -62,11 +63,12 @@ function editarEndereco() {
   }
 
   fetch("/endereco/atualizar", {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      idEndereco: idEndereco,
       cep: cep,
       logradouro: logradouro,
       numeroStr: numeroStr,

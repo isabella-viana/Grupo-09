@@ -27,7 +27,7 @@ function buscarPorCEP(cep) {
 }
 
 function buscarPorNome(gerente) {
-  var instrucaoSql = `SELECT idUsuario FROM usuario WHERE nome LIKE '%${gerente}%';`;
+  var instrucaoSql = `SELECT idUsuario FROM usuario WHERE LOWER(nome) LIKE LOWER('%${gerente}%');`;
   return database.executar(instrucaoSql);
 }
 
@@ -56,29 +56,30 @@ function buscarPorId(cnpj) {
 }
 
 function atualizarEndereco(
+  idEndereco,
   cep,
   logradouro,
-  numeroStr,
+  numero,
   bairro,
   cidade,
   estado,
-  idempresa,
-  idusuario,
+  idUsuario,
   complemento,
   apelido
 ) {
   var instrucaoSql = `
-    UPDATE endereco 
-    SET logradouro = '${logradouro}',
-        numero = ${numeroStr},
-        bairro = '${bairro}',
-        cidade = '${cidade}',
-        estado = '${estado}',
-        empresa_idempresa = ${idempresa},
-        usuario_idUsuario = ${idusuario},
-        complemento = '${complemento}',
-        apelido = '${apelido}'
-    WHERE cep = '${cep}';
+    UPDATE endereco
+    SET
+      cep = '${cep}',
+      logradouro = '${logradouro}',
+      numero = ${numero},
+      bairro = '${bairro}',
+      cidade = '${cidade}',
+      estado = '${estado}',
+      usuario_idUsuario = '${idUsuario}',
+      complemento = '${complemento}',
+      apelido = '${apelido}'
+    WHERE idEndereco = ${idEndereco};
   `;
 
   return database.executar(instrucaoSql);
