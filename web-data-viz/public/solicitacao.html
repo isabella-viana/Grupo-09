@@ -46,7 +46,7 @@
     <div class="container-section">
       <div class="container">
         <div class="solicitacoes">
-          <h2>Solicitações</h2>
+          <h2>SOLICITAÇÕES</h2>
           <table>
             <thead>
               <tr>
@@ -56,7 +56,7 @@
                 <th>CNPJ</th>
               </tr>
             </thead>
-            <tbody id="tabela_empresas"></tbody>
+            <tbody id="tabela_empresas" style="width: 100%;"></tbody>
           </table>
         </div>
 
@@ -95,10 +95,6 @@
 
             <button type="submit" onclick="cadastrarEmpresa()">Registrar</button>
           </form>
-
-          <div class="home-icon">
-            <img src="assets/cruds/home.svg" alt="Home" />
-          </div>
         </div>
       </div>
     </div>
@@ -206,7 +202,13 @@
 
     function carregarEmpresasPendentes() {
       console.log("Carregando empresas pendentes...");
-      fetch("/leads/pendentes")
+
+      fetch("/leads/pendentes",{
+         method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+      })
         .then(res => res.json())
         .then(empresas => {
           const tbody = document.querySelector(".solicitacoes tbody");
@@ -226,7 +228,12 @@
         .catch(erro => {
           console.error("#ERRO AO CARREGAR EMPRESAS:", erro);
         });
+        
     }
+        window.onload = function () {
+          carregarEmpresasPendentes();
+        };
+    
   </script>
 </body>
 

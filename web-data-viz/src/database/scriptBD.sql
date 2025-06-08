@@ -1,7 +1,6 @@
 CREATE DATABASE IF NOT EXISTS eleva;
 use eleva;
 
-
 CREATE TABLE uf (
     idUF INT PRIMARY KEY auto_increment,
     UF VARCHAR(45),
@@ -14,7 +13,7 @@ CREATE TABLE empresa (
     idempresa INT PRIMARY KEY auto_increment,
     nome_fantasia VARCHAR(45),
     razao_social VARCHAR(45),
-    cnpj CHAR(14),
+    cnpj CHAR(14) UNIQUE,
     situacao VARCHAR(45)
 );
 
@@ -22,7 +21,7 @@ CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY auto_increment,
     nome VARCHAR(60),
 	userName VARCHAR(60), 
-    cpf CHAR(11),
+    cpf CHAR(11) UNIQUE,
     telefone VARCHAR(15),
     email VARCHAR(45),
     senha VARCHAR(45),
@@ -54,7 +53,7 @@ CREATE TABLE leads (
     id INT PRIMARY KEY auto_increment,
     nome_fantasia VARCHAR(45),
     razao_social VARCHAR(45),
-    email VARCHAR(45),
+    email VARCHAR(45) UNIQUE,
     cnpj CHAR(14),
     foiEnviado boolean
 );
@@ -71,7 +70,7 @@ CREATE TABLE contrato (
 );
 
 CREATE TABLE configuracao_slack (
-    url VARCHAR(100) PRIMARY KEY,
+    idConfig INT primary key auto_increment,
     isAtivo TINYINT,
     processo_etl TINYINT,
     processo_solicitacao TINYINT,
@@ -97,3 +96,12 @@ CREATE TABLE energia_historico (
     uf VARCHAR(45),
     regiao VARCHAR(45)
 );
+
+INSERT INTO empresa (nome_fantasia, razao_social, cnpj, situacao) VALUES
+('Eleva Energy', 'Eleva Energy Ltda.', '12345678000190', 'Ativa');
+
+INSERT INTO usuario (nome, userName, cpf, telefone, email, senha, cargo, nivelAcesso, qtdAcessos, dataNascimento, empresa_idempresa) VALUES
+('ElevaADM', 'eleva', '9999999', '11999999', 'eleva9980@gmail.com', 'urubu100', 'ADM' , 'Administrador', 1, '2025-02-10', 1);
+
+INSERT INTO configuracao_slack (isAtivo, processo_etl, processo_solicitacao, dataEnvio, idUsuario) VALUES
+( 1, 1, 0, CURRENT_TIMESTAMP, 1);

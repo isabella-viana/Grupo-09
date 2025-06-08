@@ -34,19 +34,23 @@ html, body{
 
 .solicitacoes {
      background: linear-gradient(to bottom, #ffffff 0%, #98bfd3 70%, #ffffff 100%);
-     width: 50%;
+     width: 60%;
      height: 100%;
+     overflow-y: auto;
+     overflow-x: hidden;
 }
 
 .solicitacoes h2 {
     text-align: center;
-    color: #2E7094;
+    color: #77ADCB;
     margin-top: 5%;
+    margin-bottom: 3%;
+    font-weight: 350;
+    font-size: 40px;
 }
 
 table {
-    position: relative;
-    bottom: -5%;
+  
     margin-left: 5%;
     width: 90%;
     height: 60%;
@@ -60,14 +64,15 @@ table {
 
 th, td {
     padding: 12px 20px;
-    font-size: 14px;
-    text-align: center;
+    font-size:small;
+    width: 20%;
+
 }
 
 th {
     background-color: #f0f8ff;
     color: #77ADCB;
-    font-weight: 600;
+
 }
 
 td {
@@ -77,10 +82,10 @@ td {
 
 .formulario {
     background-color: white;
-    width: 50%;
+    width: 40%;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
     height: 100%;
-     
+
 }
 
 .formulario h2 {
@@ -89,7 +94,7 @@ td {
     font-weight: 100;
     font-weight: 300;
     font-size: 50px;
-    position: relative;
+  margin-top: 8%;
 
 }
 
@@ -155,14 +160,4 @@ td {
     background-color: #5d94b2;
 }
 
-.home-icon {
-    position: absolute;
-    top: 10%;
-    right: 3%;
-}
 
-.home-icon img {
-    width: 60px;
-    height: 60px;
-
-}
