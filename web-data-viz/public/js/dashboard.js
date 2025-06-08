@@ -647,22 +647,27 @@ function coresMapa(UFs, Consumo) {
 
         ConsumoTotal += Consumo[i]
     }
-
+    spanConsumoTotal.innerHTML=`${ConsumoTotal}`
+    spanEstadoMaior.innerHTML=`${UfComMaisConsumo}`
+    spanConsumoMaiorEstado.innerHTML=`${ConsumoDoEstadoComMaisConsumo}`
+    spanEstadoMenor.innerHTML=`${UfComMenosConsumo}`
+    spanConsumoMenorEstado.innerHTML=`${ConsumoDoEstadoComMenosConsumo}`
 
     for (var i = 0; i < UFs.length; i++) {
         var porcentagemEstado = (Consumo[i] / ConsumoTotal) * 100;
         const estado = document.getElementById('BR-' + UFs[i]);
-        if (porcentagemEstado <= 5) {
+        
+        if (porcentagemEstado <= 2) {
             estado.style.fill = '#8ee89e';
-        } else if (porcentagemEstado <= 10) {
+        } else if (porcentagemEstado <= 3) {
             estado.style.fill = '#d6f26a';
-        } else if (porcentagemEstado <= 15) {
+        } else if (porcentagemEstado <= 4) {
             estado.style.fill = '#fff05e';
-        } else if (porcentagemEstado <= 20) {
+        } else if (porcentagemEstado <= 5) {
             estado.style.fill = '#ffc145';
-        } else if (porcentagemEstado <= 25) {
+        } else if (porcentagemEstado <= 10) {
             estado.style.fill = '#ff914d';
-        } else if (porcentagemEstado <= 30) {
+        } else if (porcentagemEstado <= 20) {
             estado.style.fill = '#ff5e5e';
         } else {
             estado.style.fill = '#d94343';

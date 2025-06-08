@@ -74,7 +74,7 @@
     justify-content: center;
     color: #77adcb;
     font-family: "Poppins", sans-serif;
-   
+
 
 
     .limiteTamanho {
@@ -91,7 +91,7 @@
         align-items: center;
         width: 90%;
         font-size: 20px;
-       
+
 
         .parteCima {
           display: flex;
@@ -114,16 +114,17 @@
           width: 100%;
           border: #77adcb solid 2px;
 
-           .selectTodas {
+          .selectTodas {
             display: flex;
             align-items: center;
             justify-content: center;
             border-bottom: #77adcb solid 2px;
             text-align: center;
-            width: 100%;  
+            width: 100%;
             gap: 8px;
-     
+
           }
+
           .select {
             display: flex;
             flex-direction: column;
@@ -132,21 +133,23 @@
             border-bottom: #77adcb solid 2px;
             text-align: center;
             width: 100%;
-         
 
-              .textos{
-                width: 100%;
-                display: flex;
-               
-                p{
-                  width: 80%;
-                }
-                .iconeSeta{
-                  width: 20%;
-                }
+
+            .textos {
+              width: 100%;
+              display: flex;
+
+              p {
+                width: 80%;
               }
+
+              .iconeSeta {
+                width: 20%;
+              }
+            }
           }
-          .selectTodas{
+
+          .selectTodas {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -161,292 +164,356 @@
             text-align: center;
             width: 100%;
 
-            .textos{
-                width: 100%;
-                display: flex;
-               
-                 p{
-                  width: 80%;
-                }
-                .iconeSeta{
-                  width: 20%;
-                }
-              }
-              }
-           
-          }
-          .selectSul:hover{
-              cursor: pointer;
-              background-color: #77adcb;
-              color: white;
-            }
-
-        }
-
-        .inputs{
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          align-items: center;
-          justify-content: center;
-         
-          .div_checkbox{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            font-size: small;
-            margin-left: 5%;
-            gap: 2%;
-          }
-        }
-     
-      }
-
-
-
-    }
-
-
-  }
-
-  .graficosEKpis {
-    display: flex;
-    height: 100%;
-    width: 47%;
-    justify-content: center;
-    align-items: center;
-
-    & .limiteTamanho {
-      height: 90%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-
-
-      & .kpis {
-        width: 100%;
-        height: 20%;
-
-        display: flex;
-        justify-content: space-between;
-
-        & .estrutura {
-          display: flex;
-          flex-direction: column;
-          height: 95%;
-          width: 48.2%;
-          align-items: center;
-          justify-content: center;
-          border-left: 2px #77adcb solid;
-          border-right: 2px #77adcb solid;
-          border-bottom: 2px #77adcb solid;
-          border-top-right-radius: 6px;
-          border-top-left-radius: 6px;
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-
-          & .tituloKpi {
-            text-align: center;
-            display: flex;
-            align-items: center;
-            background-color: #77adcb;
-            height: 35%;
-            width: 99%;
-            color: white;
-            justify-content: center;
-            padding: 3px;
-            font-size: small;
-            border-top-right-radius: 6px;
-            border-top-left-radius: 6px;
-          }
-
-          & .kpiDado {
-            display: flex;
-            text-align: center;
-            color: #0d425f;
-            justify-content: center;
-            align-items: center;
-            font-size: 25px;
-            height: 60%;
-            width: 100%;
-          }
-        }
-      }
-
-      & .graficoGrande {
-        height: 42.5%;
-        width: 100%;
-        display: flex;
-
-        & .estrutura {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          width: 100%;
-          border-left: 2px #77adcb solid;
-          border-right: 2px #77adcb solid;
-          border-bottom: 2px #77adcb solid;
-          border-top-right-radius: 6px;
-          border-top-left-radius: 6px;
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-
-          & .tituloGraficoGrande {
-            display: flex;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            background-color: #77adcb;
-            height: 16%;
-            width: 100%;
-            color: white;
-            border-top-right-radius: 6px;
-            border-top-left-radius: 6px;
-            font-size: small;
-          }
-
-          & .graficoG {
-            display: flex;
-            text-align: center;
-            align-items: end;
-            height: 75%;
-            width: 100%;
-
-            & .meuGrafico {
+            .textos {
               width: 100%;
-              height: 100%;
+              display: flex;
+
+              p {
+                width: 80%;
+              }
+
+              .iconeSeta {
+                width: 20%;
+              }
             }
           }
+
         }
+
+        .selectSul:hover {
+          cursor: pointer;
+          background-color: #77adcb;
+          color: white;
+        }
+
       }
 
-      & .graficosPequenos {
-        width: 100%;
-        height: 37.5%;
+      .inputs {
         display: flex;
-        justify-content: space-between;
-        align-items: end;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
 
-        & .estrutura {
+        .div_checkbox {
+          width: 100%;
           display: flex;
-          flex-direction: column;
-          height: 96%;
-          width: 48%;
-          border-left: 2px #77adcb solid;
-          border-right: 2px #77adcb solid;
-          border-bottom: 2px #77adcb solid;
-          border-top-right-radius: 6px;
-          border-top-left-radius: 6px;
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-
-          & .tituloGraficoPequenos {
-            display: flex;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            background-color: #77adcb;
-            height: 20%;
-            width: 100%;
-            color: white;
-            font-size: small;
-            border-top-right-radius: 6px;
-            border-top-left-radius: 6px;
-          }
-
-          & .graficoP {
-            display: flex;
-            text-align: center;
-            justify-content: start;
-            align-items: end;
-            height: 100%;
-            width: 100%;
-          }
+          align-items: center;
+          justify-content: start;
+          font-size: small;
+          margin-left: 5%;
+          gap: 2%;
         }
       }
+
     }
+
+
+
   }
 
-  .mapaBrasil {
+
+}
+
+.graficosEKpis {
+  display: flex;
+  height: 100%;
+  width: 47%;
+  justify-content: center;
+  align-items: center;
+
+  & .limiteTamanho {
+    height: 90%;
+    width: 100%;
     display: flex;
-    height: 100%;
-    width: 48%;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 
-    & .estrutura {
-      height: 90%;
-      width: 90%;
+
+    & .kpis {
+      width: 100%;
+      height: 20%;
+
       display: flex;
-      flex-direction: column;
-      border-left: 2px #77adcb solid;
-      border-right: 2px #77adcb solid;
-      border-bottom: 2px #77adcb solid;
-      border-top-right-radius: 6px;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
+      justify-content: space-between;
 
-      & .tituloGrafico {
-        background-color: #77adcb;
-        height: 13%;
-        width: 100%;
-        color: white;
+      & .estrutura {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        height: 95%;
+        width: 48.2%;
         align-items: center;
-        text-align: center;
-        font-size: 1.5vw;
+        justify-content: center;
+        border-left: 2px #77adcb solid;
+        border-right: 2px #77adcb solid;
+        border-bottom: 2px #77adcb solid;
         border-top-right-radius: 6px;
         border-top-left-radius: 6px;
-      }
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
 
-      & .mapa {
-        height: 87%;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        & path {
-          stroke: black;
-        }
-
-        & .cores {
+        & .tituloKpi {
+          text-align: center;
           display: flex;
-          position: absolute;
-          background: linear-gradient(to right,
-              #8ee89e 0%,
-              #d6f26a 16%,
-              #fff05e 32%,
-              #ffc145 48%,
-              #ff914d 64%,
-              #ff5e5e 80%,
-              #d94343 100%);
-
-          height: 2%;
-          width: 14%;
-          border-radius: 20px;
-          transform: rotate(-90deg);
-          margin-right: 30%;
-          margin-top: 14%;
-          
+          align-items: center;
+          background-color: #77adcb;
+          height: 35%;
+          width: 99%;
+          color: white;
+          justify-content: center;
+          padding: 3px;
+          font-size: small;
+          border-top-right-radius: 6px;
+          border-top-left-radius: 6px;
         }
 
-        & .maiorCor {
-          position: absolute;
-          margin-right: 27.5%;
-          margin-top: 1%;
-          font-size: 130%;
+        & .kpiDado {
+          display: flex;
+          text-align: center;
+          color: #0d425f;
+          justify-content: center;
+          align-items: center;
+          font-size: 25px;
+          height: 60%;
+          width: 100%;
+        }
+      }
+    }
+
+    & .graficoGrande {
+      height: 42.5%;
+      width: 100%;
+      display: flex;
+
+      & .estrutura {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        border-left: 2px #77adcb solid;
+        border-right: 2px #77adcb solid;
+        border-bottom: 2px #77adcb solid;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+
+        & .tituloGraficoGrande {
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          background-color: #77adcb;
+          height: 16%;
+          width: 100%;
+          color: white;
+          border-top-right-radius: 6px;
+          border-top-left-radius: 6px;
+          font-size: small;
         }
 
-        & .menorCor {
-          position: absolute;
-          margin-right: 27.5%;
-          margin-top: 27%;
-          font-size: 140%;
+        & .graficoG {
+          display: flex;
+          text-align: center;
+          align-items: end;
+          height: 75%;
+          width: 100%;
+
+          & .meuGrafico {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    & .graficosPequenos {
+      width: 100%;
+      height: 37.5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+
+      & .estrutura {
+        display: flex;
+        flex-direction: column;
+        height: 96%;
+        width: 48%;
+        border-left: 2px #77adcb solid;
+        border-right: 2px #77adcb solid;
+        border-bottom: 2px #77adcb solid;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+
+        & .tituloGraficoPequenos {
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          background-color: #77adcb;
+          height: 20%;
+          width: 100%;
+          color: white;
+          font-size: small;
+          border-top-right-radius: 6px;
+          border-top-left-radius: 6px;
+        }
+
+        & .graficoP {
+          display: flex;
+          text-align: center;
+          justify-content: start;
+          align-items: end;
+          height: 100%;
+          width: 100%;
         }
       }
     }
   }
+}
+
+.mapaBrasil {
+  display: flex;
+  height: 100%;
+  width: 48%;
+  justify-content: center;
+  align-items: center;
+
+  & .estrutura {
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px #77adcb solid;
+    border-right: 2px #77adcb solid;
+    border-bottom: 2px #77adcb solid;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    & .tituloGrafico {
+      background-color: #77adcb;
+      height: 13%;
+      width: 100%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1.5vw;
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
+    }
+
+    & .mapa {
+      height: 87%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & path {
+        stroke: black;
+      }
+
+      & .cores {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        position: absolute;
+
+        height: 20%;
+        width: 10%;
+        border-radius: 20px;
+        margin-right: 20%;
+        margin-top: 14%;
+
+        & .ConsumoMapaCalorTitle{
+          font-size: 12px;
+          font-weight: 600;
+          color: #0d425f;
+          margin-right: 61%;
+        }
+
+        & .linhaCor {
+          height: 12%;
+          width: 100%;
+          display: flex;
+          gap: 5px;
+
+          & .cor {
+            height: 100%;
+            width: 13%;
+            
+
+          }
+
+          & #cor1 {
+            background-color: #d94343;
+          }
+
+          & #cor2 {
+            background-color: #ff5e5e;
+          }
+
+          & #cor3 {
+            background-color: #ff914d;
+          }
+
+          & #cor4 {
+            background-color: #ffc145
+          }
+
+          & #cor5 {
+            background-color:#fff05e
+          }
+
+          & #cor6 {
+            background-color:#d6f26a
+          }
+
+          & #cor7 {
+            background-color: #8ee89e
+          }
+
+          & p {
+            font-size: 10px;
+            color: #0d425f;
+            font-weight: 600;
+          }
+        }
+
+
+      }
+
+      & .informacoesMapa{
+        position: absolute;
+        height: 14%;
+        width: 12%;
+        display: flex;
+        flex-direction: column;
+        justify-content:end;
+        align-items: end;
+        margin-top: 22%;
+        margin-left: 20%;
+
+
+
+        & .linhaInformacao{
+          height: 30%;
+          width: 100%;
+          font-size: 10px;
+            color: #0d425f;
+            font-weight: 600;
+          display: flex;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+}
