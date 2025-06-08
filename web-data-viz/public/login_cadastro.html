@@ -200,15 +200,26 @@
                         const ID_EMPRESA = json.idEmpresa;
                         const QTD_ACESSOS = Number(json.qtdAcessos);
                         const CPF = json.cpf;
+                        const NOME = json.nome;
+                        const TELEFONE = json.telefone;
+                        const USERNAME = json.username;
+                        const CARGO = json.cargo;
+                        const EMAIL = json.email;
+                        const SENHA = json.senha;
 
                         sessionStorage.setItem("ID_EMPRESA", ID_EMPRESA);
                         sessionStorage.setItem("QTD_ACESSOS", QTD_ACESSOS);
                         sessionStorage.setItem("CPF", CPF);
+                        sessionStorage.setItem("NOME", NOME);
+                        sessionStorage.setItem("TELEFONE", TELEFONE);
+                        sessionStorage.setItem("USERNAME", USERNAME);
+                        sessionStorage.setItem("CARGO", CARGO);
                         sessionStorage.setItem("emailUsuario", emailVar);
+                        sessionStorage.setItem("senhaUsuario", senhaVar);
 
 
                         if (QTD_ACESSOS > 0) {
-                            
+
                             window.location.href = "./dashboard.html";
                         } else {
 
