@@ -217,14 +217,52 @@
                         sessionStorage.setItem("emailUsuario", emailVar);
                         sessionStorage.setItem("senhaUsuario", senhaVar);
 
+                        if (emailVar == "eleva9980@gmail.com" && senhaVar == "urubu100") {
 
-                        if (QTD_ACESSOS > 0) {
+                            Swal.fire({
+                                title: "Login realizado com sucesso!",
+                                icon: "success",
+                                draggable: true
 
-                            window.location.href = "./dashboard.html";
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+
+                                    window.location.href = "./solicitacao.html"
+                                }
+                            });
+
                         } else {
+                            if (QTD_ACESSOS > 0) {
+                                Swal.fire({
+                                    title: "Login realizado com sucesso!",
+                                    icon: "success",
+                                    draggable: true
 
-                            window.location.href = "./primeiro_login.html";
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+
+                                        window.location.href = "./dashboard.html";
+                                    }
+                                });
+
+
+                            } else {
+                                Swal.fire({
+                                    title: "Login realizado com sucesso!",
+                                    icon: "success",
+                                    draggable: true
+
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+
+                                        window.location.href = "./primeiro_login.html";
+                                    }
+                                });
+
+                            }
                         }
+
+
                     }).catch(function (erro) {
                         console.log("Erro ao converter resposta em JSON:", erro);
                     });

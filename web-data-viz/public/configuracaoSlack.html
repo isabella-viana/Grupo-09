@@ -38,7 +38,6 @@
                     <i class="bi bi-gear-fill"></i>
                     <p>Configurações</p>
                 </div>
-
             
             </div>
 
@@ -60,8 +59,8 @@
                     <div class="checkbox">
                         
                         <div class="texto">
-                            <select name="solicitacao" id="solicitacao">
-                            <option value=""></option>
+                            <select name="slack" id="slackAtivo">
+                            <option value="">Selecione uma opção</option>
                             <option value="true"> Ativado </option>
                             <option value="false"> Desativado </option>
                            </select>
@@ -71,8 +70,8 @@
                     <div class="checkbox">
 
                         <div class="texto">
-                            <select name="solicitacao" id="solicitacao">
-                            <option value=""></option>
+                            <select name="etl" id="processoETL">
+                            <option value="">Selecione uma opção</option>
                             <option value="true"> Ativado </option>
                             <option value="false"> Desativado </option>
                            </select>
@@ -82,8 +81,8 @@
                     <div class="checkbox">
 
                         <div class="texto">
-                           <select name="solicitacao" id="solicitacao">
-                            <option value=""></option>
+                           <select name="solicitacao" id="processoSolicitacao">
+                            <option value="">Selecione uma opção</option>
                             <option value="true"> Ativado </option>
                             <option value="false"> Desativado </option>
 
@@ -92,7 +91,7 @@
                     </div>
                 </div>
 
-                <button> Salvar Informacoes</button>
+                <button onclick="salvarInformacao()"> Salvar Informacoes</button>
             </div>
         </div>
 
@@ -100,9 +99,63 @@
     </div>
     </div>
     <script>
+
         function irParaSolicitacoes(){
                 window.location.href = "./solicitacao.html";
         }
+
+    //     function salvarInformacao() {
+        
+    //     var slackAtivo = document.getElementById("slackAtivo").value;
+    //     var processoEtl = document.getElementById("processoETL").value;
+    //     var processoSolicitacao = document.getElementById("processoSolicitacao").value;
+        
+        
+       
+
+    //     if (processoEtl === "" || processoSolicitacao === "" || slackAtivo === "") {
+    //         Swal.fire({
+    //             icon: "error",
+    //             title: "Erro",
+    //             text: "Preencha todos os campos para continuar.",
+    //             footer: '<a href="#">Why do I have this issue?</a>'
+    //         });
+
+    //         return console.log("Preencha todos os campos para continuar.");
+    //     }
+
+    //      if  (slackAtivo == true){
+    //         slackAtivo = 1;
+    //     }
+    //     else{
+
+    //     }
+
+    //     fetch("/slack/salvarInformacoes", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //       slackAtivo: slackAtivo,
+    //       processoEtl: processoEtl,
+    //       processoSolicitacao: processoSolicitacao,
+          
+    //     })
+    //   }).then(function (resposta) {
+    //     console.log("ESTOU NO THEN DO adicionarAcesso()!")
+
+    //     if (resposta.ok) {
+    //       console.log("Acesso adicionado com sucesso!");
+    //     } else {
+    //       throw "Houve um erro ao tentar adicionar o acesso!";
+    //     }
+    //   }).catch(function (erro) {
+    //     console.log(`#ERRO: ${erro}`);
+    //   });
+
+    //   return false;  
+
     </script>
 
 </html>
