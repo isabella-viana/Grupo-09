@@ -6,6 +6,9 @@ main {
   display: flex;
   align-items: center;
 }
+a {
+  text-decoration: none;
+}
 
 .titulo {
   width: 100%;

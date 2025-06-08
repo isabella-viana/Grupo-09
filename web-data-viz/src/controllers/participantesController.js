@@ -1,7 +1,8 @@
 const participantesModel = require('../models/participantesModel');
 
 function listar(req, res) {
-    participantesModel.listar()
+   var empresa= req.body.idEmpresaServer
+    participantesModel.listar(empresa)
         .then(resultadoListar => {
             console.log(`Resultados encontrados: ${resultadoListar.length}`);
             if (resultadoListar.length > 0) {

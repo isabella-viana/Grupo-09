@@ -594,36 +594,72 @@ function checkBox() {
 }
 
 
-
 function selecaoRegioes(nome) {
-
-    inputNorte.style.display = 'none'
-    inputNordeste.style.display = 'none'
-    inputCentroOeste.style.display = 'none'
-    inputSudeste.style.display = 'none'
-    inputSul.style.display = 'none'
+    var iconeAtual = document.getElementById("icone_" + nome);
+   
+    inputNorte.style.display = 'none';
+    inputNordeste.style.display = 'none';
+    inputCentroOeste.style.display = 'none';
+    inputSudeste.style.display = 'none';
+    inputSul.style.display = 'none';
 
     if (nome == "norte") {
-
-        inputNorte.style.display = 'block'
-        return
+        if (iconeAtual.classList.contains("bi-caret-down-fill")) {
+            inputNorte.style.display = 'block';
+            iconeAtual.classList.remove("bi-caret-down-fill");
+            iconeAtual.classList.add("bi-caret-up-fill");
+        } else {
+            inputNorte.style.display = 'none';
+            iconeAtual.classList.remove("bi-caret-up-fill");
+            iconeAtual.classList.add("bi-caret-down-fill");
+        }
+        return;
     } else if (nome == "nordeste") {
-        inputNordeste.style.display = 'block'
-        return
+        if (iconeAtual.classList.contains("bi-caret-down-fill")) {
+            inputNordeste.style.display = 'block';
+            iconeAtual.classList.remove("bi-caret-down-fill");
+            iconeAtual.classList.add("bi-caret-up-fill");
+        } else {
+            inputNordeste.style.display = 'none';
+            iconeAtual.classList.remove("bi-caret-up-fill");
+            iconeAtual.classList.add("bi-caret-down-fill");
+        }
+        return;
     } else if (nome == "centroOeste") {
-        inputCentroOeste.style.display = 'block'
-        return
+        if (iconeAtual.classList.contains("bi-caret-down-fill")) {
+            inputCentroOeste.style.display = 'block';
+            iconeAtual.classList.remove("bi-caret-down-fill");
+            iconeAtual.classList.add("bi-caret-up-fill");
+        } else {
+            inputCentroOeste.style.display = 'none';
+            iconeAtual.classList.remove("bi-caret-up-fill");
+            iconeAtual.classList.add("bi-caret-down-fill");
+        }
+        return;
     } else if (nome == "sudeste") {
-        inputSudeste.style.display = 'block'
-        return
+        if (iconeAtual.classList.contains("bi-caret-down-fill")) {
+            inputSudeste.style.display = 'block';
+            iconeAtual.classList.remove("bi-caret-down-fill");
+            iconeAtual.classList.add("bi-caret-up-fill");
+        } else {
+            inputSudeste.style.display = 'none';
+            iconeAtual.classList.remove("bi-caret-up-fill");
+            iconeAtual.classList.add("bi-caret-down-fill");
+        }
+        return;
     } else {
-
-
-        inputSul.style.display = 'block'
+        if (iconeAtual.classList.contains("bi-caret-down-fill")) {
+            inputSul.style.display = 'block';
+            iconeAtual.classList.remove("bi-caret-down-fill");
+            iconeAtual.classList.add("bi-caret-up-fill");
+        } else {
+            inputSul.style.display = 'none';
+            iconeAtual.classList.remove("bi-caret-up-fill");
+            iconeAtual.classList.add("bi-caret-down-fill");
+        }
     }
-
-
 }
+
 
 function coresMapa(UFs, Consumo) {
     console.log(UFs)

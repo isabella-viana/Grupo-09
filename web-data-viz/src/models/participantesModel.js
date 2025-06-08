@@ -1,10 +1,13 @@
+
 const database = require("../database/config");
 
-function listar() {
+
+
+function listar(empresa) {
     const instrucaoSql = `
         SELECT idUsuario, nome, email, telefone, cargo 
         FROM usuario 
-        WHERE empresa_idempresa = 1;
+        WHERE empresa_idempresa = ${empresa};
     `;
     return database.executar(instrucaoSql);
 }

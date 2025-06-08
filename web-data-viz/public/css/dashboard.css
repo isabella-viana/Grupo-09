@@ -50,7 +50,7 @@
     justify-content: center;
     align-items: center;
 
-    & pomba {
+    & p {
       color: #0d425f;
       font-size: 40px;
     }

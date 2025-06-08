@@ -16,70 +16,66 @@
 
 <body onload="carregarParticipantes()">
 
-   <header>
-        <div class="header-container">
-            <img src="assets/home/logo.svg" alt="">
-        </div>
-    </header>
-    
+  <header>
+    <div class="header-container">
+      <img src="assets/home/logo.svg" alt="">
+    </div>
+  </header>
+
   <div class="container-principal">
-     <div class="cabecalho-esquerdo">
+    <div class="cabecalho-esquerdo">
 
-            <div class="opcoes-cabecalho">
-                <div class="foto-usuario">
-                    <img src="assets/gerenciador/User.svg" alt="">
-                    <p>Eleva User</p>
-                </div>
-
-                <div class="icone" id="dash" onclick="irParaDashboard()">
-                    <img src="assets/cruds/dashboard.svg" alt="">
-                    <p>Dashboard</p>
-                </div>
-
-                <div class="icone" id="enderecos" onclick="irParaEnderecos()">
-                    <img src="assets/cruds/enderecos.svg" alt="">
-                    <p>Endereços</p>
-                </div>
-
-                <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
-                    <img src="assets/cruds/gerenciar.svg" alt="">
-                    <p>Gerenciar</p>
-                </div>
-
-                <div class="icone" id="conta" onclick="irParaConta()">
-                    <img src="assets/cruds/conta.svg" alt="">
-                    <p>Conta</p>
-                </div>
-                <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
-                    <img src="assets/cruds/solicitacoes.svg" alt="">
-                    <p>Solicitações</p>
-                </div>
-            </div>
-
-            <div class="icone-saida" onclick="sair()">
-                <img src="assets/gerenciador/sair.svg" alt="">
-            </div>
+      <div class="opcoes-cabecalho">
+        <div class="foto-usuario">
+          <img src="assets/gerenciador/User.svg" alt="">
+          <p>Eleva User</p>
         </div>
 
-         <div class="container-section">
-           <h1>Gerenciar Participantes</h1>
+        <div class="icone" id="dash" onclick="irParaDashboard()">
+          <img src="assets/cruds/dashboard.svg" alt="">
+          <p>Dashboard</p>
+        </div>
 
-           <div class="botoes-direita">
-           <button class="botao adicionar" onclick="telaContato()">
-             Adicionar
-               <i class="bi bi-plus-circle"></i>
-                </button>
+        <div class="icone" id="enderecos" onclick="irParaEnderecos()">
+          <img src="assets/cruds/enderecos.svg" alt="">
+          <p>Endereços</p>
+        </div>
 
-             <button class="botao excluir" onclick="executarExclusao()">
-            Excluir
-              <i class="bi bi-trash"></i>
-            </button>
+        <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
+          <img src="assets/cruds/gerenciar.svg" alt="">
+          <p>Gerenciar</p>
+        </div>
 
-            <button class="botao adicionar editar-btn" style="margin-right: 5%">
-               Editar
-              <i class="bi bi-pencil-square"></i>
-               </button>
-             </div>
+        <div class="icone" id="conta" onclick="irParaConta()">
+          <img src="assets/cruds/conta.svg" alt="">
+          <p>Conta</p>
+        </div>
+      </div>
+
+      <div class="icone-saida" onclick="sair()">
+        <img src="assets/gerenciador/sair.svg" alt="">
+      </div>
+    </div>
+
+    <div class="container-section">
+      <h1>Gerenciar Participantes</h1>
+
+      <div class="botoes-direita">
+        <button class="botao adicionar" onclick="irParaConta()">
+          Adicionar
+          <i class="bi bi-plus-circle"></i>
+        </button>
+
+        <button class="botao excluir" onclick="executarExclusao()">
+          Excluir
+          <i class="bi bi-trash"></i>
+        </button>
+
+        <button class="botao adicionar editar-btn" style="margin-right: 5%">
+          Editar
+          <i class="bi bi-pencil-square"></i>
+        </button>
+      </div>
 
       <div class="tabela">
         <table class="tabela-participantes">
@@ -89,35 +85,19 @@
               <th class="titulo">Nome</th>
               <th class="titulo">Email</th>
               <th class="titulo">Telefone</th>
-              <th class="titulo">Área</th>
+              <th class="titulo">Cargo</th>
               <th class="titulo">Nível</th>
             </tr>
           </thead>
           <tbody id="tabelaCorpo">
-            <tr style="position: sticky;">
-              <td><input type="checkbox" class="check-participante" data-id="4"></td>
-              <td>Guilherme</td>
-              <td>usuario@empresa.com</td>
-              <td>125693</td>
-              <td>Analista</td>
-              <td>View</td>
-            </tr>
-
-            <tr style="position: sticky;">
-              <td><input type="checkbox" class="check-participante" data-id="5"></td>
-              <td>isa</td>
-              <td>usuario@empresa.com</td>
-              <td>1193332174</td>
-              <td>Analista</td>
-              <td>View</td>
-            </tr>
+          
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
- 
+
 
   <div id="containerForm" style="display: none;">
 
@@ -179,11 +159,15 @@
     };
 
     function carregarParticipantes() {
+        const idEmpresa = sessionStorage.getItem("ID_EMPRESA");
       fetch("/participantes/listar", {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+         idEmpresaServer:idEmpresa
+        })
       })
         .then((resposta) => {
           if (resposta.ok) {

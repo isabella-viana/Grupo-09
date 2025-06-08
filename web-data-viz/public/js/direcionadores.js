@@ -12,9 +12,14 @@ function irParaGerenciar() {
 }
 
 function irParaConta() {
-  window.location.href = "./conta.html";
+  window.location.href = "./adicionar_conta.html";
 }
 
-function irParaSolicitacao() {
-  window.location.href = "./solicitacao.html";
+function adicionarEndereco() {
+  window.location.href = "./adicionar_endereco.html";
 }
+
+function sair(){
+  window.location.href = "./index.html";
+}
+
