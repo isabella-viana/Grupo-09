@@ -7,6 +7,7 @@
   <title>ELEVA</title>
   <link rel="stylesheet" href="css/primeiro_acesso.css" />
   <link rel="shortcut icon" href="assets/home/logo.svg" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
       <form onsubmit="return false">
         <div class="Up">
           <h1>ELEVA</h1>
-            
+
         </div>
 
         <p class="texto1">Bem-vindo(a) ao sistema ELEVA!</p>
@@ -28,7 +29,8 @@
         </div>
 
         <button type="submit" class="btn" onclick="cadastrar()">
-          <img src="assets/login_cadastro/cadeado.png" style="width: 20px; vertical-align: middle; margin-bottom: 5px;"> Criar senha
+          <img src="assets/login_cadastro/cadeado.png" style="width: 20px; vertical-align: middle; margin-bottom: 5px;">
+          Criar senha
         </button>
 
         <div class="requisitos">
@@ -53,17 +55,29 @@
   <script src="js/primeiroAcesso.js"></script>
 
   <script>
-    
+
     function cadastrar() {
       const senhaVar = document.getElementById("input_senha").value;
 
       if (senhaVar === "") {
-        alert("Digite uma senha para continuar.");
+
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "Digite uma senha para continuar.",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
         return false;
       }
 
       if (senhaVar.length < 8) {
-        alert("A senha deve ter pelo menos 8 caracteres!");
+
+        Swal.fire({
+          icon: "error",
+          title: "Erro",
+          text: "A senha deve ter pelo menos 8 caracteres!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
         return false;
       }
 
@@ -74,71 +88,77 @@
       console.log("CPF recuperado:", cpf);
 
       atualizarSenha(senhaVar, cpf);
-      
 
-      
-    } 
-    function atualizarSenha(senha,cpf){
+
+
+    }
+    function atualizarSenha(senha, cpf) {
       console.log("Atualizando senha no servidor...");
       console.log("Senha:", senha);
       console.log("CPF:", cpf);
 
-       fetch("/usuarios/atualizarSenha", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                   senha:senha,
-                   cpfServer:cpf
-                }),
-            })
-                .then(res => {
-                    if (res.ok) {
-                        alert('Usuario cadastrado com sucesso!');                 
-                        console.log('Chamada para o cadastro realizado com sucesso')
-                     
-                         adicionarAcesso(cpf);
-                            window.location.href = "./dashboard.html";
-                    } else {
-                        return res.json().then(data => {
-                            throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
-                        });
-                    }
-                })
+      fetch("/usuarios/atualizarSenha", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          senha: senha,
+          cpfServer: cpf
+        }),
+      })
+        .then(res => {
+          if (res.ok) {
 
-                .catch(erro => {
-                    console.error("#ERRO:", erro);
-                });
-
-            return false;
-    }
-
-        function adicionarAcesso(cpf) {
-            console.log("Estou tentando adicionar um acesso!");
-
-            fetch("/usuarios/adicionarAcesso", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    cpfServer: cpf
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO adicionarAcesso()!")
-
-                if (resposta.ok) {
-                    console.log("Acesso adicionado com sucesso!");
-                } else {
-                    throw "Houve um erro ao tentar adicionar o acesso!";
-                }
-            }).catch(function (erro) {
-                console.log(`#ERRO: ${erro}`);
+            Swal.fire({
+              title: "Usuario cadastrado com sucesso!",
+              icon: "success",
+              draggable: true
             });
 
-            return false;
+            console.log('Chamada para o cadastro realizado com sucesso')
+
+            adicionarAcesso(cpf);
+            window.location.href = "./dashboard.html";
+          } else {
+            return res.json().then(data => {
+              throw new Error(data.mensagem || "Erro ao cadastrar empresa.");
+            });
+          }
+        })
+
+        .catch(erro => {
+          console.error("#ERRO:", erro);
+        });
+
+      return false;
+    }
+
+    function adicionarAcesso(cpf) {
+      console.log("Estou tentando adicionar um acesso!");
+
+      fetch("/usuarios/adicionarAcesso", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          cpfServer: cpf
+        })
+      }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO adicionarAcesso()!")
+
+        if (resposta.ok) {
+          console.log("Acesso adicionado com sucesso!");
+        } else {
+          throw "Houve um erro ao tentar adicionar o acesso!";
         }
+      }).catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+      });
+
+      return false;
+    }
 
   </script>
 </body>
