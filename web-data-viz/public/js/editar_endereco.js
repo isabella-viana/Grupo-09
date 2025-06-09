@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
   const idEndereco = sessionStorage.getItem("ID_ENDERECO");
+  user.innerHTML = sessionStorage.getItem("NOME");
 
   if (!idEndereco) {
     console.error("ID_ENDERECO não encontrado no sessionStorage");
@@ -31,7 +32,6 @@ window.addEventListener("load", () => {
 });
 
 function editarEndereco() {
-
   window.location.href = "/editar_endereco.html";
 
   const idEndereco = sessionStorage.getItem("ID_ENDERECO");

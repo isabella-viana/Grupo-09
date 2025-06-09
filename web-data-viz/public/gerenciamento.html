@@ -28,7 +28,7 @@
       <div class="opcoes-cabecalho">
         <div class="foto-usuario">
           <img src="assets/gerenciador/User.svg" alt="">
-          <p>Eleva User</p>
+          <p id="user">Eleva User</p>
         </div>
 
         <div class="icone" id="dash" onclick="irParaDashboard()">
@@ -90,7 +90,7 @@
             </tr>
           </thead>
           <tbody id="tabelaCorpo">
-          
+
           </tbody>
         </table>
       </div>
@@ -128,6 +128,8 @@
 
   <script>
 
+    user.innerHTML = sessionStorage.getItem("NOME");
+
     const tabelaCorpo = document.getElementById("tabelaCorpo");
 
     function adicionarUsuario() {
@@ -159,14 +161,14 @@
     };
 
     function carregarParticipantes() {
-        const idEmpresa = sessionStorage.getItem("ID_EMPRESA");
+      const idEmpresa = sessionStorage.getItem("ID_EMPRESA");
       fetch("/participantes/listar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-         idEmpresaServer:idEmpresa
+          idEmpresaServer: idEmpresa
         })
       })
         .then((resposta) => {
