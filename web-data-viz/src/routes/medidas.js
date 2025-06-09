@@ -15,5 +15,9 @@ router.get("/buscarMapaCalor", function(req,res){
 medidaController.buscarMapaCalor(req,res)
 })
 
+router.post("/verificarConsumoTodas", function(req,res){
+    medidaController.verificarConsumoTodas(req,res)
+})
+
 
 module.exports = router;

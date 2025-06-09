@@ -48,15 +48,6 @@ function buscarClasse(){
 
     console.log("entrei na função buscarClasse do model");
 
-    // Amigos, Guilherme e Gandin aqui. 
-    // Esse select retorna os dados de consumo por classe em porcentagem
-    // Como deve ficar o select:
-    // | classe      | consumo\_total\_classe | percentual\_consumo | consumo\_total\_2024 |
-    // | ----------- | ---------------------- | ------------------- | -------------------- |
-    // | Residencial | 1.200.000              | 48.00               | 2.500.000            |
-    // | Comercial   | 900.000                | 36.00               | 2.500.000            |
-    // | Industrial  | 400.000                | 16.00               | 2.500.000            |
-    
     var instrucaoSql = `
 
 SELECT
@@ -94,10 +85,29 @@ ORDER BY uf ASC;
     return database.executar(instrucaoSql);
 }
 
+function verificarConsumoTodas(){
+    console.log("Entrei no model do verificarConsumoTodas");
+
+    var instrucaoSql = ` SELECT
+    regiao,
+    SUM(consumo) AS consumo_total,
+    ROUND(SUM(consumo) * 100.0 / (SELECT SUM(consumo) FROM energia_historico WHERE YEAR(dataHora) = 2024), 2) AS percentual_consumo
+    FROM energia_historico
+    WHERE YEAR(dataHora) = 2024
+    GROUP BY regiao
+    ORDER BY percentual_consumo DESC; 
+`;
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
 module.exports = {
     verificar,
     buscarClasse,
-    buscarMapaCalor
+    buscarMapaCalor,
+    verificarConsumoTodas
 };
 
 

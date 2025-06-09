@@ -60,10 +60,45 @@ function buscarMapaCalor(req,res){
     });
 }
 
+function verificarConsumoTodas(req,res){
+        console.log("Acessei o controller do verificarConsumoTodas")
+
+     var estadoSelecionado = req.body.estadoServer;
+    console.log("Estado selecionado: ", estadoSelecionado);
+
+    medidaModel.verificarConsumoTodas(estadoSelecionado)
+        .then(function (resultadoAutenticar) {
+            console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+            console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
+
+            if (resultadoAutenticar.length > 0) {
+               
+                res.json(resultadoAutenticar);
+            } else {
+                res.status(403).send("Não foi possível encontrar dados para o estado.");
+            }
+        })
+        .catch(function (erro) {
+            console.error("Erro ao buscar dados:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+        console.log("passei o controller do verificarConsumoTodas")
+}
+
+
 
 module.exports = {
     verificarDados,
     buscarClasse,
-    buscarMapaCalor
+    buscarMapaCalor,
+    verificarConsumoTodas
 
 }
+
+
+
+
+
+
+
+

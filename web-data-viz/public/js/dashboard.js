@@ -1,4 +1,4 @@
-user.innerHTML = sessionStorage.getItem("NOME");
+
 
 function adicionarUsuario() {
   window.location.href = "./gerenciamento.html";
@@ -51,11 +51,11 @@ function atualizarKPIs(anos, consumo, consumidores) {
   if (consumoMedioPorConsumidor > 0) {
     comparacaoCPC.innerHTML = `${consumoMedioPorConsumidor.toFixed(
       1
-    )} <span>MWh</span> <i class="bi bi-lightning-charge-fill"></i>`;
+    )} <span>GWh</span> <i class="bi bi-lightning-charge-fill"></i>`;
   } else {
     comparacaoCPC.innerHTML = `${consumoMedioPorConsumidor.toFixed(
       1
-    )} <span>MWh</span> <i class="bi bi-lightning-charge-fill"></i>`;
+    )} <span>GWh</span> <i class="bi bi-lightning-charge-fill"></i>`;
   }
 }
 
@@ -76,6 +76,7 @@ function buscarMapaCalor() {
   console.log("Estou no buscarMapaCalor()");
 
   fetch("/medidas/buscarMapaCalor", {
+  
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -184,7 +185,8 @@ function buscarClasses() {
 }
 function verificar(estado) {
   console.log("Entrei no verificar(estado)");
-
+  console.log("estado do verificar:" + estado);
+  
   fetch("/medidas/verificar", {
     method: "POST",
     headers: {
@@ -201,8 +203,8 @@ function verificar(estado) {
         console.log(resposta);
 
         resposta.json().then((json) => {
-          console.log("Dados completos:", json);
-          console.log("Em formato JSON:", JSON.stringify(json));
+          console.log("Dados completos do verificar:", json);
+          console.log("Em formato JSON do verificar:", JSON.stringify(json));
 
           const ANOS = json.map((item) => item.ano);
           const CONSUMIDORES = json.map((item) => Number(item.consumidores));
@@ -217,8 +219,42 @@ function verificar(estado) {
           console.log("Consumidores:", CONSUMIDORES);
 
           criarGraficoConsumidores(ANOS, CONSUMIDORES, estado);
-          criarGraficoConsumo(ANOS, CONSUMO, estado);
           atualizarKPIs(ANOS, CONSUMO, CONSUMIDORES, estado);
+          if (estado == "todas") {
+           fetch("/medidas/verificarConsumoTodas", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                estadoServer: estado,
+              }),
+            }).then(function (resposta) {
+              console.log("ESTOU NO THEN DO buscarClasses()!");
+
+              if (resposta.ok) {
+
+
+                resposta.json().then((json) => {
+                  
+                  console.log("Dados completos todas Verificar todas:", json);
+                  console.log("Em formato JSON todas verificar: todas", JSON.stringify(json));
+
+                  const REGIAO = json.map((item) => item.regiao);
+                  const PERCENTUALCONSUMO = json.map((item) => Number(item.percentual_consumo));
+                  criarGraficoConsumo2( REGIAO, PERCENTUALCONSUMO);
+                });
+              } else {
+                console.log("Erro ao puxar os dados do back-end.");
+              }
+            })
+              .catch(function (erro) {
+                console.log("Erro na requisição:", erro);
+              });
+          } else {
+             criarGraficoConsumo(ANOS, CONSUMO, estado);
+          }
+
         });
       } else {
         console.log("Erro ao puxar os dados do back-end.");
@@ -451,10 +487,65 @@ function criarGraficoConsumidores(anos, consumidores, estado) {
   }
 }
 
+ function criarGraficoConsumo2(regiao, percentual){
+
+  console.log("Dados vindo do criarGraficosConsumo2:" + regiao, percentual)
+
+   Highcharts.chart("qtdConsumo", {
+      chart: {
+        type: "column",
+      },
+      title: {
+        text: null,
+      },
+      xAxis: {
+        categories: [regiao[0], regiao[1], regiao[2], regiao[3], regiao[4]],
+
+        title: {
+          text: null,
+        },
+        lineWidth: 0,
+        tickWidth: 0,
+        gridLineWidth: 0,
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: null,
+        },
+        allowDecimals: true,
+        lineWidth: 0,
+        tickWidth: 0,
+        gridLineWidth: 0,
+        labels: {
+          enabled: false,
+        },
+      },
+      credits: {
+        enabled: false,
+      },
+      legend: {
+        enabled: false,
+      },
+      plotOptions: {
+        column: {
+          dataLabels: {
+            enabled: true,
+            style: {
+              fontSize: "8.5px",
+            },
+          },
+        },
+      },
+      series: [
+        {
+          name: "Consumo",
+          data: [percentual[0], percentual[1], percentual[2], percentual[3], percentual[4]],
+        },
+      ],
+    });
+ }
 function criarGraficoConsumo(anos, consumo, estado) {
-  if (anos == null || consumo == null) {
-    return;
-  }
   console.log(estado);
 
   if (estado != "todas") {
@@ -529,61 +620,7 @@ function criarGraficoConsumo(anos, consumo, estado) {
         },
       ],
     });
-  } else {
-    Highcharts.chart("qtdConsumo", {
-      chart: {
-        type: "column",
-      },
-      title: {
-        text: null,
-      },
-      xAxis: {
-        categories: ["N", "NE", "CO", "SE", "S"],
-
-        title: {
-          text: null,
-        },
-        lineWidth: 0,
-        tickWidth: 0,
-        gridLineWidth: 0,
-      },
-      yAxis: {
-        min: 0,
-        title: {
-          text: null,
-        },
-        allowDecimals: true,
-        lineWidth: 0,
-        tickWidth: 0,
-        gridLineWidth: 0,
-        labels: {
-          enabled: false,
-        },
-      },
-      credits: {
-        enabled: false,
-      },
-      legend: {
-        enabled: false,
-      },
-      plotOptions: {
-        column: {
-          dataLabels: {
-            enabled: true,
-            style: {
-              fontSize: "8.5px",
-            },
-          },
-        },
-      },
-      series: [
-        {
-          name: "Consumo",
-          data: [consumo[4], consumo[3], consumo[2], consumo[1], consumo[0]],
-        },
-      ],
-    });
-  }
+  } 
 }
 
 function checkBox() {
@@ -621,7 +658,7 @@ function checkBox() {
     const listaEstados = valores[i];
 
     const container = document.getElementById(`input${regiao}`);
-    container.innerHTML = ""; // limpa o conteúdo antes
+    container.innerHTML = ""; 
 
     for (let j = 0; j < listaEstados.length; j++) {
       const estado = listaEstados[j];
