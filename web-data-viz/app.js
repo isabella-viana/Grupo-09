@@ -1,5 +1,5 @@
-//var ambiente_processo = 'producao';
-var ambiente_processo = "desenvolvimento";
+var ambiente_processo = "producao";
+//var ambiente_processo = "desenvolvimento";
 
 var caminho_env = ambiente_processo === "producao" ? ".env" : ".env.dev";
 // Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
@@ -27,7 +27,7 @@ var enderecoRouter = require("./src/routes/endereco");
 var contaRouter = require("./src/routes/conta");
 var envioCredenciaisRouter = require("./src/routes/envioCredenciais");
 var screenshotRouter = require("./src/routes/screenshot");
-var slackRouter = require("./src/routes/slack")
+var slackRouter = require("./src/routes/slack");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -47,7 +47,7 @@ app.use("/endereco", enderecoRouter);
 app.use("/envioCredenciais", envioCredenciaisRouter);
 app.use("/conta", contaRouter);
 app.use("/screenshot", screenshotRouter);
-app.use("/slack",slackRouter)
+app.use("/slack", slackRouter);
 
 app.delete("/gerenciamento/removerEndereco/:idendereco", (req, res) => {
   console.log("DELETE recebido no teste, id:", req.params.idendereco);
@@ -71,6 +71,4 @@ app.listen(PORTA_APP, function () {
     \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
 });
 
-
 require("./public/js/nodemailer/screenshot");
-
