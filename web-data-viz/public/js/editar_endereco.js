@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
   const idEndereco = sessionStorage.getItem("ID_ENDERECO");
-  console.log(idEndereco)
+  console.log(idEndereco);
   user.innerHTML = sessionStorage.getItem("NOME");
 
   if (!idEndereco) {
@@ -87,7 +87,15 @@ function editarEndereco() {
   })
     .then((res) => {
       if (res.ok) {
-        alert("Endereço atualizado com sucesso!");
+        Swal.fire({
+          title: "Endereço atualizado com sucesso!",
+          icon: "success",
+          draggable: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "./editar_endereco.html";
+          }
+        });
         window.location.reload();
       } else {
         return res.json().then((data) => {

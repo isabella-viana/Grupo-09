@@ -20,6 +20,13 @@ main {
   color: #012a4a;
 }
 
+.titulo1 h1 {
+  font-weight: 400;
+  color: #012a4a;
+  margin-right: 7vw;
+  margin-top: 2vh;
+}
+
 .conta {
   width: 100%;
   height: 100%;
@@ -44,6 +51,28 @@ main {
   flex-direction: column;
   align-items: flex-start;
   padding-left: 8vw;
+}
+
+.conta-dados1 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 8vw;
+}
+
+.conta-dados1 button {
+  width: 8vw;
+  height: 4vh;
+  cursor: pointer;
+  font-size: 14px;
+  border-style: none;
+  border-radius: 1.5vh;
+  background-color: #3d6e89;
+  color: white;
+  margin-top: 2.5vh;
+  margin-left: 10vw;
 }
 
 .conta-dados button {

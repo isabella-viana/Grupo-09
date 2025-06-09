@@ -1,3 +1,13 @@
+window.addEventListener("load", () => {
+  user.innerHTML = sessionStorage.getItem("NOME");
+  var nivelAcesso = sessionStorage.getItem("NIVELACESSO");
+
+  if (nivelAcesso != "ADM") {
+    document.getElementById("gerenciar").style.display = "none";
+    document.getElementById("enderecos").style.display = "none";
+  }
+});
+
 function sair() {
   window.location.href = "./index.html";
 }
@@ -12,14 +22,13 @@ function irParaGerenciar() {
 }
 
 function irParaConta() {
-  window.location.href = "./adicionar_conta.html";
+  window.location.href = "./conta.html";
 }
 
 function adicionarEndereco() {
   window.location.href = "./adicionar_endereco.html";
 }
 
-function sair(){
+function sair() {
   window.location.href = "./index.html";
 }
-

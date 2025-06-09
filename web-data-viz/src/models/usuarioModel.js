@@ -19,7 +19,7 @@ function autenticar(email, senha) {
   );
 
   var instrucaoSql = `
-        SELECT  empresa_idempresa , qtdAcessos , cpf, nome, telefone, userName, cargo FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT  empresa_idempresa , qtdAcessos , cpf, nome, telefone, userName, cargo, nivelAcesso FROM usuario WHERE email = '${email}' AND senha = '${senha}';
 
     `;
 

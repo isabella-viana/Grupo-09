@@ -36,52 +36,92 @@ function adicionarEndereco() {
   var apelido = document.getElementById("apelido").value.trim();
 
   if (!cep) {
-    alert("Por favor, preencha o campo de CEP");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de CEP",
+    });
     return false;
   }
 
   if (!logradouro) {
-    alert("Por favor, preencha o campo de Logradouro");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Logradouro",
+    });
     return false;
   }
 
   if (!numeroStr) {
-    alert("Por favor, preencha o campo de número");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Número",
+    });
     return false;
   }
 
   if (!bairro) {
-    alert("Por favor, preencha o campo de bairro");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Bairro",
+    });
     return false;
   }
 
   if (!cidade) {
-    alert("Por favor, preencha o campo de cidade");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Cidade",
+    });
     return false;
   }
 
   if (!estado) {
-    alert("Por favor, preencha o campo de estado");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Estado",
+    });
     return false;
   }
 
   if (!gerente) {
-    alert("Por favor, preencha o campo de gerente");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Gerente",
+    });
     return false;
   }
 
   if (!complemento) {
-    alert("Por favor, preencha o campo de complemento");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Complemento",
+    });
     return false;
   }
 
   if (!apelido) {
-    alert("Por favor, preencha o campo de apelido");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Apelido",
+    });
     return false;
   }
 
   if (isNaN(numero) || numero <= 0) {
-    alert("Por favor, insira um número válido para o campo Número.");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, Insira um valor válido para o número",
+    });
     return;
   }
 
@@ -105,17 +145,29 @@ function adicionarEndereco() {
   })
     .then((res) => {
       if (res.ok) {
-        alert("Endereço cadastrado com sucesso!");
-        window.location.reload();
+        Swal.fire({
+          title: "Endereço cadastrado com sucesso!",
+          icon: "success",
+          draggable: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "./adicionar_endereco.html";
+          }
+        });
       } else {
         return res.json().then((data) => {
           throw new Error(data.mensagem || "Erro ao cadastrar endereço.");
         });
       }
     })
-
     .catch((erro) => {
       console.error("#ERRO:", erro);
+      Swal.fire({
+        title: "Erro ao cadastrar endereço!",
+        text: erro.message || "Erro desconhecido.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     });
 
   return false;

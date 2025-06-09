@@ -50,10 +50,6 @@
           <img src="assets/cruds/conta.svg" alt="">
           <p>Conta</p>
         </div>
-        <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
-          <img src="assets/cruds/solicitacoes.svg" alt="">
-          <p>Solicitações</p>
-        </div>
       </div>
 
       <div class="icone-saida" onclick="sair()">
@@ -229,23 +225,23 @@
           editarModal.style.display = 'none';
         }
 
-  function confirmarEditar() {
-    const idSelecionado = selectEndereco.value;
-    if (!idSelecionado) {
-      alert('Por favor, selecione um ID de endereço.');
-      return;
-    }
-    else{
-       window.location.href = "./editar_endereco.html";
-       const idEndereco = sessionStorage.setItem("ID_ENDERECO", idSelecionado);
-    }
+        function confirmarEditar() {
+          const idSelecionado = selectEndereco.value;
+          if (!idSelecionado) {
+            alert('Por favor, selecione um ID de endereço.');
+            return;
+          }
+          else {
+            window.location.href = "./editar_endereco.html";
+            const idEndereco = sessionStorage.setItem("ID_ENDERECO", idSelecionado);
+          }
 
           alert(`Você escolheu editar o endereço ID: ${idSelecionado}`);
 
-  
 
-    fecharEditarModal();
-         
+
+          fecharEditarModal();
+
 
           // Aqui você pode abrir um formulário ou redirecionar para editar o endereço
           // Exemplo: window.location.href = `/editarEndereco.html?id=${idSelecionado}`;

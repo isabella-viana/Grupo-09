@@ -24,10 +24,12 @@ function autenticar(req, res) {
             idEmpresa: resultadoAutenticar[0].empresa_idempresa,
             qtdAcessos: resultadoAutenticar[0].qtdAcessos,
             cpf: resultadoAutenticar[0].cpf,
+            contato: resultadoAutenticar[0].contato,
             nome: resultadoAutenticar[0].nome,
             telefone: resultadoAutenticar[0].telefone,
             userName: resultadoAutenticar[0].userName,
             cargo: resultadoAutenticar[0].cargo,
+            nivelAcesso: resultadoAutenticar[0].nivelAcesso,
           });
         } else if (resultadoAutenticar.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");

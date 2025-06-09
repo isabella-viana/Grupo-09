@@ -11,7 +11,11 @@ function cadastrar() {
   var senha = document.getElementById("senha").value.trim();
 
   if (!nome || !contato || !userName || !email || !senha || !cargo || !cpf) {
-    alert("Por favor, preencha todos os campos obrigatórios.");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Por favor, preencha o campo de Apelido",
+    });
     return;
   }
 
@@ -35,19 +39,34 @@ function cadastrar() {
   })
     .then((resposta) => {
       if (resposta.ok) {
-        alert("Usuário cadastrado com sucesso!");
-        window.location.reload();
+        Swal.fire({
+          title: "Endereço cadastrado com sucesso!",
+          icon: "success",
+          draggable: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload;
+          }
+        });
       } else {
         resposta.json().then((data) => {
           console.error("Erro do servidor:", data);
-          alert(
-            "Erro ao cadastrar usuário: " + (data.erro || "Erro desconhecido.")
-          );
+          Swal.fire({
+            title: "Erro ao cadastrar usuário!",
+            text: data.erro || "Erro desconhecido.",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
         });
       }
     })
     .catch((erro) => {
       console.error("Erro de conexão:", erro);
-      alert("Erro ao conectar com o servidor.");
+      Swal.fire({
+        title: "Erro de conexão!",
+        text: "Não foi possível conectar ao servidor.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
     });
 }
