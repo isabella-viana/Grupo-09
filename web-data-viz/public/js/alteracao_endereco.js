@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
   const idempresa = sessionStorage.getItem("ID_EMPRESA");
+  user.innerHTML = sessionStorage.getItem("NOME");
 
   if (!idempresa) {
     console.error("ID_ENDERECO não encontrado no sessionStorage");

@@ -103,6 +103,9 @@
         function irParaSolicitacoes(){
                 window.location.href = "./solicitacao.html";
         }
+        function sair(){
+            window.location.href="./index.html"
+        }
 
         function salvarInformacao() {
         
@@ -151,9 +154,10 @@
       }).catch(function (erro) {
         console.log(`#ERRO: ${erro}`);
       });
+          return false;  
     }
 
-      return false;  
+  
 
     </script>
 
