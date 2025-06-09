@@ -32,3 +32,7 @@ function adicionarEndereco() {
 function sair() {
   window.location.href = "./index.html";
 }
+
+function adicionarConta() {
+  window.location.href = "./adicionar_conta.html";
+}
