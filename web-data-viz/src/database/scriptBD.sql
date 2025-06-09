@@ -106,4 +106,6 @@ INSERT INTO usuario (nome, userName, cpf, telefone, email, senha, cargo, nivelAc
 ('ElevaADM', 'eleva', '9999999', '11999999', 'eleva9980@gmail.com', 'urubu100', 'ADM' , 'Administrador', 1, '2025-02-10', 1);
 
 INSERT INTO configuracao_slack (isAtivo, processo_etl, processo_solicitacao, dataEnvio, idUsuario) VALUES
-( 1, 1, 0, CURRENT_TIMESTAMP, 1);
+( 1, 1, 1, CURRENT_TIMESTAMP, 1);
+
+
