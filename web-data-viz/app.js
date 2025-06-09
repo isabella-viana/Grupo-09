@@ -27,7 +27,7 @@ var enderecoRouter = require("./src/routes/endereco");
 var contaRouter = require("./src/routes/conta");
 var envioCredenciaisRouter = require("./src/routes/envioCredenciais");
 var screenshotRouter = require("./src/routes/screenshot");
- 
+var slackRouter = require("./src/routes/slack")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -47,6 +47,7 @@ app.use("/endereco", enderecoRouter);
 app.use("/envioCredenciais", envioCredenciaisRouter);
 app.use("/conta", contaRouter);
 app.use("/screenshot", screenshotRouter);
+app.use("/slack",slackRouter)
 
 app.delete("/gerenciamento/removerEndereco/:idendereco", (req, res) => {
   console.log("DELETE recebido no teste, id:", req.params.idendereco);
