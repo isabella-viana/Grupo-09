@@ -32,7 +32,7 @@ a {
 
 #endereco-button{
     font-size: "Poppins" ;
-    border-radius: 20px;
+    border-radius: 10px;
     width: 120px;
     height: 40px;
     color: white;
@@ -56,7 +56,7 @@ table#tabelaUsuarios {
   border-collapse: collapse;
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   table-layout: fixed;
 }
@@ -96,12 +96,12 @@ table#tabelaUsuarios {
 
 #id-column{
     width: 120px;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 #id-cadastro{
     width: 120px;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 table{
@@ -130,15 +130,15 @@ tr{
 
 /* Cantos arredondados */
 #tabelaUsuarios th:first-child {
-  border-top-left-radius: 10px;
+  border-top-left-radius: 1px;
 }
 
 #tabelaUsuarios th:last-child {
-  border-top-right-radius: 10px;
+  border-top-right-radius: 1px;
 }
 
 #tabelaUsuarios tr:last-child td:first-child {
-  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 1px;
 }
 
 #tabelaUsuarios tr:last-child td:last-child {

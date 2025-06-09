@@ -233,8 +233,14 @@ function abrirEditarModal() {
       alert('Por favor, selecione um ID de endereço.');
       return;
     }
+    else{
+       window.location.href = "./editar_endereco.html";
+       const idEndereco = sessionStorage.setItem("ID_ENDERECO", idSelecionado);
+    }
 
     alert(`Você escolheu editar o endereço ID: ${idSelecionado}`);
+
+  
 
     fecharEditarModal();
 
