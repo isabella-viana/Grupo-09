@@ -1,8 +1,8 @@
 window.addEventListener("load", () => {
   user.innerHTML = sessionStorage.getItem("NOME");
-  var nivelAcesso = sessionStorage.getItem("NIVELACESSO");
+  var cargo = sessionStorage.getItem("CARGO");
 
-  if (nivelAcesso != "ADM") {
+  if (cargo != "ADM") {
     document.getElementById("gerenciar").style.display = "none";
     document.getElementById("enderecos").style.display = "none";
   }
