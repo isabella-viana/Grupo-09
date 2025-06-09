@@ -15,204 +15,233 @@
 <body>
 
   <header>
-    <div class="header-container">
-      <img src="assets/home/logo.svg" alt="">
-    </div>
+      <div class="header-container">
+          <img src="assets/home/logo.svg" alt="">
+      </div>
   </header>
 
 
-  <div class="container-principal">
-    <div class="cabecalho-esquerdo">
-      <div class="opcoes-cabecalho">
-        <div class="foto-usuario">
-          <img src="assets/gerenciador/User.svg" alt="">
-          <p>Eleva User</p>
-        </div>
-
-        <div class="icone" id="dash" onclick="irParaDashboard()">
-          <img src="assets/cruds/dashboard.svg" alt="">
-          <a href="./dashboard.html"><p>Dashboard</p></a>
-        </div>
-
-        <div class="icone" id="enderecos" onclick="irParaEnderecos()">
-          <img src="assets/cruds/enderecos.svg" alt="">
-          <a href="./gerenciar_endereco.html">
+    <div class="container-principal">
+      <div class="cabecalho-esquerdo">
+        <div class="opcoes-cabecalho">
+          <div class="foto-usuario">
+            <img src="assets/gerenciador/User.svg" alt="">
+            <p>Eleva User</p>
+          </div>
+  
+          <div class="icone" id="dash" onclick="irParaDashboard()">
+            <img src="assets/cruds/dashboard.svg" alt="">
+            
+      
+<p>Dashboard</p>
+          </div>
+  
+          <div class="icone" id="enderecos" onclick="irParaEnderecos()">
+            <img src="assets/cruds/enderecos.svg" alt="">
             <p>Endereços</p>
-          </a>
-          
+          </div>
+  
+          <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
+            <img src="assets/cruds/gerenciar.svg" alt="">
+            <p>Gerenciar</p>
+          </div>
+  
+          <div class="icone" id="conta" onclick="irParaConta()">
+            <img src="assets/cruds/conta.svg" alt="">
+            <p>Conta</p>
+          </div>
+          <div class="icone" id="solicitacao" onclick="irParaSolicitacao()">
+            <img src="assets/cruds/solicitacoes.svg" alt="">
+            <p>Solicitações</p>
+          </div>
         </div>
-
-        <div class="icone" id="gerenciar" onclick="irParaGerenciar()">
-          <img src="assets/cruds/gerenciar.svg" alt="">
-          <a href="./gerenciamento.html"><p>Gerenciar</p></a>
-          
-        </div>
-
-        <div class="icone" id="conta" onclick="irParaConta()">
-          <img src="assets/cruds/conta.svg" alt="">
-          <a href="./adicionar_conta.html"><p>Conta</p></a>
+  
+        <div class="icone-saida" onclick="sair()">
+          <img src="assets/gerenciador/sair.svg" alt="">
         </div>
       </div>
 
-      <div class="icone-saida" onclick="sair()">
-        <a href="./index.html">
-          <img src="assets/gerenciador/sair.svg" alt="">
-        </a>
-        
+      <div id="editarModal" style="display:flex; position:fixed; top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5); z-index:10000; justify-content:center; align-items:center; display:none;">
+    <div style="background:#fff; padding:20px; border-radius:8px; width:300px; text-align:center; ">
+      <h3>Escolha o ID do Endereço para Editar</h3>
+      <select id="selectEndereco" style="width:100%; padding:8px; margin:15px 0;">
+        <option value="" disabled selected>Selecione um endereço</option>
+      </select>
+      <div>
+        <button onclick="confirmarEditar()" style="padding:8px 15px; margin-right:10px;">Confirmar</button>
+        <button onclick="fecharEditarModal()" style="padding:8px 15px;">Cancelar</button>
       </div>
     </div>
+  </div>
 
-    <div class="gerenciador">
+      <div class="gerenciador">
 
-      <div class="titulo">
-        <p>Gerenciar Endereços</p>
-      </div>
+          <div class="titulo">
+              <p>Gerenciar Endereços</p>
+          </div>
 
-      <div class="buttons">
+          <div class="buttons">
 
-        <button onclick="removerEndereco()" id="endereco-button">
-          Remover <i class="bi bi-dash-circle" id="icons-button"></i>
-        </button>
+          <button onclick="removerEndereco()" id="endereco-button">
+              Remover <i class="bi bi-dash-circle" id="icons-button"></i>
+          </button>
+          
+          <button onclick="adicionarEndereco()" id="endereco-button">
+              Adicionar <i class="bi bi-plus-circle" id="icons-button"></i>
+          </button>
+          
+          <button onclick="abrirEditarModal()" id="endereco-button">
+              Editar <i class="bi bi-pencil" id="icons-button"></i>
+          </button>
 
-        <button onclick="adicionarEndereco()" id="endereco-button">
-          Adicionar <i class="bi bi-plus-circle" id="icons-button"></i>
-        </button>
+            </div>
 
-        <button onclick="editarEndereco()" id="endereco-button">
-          Editar <i class="bi bi-pencil" id="icons-button"></i>
-        </button>
+            </main>
+          
 
-      </div>
-
-      </main>
-
-
-      <table id="tabelaUsuarios">
-        <thead>
-          <tr>
-            <th id="id-column">ID</th>
-            <th>CEP</th>
-            <th>Endereço</th>
-            <th>Gerente</th>
-            <th id="id-cadastro">Nome da Loja</th>
-            <th class="col-acoes" style="display: none;">Ação</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-
-
-
-
-      <script>
-
-
-        async function CriarTabela() {
-          const email = sessionStorage.getItem('emailUsuario')
-          console.log(email)
-          console.log("Entrei na função Criar Tabela");
-
-          try {
-            // Passa o email na query string para a rota
-            const resposta = await fetch(`/gerenciamento/listarEnderecos?email=${encodeURIComponent(email)}`);
-            const enderecos = await resposta.json();
-
-            const tabela = document.getElementById("tabelaUsuarios").getElementsByTagName("tbody")[0];
-            tabela.innerHTML = ""; // Limpa antes de preencher
-
-            enderecos.forEach(endereco => {
-              const linha = tabela.insertRow();
-
-              linha.insertCell(0).textContent = endereco.idendereco;
-              linha.insertCell(1).textContent = endereco.cep;
-
-              const enderecoCompleto = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}`;
-              linha.insertCell(2).textContent = enderecoCompleto;
-
-              linha.insertCell(3).textContent = `${endereco.email} (${endereco.cargo})`;
-
-              linha.insertCell(4).textContent = endereco.nome_fantasia ?? "Sem cadastro";
-
-
-              const celulaAcoes = linha.insertCell(5);
-              celulaAcoes.classList.add("col-acoes");
-              celulaAcoes.style.display = "none";
-              celulaAcoes.innerHTML = `<i class="bi bi-trash" style="color:red; cursor:pointer; font-size: 30px;" onclick="removerLinha(this)"></i>`;
-            });
+          <table id="tabelaUsuarios">    
+<thead>
+  <tr>
+    <th id="id-column">ID</th>
+    <th>CEP</th>
+    <th>Endereço</th>
+    <th>Gerente</th>
+    <th id="id-cadastro">Nome da Loja</th>
+    <th class="col-acoes" style="display: none;">Ação</th>
+  </tr>
+</thead>
+<tbody>
+</tbody>
+</table>
 
 
 
-          } catch (erro) {
-            console.error("Erro ao buscar dados:", erro);
-          }
-        }
-        window.onload = CriarTabela;
+
+<script>
 
 
-        let modoRemoverAtivo = false;
+async function CriarTabela() {
+  const email = sessionStorage.getItem('emailUsuario')
+console.log(email)
+console.log("Entrei na função Criar Tabela");
 
-        function removerEndereco() {
-          const colunasAcoes = document.querySelectorAll(".col-acoes");
-          modoRemoverAtivo = !modoRemoverAtivo;
+try {
+  // Passa o email na query string para a rota
+  const resposta = await fetch(`/gerenciamento/listarEnderecos?email=${encodeURIComponent(email)}`);
+  const enderecos = await resposta.json();
 
-          colunasAcoes.forEach(col => {
-            col.style.display = modoRemoverAtivo ? "table-cell" : "none";
-          });
-        }
+  const tabela = document.getElementById("tabelaUsuarios").getElementsByTagName("tbody")[0];
+  tabela.innerHTML = ""; // Limpa antes de preencher
 
-        async function removerLinha(iconElement) {
-          // Pega a linha (tr) que contém o ícone clicado
-          const linha = iconElement.closest('tr');
+  enderecos.forEach(endereco => {
+    const linha = tabela.insertRow();
 
-          // Pega o ID do endereço na primeira célula da linha
-          const idEndereco = linha.cells[0].textContent;
+    linha.insertCell(0).textContent = endereco.idendereco;
+    linha.insertCell(1).textContent = endereco.cep;
 
-          // Confirma se o usuário quer mesmo remover
-          const confirma = confirm(`Deseja realmente remover o endereço ID ${idEndereco}?`);
-          if (!confirma) return;
+    const enderecoCompleto = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}`;
+    linha.insertCell(2).textContent = enderecoCompleto;
 
-          try {
-            // Faz requisição DELETE para a API do backend
-            const resposta = await fetch(`/gerenciamento/removerEndereco/${idEndereco}`, {
-              method: 'DELETE'
-            });
+    linha.insertCell(3).textContent = `${endereco.email} (${endereco.cargo})`;
 
-            if (resposta.ok) {
-              // Remove a linha da tabela se deu certo
-              linha.remove();
+    linha.insertCell(4).textContent = endereco.nome_fantasia ?? "Sem cadastro";
 
 
-              Swal.fire({
-                title: "Endereço removido com sucesso!",
-                icon: "success",
-                draggable: true
-              });
+     const celulaAcoes = linha.insertCell(5);
+    celulaAcoes.classList.add("col-acoes");
+    celulaAcoes.style.display = "none";
+    celulaAcoes.innerHTML = `<i class="bi bi-trash" style="color:red; cursor:pointer; font-size: 30px;" onclick="removerLinha(this)"></i>`;
+  });
 
 
-            } else {
-              // Caso dê erro, mostra mensagem
 
-              Swal.fire({
-                icon: "error",
-                title: "Erro",
-                text: "Erro ao remover endereço.",
-
-              });
-              console.error('Erro na resposta do servidor:', resposta.statusText);
-            }
-          } catch (erro) {
-
-            Swal.fire({
-              icon: "error",
-              title: "Erro",
-              text: "Erro na comunicação com o servidor.",
-
-            });
-            console.error(erro);
-          }
-        }
+} catch (erro) {
+  console.error("Erro ao buscar dados:", erro);
+} 
+}
+window.onload = CriarTabela;
 
 
-      </script>
-    
+let modoRemoverAtivo = false;
+
+function removerEndereco() {
+const colunasAcoes = document.querySelectorAll(".col-acoes");
+modoRemoverAtivo = !modoRemoverAtivo;
+
+colunasAcoes.forEach(col => {
+  col.style.display = modoRemoverAtivo ? "table-cell" : "none";
+});
+}
+
+async function removerLinha(iconElement) {
+// Pega a linha (tr) que contém o ícone clicado
+const linha = iconElement.closest('tr');
+
+// Pega o ID do endereço na primeira célula da linha
+const idEndereco = linha.cells[0].textContent;
+
+// Confirma se o usuário quer mesmo remover
+const confirma = confirm(`Deseja realmente remover o endereço ID ${idEndereco}?`);
+if (!confirma) return;
+
+try {
+  // Faz requisição DELETE para a API do backend
+  const resposta = await fetch(`/gerenciamento/removerEndereco/${idEndereco}`, {
+    method: 'DELETE'
+  });
+
+  if (resposta.ok) {
+    // Remove a linha da tabela se deu certo
+    linha.remove();
+    alert('Endereço removido com sucesso!');
+  } else {
+    // Caso dê erro, mostra mensagem
+    alert('Erro ao remover endereço.');
+    console.error('Erro na resposta do servidor:', resposta.statusText);
+  }
+} catch (erro) {
+  alert('Erro na comunicação com o servidor.');
+  console.error(erro);
+}
+}
+
+
+function abrirEditarModal() {
+    // Limpa opções anteriores (menos a primeira)
+    selectEndereco.length = 1;
+
+    const tabela = document.getElementById('tabelaUsuarios').getElementsByTagName('tbody')[0];
+    for (let i = 0; i < tabela.rows.length; i++) {
+      const id = tabela.rows[i].cells[0].textContent;
+      const option = document.createElement('option');
+      option.value = id;
+      option.textContent = id;
+      selectEndereco.appendChild(option);
+    }
+
+    editarModal.style.display = 'flex';
+  }
+
+  function fecharEditarModal() {
+    editarModal.style.display = 'none';
+  }
+
+  function confirmarEditar() {
+    const idSelecionado = selectEndereco.value;
+    if (!idSelecionado) {
+      alert('Por favor, selecione um ID de endereço.');
+      return;
+    }
+
+    alert(`Você escolheu editar o endereço ID: ${idSelecionado}`);
+
+    fecharEditarModal();
+
+    // Aqui você pode abrir um formulário ou redirecionar para editar o endereço
+    // Exemplo: window.location.href = `/editarEndereco.html?id=${idSelecionado}`;
+  }
+
+
+
+</script> 

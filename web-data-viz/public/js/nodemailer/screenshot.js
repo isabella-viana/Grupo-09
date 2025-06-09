@@ -109,7 +109,7 @@ console.log("nome agora"+ nomes[i])
   htmls=[]
 }
 
-cron.schedule("* 20 * * *", async () => {
+cron.schedule("0 20 * * *", async () => {
   try {
     console.log("Execução automática iniciada às 20hrs...");
     fetch("http://localhost:3333/screenshot/buscarEmails", {

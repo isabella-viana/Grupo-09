@@ -31,6 +31,9 @@ window.addEventListener("load", () => {
 });
 
 function editarEndereco() {
+
+  window.location.href = "/editar_endereco.html";
+
   const idEndereco = sessionStorage.getItem("ID_ENDERECO");
   var cep = document.getElementById("cep").value.trim();
   var logradouro = document.getElementById("logradouro").value.trim();

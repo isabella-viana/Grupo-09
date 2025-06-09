@@ -61,8 +61,8 @@
                         <div class="texto">
                             <select name="slack" id="slackAtivo">
                             <option value="">Selecione uma opção</option>
-                            <option value="true"> Ativado </option>
-                            <option value="false"> Desativado </option>
+                            <option value="1"> Ativado </option>
+                            <option value="0"> Desativado </option>
                            </select>
                             <p> Habilitar envio de notificação para o Slack </p>
                         </div>
@@ -72,8 +72,8 @@
                         <div class="texto">
                             <select name="etl" id="processoETL">
                             <option value="">Selecione uma opção</option>
-                            <option value="true"> Ativado </option>
-                            <option value="false"> Desativado </option>
+                            <option value="1"> Ativado </option>
+                            <option value="0"> Desativado </option>
                            </select>
                             <p> Receber notificação de processo da ETL</p>
                         </div>
@@ -83,8 +83,8 @@
                         <div class="texto">
                            <select name="solicitacao" id="processoSolicitacao">
                             <option value="">Selecione uma opção</option>
-                            <option value="true"> Ativado </option>
-                            <option value="false"> Desativado </option>
+                            <option value="1"> Ativado </option>
+                            <option value="0"> Desativado </option>
 
                            </select> <p> Receber notificação de novas solicitações </p>
                         </div>
@@ -104,57 +104,56 @@
                 window.location.href = "./solicitacao.html";
         }
 
-    //     function salvarInformacao() {
+        function salvarInformacao() {
         
-    //     var slackAtivo = document.getElementById("slackAtivo").value;
-    //     var processoEtl = document.getElementById("processoETL").value;
-    //     var processoSolicitacao = document.getElementById("processoSolicitacao").value;
+        var slackAtivo = document.getElementById("slackAtivo").value;
+        var processoEtl = document.getElementById("processoETL").value;
+        var processoSolicitacao = document.getElementById("processoSolicitacao").value;
         
-        
-       
 
-    //     if (processoEtl === "" || processoSolicitacao === "" || slackAtivo === "") {
-    //         Swal.fire({
-    //             icon: "error",
-    //             title: "Erro",
-    //             text: "Preencha todos os campos para continuar.",
-    //             footer: '<a href="#">Why do I have this issue?</a>'
-    //         });
+        if (processoEtl === "" || processoSolicitacao === "" || slackAtivo === "") {
+            Swal.fire({
+                icon: "error",
+                title: "Erro",
+                text: "Preencha todos os campos para continuar.",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
 
-    //         return console.log("Preencha todos os campos para continuar.");
-    //     }
+            return console.log("Preencha todos os campos para continuar.");
+        }
 
-    //      if  (slackAtivo == true){
-    //         slackAtivo = 1;
-    //     }
-    //     else{
+         if  (slackAtivo == true){
+            slackAtivo = 1;
+        }
+        else{
 
-    //     }
+        }
 
-    //     fetch("/slack/salvarInformacoes", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //       slackAtivo: slackAtivo,
-    //       processoEtl: processoEtl,
-    //       processoSolicitacao: processoSolicitacao,
-          
-    //     })
-    //   }).then(function (resposta) {
-    //     console.log("ESTOU NO THEN DO adicionarAcesso()!")
+        fetch("/slack/salvarInformacoes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          slackAtivo: slackAtivo,
+          processoEtl: processoEtl,
+          processoSolicitacao: processoSolicitacao,
+        })
+      }).then(function (resposta) {
+        console.log("Acessando a função de envio de informações do slack para o banco!")
 
-    //     if (resposta.ok) {
-    //       console.log("Acesso adicionado com sucesso!");
-    //     } else {
-    //       throw "Houve um erro ao tentar adicionar o acesso!";
-    //     }
-    //   }).catch(function (erro) {
-    //     console.log(`#ERRO: ${erro}`);
-    //   });
+        if (resposta.ok) {
+          console.log("Informações salvas com sucesso!");
+        } else {
+        Swal.fire("Erro", "Erro para salvar os dados", "error");
+          throw "Houve um erro ao tentar adicionar o acesso!";
+        }
+      }).catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+      });
+    }
 
-    //   return false;  
+      return false;  
 
     </script>
 
